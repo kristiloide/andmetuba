@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Andmetuba - 4&nbsp; Töö teksti sisaldavate tunnustega</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./05-puuduvad-vaartused.html" rel="next">
+<link href="./03-tehniline-tunnused.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./04-faktor-string.html"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Töö teksti sisaldavate tunnustega</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Andmetuba</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Saateks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-andmestike-lugemine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Andmestiku laadimine ja tunnustega tutvumine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-andmestiku-ylevaade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Andmestikust esmase ülevaate saamine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-tehniline-tunnused.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tehniline töö tunnustega</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-faktor-string.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Töö teksti sisaldavate tunnustega</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-puuduvad-vaartused.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-andmestike-liitmine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Andmestike ühendamine ja struktuuri muutmine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allikad</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Table of contents</h2>
+   
+  <ul>
+  <li><a href="#forcats" id="toc-forcats" class="nav-link active" data-scroll-target="#forcats"><span class="header-section-number">4.1</span> Töö <code>factor</code>-ite ehk kategooriatega</a>
+  <ul class="collapse">
+  <li><a href="#factor-levels" id="toc-factor-levels" class="nav-link" data-scroll-target="#factor-levels">Kategooriate järjestuse muutmine</a></li>
+  <li><a href="#factor-collapse" id="toc-factor-collapse" class="nav-link" data-scroll-target="#factor-collapse">Kategooriate ühendamine</a></li>
+  </ul></li>
+  <li><a href="#stringid" id="toc-stringid" class="nav-link" data-scroll-target="#stringid"><span class="header-section-number">4.2</span> Töötamine teksti ehk <code>string</code>-idega</a>
+  <ul class="collapse">
+  <li><a href="#str_replace" id="toc-str_replace" class="nav-link" data-scroll-target="#str_replace">Tunnuse sisu asendamine</a></li>
+  <li><a href="#tahe-suurus" id="toc-tahe-suurus" class="nav-link" data-scroll-target="#tahe-suurus">Suur ja väike täht tekstis</a></li>
+  <li><a href="#stringi-pikkus" id="toc-stringi-pikkus" class="nav-link" data-scroll-target="#stringi-pikkus">Stringi pikkus ja sagedus</a></li>
+  <li><a href="#str-sub" id="toc-str-sub" class="nav-link" data-scroll-target="#str-sub">Stringi eraldamine</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Töö teksti sisaldavate tunnustega</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="forcats" class="level2" data-number="4.1">
+<h2 data-number="4.1" class="anchored" data-anchor-id="forcats"><span class="header-section-number">4.1</span> Töö <code>factor</code>-ite ehk kategooriatega</h2>
+<p><a href="02-andmestiku-ylevaade.html#kategooriad">Kategoriaalsete tunnuste</a> muutmiseks ei pea (kuigi võib) kasutada <code>käsk</code>ude <code>mutate()</code> ja <code>case_when</code> või <code>if_else()</code> kombinatsioone. Pakett <code>forcats</code><span class="citation" data-cites="R-forcats">(<a href="references.html#ref-R-forcats" role="doc-biblioref">Wickham 2023</a>)</span> teeb kategoriaalsete tunnuste muutmise lihtsaks ning kui on kasutusel pakett <code>tidyverse</code>, siis see on juba kasutusele võetud.</p>
+<p>Loe paketi kohta rohkem <a href="https://forcats.tidyverse.org/index.html">siit</a>.</p>
+<p>Tunnused peavad olema <code>factor</code>-id. Loe vajadusel tunnuste tüübi muutmist <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
+<section id="factor-levels" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="factor-levels">Kategooriate järjestuse muutmine</h3>
+<p>Vaikimisi on kõik kategooriad järjestatud tähestiku järjekorras ning neid kuvatakse kokkuvõtete või jooniste tegemisel nii. Näiteks <code>summary()</code> käsk näitab (faktoriks muudetud) tunnust nii. Vaata, kuidas muuta tunnuste tüüpi <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>          male           none         female hermaphroditic           NA's 
+            60              6             16              1              4 </code></pre>
+</div>
+</div>
+<p>Tasemeid saab vaadata käsuga <code>levels()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "male"           "none"           "female"         "hermaphroditic"</code></pre>
+</div>
+</div>
+<p>Muudame kategooriate esitamise ringi <strong>vastavalt sagedusele</strong>, ehk kõige suuremat <code>kategooria</code> kuvatakse kõige esimesena. Kasutame käsku <code>fct_infreq()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_infreq</span>(starwars<span class="sc">$</span>sex, <span class="at">ordered =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "male"           "female"         "none"           "hermaphroditic"</code></pre>
+</div>
+</div>
+<p>Oletame, et soovime näidata vastupidi. Kõige vähem esinevat kategooriat kõige eespool. Muudame kategooriate järjestuse <em>tagurpidi</em> <code>fct_rev()</code>.</p>
+<blockquote class="blockquote">
+<p>Kui eelnevalt pole järjestust muudetud, siis paneb see käsk kategooriad tähestiku tagant poolt ette poole jooksma.</p>
+</blockquote>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_rev</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "hermaphroditic" "none"           "female"         "male"          </code></pre>
+</div>
+</div>
+<p>Kui on vajadus esitada kategooriaid selles järjekorras nagu nad andmestikus esinevad, siis on käsk <code>fct_inorder()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_inorder</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "male"           "none"           "female"         "hermaphroditic"</code></pre>
+</div>
+</div>
+<p>Lisaks on võimalik kirjutada käsitsi täpselt see järjekord nagu soov on juba käsu <code>factor()</code> sees. Sama asja saab teha ka paketiga <code>forcats</code> käsuga <code>fct_relevel()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">factor</span>(starwars<span class="sc">$</span>sex,</span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels=</span><span class="fu">c</span>(</span>
+<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>                      <span class="st">"male"</span>,<span class="st">"female"</span>,<span class="st">"none"</span>, <span class="st">"hermaphroditic"</span>),</span>
+<span id="cb14-4"><a href="#cb14-4" aria-hidden="true" tabindex="-1"></a>                     <span class="at">ordered=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>fct_count()</code> annab ka ülevaate, kuidas jagunevad tunnuse väärtused reastatud kategooriate järgi ning kui suured need kategooriad on. See käsk on parem kui <code>table()</code>, sest näitab kohe ka puuduvaid väärtusi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_count</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  f                  n
+  &lt;ord&gt;          &lt;int&gt;
+1 male              60
+2 female            16
+3 none               6
+4 hermaphroditic     1
+5 &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+<p>Kordame sama, et kirjutame ise kategooriate järjekorra käsuga <code>fct_relevel()</code>. Selle käsu eelis on see, et peav <em>veidi vähem</em> koodi kirjutama.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(starwars<span class="sc">$</span>sex,</span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">c</span>(<span class="st">"none"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"male"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_count</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 2
+  f                  n
+  &lt;ord&gt;          &lt;int&gt;
+1 none               6
+2 female            16
+3 hermaphroditic     1
+4 male              60
+5 &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</section>
+<section id="factor-collapse" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="factor-collapse">Kategooriate ühendamine</h3>
+<p>Kui on soov panna kaks kategooriat kokku, sis on käsk <code>fct_collapse()</code>. Sama asja saab teha käskudega <code>mutate</code> ja <code>case_when()</code>, kuid ka siin on eeliseks <em>lühem kood</em>.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Soovitan andmestikus mitte muuta oringaaltunnust ja teha selleks täiesti uus tunnus.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sugu<span class="ot">&lt;-</span><span class="fu">fct_collapse</span>(starwars<span class="sc">$</span>sex,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                            <span class="at">male=</span><span class="st">"male"</span>,</span>
+<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">female=</span><span class="st">"female"</span>,</span>
+<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">other=</span><span class="fu">c</span>(<span class="st">"none"</span>, <span class="st">"hermaphroditic"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>fct_count()</code> on uute kategooriate jagunemise vaatamiseks parem kui <code>table()</code>, kuna näitab ära ka puuduvad väärtused. (Loe ka peatükki [puuduvad väärtused].)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sugu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ other female   male 
+     7     16     60 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_count</span>(starwars<span class="sc">$</span>sugu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  f          n
+  &lt;ord&gt;  &lt;int&gt;
+1 other      7
+2 female    16
+3 male      60
+4 &lt;NA&gt;       4</code></pre>
+</div>
+</div>
+<p>Üpris sagedasti on andmete esitamisel vaja kokku liita kategooria “muu” alla need read, mida on andmestikus vähem viis. Selleks tegevuseks on hea kasutada käsku <code>fct_lump_min()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>kodumaa<span class="ot">&lt;-</span><span class="fu">fct_lump_min</span>(starwars<span class="sc">$</span>homeworld, <span class="dv">5</span>, <span class="at">other_level =</span> <span class="st">"muu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_count</span>(starwars<span class="sc">$</span>kodumaa)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  f            n
+  &lt;fct&gt;    &lt;int&gt;
+1 Naboo       11
+2 Tatooine    10
+3 muu         56
+4 &lt;NA&gt;        10</code></pre>
+</div>
+</div>
+<p>Nüüd on näha, et neid tegelasi, kelle homeword on “muu”, on andmestikus kokku kõvasti rohkem kui tegelasi ühest maailmast.</p>
+</section>
+</section>
+<section id="stringid" class="level2" data-number="4.2">
+<h2 data-number="4.2" class="anchored" data-anchor-id="stringid"><span class="header-section-number">4.2</span> Töötamine teksti ehk <code>string</code>-idega</h2>
+<p>See peatükk räägib, kuidas muuta tunnuseid, mis on <code>character</code> tüüpi.</p>
+<p>See peatükk ei räägi tekstikaevest ega tekstianalüüsist.</p>
+<p><code>character</code> tüüpi tunnus on <code>R</code>-is <code>string</code>. Vaata ka <a href="02-andmestiku-ylevaade.html#tunnuste-tyybid">tunnuste tüübid</a> ja vajadusel loe tehnilise töö kohta juurde <a href="03-tehniline-tunnused.html#tunnuste-muutmine">siit</a>.</p>
+<p>Paketiga <code>tidyverse</code> tuleb kaasa pakett <code>stringr</code><span class="citation" data-cites="R-stringr">(<a href="references.html#ref-R-stringr" role="doc-biblioref">Wickham 2022</a>)</span>, kus kõik käsud algavad lühendiga <code>str_</code>.</p>
+<p>Kasutame näidisena <em>nimede vektorit</em> starwars tegelastest, kes on pärit maailmast “Tatooine” (vaata ka <a href="02-andmestiku-ylevaade.html#vector">mis on vektor</a>.) Esmalt peame selle vektori aga tegema.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>nimed<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(homeworld<span class="sc">==</span><span class="st">"Tatooine"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name)<span class="sc">%&gt;%</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_vector</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>               name1                name2                name3 
+    "Luke Skywalker"              "C-3PO"        "Darth Vader" 
+               name4                name5                name6 
+         "Owen Lars" "Beru Whitesun Lars"              "R5-D4" 
+               name7                name8                name9 
+ "Biggs Darklighter"   "Anakin Skywalker"     "Shmi Skywalker" 
+              name10 
+       "Cliegg Lars" </code></pre>
+</div>
+</div>
+<p><code>str_detect()</code> kontrollib, kas <code>vector</code> tunnuse väärtused sisaldavad mingit kindlat väärtust. Vastuse antakse <code>TRUE/FALSE</code> põhimõttel ehk kas on või ei ole otsitav väärtus andmevälja sees.</p>
+<p>Vaatame, kas mõnel Tatooine tegelasel on nimi “Lars”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_detect</span>(nimed, <span class="st">"Lars"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
+</div>
+</div>
+<p>Kui selline kasutus võib tunduda ebamugav, siis kasulikuks muutub see käsk siis, kui kasutame seda mõne muu käsuga koos (nt <code>filter()</code> nagu tegime seda hallide juustega starwars tegelaste puhul).</p>
+<p>Filtreerime välja starwars andmestikust need tegelased, kelle nimes tuvastame “Lars”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(name, <span class="st">"Lars"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 14
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Owen Lars    178   120 brown, gr… light      blue              52 male  mascu…
+2 Beru Whi…    165    75 brown      light      blue              47 fema… femin…
+3 Cliegg L…    183    NA brown      fair       blue              82 male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
+</div>
+<p>Sarnaselt töötab ka käsk <code>str_subset()</code>. Ütleme, et me tahame teada kelle nimed andmestikus sisaldavad nime “Lars”?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_subset</span>(starwars<span class="sc">$</span>name, <span class="st">"Lars"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "Owen Lars"          "Beru Whitesun Lars" "Cliegg Lars"       </code></pre>
+</div>
+</div>
+<p>Koos filtriga peaks selle vektori eelnevalt salvestama ja kasutama vektorit filter() käsu sees.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a>lars_vektor<span class="ot">&lt;-</span><span class="fu">str_subset</span>(starwars<span class="sc">$</span>name, <span class="st">"Lars"</span>)</span>
+<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb37-3"><a href="#cb37-3" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb37-4"><a href="#cb37-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(name<span class="sc">%in%</span>lars_vektor)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 14
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Owen Lars    178   120 brown, gr… light      blue              52 male  mascu…
+2 Beru Whi…    165    75 brown      light      blue              47 fema… femin…
+3 Cliegg L…    183    NA brown      fair       blue              82 male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
+</div>
+<p>Oletame, et perekond Lars muutis oma nime ning nüüd on nad edaspidi kõik perekonnanimega Sarl. Üks võimalus on teha seda muidugi käskudega <code>mutate()</code>ja <code>if_else()</code> (vaata <em>kuidas</em> <a href="03-tehniline-tunnused.html#if-else">siit</a>), kuid mugavam on muuta sisu teha käskudega <code>str_replace()</code> või <code>str_replace_all()</code>.</p>
+<section id="str_replace" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="str_replace">Tunnuse sisu asendamine</h3>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kui on vaja muuta kogu tunnust võib abi olla käsust <a href="03-tehniline-tunnused.html#recode">recode()</a>.</p>
+</div>
+</div>
+</div>
+<p>Esmalt tuleb <code>str_replace()</code> puhul öelda käsu sees, millist <code>tunnust</code> muuta ja seejärel millist <code>stringi</code> asendada <em>millise sõnaga</em>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="co">#str_replcae(tunnus, "vana string", "uus string")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace</span>(nimed, <span class="st">"Lars"</span>, <span class="st">"Sarl"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke Skywalker"     "C-3PO"              "Darth Vader"       
+ [4] "Owen Sarl"          "Beru Whitesun Sarl" "R5-D4"             
+ [7] "Biggs Darklighter"  "Anakin Skywalker"   "Shmi Skywalker"    
+[10] "Cliegg Sarl"       </code></pre>
+</div>
+</div>
+<p>Oletame, et “r” täht on ära keelatud ja see on vaja nüüd igal pool (<code>stringi</code> alguses, keskel jne) ära muuta täheks “x”. (Utoopia muidugi, aga käsu töö näitamiseks ei tulnud paremat ideed.)</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_replace_all</span>(nimed, <span class="st">"r"</span>, <span class="st">"x"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke Skywalkex"     "C-3PO"              "Daxth Vadex"       
+ [4] "Owen Laxs"          "Bexu Whitesun Laxs" "R5-D4"             
+ [7] "Biggs Daxklightex"  "Anakin Skywalkex"   "Shmi Skywalkex"    
+[10] "Cliegg Laxs"       </code></pre>
+</div>
+</div>
+<p>Oletame, et soovime <code>stringi</code> muuta nii, et me ei taha sealt midagi <em>asendada</em>, vaid soovime olemasolevale <em>lisada</em> juurde. Näiteks paneme iga nime ette tiitli “härra” (<em>sõltumata sellest, kas ta on härra või ei</em>).</p>
+<p>Kasutame käksu <code>str_sub()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(nimed, <span class="dv">1</span>, <span class="dv">0</span>) <span class="ot">&lt;-</span> <span class="st">"härra "</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "härra Luke Skywalker"     "härra C-3PO"             
+ [3] "härra Darth Vader"        "härra Owen Lars"         
+ [5] "härra Beru Whitesun Lars" "härra R5-D4"             
+ [7] "härra Biggs Darklighter"  "härra Anakin Skywalker"  
+ [9] "härra Shmi Skywalker"     "härra Cliegg Lars"       </code></pre>
+</div>
+</div>
+<p>Võtame nüüd uuesti nimest “härra” välja nii, et asendame härra mitte millegagi (NB! vaata ohukohta järgmise käsuga).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>nimed<span class="ot">&lt;-</span><span class="fu">str_replace</span>(nimed, <span class="st">"härra"</span>, <span class="st">""</span>)</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " Luke Skywalker"     " C-3PO"              " Darth Vader"       
+ [4] " Owen Lars"          " Beru Whitesun Lars" " R5-D4"             
+ [7] " Biggs Darklighter"  " Anakin Skywalker"   " Shmi Skywalker"    
+[10] " Cliegg Lars"       </code></pre>
+</div>
+</div>
+<p>Kõigi nime ette jäi nüüd tühik <code>" "</code> ja me tahame temast lahti saada. <code>whitspace</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> eemdalamiseks on käsk <code>str_trim()</code> ning selle käsu sees saab täpsutada, kas üleliigne on vaja eemaldada “left”, “right” või “both”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>nimed<span class="ot">&lt;-</span><span class="fu">str_trim</span>(nimed, <span class="at">side=</span><span class="st">"left"</span>)</span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke Skywalker"     "C-3PO"              "Darth Vader"       
+ [4] "Owen Lars"          "Beru Whitesun Lars" "R5-D4"             
+ [7] "Biggs Darklighter"  "Anakin Skywalker"   "Shmi Skywalker"    
+[10] "Cliegg Lars"       </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke Skywalker"     "C-3PO"              "Darth Vader"       
+ [4] "Owen Lars"          "Beru Whitesun Lars" "R5-D4"             
+ [7] "Biggs Darklighter"  "Anakin Skywalker"   "Shmi Skywalker"    
+[10] "Cliegg Lars"       </code></pre>
+</div>
+</div>
+</section>
+<section id="tahe-suurus" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="tahe-suurus">Suur ja väike täht tekstis</h3>
+<p>Suure ja väikese tähe muutmiseks on abiks järgmises käsud. Nende kasutamine on mugavalt lihtne ega vaja pikemad kirjeldamist. Tähtede suuruse muutmiseks on käsud:</p>
+<ul>
+<li><code>str_to_lower()</code></li>
+<li><code>str_to_upper()</code></li>
+<li><code>str_to_title()</code></li>
+<li><code>str_to_sentence()</code></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_lower</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "luke skywalker"     "c-3po"              "darth vader"       
+ [4] "owen lars"          "beru whitesun lars" "r5-d4"             
+ [7] "biggs darklighter"  "anakin skywalker"   "shmi skywalker"    
+[10] "cliegg lars"       </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_upper</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "LUKE SKYWALKER"     "C-3PO"              "DARTH VADER"       
+ [4] "OWEN LARS"          "BERU WHITESUN LARS" "R5-D4"             
+ [7] "BIGGS DARKLIGHTER"  "ANAKIN SKYWALKER"   "SHMI SKYWALKER"    
+[10] "CLIEGG LARS"       </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_title</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke Skywalker"     "C-3po"              "Darth Vader"       
+ [4] "Owen Lars"          "Beru Whitesun Lars" "R5-D4"             
+ [7] "Biggs Darklighter"  "Anakin Skywalker"   "Shmi Skywalker"    
+[10] "Cliegg Lars"       </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_to_sentence</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke skywalker"     "C-3po"              "Darth vader"       
+ [4] "Owen lars"          "Beru whitesun lars" "R5-d4"             
+ [7] "Biggs darklighter"  "Anakin skywalker"   "Shmi skywalker"    
+[10] "Cliegg lars"       </code></pre>
+</div>
+</div>
+</section>
+<section id="stringi-pikkus" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="stringi-pikkus">Stringi pikkus ja sagedus</h3>
+<p>Kui pikad (st mitu tähte ja ühikut) on nimedes saab vaadata käsuga <code>str_length()</code>. Selle käsu abil on mõnikord hea tuvastada <code>whitespace</code> olemasolu.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 14  5 11  9 18  5 17 16 14 11</code></pre>
+</div>
+</div>
+<p><code>str_count()</code> näitab ära esinemissageduse. Näiteks soovime vaadata, mitu korda esineb “Lars” nimedes?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(nimed, <span class="st">"Lars"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0 0 0 1 1 0 0 0 0 1</code></pre>
+</div>
+</div>
+<p><code>R</code> kuvab vastuse kõigi vektori väärtuste kohta (vajalik tekstianalüüsis).</p>
+<p>Kui soovime vaadata aga, mitu korda esineb <code>stingis</code> ükskõik milline täht (nt täishäälik), tuleb otsitav osa kirjutada omakorda nurksulgude <code>[]</code> sisse.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(nimed, <span class="st">"[aeiouõäö]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 4 0 3 2 6 0 4 4 3 3</code></pre>
+</div>
+</div>
+<p>Kui kasutada <code>str_count()</code> tühjalt ehk ilma ühegi täpsustuseta sulgude sees, annab <code>R</code> vastuseks väärtuse tähemärkide arvu. See on sama, mis kasutada käsku <code>str_lenght()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 14  5 11  9 18  5 17 16 14 11</code></pre>
+</div>
+</div>
+</section>
+<section id="str-sub" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="str-sub">Stringi eraldamine</h3>
+<p><code>str_sub()</code> käsuga eraldame <code>string</code>-i eest või tagant kindla pikkuse <code>string</code>-i. Näiteks võtame kõigi tegelaste nimelt esimesed viis tähemärki.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(nimed, <span class="dv">1</span>, <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "Luke " "C-3PO" "Darth" "Owen " "Beru " "R5-D4" "Biggs" "Anaki" "Shmi "
+[10] "Clieg"</code></pre>
+</div>
+</div>
+<p>Või täspsutame, et eraldamine algab (<code>start=</code>) alates <code>string</code>-i kolmandast tähemärgist ja eraldamine tuleb lõpetada (<code>end=</code>) kaheksanda märgi juures.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(nimed, <span class="at">start =</span> <span class="dv">3</span>,</span>
+<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">end=</span><span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "ke Sky" "3PO"    "rth Va" "en Lar" "ru Whi" "-D4"    "ggs Da" "akin S"
+ [9] "mi Sky" "iegg L"</code></pre>
+</div>
+</div>
+<blockquote class="blockquote">
+<p>String on string ka siis kui ta sisaldab numbrit ning <code>str_</code> käsud toimivad ka siis.</p>
+</blockquote>
+<p>Vaatame, kas mõne tegelase nimi sisaldab ükskõik millist numbrit ja eraldame need numbrid nimest käsuga <code>str_extract()</code>. Sel korral tuleb “kuni” ütlemiseks öelda <code>:</code> asemel <em>nagu tavaliselt</em> kirjatekstis kasutame sidekriipsu (<code>-</code>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(starwars<span class="sc">$</span>name, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] NA  "3" "2" NA  NA  NA  NA  "5" NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
+[20] NA  NA  "8" NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
+[39] NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA 
+[58] NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  NA  "4" NA  NA 
+[77] NA  NA  NA  NA  NA  NA  NA  NA  NA  "8" NA </code></pre>
+</div>
+</div>
+<p>Selle käsuga kasutamisel peab teadma, eraldatakse ainult esimene ja mitte kõik numbrid. Meil on näiteks selline tegelane andmestikus nagu “IG-88”.</p>
+<p>Kui soov on aga teada, mitu korda esineb nimes number, tuleb kasutada ülalkirjeldatud käsku <code>str_count()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(starwars<span class="sc">$</span>name, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] 0 1 2 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0
+[39] 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 3 0 0
+[77] 0 0 0 0 0 0 0 0 0 1 0</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(nimed, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] │ Luke Skywalker
+ [2] │ C-&lt;3&gt;PO
+ [3] │ Darth Vader
+ [4] │ Owen Lars
+ [5] │ Beru Whitesun Lars
+ [6] │ R&lt;5&gt;-D&lt;4&gt;
+ [7] │ Biggs Darklighter
+ [8] │ Anakin Skywalker
+ [9] │ Shmi Skywalker
+[10] │ Cliegg Lars</code></pre>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-R-stringr" class="csl-entry" role="listitem">
+Wickham, Hadley. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
+</div>
+<div id="ref-R-forcats" class="csl-entry" role="listitem">
+———. 2023. <em>Forcats: Tools for Working with Categorical Variables (Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
+</div>
+</div>
+</section>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p><code>whitespace</code> on see, mida me “tavavaates” ei nähe ehk <em>tühikud</em>, <em>tab</em> jms.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./03-tehniline-tunnused.html" class="pagination-link" aria-label="Tehniline töö tunnustega">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tehniline töö tunnustega</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./05-puuduvad-vaartused.html" class="pagination-link" aria-label="Puuduvad väärtused">
+        <span class="nav-page-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
