@@ -262,7 +262,7 @@ div.csl-indent {
 <p>Tunnused peavad olema <code>factor</code>-id. Loe vajadusel tunnuste tüübi muutmist <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
 <section id="factor-levels" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="factor-levels">Kategooriate järjestuse muutmine</h3>
-<p>Vaikimisi on kõik kategooriad järjestatud tähestiku järjekorras ning neid kuvatakse kokkuvõtete või jooniste tegemisel nii. Näiteks <code>summary()</code> käsk näitab (faktoriks muudetud) tunnust nii. Vaata, kuidas muuta tunnuste tüüpi <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
+<p>Vaikimisi on kõik kategooriad reastatud tähestiku järjekorras ning neid kuvatakse nii ka kokkuvõtete või jooniste tegemisel. Näiteks <code>summary()</code> käsk näitab (faktoriks muudetud) tunnust nii. Vaata, kuidas muuta tunnuste tüüpi <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -277,7 +277,7 @@ div.csl-indent {
 <pre><code>[1] "male"           "none"           "female"         "hermaphroditic"</code></pre>
 </div>
 </div>
-<p>Muudame kategooriate esitamise ringi <strong>vastavalt sagedusele</strong>, ehk kõige suuremat <code>kategooria</code> kuvatakse kõige esimesena. Kasutame käsku <code>fct_infreq()</code>.</p>
+<p>Muudame kategooriate esitamise ringi <strong>vastavalt sagedusele</strong>, ehk kõige suurem <code>kategooria</code> kuvatakse kõige esimesena. Kasutame käsku <code>fct_infreq()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_infreq</span>(starwars<span class="sc">$</span>sex, <span class="at">ordered =</span> <span class="cn">NA</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -288,9 +288,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Oletame, et soovime näidata vastupidi. Kõige vähem esinevat kategooriat kõige eespool. Muudame kategooriate järjestuse <em>tagurpidi</em> <code>fct_rev()</code>.</p>
-<blockquote class="blockquote">
 <p>Kui eelnevalt pole järjestust muudetud, siis paneb see käsk kategooriad tähestiku tagant poolt ette poole jooksma.</p>
-</blockquote>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_rev</span>(starwars<span class="sc">$</span>sex)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -310,7 +308,7 @@ div.csl-indent {
 <pre><code>[1] "male"           "none"           "female"         "hermaphroditic"</code></pre>
 </div>
 </div>
-<p>Lisaks on võimalik kirjutada käsitsi täpselt see järjekord nagu soov on juba käsu <code>factor()</code> sees. Sama asja saab teha ka paketiga <code>forcats</code> käsuga <code>fct_relevel()</code>.</p>
+<p>Lisaks on võimalik käsu <code>factor()</code> sees kirjutada käsitsi täpselt see järjekord nagu parasjagu soov on. Sama asja saab teha ka paketiga <code>forcats</code> käsuga <code>fct_relevel()</code> (vaata näidet veidike all pool).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">factor</span>(starwars<span class="sc">$</span>sex,</span>
 <span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>                      <span class="at">levels=</span><span class="fu">c</span>(</span>
@@ -331,7 +329,7 @@ div.csl-indent {
 5 &lt;NA&gt;               4</code></pre>
 </div>
 </div>
-<p>Kordame sama, et kirjutame ise kategooriate järjekorra käsuga <code>fct_relevel()</code>. Selle käsu eelis on see, et peav <em>veidi vähem</em> koodi kirjutama.</p>
+<p>Kordame sama, et kirjutame ise kategooriate järjekorra käsuga <code>fct_relevel()</code>. Selle käsu puhul peab <em>veidi vähem</em> koodi kirjutama.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>sex<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(starwars<span class="sc">$</span>sex,</span>
 <span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>                          <span class="fu">c</span>(<span class="st">"none"</span>, <span class="st">"female"</span>, <span class="st">"hermaphroditic"</span>, <span class="st">"male"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -352,7 +350,7 @@ div.csl-indent {
 </section>
 <section id="factor-collapse" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="factor-collapse">Kategooriate ühendamine</h3>
-<p>Kui on soov panna kaks kategooriat kokku, sis on käsk <code>fct_collapse()</code>. Sama asja saab teha käskudega <code>mutate</code> ja <code>case_when()</code>, kuid ka siin on eeliseks <em>lühem kood</em>.</p>
+<p>Kui on soov panna kaks kategooriat kokku, siis on sobiv käsk <code>fct_collapse()</code>. Sama asja saab teha käskudega <code>mutate</code> ja <code>case_when()</code>, kuid ka siin on eeliseks <em>lühem kood</em>.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -369,7 +367,7 @@ div.csl-indent {
 <span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                            <span class="at">female=</span><span class="st">"female"</span>,</span>
 <span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                            <span class="at">other=</span><span class="fu">c</span>(<span class="st">"none"</span>, <span class="st">"hermaphroditic"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>fct_count()</code> on uute kategooriate jagunemise vaatamiseks parem kui <code>table()</code>, kuna näitab ära ka puuduvad väärtused. (Loe ka peatükki [puuduvad väärtused].)</p>
+<p><code>fct_count()</code> on uute kategooriate jagunemise vaatamiseks parem kui <code>table()</code>, kuna näitab ära ka puuduvad väärtused.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sugu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -390,7 +388,7 @@ div.csl-indent {
 4 &lt;NA&gt;       4</code></pre>
 </div>
 </div>
-<p>Üpris sagedasti on andmete esitamisel vaja kokku liita kategooria “muu” alla need read, mida on andmestikus vähem viis. Selleks tegevuseks on hea kasutada käsku <code>fct_lump_min()</code>.</p>
+<p>Üpris sagedasti on andmete esitamisel vaja kokku liita kategooria “muu” alla need read, mida on andmestikus vähem kui viis. Selleks tegevuseks on hea kasutada käsku <code>fct_lump_min()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>kodumaa<span class="ot">&lt;-</span><span class="fu">fct_lump_min</span>(starwars<span class="sc">$</span>homeworld, <span class="dv">5</span>, <span class="at">other_level =</span> <span class="st">"muu"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -406,7 +404,7 @@ div.csl-indent {
 4 &lt;NA&gt;        10</code></pre>
 </div>
 </div>
-<p>Nüüd on näha, et neid tegelasi, kelle homeword on “muu”, on andmestikus kokku kõvasti rohkem kui tegelasi ühest maailmast.</p>
+<p>Nüüd on näha, et neid tegelasi, kelle homeword on “muu”, on andmestikus kokku kõvasti rohkem kui tegelasi kõige enamlevinud maailmast.</p>
 </section>
 </section>
 <section id="stringid" class="level2" data-number="4.2">
@@ -443,8 +441,7 @@ div.csl-indent {
 <pre><code> [1] FALSE FALSE FALSE  TRUE  TRUE FALSE FALSE FALSE FALSE  TRUE</code></pre>
 </div>
 </div>
-<p>Kui selline kasutus võib tunduda ebamugav, siis kasulikuks muutub see käsk siis, kui kasutame seda mõne muu käsuga koos (nt <code>filter()</code> nagu tegime seda hallide juustega starwars tegelaste puhul).</p>
-<p>Filtreerime välja starwars andmestikust need tegelased, kelle nimes tuvastame “Lars”.</p>
+<p>Kui selline kasutus võib tunduda ebamugav, siis kasulikuks muutub see käsk siis, kui kasutame seda mõne muu käsuga koos (nt <code>filter()</code> nagu tegime seda hallide juustega starwars tegelaste puhul). Kordame seda näidet nüüd, aga filtreerime välja starwars andmestikust need tegelased, kelle nimes tuvastame teksti “Lars”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
 <span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">str_detect</span>(name, <span class="st">"Lars"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -520,7 +517,7 @@ div.csl-indent {
 </div>
 </div>
 <p>Oletame, et soovime <code>stringi</code> muuta nii, et me ei taha sealt midagi <em>asendada</em>, vaid soovime olemasolevale <em>lisada</em> juurde. Näiteks paneme iga nime ette tiitli “härra” (<em>sõltumata sellest, kas ta on härra või ei</em>).</p>
-<p>Kasutame käksu <code>str_sub()</code>.</p>
+<p>Kasutame käsku <code>str_sub()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(nimed, <span class="dv">1</span>, <span class="dv">0</span>) <span class="ot">&lt;-</span> <span class="st">"härra "</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -534,7 +531,17 @@ div.csl-indent {
  [9] "härra Shmi Skywalker"     "härra Cliegg Lars"       </code></pre>
 </div>
 </div>
-<p>Võtame nüüd uuesti nimest “härra” välja nii, et asendame härra mitte millegagi (NB! vaata ohukohta järgmise käsuga).</p>
+<p>Võtame nüüd uuesti nimest “härra” välja nii, et asendame härra mitte millegagi.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Teksti eemaldamisel mõtle kohe ka <code>whitespace</code> eemaldamise peale. Järgmise käsu näites jääb tühik sisse, et ülejärgmise käsu näites ta eemaldada.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>nimed<span class="ot">&lt;-</span><span class="fu">str_replace</span>(nimed, <span class="st">"härra"</span>, <span class="st">""</span>)</span>
 <span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -545,7 +552,7 @@ div.csl-indent {
 [10] " Cliegg Lars"       </code></pre>
 </div>
 </div>
-<p>Kõigi nime ette jäi nüüd tühik <code>" "</code> ja me tahame temast lahti saada. <code>whitspace</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> eemdalamiseks on käsk <code>str_trim()</code> ning selle käsu sees saab täpsutada, kas üleliigne on vaja eemaldada “left”, “right” või “both”.</p>
+<p>Kõigi nime ette jäi nüüd tühik <code>" "</code> ja me tahame temast lahti saada. <code>whitspace</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> eemaldamiseks on käsk <code>str_trim()</code> ning selle käsu sees saab täpsutada, kas üleliigne on vaja eemaldada “left”, “right” või “both”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>nimed<span class="ot">&lt;-</span><span class="fu">str_trim</span>(nimed, <span class="at">side=</span><span class="st">"left"</span>)</span>
 <span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>nimed</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -568,7 +575,7 @@ div.csl-indent {
 </section>
 <section id="tahe-suurus" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="tahe-suurus">Suur ja väike täht tekstis</h3>
-<p>Suure ja väikese tähe muutmiseks on abiks järgmises käsud. Nende kasutamine on mugavalt lihtne ega vaja pikemad kirjeldamist. Tähtede suuruse muutmiseks on käsud:</p>
+<p>Suure ja väikese tähe muutmiseks on abiks mitmed käsud. Nende kasutamine on mugavalt lihtne ega vaja pikemad kirjeldamist.</p>
 <ul>
 <li><code>str_to_lower()</code></li>
 <li><code>str_to_upper()</code></li>
@@ -614,7 +621,17 @@ div.csl-indent {
 </section>
 <section id="stringi-pikkus" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="stringi-pikkus">Stringi pikkus ja sagedus</h3>
-<p>Kui pikad (st mitu tähte ja ühikut) on nimedes saab vaadata käsuga <code>str_length()</code>. Selle käsu abil on mõnikord hea tuvastada <code>whitespace</code> olemasolu.</p>
+<p>Kui pikad (st mitu tähte ja ühikut) on lahtri väärtused saab vaadata käsuga <code>str_length()</code>.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><code>str_length()</code> käsu abil on mõnikord hea tuvastada <code>whitespace</code> olemasolu.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_length</span>(nimed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -629,7 +646,7 @@ div.csl-indent {
 </div>
 </div>
 <p><code>R</code> kuvab vastuse kõigi vektori väärtuste kohta (vajalik tekstianalüüsis).</p>
-<p>Kui soovime vaadata aga, mitu korda esineb <code>stingis</code> ükskõik milline täht (nt täishäälik), tuleb otsitav osa kirjutada omakorda nurksulgude <code>[]</code> sisse.</p>
+<p>Kui soovime vaadata aga, mitu korda esineb <code>stringis</code> ükskõik milline täht (nt <em>täishäälik</em>), tuleb otsitav osa kirjutada omakorda nurksulgude <code>[]</code> sisse.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(nimed, <span class="st">"[aeiouõäö]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -663,9 +680,16 @@ div.csl-indent {
  [9] "mi Sky" "iegg L"</code></pre>
 </div>
 </div>
-<blockquote class="blockquote">
-<p>String on string ka siis kui ta sisaldab numbrit ning <code>str_</code> käsud toimivad ka siis.</p>
-</blockquote>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>String on string ka siis kui ta sisaldab numbrit ning str_ käsud toimivad ka siis kui tekst sisaldab ainult arve.</p>
+</div>
+</div>
+</div>
 <p>Vaatame, kas mõne tegelase nimi sisaldab ükskõik millist numbrit ja eraldame need numbrid nimest käsuga <code>str_extract()</code>. Sel korral tuleb “kuni” ütlemiseks öelda <code>:</code> asemel <em>nagu tavaliselt</em> kirjatekstis kasutame sidekriipsu (<code>-</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_extract</span>(starwars<span class="sc">$</span>name, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -677,8 +701,18 @@ div.csl-indent {
 [77] NA  NA  NA  NA  NA  NA  NA  NA  NA  "8" NA </code></pre>
 </div>
 </div>
-<p>Selle käsuga kasutamisel peab teadma, eraldatakse ainult esimene ja mitte kõik numbrid. Meil on näiteks selline tegelane andmestikus nagu “IG-88”.</p>
-<p>Kui soov on aga teada, mitu korda esineb nimes number, tuleb kasutada ülalkirjeldatud käsku <code>str_count()</code></p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><code>str_extract()</code> käsu kasutamisel peab teadma, eraldatakse ainult esimene ja mitte kõik numbrid.</p>
+</div>
+</div>
+</div>
+<p>Meil on näiteks selline tegelane andmestikus nagu “IG-88”.</p>
+<p>Kui soov on aga teada, mitu korda esineb nimes number (või ükskõik milline otsitav tekst), tuleb kasutada ülalkirjeldatud käsku <code>str_count()</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_count</span>(starwars<span class="sc">$</span>name, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -687,6 +721,7 @@ div.csl-indent {
 [77] 0 0 0 0 0 0 0 0 0 1 0</code></pre>
 </div>
 </div>
+<p>Tavaliselt soovime neid sõnu ka nähe. Selleks on käsk <code>str_view_all()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(nimed, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">

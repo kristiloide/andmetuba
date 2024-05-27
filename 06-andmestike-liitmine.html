@@ -251,6 +251,8 @@ window.Quarto = {
   <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">6.2</span> Andmestike täielik liitmine</a></li>
   <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">6.3</span> Andmestike osaline liitmine</a></li>
   <li><a href="#andmestiku-struktuuri-muutmine" id="toc-andmestiku-struktuuri-muutmine" class="nav-link" data-scroll-target="#andmestiku-struktuuri-muutmine"><span class="header-section-number">6.4</span> Andmestiku struktuuri muutmine</a></li>
+  <li><a href="#andmestikust-väljavõttete-tegemine" id="toc-andmestikust-väljavõttete-tegemine" class="nav-link" data-scroll-target="#andmestikust-väljavõttete-tegemine"><span class="header-section-number">6.5</span> Andmestikust väljavõttete tegemine</a></li>
+  <li><a href="#andmestiku-ridade-ümberreastamine" id="toc-andmestiku-ridade-ümberreastamine" class="nav-link" data-scroll-target="#andmestiku-ridade-ümberreastamine"><span class="header-section-number">6.6</span> Andmestiku ridade ümberreastamine</a></li>
   </ul>
 </nav>
     </div>
@@ -276,7 +278,7 @@ window.Quarto = {
 </header>
 
 
-<p>Vaata ka peatükke [andmestikust esmase ülevaate saamine] ning [tunnuste valimine].</p>
+<p>Vaata ka peatükke, kuidas saada andmestikust <a href="02-andmestiku-ylevaade.html#andmestiku-suurus">esmane ülevaade</a> ning kuidas <a href="03-tehniline-tunnused.html#valimine">valida tunnuseid</a>.</p>
 <p>Kasutame käske <code>dplyr</code> <span class="citation" data-cites="R-dplyr">(<a href="references.html#ref-R-dplyr" role="doc-biblioref">Wickham et al. 2023</a>)</span> paketist, mis on juba <code>tidyverse</code> sees.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -290,7 +292,17 @@ window.Quarto = {
 </div>
 <section id="eeltööd" class="level2" data-number="6.1">
 <h2 data-number="6.1" class="anchored" data-anchor-id="eeltööd"><span class="header-section-number">6.1</span> Eeltööd</h2>
-<p>Näidiseks teeme starwars andmesitku tükkideks, et see siis teisiti kokku liita. (<em>Päriselus me loomulikult kunagi sellist jaburat andmestiku tükeldamist ei teeks.</em>)</p>
+<p>Näidiseks teeme starwars andmesitku tükkideks, et see siis teisiti kokku liita.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Päriselus me kunagi sellist jaburat tükeldamist ei teeks, et uuesti kokku liita see, mis kõik kenasti koos.</p>
+</div>
+</div>
+</div>
 <p>Andmestike liitmise harjutamiseks teeme kolm erinevat andmestikku:</p>
 <ul>
 <li>inimesed - sisaldab nime ja kodumaailma</li>
@@ -312,9 +324,16 @@ window.Quarto = {
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>tegelaste_mass<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
 <span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<blockquote class="blockquote">
-<p>Hea praktika oleks enne andmestike liitmist vähemalt üle vaadata kui suured nad on.</p>
-</blockquote>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Hea praktika oleks enne andmestike liitmist üle vaadata nende suurus.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(inimesed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -333,7 +352,7 @@ window.Quarto = {
 </section>
 <section id="full-join" class="level2" data-number="6.2">
 <h2 data-number="6.2" class="anchored" data-anchor-id="full-join"><span class="header-section-number">6.2</span> Andmestike täielik liitmine</h2>
-<p>Paname kokku andmestikud “inimesed” ja “drodid”. Teeme neist ühe andmestiku ja meid ei sega, et droidide kohta on meil üks tulp rohkem (gender) kui inimeste kohta.</p>
+<p>Paneme kokku andmestikud “inimesed” ja “drodid”. Teeme neist ühe andmestiku ja meid ei sega, et droidide kohta on meil üks tulp rohkem (gender) kui inimeste kohta.</p>
 <p>Kasutame käsku <code>full_join()</code> ning õige liitmise korral peaks olema alles kõik andmed:</p>
 <ul>
 <li>kokku <span class="math inline">\(35+6=41\)</span> rida ja</li>
@@ -368,10 +387,17 @@ window.Quarto = {
 </section>
 <section id="left-join" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="left-join"><span class="header-section-number">6.3</span> Andmestike osaline liitmine</h2>
-<p>Liidame “inimesed_droidid” andmestikule juurde nende kaalu(mass) andmestikust “tegelaste mass”. Me teame, et “tegelaste mass” sisaldab rohkem tegelasi(ridu), kui “inimesed_droidid” ning me ei taha, et kõik 87 tegelast “inimesed_droidid” andmestikku üle (st juurde) tuleks. Selleks kasutame käsku <code>left_join()</code> ja esimesena nimetame selle andmestiku, millele tunnuseid juurde liidame. Saame valida, kas teeme uue andmestiku või kirjutame olemasoleva üle.</p>
-<blockquote class="blockquote">
-<p>Alguses harjutades ära kohe üle kirjuta, kui ei ole kindel, et liitmine õigesti välja tuleb.</p>
-</blockquote>
+<p>Liidame “inimesed_droidid” andmestikule juurde nende kaalu (“mass”) andmestikust “tegelaste mass”. Me teame, et “tegelaste mass” sisaldab rohkem tegelasi (st ridu), kui “inimesed_droidid” ning me ei taha, et kõik 87 tegelast “inimesed_droidid” andmestikku üle (st juurde) tuleks. Selleks kasutame käsku <code>left_join()</code> ja esimesena nimetame selle andmestiku, millele tunnuseid juurde liidame. Saame valida, kas teeme uue andmestiku või kirjutame olemasoleva üle.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kui sa ei ole enda oskustes kindel, ära kohe olemasolevat andmestiku liitmisega üle kirjuta.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span><span class="fu">left_join</span>(inimesed_droidid, tegelaste_mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -423,7 +449,17 @@ window.Quarto = {
 6 Biggs Darklighter  Tatooine  &lt;NA&gt;        84 masculine</code></pre>
 </div>
 </div>
-<p>Nüüd juhtus nii, et tekkis kaks “gender” tunnust, sest mõlemad andmesitud sisaldasid tunnust “gender”. Tunnuse nimes “x” näitab, mis oli algses andmestikus tunnus ja “y” liidetavas.</p>
+<p>Nüüd juhtus nii, et tekkis kaks “gender” tunnust, sest mõlemad andmesitud sisaldasid tunnust “gender”.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Tunnuse nimes “x” näitab, mis oli algses andmestikus tunnus ja “y” liidetavas.</p>
+</div>
+</div>
+</div>
 <p>Tunnuse väärituste sisuline ühendamine käib käskuda <code>mutate()</code> ja <code>coalesce()</code> abil. Kasutame seda nii, et kaotame ära üleliigseks muutunud tunnused “gender.x”, “gender.y”.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span>inimesed_droidid<span class="sc">%&gt;%</span></span>
@@ -444,9 +480,16 @@ window.Quarto = {
 6 Biggs Darklighter  Tatooine     84 masculine</code></pre>
 </div>
 </div>
-<blockquote class="blockquote">
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
 <p>Alati kontrolli üle ka andmestiku mõõtmed.</p>
-</blockquote>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -460,8 +503,18 @@ window.Quarto = {
 </section>
 <section id="andmestiku-struktuuri-muutmine" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="andmestiku-struktuuri-muutmine"><span class="header-section-number">6.4</span> Andmestiku struktuuri muutmine</h2>
-<p>Struktuuri muutmisega puutub kokku siis kui teeme kirjeldavat statistikat ehk esitame kokkuvõtteid mingi <code>sagedustabel</code>i või <code>risttabeli</code> kujul.</p>
+<p>Struktuuri muutmisega puutub kokku siis, kui teeme kirjeldavat statistikat ehk esitame kokkuvõtteid mingi <code>sagedustabel</code>i või <code>risttabeli</code> kujul.</p>
 <p>Seepärast räägin praegu <code>group_by()</code> ja <code>summarise()</code> käskude kasutamisest lühidalt. Käsu nimedest on aru saada, et andmestik grupeeritakse ringi ja summarise käsuga arvutatakse kokku kui palju ridu esineb sellises grupeeringus (<code>n()</code>).</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kirjeldava statistika peatükk on koostamisel.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
 <span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, species)<span class="sc">%&gt;%</span></span>
@@ -488,7 +541,7 @@ window.Quarto = {
 # ℹ 32 more rows</code></pre>
 </div>
 </div>
-<p>Vaikimisi esitatakse tähestiku (või faktori leveli) järjekorras (loe faktorite kohta <a href="04-faktor-string.html#forcats">siit</a>).</p>
+<p>Vaikimisi esitatakse tähestiku (või faktori <em>leveli</em>) järjekorras (loe faktorite kohta <a href="04-faktor-string.html#forcats">siit</a>).</p>
 <p>Muudame andmestiku <strong>laia formaati</strong> nii, et uue andmestiku tulpade nimed tulevad tunnusest “gender”. Ridadeks jäävad liigid. Tunnuste väärtuseks jääb arv, mis ütles mitu tegelast seda “gender” ja “species” esindas.</p>
 <p>Selleks lisan olesmolevale koodile juurde <code>pivot_wider()</code> ning täpsustused <code>names_from=</code> ja <code>values_from=</code>.</p>
 <div class="cell">
@@ -516,6 +569,87 @@ window.Quarto = {
  9 Aleena           NA         1    NA
 10 Besalisk         NA         1    NA
 # ℹ 28 more rows</code></pre>
+</div>
+</div>
+</section>
+<section id="andmestikust-väljavõttete-tegemine" class="level2" data-number="6.5">
+<h2 data-number="6.5" class="anchored" data-anchor-id="andmestikust-väljavõttete-tegemine"><span class="header-section-number">6.5</span> Andmestikust väljavõttete tegemine</h2>
+<p>Lisaks <code>filter()</code> ja <code>select()</code> käskudele võib vaja tekkida olukord, kus soov on võtta mingi tükk andmestikust kas <em>juhuslikult</em> või mingist kindlast kohast (aga pole ühtegi tunnust, mille alusel filtreerida see täpselt välja filtreerida).</p>
+<p>Käsuga <code>slice()</code> saab öelda, millised ridu andmestikust eraldada on vaja. Näiteks võtame read 30 kuni 40.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(starwars, <span class="dv">30</span><span class="sc">:</span><span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 11 × 14
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Nien Nu…    160    68 none       grey       black             NA male  mascu…
+ 2 Qui-Gon…    193    89 brown      fair       blue              92 male  mascu…
+ 3 Nute Gu…    191    90 none       mottled g… red               NA male  mascu…
+ 4 Finis V…    170    NA blond      fair       blue              91 male  mascu…
+ 5 Padmé A…    185    45 brown      light      brown             46 fema… femin…
+ 6 Jar Jar…    196    66 none       orange     orange            52 male  mascu…
+ 7 Roos Ta…    224    82 none       grey       orange            NA male  mascu…
+ 8 Rugor N…    206    NA none       green      orange            NA male  mascu…
+ 9 Ric Olié    183    NA brown      fair       blue              NA male  mascu…
+10 Watto       137    NA black      blue, grey yellow            NA male  mascu…
+11 Sebulba     112    40 none       grey, red  orange            NA male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
+</div>
+<p>Käsuga <code>sample_n()</code> saab suvalised read.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Selline olukord võib tulla ette masinõppes, kus on vaja tekitada test ja treeningandmestik. Masinõppe kohta tuleb eraldi peatükk.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(starwars, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 14
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+2 Lama Su      229    88 none       grey       black           NA   male  mascu…
+3 Mas Amed…    196    NA none       blue       blue            NA   male  mascu…
+4 Chewbacca    228   112 brown      unknown    blue           200   male  mascu…
+5 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
+#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="andmestiku-ridade-ümberreastamine" class="level2" data-number="6.6">
+<h2 data-number="6.6" class="anchored" data-anchor-id="andmestiku-ridade-ümberreastamine"><span class="header-section-number">6.6</span> Andmestiku ridade ümberreastamine</h2>
+<p>Käsuga <code>arrange()</code> on võimalik read ümber sorteerida nagu vaja on. Vaikimisi töötab käsk nii, et reastab tähestiku järjekorras või väiksemast suuremani.</p>
+<p>Võib kasutada käsku `desc()` või lihtsalt miinus märki tunnuse ees, mis vaja panna suuremast väiksemani jooksma.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Miinusmärk tunnuse nime ees ei tähenda iga kord seda, et tunnus reastatakse teistpidi. Näiteks <code>select()</code> käsu puhul jäetakse miinus märgi kasutamisel see tunnus valimata.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  gender        n
+  &lt;chr&gt;     &lt;int&gt;
+1 masculine    66
+2 feminine     17
+3 &lt;NA&gt;          4</code></pre>
 </div>
 </div>
 

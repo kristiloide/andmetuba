@@ -255,7 +255,7 @@ div.csl-indent {
 <p>See peatükk kirjeldab, kuidas saada <a href="#andmestiku-suurus">andmestiku suurusest</a> ja <a href="#andmestiku-struktuur">struktuurist</a> esmane ülevaade.</p>
 <p>Tunnuste <strong>sisu põhjal</strong> andmestikust ülevaate saamiseks loe alapeatükki <a href="#tunnustega-tutvumine">tunnustega tutvumine</a>.</p>
 <p>Andmestikust ülevaate saamine hõlmab ka <a href="05-puuduvad-vaartused.html#puuduvad">puuduvate väärtustega</a> tutvumist ning selleks on eraldi peatükk.</p>
-<p><a href="03-tehniline-tunnused.html#tunnuste-muutmine">Tunnuste muutmisele</a> on pühendatud mitu peatükki, eraldi on teemana on <a href="04-faktor-string.html#stringid">teksti</a> ja <a href="04-faktor-string.html#forcats">katoogriaid</a> sisaldavad tunnuste muutmine.</p>
+<p><a href="03-tehniline-tunnused.html#tunnuste-muutmine">Tunnuste muutmisele</a> on pühendatud mitu peatükki, eraldi on teemadena on <a href="04-faktor-string.html#stringid">teksti</a> ja <a href="04-faktor-string.html#forcats">katoogriaid</a> sisaldavate tunnuste muutmine.</p>
 <section id="andmestiku-suurus" class="level2" data-number="2.1">
 <h2 data-number="2.1" class="anchored" data-anchor-id="andmestiku-suurus"><span class="header-section-number">2.1</span> Andmestiku suurusest ülevaate saamine</h2>
 <p>Esmase ülevaate andmestiku suurusest (st ridade ja tulpade arvust) saab ka <code>enviroment</code> aknast, kuid vaja võib minna ka järgmisi käske.</p>
@@ -281,16 +281,30 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>nrow() käsu abil on hea salvestada mõni väärtus <code>values</code> hulka ja selle väärtuse <code>objekti</code> kasutada mõnes tehtes</p>
+<p><code>nrow()</code> käsu abil on hea salvestada mõni väärtus <code>values</code> hulka ja selle väärtuse <code>objekti</code> kasutada mõnes tehtes</p>
 </div>
 </div>
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#leiame kui suure osakaalu moodustab 30 starwarsi tegelastest</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>starwars_tegelased<span class="ot">&lt;-</span><span class="fu">nrow</span>(starwars)</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="dv">30</span><span class="sc">/</span>starwars_tegelased </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>starwars_tegelased<span class="ot">&lt;-</span><span class="fu">nrow</span>(starwars)</span>
+<span id="cb5-4"><a href="#cb5-4" aria-hidden="true" tabindex="-1"></a><span class="dv">30</span><span class="sc">/</span>starwars_tegelased </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 0.3448276</code></pre>
+</div>
+</div>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Tip
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Ära ise nii pikke nimesid (<code>starwars_tegelased</code>) oma objektidele pane, sest koodi kirjutades on neid väga tüütu iga kord välja kirjutada. Nimeta objekte nii, et sa ise neid pärast ära tunned. Nimedes on numbrid, alakriips <code>_</code> ja punkt <code>.</code> lubatud, kuid nimi peab algama tähega.</p>
 </div>
 </div>
 </section>
@@ -367,19 +381,19 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>andmestik starwars sisaldab paari tunnust, mis sisaldab “list” tüüpi tunnuseid ja seepärast ei pruugi õnnestuda introduce() käsk starwars andmestikuga.</p>
+<p>andmestik starwars sisaldab paari tunnust, mis sisaldab <code>list</code> tüüpi tunnuseid ja seepärast ei pruugi õnnestuda <code>introduce()</code> käsk starwars andmestikuga.</p>
 </div>
 </div>
 </div>
 </section>
 <section id="tunnustega-tutvumine" class="level2" data-number="2.3">
 <h2 data-number="2.3" class="anchored" data-anchor-id="tunnustega-tutvumine"><span class="header-section-number">2.3</span> Tunnustega tutvumine</h2>
-<p>Tunnustega tutvumise etapis võib tekkida tahtmine tunnuseid muuta, et neid oleks mugavam kasutada või üldse võimalik kasutada. Oma olemuselt on see tehniline töö tunnustega, millele kulub andmeanalüüsis kõige rohkem aega. Seepärast tunnuste muutmiseks eraldi pikem ja põhjalik <a href="03-tehniline-tunnused.html#tunnuste-muutmine">järgmine peatükk</a>.</p>
-<p>Selleks, et kõnetada konkreetset tunnust on vaja kasutada andmestiku nime järel <code>$</code> märki ja kirjutada tunnuse nimi.</p>
+<p>Tunnustega tutvumise etapis võib tekkida tahtmine tunnuseid muuta, et neid oleks mugavamvõi üldse võimalik kasutada. Oma olemuselt on see tehniline töö tunnustega, millele kulub andmeanalüüsis kõige rohkem aega. Seepärast tunnuste muutmiseks eraldi pikem ja põhjalik <a href="03-tehniline-tunnused.html#tunnuste-muutmine">järgmine peatükk</a>.</p>
+<p>Selleks, et <em>kõnetada</em> konkreetset tunnust on vaja kasutada andmestiku nime järel <code>$</code> märki ja kirjutada tunnuse nimi.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="co">#andmestik$tunnuse_nimi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Tunnustega tutvumisel vaatame nii tunnuse <a href="#tunnuste-nimi">nime</a>, <a href="#tunnuste-tyybid">tüüpi</a> kui ka <a href="#tunnuste-sisu">sisu</a>.</p>
+<p>Tunnustega tutvumisel vaatame nii tunnuse <a href="#tunnuste-nimi">nime</a>, <a href="#tunnuste-tyybid">tüüpi</a> kui ka sisu.</p>
 <section id="tunnuste-nimi" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="tunnuste-nimi">Tunnuste nimed</h3>
 <p>Näeb ka <code>enviroment</code> aknast, kuid vaja võib minna käsku <code>names()</code>.</p>
@@ -396,11 +410,11 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <h3 class="unnumbered anchored" data-anchor-id="tunnuste-tyybid">Tunnuste tüübid</h3>
 <p><code>R</code>-is on andmetüübid jaotatud järgmiselt:</p>
 <ul>
-<li><code>character</code> - teksti sisaldavad tunnused, nende kohta öeldaks ka <a href="04-faktor-string.html#stringid"><code>string</code></a>.</li>
+<li><code>character</code>, <code>&lt;chr&gt;</code> - teksti sisaldavad tunnused, nende kohta öeldaks ka <a href="04-faktor-string.html#stringid"><code>string</code></a>.</li>
 <li><code>integer</code>, <code>&lt;int&gt;</code> - täisarvud</li>
 <li><code>numeric</code> või <code>double</code>, <code>&lt;dbl&gt;</code> - järjestikkused arvud</li>
-<li><code>logical</code> - TRUE/FALSE või T/F</li>
-<li><code>factor</code> - kategooria (võib inimsilmale välja näha kui number või kui tekst)</li>
+<li><code>logical</code>, <code>&lt;lgl&gt;</code> - ehk TRUE/FALSE või T/F</li>
+<li><code>factor</code>, <code>&lt;fct&gt;</code> - kategooria (võib inimsilmale välja näha kui number või kui tekst)</li>
 <li><code>Date</code> - kuupäev</li>
 </ul>
 <p>Muud objektid võivad olla</p>
@@ -423,7 +437,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 </div>
 <section id="numbrid" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="numbrid">Numbrid ja arvud</h4>
-<p>Ütlen kõigi kohta läbivalt <code>numbriline</code>, kuigi <code>R</code> teeb vahet, kas tegemist on diskreetste arvudega (<code>integer</code>) või järjestikkustega (<code>double</code>, <code>numeric</code>).</p>
+<p>Ütlen kõigi kohta läbivalt <code>numbriline</code>, kuigi <code>R</code> teeb vahet, kas tegemist on diskreetsete arvudega (<code>integer</code>) või järjestikkustega (<code>double</code>, <code>numeric</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(starwars<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -440,7 +454,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <section id="kategooriad" class="level4 unnumbered">
 <h4 class="unnumbered anchored" data-anchor-id="kategooriad">Tekst ja kategooriad</h4>
 <p>Tekst võib olla lihtsalt tavaline tekst (<code>character</code>) kui ka mõnda kategooriat tähistav tekst. Kategooriad on <code>R</code>-is faktorid (<code>factor</code>).</p>
-<p>Kategoriaalsed tunnused jagunevad omakorda <strong>järjestatavaks</strong> (<code>ordinal</code>), <strong>nominaalseteks</strong> ja <strong>binaarseteks</strong>. Kahe viimase puhul on nad siin oma tüübilt ikka <code>factor</code>. Binaarne tunnus võib olla teinekord ka sama, mis on <code>logical</code> tunnus.</p>
+<p>Kategoriaalsed tunnused jagunevad omakorda <strong>järjestatavaks</strong> (<code>ordinal</code>), <strong>nominaalseteks</strong> ja <strong>binaarseteks</strong>. Need tunnused oma tüübilt on ikka <code>factor</code>. Binaarne tunnus võib olla teinekord ka sama, mis on <code>logical</code> tunnus.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>binaarne<span class="ot">&lt;-</span><span class="fu">is.na</span>(starwars<span class="sc">$</span>hair_color)</span>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(starwars<span class="sc">$</span>binaarne)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -448,23 +462,24 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <pre><code>[1] "logical"</code></pre>
 </div>
 </div>
-<p>Vaata, kuidas käib tunnuste <a href="-#forcats">kategooriate muutmine</a> paketiga <code>forcats</code> või loe paketi kohta rohkem <a href="https://forcats.tidyverse.org/index.html">siit</a>.</p>
+<p>Vaata, kuidas käib tunnuste <a href="04-faktor-string.html#forcats">kategooriate muutmine</a> paketiga <code>forcats</code> või loe paketi kohta rohkem <a href="https://forcats.tidyverse.org/index.html">siit</a>.</p>
 </section>
 </section>
 <section id="vector" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="vector">Mis on <code>vector</code>?</h3>
 <p>Kõige lihtsam on mõelda <code>vector</code>-ist kui mingist loendist.</p>
-<p>Loendil on teatud arv ühikuid alates ühest kuni piiramatu arv. Näideks <code>nädalapäevade loend</code> on seitse <code>ühikut</code> pikk. Selle loendi ühikutel on oma kindel <code>järjekord</code>, sest <code>esmaspäev</code>ale järgneb alati <code>teisipäev</code>.</p>
-<p>Loendis võivad olla ka lihtsalt arvud. Need sõnad või arvud on loendi ühikud. Ühikud võivad olla kindlas järjekorras, kuid ei pea olema. Kõik ühikud võivad olla üksteisest erinevad, kuid nad ei pea seda olema. Mõni ühik võib loendis ka tühi, aga ta kuulub ikkagi selle loendi hulka.</p>
-<p>Näiteks klassis on 10 õpilast ja nende nimed on kõik ühel real üksteise kõrvale kirja pandud. Kuna mõnel lapsel on kaks eesnime, on ta laste nimed eraldanud real komaga (<code>,</code>). See on <code>nimede</code> loend. Klassis on kaks poissi, kelle nimeks on <code>Ants</code>. Lisaks on üks nimelahter tühi, sest õpetaja ei tea veel, mis on uue õpilase nimi.</p>
+<p>Loendil on teatud arv ühikuid alates ühest kuni piiramatu arv. Näideks <code>nädalapäevade loend</code> on seitse <code>ühikut</code> pikk. Selle loendi ühikutel on oma kindel <code>järjekord</code>, sest esmaspäevale järgneb alati teisipäev.</p>
+<p>Loendis võivad olla ka lihtsalt arvud. Need sõnad või arvud ongi <code>loendi ühikud</code>. Ühikud võivad olla kindlas järjekorras, kuid ei pea olema. Kõik ühikud võivad olla üksteisest erinevad, kuid nad ei pea seda olema. Mõni ühik võib loendis ka tühi, aga ta kuulub ikkagi selle loendi hulka.</p>
+<p>Näiteks klassis on 10 õpilast ja nende nimed on õpetajal kõik ühele real üksteise kõrvale kirja pandud. Kuna mõnel lapsel on kaks eesnime, on õpetaja laste nimed eraldanud komaga (<code>,</code>). See on nimede loend. Klassis on kaks poissi, kelle nimeks on <code>Ants</code>. Lisaks on üks nimelahter tühi, sest õpetaja ei tea veel, mis on uue õpilase nimi, aga ta on jätnud paberil tema nime jaoks ruumi.</p>
 <p>Küsime õpetajalt:</p>
 <ul>
 <li>Mitu last on sinu klassis? Vastus: 10 last.</li>
-<li>Mitu erinevat nime on sinu klassi lastel? Vastus: “ma ei tea”. Õpetaja tahab oma vastuses olla ülitäpne, ega selgita miks ta ei tea. Õpetaja ei oska anda õiget vastust, sest ühe lapse nimi on tal <em>puudu</em> ja uue õpilase nimi võib juhtumisi ka olla Ants.</li>
-<li>Mitu erinevat nime on sinu klassi lastel kui sa vaatad ainult neid, kelle nimed sul teada on? Vastus: 8.</li>
-<li>Mis on kõige sagedasem nimi sinu klassis? Vastus: Ants.</li>
+<li>Mitu erinevat nime on sinu klassi lastel? Vastus: “ma ei tea”. Õpetaja tahab oma vastuses olla ülitäpne, kuid ta ei selgita miks ta ei tea. Õpetaja ei oska anda õiget vastust, sest ühe lapse nimi on tal <em>puudu</em> ja uue õpilase nimi võib juhtumisi ka olla Ants.</li>
+<li>Mitu erinevat nime on sinu klassi lastel, kui loendad ainult neid, kelle nimed sul teada on? Vastus: 8.</li>
+<li>Mis on kõige sagedasem nimi sinu klassis (kui sa vaatad ainult neid nimesid, mis sul teada on)? Vastus: Ants.</li>
 </ul>
-<p><code>R</code>-is oles sellise klassinimede loendi tüübiks <code>vector</code>. <code>vector</code>-it tähistab <code>R</code>-is <code>c()</code>, mille ühikud on omavahel eraldatud komaga(<code>,</code>). Kui <code>vector</code>i <code>ühik</code>uteks on sõnad, on nad jutumärkide sees.</p>
+<p>Umbes nii mõtleb <code>R</code> kui temaga suhelda. <code>R</code>-is on sellise klassinimede loendi objekti tüübiks <code>vector</code>, mis sisaldab <code>character</code> tüüpi andmeid. <code>vector</code>-it tähistab <code>R</code>-is <code>c()</code>, mille ühikud on omavahel eraldatud komaga(<code>,</code>). Kui <code>vector</code>i <code>ühik</code>uteks on sõnad, on nad kirjutatud jutumärkide sisse.</p>
+<p>Teen õpilaste arvu vektori, mis sisaldab numbreid.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a>opilaste_arvu_vektor<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="dv">1</span><span class="sc">:</span><span class="dv">10</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -474,6 +489,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <pre><code> [1]  1  2  3  4  5  6  7  8  9 10</code></pre>
 </div>
 </div>
+<p>Teen õpilaste nimede vektori, mis sisaldab sõnu.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>opilaste_nimede_vektor<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Tiina"</span>, <span class="st">"Mai"</span>, <span class="st">"Ants"</span>, <span class="st">"Kati"</span>, <span class="st">"Ants"</span>, <span class="cn">NA</span>, <span class="st">"Kalle"</span>, <span class="st">"Tiina Mai"</span>, <span class="st">"Mai Tiina"</span>, <span class="st">"Paul"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -489,7 +505,17 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
 <section id="tunnuste-sisuga-tutvumine" class="level2" data-number="2.4">
 <h2 data-number="2.4" class="anchored" data-anchor-id="tunnuste-sisuga-tutvumine"><span class="header-section-number">2.4</span> Tunnuste sisuga tutvumine</h2>
 <p>Esmalt tasub vaadata puuduvaid väärtusi ning selle teema kohta on eraldi <a href="05-puuduvad-vaartused.html#puuduvad">peatükk</a>.</p>
-<p>Seejärel tasub vaadata, millised on tunnuste <code>väärtused</code> ja kuidas nad jagunevad. See etapp tööst on vägagi kirjeldava statistika loomine.</p>
+<p>Seejärel tasub vaadata, millised on tunnuste <code>väärtused</code> ja kuidas nad jagunevad. See etapp tööst on vägagi kirjeldava statistika loomise moodi.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kirjeldava statistika kohta tuleb eraldi peatükk. See osa räägib, kuidas kasutada põhikäske. Neid käske läheb vaja andmete puhastamisel.</p>
+</div>
+</div>
+</div>
 <p><code>numbriliste tunnuste</code> puhul on baaskäsud <code>min()</code>, <code>max()</code>, <code>range()</code>, <code>mean()</code>, <code>median()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">min</span>(Orange<span class="sc">$</span>age)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -505,7 +531,7 @@ $ starships  &lt;list&gt; &lt;"X-wing", "Imperial shuttle"&gt;, &lt;&gt;, &lt;&g
   118.0   484.0  1004.0   922.1  1372.0  1582.0 </code></pre>
 </div>
 </div>
-<p><code>summary()</code> toimib hästi ka <code>faktor</code>-itega.</p>
+<p><code>summary()</code> käsk toimib hästi ka <code>faktor</code>-itega.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"gss_cat"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

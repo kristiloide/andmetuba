@@ -269,7 +269,7 @@ div.csl-indent {
 <section id="R-andmestikud" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="R-andmestikud"><span class="header-section-number">1.1</span> <code>R</code>-iga kaasatulevad andmestikud</h2>
 <p>Paljud paketid sisaldavad näidisandmestikke (<em>datasets</em>), mille abil on hea uusi oskusi harjutada.</p>
-<p>Käsuga <code>data()</code> (sulud seest tühjad) on võimalik näha, millised on <code>R</code>-is saadaval võimalikud andmekogud, mis tulevad <code>baasversioon</code>-i või mõne muu paketiga kaasa. Käsu <code>data()</code> käivitamisel tekib lisa töökeskkonda <code>tab</code> nimega “R data sets”. Kui on soov näha kõiki saadalolevaid andmestikke, käivita allolev käsk (ilma trellideta <code>#</code>).</p>
+<p>Käsuga <code>data()</code> (sulud seest tühjad) on võimalik näha, millised andmekogud on <code>R</code>-is saadaval, mis tulevad <code>baasversioon</code>-i või mõne muu paketiga kaasa. Käsu <code>data()</code> käivitamisel tekib töökeskkonda lisa <code>tab</code> nimega “R data sets”. Kui on soov näha kõiki saadalolevaid andmestikke, käivita allolev käsk (ilma trellideta <code>#</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data(package = .packages(all.available = TRUE))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -292,10 +292,10 @@ div.csl-indent {
 </section>
 <section id="levinud-andmestikud" class="level2" data-number="1.2">
 <h2 data-number="1.2" class="anchored" data-anchor-id="levinud-andmestikud"><span class="header-section-number">1.2</span> Enimlevinud failidest andmestike laadimine</h2>
-<p><code>Enviroment</code> keskkonnas nupp “Import Dataset”, mille abil on mugav andmestikke sisse laadida ning näeb ka all aknas andmete importimiseks vajalikku <code>R</code>-i koodiga. Kahjuks ei toimi “import dataset” <code>.csv</code>-failide puhul.</p>
+<p><code>Enviroment</code> keskkonnas on nupp “Import Dataset”, mille abil on mugav andmestikke sisse lugeda. Selle kasutamisel näeb ka andmete importimiseks vajalikku <code>R</code>-i koodi, mida saab oma tööfaili <code>scripti</code> kopeerida. Kahjuks ei toimi “Import dataset” nupp <code>.csv</code>-failide puhul.</p>
 <section id="csv-failid" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="csv-failid">.csv failid</h3>
-<p>Sisselugemise käsk sõltub sellest, kas andmeid on failis eraldatud koma (<code>,</code>) või semikooloniga (<code>;</code>).</p>
+<p>Sisse lugemise käsk sõltub sellest, kas andmeid on failis eraldatud koma (<code>,</code>) või semikooloniga (<code>;</code>).</p>
 <ul>
 <li>Kui andmeid eraldab <code>,</code>, kasuta käsku <code>read.csv()</code></li>
 <li>Kui andmeid eraldab <code>;</code>, kasuta käsku <code>read.csv2()</code></li>
@@ -303,8 +303,8 @@ div.csl-indent {
 <p><strong>Käsu täpsustused:</strong></p>
 <ul>
 <li><code>strip.white=TRUE</code> - eemaldab üleliigsed tühikud, mis mõnikord võivad csv failiga kaasa tulla</li>
-<li><code>na.strings</code> - seda läheb vaja olukorras, kus puuduv väärtus on esitatud mingi muu tähisega, näiteks <code>tühik</code>, <code>.</code> või <code>-</code>. Vaata lisaks peatükki puuduvatest väärtustest.</li>
-<li><code>fileEncoding</code> - mõnikord võib vaja olla andmete sisselugemisel täpsustada, et fail on <code>utf-8</code> kodeeringus.</li>
+<li><code>na.strings</code> - seda läheb vaja olukorras, kus puuduv väärtus on esitatud mingi muu tähisega, näiteks (tühik) , <code>.</code> või <code>-</code>.</li>
+<li><code>fileEncoding</code> - mõnikord võib vaja olla andmete sisse lugemisel täpsustada, et fail on <code>utf-8</code> kodeeringus.</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co"># andmed&lt;-read.csv("soidueksam.csv", </span></span>
@@ -312,7 +312,7 @@ div.csl-indent {
 <span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                strip.white = TRUE,</span></span>
 <span id="cb3-4"><a href="#cb3-4" aria-hidden="true" tabindex="-1"></a><span class="co">#                 fileEncoding = "utf-8")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p><code>.csv</code> faile on võimalik sisse lugeda ka paketiga <code>readr</code><span class="citation" data-cites="R-readr">(<a href="references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span> ning käsuga <code>read_csv()</code>. Errorid võivad tulla siis, kui fail ei ole <code>utf-8</code> kodeeringus. Siis tuleb täpsustada <code>locale()</code> käsuga kodeeringut.</p>
+<p><code>.csv</code> faile on võimalik sisse lugeda ka paketiga <code>readr</code><span class="citation" data-cites="R-readr">(<a href="references.html#ref-R-readr" role="doc-biblioref">Wickham, Hester, and Bryan 2023</a>)</span> ning käsuga <code>read_csv()</code>. Käsu kasutamisel võivad errorid tulla siis, kui fail ei ole <code>utf-8</code> kodeeringus. Siis tuleb täpsustada <code>locale()</code> käsuga kodeeringut.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#read_csv("failinimi.csv", locale(encoding = "iso-8859-4"))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -335,7 +335,7 @@ div.csl-indent {
 <li><code>sheet</code> - saab täpsustada, milliselt lehelt andmeid võtta</li>
 <li><code>range</code> - saab täpsustada, millistest lahtritest andmeid võtta</li>
 <li><code>trim_ws=TRUE</code> - eemaldab nn <code>whitespace</code> ehk tühikud eest ja lõpust<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</li>
-<li><code>col_types=</code> saab täpsustada [tunnuste tüübid].</li>
+<li><code>col_types=</code> saab täpsustada [tunnuste tüüpe](#tunnuste-tyybid].</li>
 </ul>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -348,9 +348,9 @@ div.csl-indent {
 </section>
 <section id="spss-failid" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="spss-failid">SPSS failid</h3>
-<p>SPSS failide importimiseks on kakks võimalust ning sõltub, mis parasjagu vaja on.</p>
-<p>Pakett <code>haven</code> <span class="citation" data-cites="haven">(<a href="references.html#ref-haven" role="doc-biblioref">Wickham, Miller, and Smith 2023</a>)</span> annab käsu <code>read_sav()</code>. Pakett kasutab andmete sisselugemisel tunnuste <code>silte</code> (<em>label</em>) ja väärtuseid kuvab 1, 2, 3 jne.</p>
-<p>Pakett <code>foreign</code> <span class="citation" data-cites="foreign">(<a href="references.html#ref-foreign" role="doc-biblioref">R Core Team 2023</a>)</span> annab käsu <code>read.spss()</code> ning täpsustus <code>to.data.frame=T</code>.</p>
+<p>SPSS failide importimiseks on kaks võimalust ning paketi valik sõltub sellest, mis parasjagu (rohkem) vaja on.</p>
+<p>Pakett <code>haven</code> <span class="citation" data-cites="haven">(<a href="references.html#ref-haven" role="doc-biblioref">Wickham, Miller, and Smith 2023</a>)</span> annab käsu <code>read_sav()</code>. Pakett kasutab andmete sisse lugemisel tunnuste <code>silte</code> (<em>label</em>) ja tunnuse <code>väärtus</code>-eid kuvab 1, 2, 3 jne.</p>
+<p>Pakett <code>foreign</code> <span class="citation" data-cites="foreign">(<a href="references.html#ref-foreign" role="doc-biblioref">R Core Team 2023</a>)</span> annab käsu <code>read.spss()</code> ning täpsustuseks tuleb öelda <code>to.data.frame=T</code>.</p>
 <div class="callout callout-style-simple callout-important">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -370,7 +370,7 @@ div.csl-indent {
 <span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a><span class="co">#andmed&lt;-read.spss("failinimi.sav",</span></span>
 <span id="cb8-3"><a href="#cb8-3" aria-hidden="true" tabindex="-1"></a><span class="co">#                   to.data.frame=T)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Kuigi koodi on lihtsam kirjutada, kui tunnuse nimi on <code>code</code> ja mitte <code>label</code>, on siiski mõnikord vaja panna tunnuste nimeks hoopis tunnuse silt. Selleks on abiks pakett <code>sjlabelled</code> <span class="citation" data-cites="sjlabelled">(<a href="references.html#ref-sjlabelled" role="doc-biblioref">Lüdecke 2022</a>)</span> ja käsk <code>label_to_colnames()</code></p>
+<p>Kuigi koodi on lihtsam kirjutada, kui tunnuse nimi on <code>code</code> ja mitte <code>label</code>, on siiski mõnikord vaja panna tunnuste nimeks hoopis tunnuse <code>silt</code> (ehk <em>label</em>). Selleks on abiks pakett <code>sjlabelled</code> <span class="citation" data-cites="sjlabelled">(<a href="references.html#ref-sjlabelled" role="doc-biblioref">Lüdecke 2022</a>)</span> ja käsk <code>label_to_colnames()</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(sjlabelled)</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#label_to_colnames(andmed)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -379,6 +379,16 @@ div.csl-indent {
 </section>
 <section id="online-andmestikud" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="online-andmestikud"><span class="header-section-number">1.3</span> Online andmestikud</h2>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Peatükk on täiendamisel.</p>
+</div>
+</div>
+</div>
 <section id="eurostat" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="eurostat">Eurostat</h3>
 <p>Pakett <code>eurostat</code>. Kui on teada täpne tabeli nimi, saab kasutada käsku <code>get_eurostat()</code></p>
@@ -390,11 +400,25 @@ div.csl-indent {
 <p>Salvestamise käsk sõltub sellest, millist failitüüpi salvestada soovid.</p>
 <ul>
 <li><code>write.csv()</code>- salvestab andmeobjetki ja erldab need komaga</li>
-<li><code>write.xlsx()</code> - vajab paketti <code>openxlsx</code> <span class="citation" data-cites="openxlsx">(<a href="references.html#ref-openxlsx" role="doc-biblioref">Schauberger and Walker 2023</a>)</span>.</li>
+<li><code>write.xlsx()</code> - salvestab exceli faili. Vajab läheb paketti <code>openxlsx</code> <span class="citation" data-cites="openxlsx">(<a href="references.html#ref-openxlsx" role="doc-biblioref">Schauberger and Walker 2023</a>)</span>.</li>
 </ul>
+<p>Mõlemad käsud töötavad ühte moodi. Sulgude sees tuleb esmalt täpsustada, mis andmeobjekt tuleb salvestada ja seejärel kirjutada talle nimi.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(openxlsx)</span></span>
 <span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.xlsx(andmed, file="failinimi.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-default callout-important callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Important
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Harjuta kirjutama failinimesid nii, et need ei oleks samad nimega, mis <code>R</code>-i sisse lugedes. R kirjutab projektikaustas sama nimega faili ilma hoiatamata üle.</p>
+</div>
 </div>
 <p>Enamasti salvestab <code>R</code> faili <code>projekti</code> kausta.</p>
 
@@ -424,7 +448,7 @@ Wickham, Hadley, Evan Miller, and Danny Smith. 2023. <em>Haven: Import and Expor
 <hr>
 <ol>
 <li id="fn1"><p>Kui keegi on Excelis sisestanud lahtrisse ainult tühiku, siis selle eemaldamisel ei ole see andmeväli <code>R</code>-is enam kui puuduv väärtus (<code>NA</code>) ega ka tühi lahter. Selle korrigeerimiseks olen muutnud Exceli faili ennast enne R-i lugemist.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Kuigi <code>R</code> on väga tähetundlik, siis kasutan läbisegi <code>factor</code> ja <code>faktor</code> ning mõlemad tähistavad ühte ja sama asja, et tunnusel on väärtusteks kategooriad.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Kasutan raamatus läbisegi <code>factor</code> ja <code>faktor</code> ning mõlemad tähistavad ühte ja sama asja, et tunnusel on väärtusteks kategooriad.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
