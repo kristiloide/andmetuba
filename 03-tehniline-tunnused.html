@@ -184,6 +184,12 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./07-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -237,17 +243,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 
 <section id="tunnuste-muutmine" class="level2" data-number="3.1">
 <h2 data-number="3.1" class="anchored" data-anchor-id="tunnuste-muutmine"><span class="header-section-number">3.1</span> Tunnuste muutmine</h2>
-<p><code>Tehniline töö</code> tunnustega tähendab minu jaoks andmestiku ettevalmistust <em>sisulisemaks</em> analüüsiks. Minu jaoks on see etapp, kus piirid ettevalmistava töö ja kirjeldava statistika vahel hakkavad hägustuma, sest tunnuste väärtuste jaotust vaadatakse mõlemas osas. Seepärast on siin peatükkis juttu kohati mõlemast, sest <code>andmete puhastamisel</code> (ehk analüüsi ettevalmistavas etapis) on vaja kasutada samu võtteid, mida tehake kirjeldava statstika saamiseks. Valitakse analüüsiks sobivad tunnused, vaadatakse nende väärtuste jaotust, koostatakse uued tunnused olemasolevate tunnuste põhjalt või korrastatakse tunnuste kategooriad.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Kirjeldava statistika peatükk on koostamisel.</p>
-</div>
-</div>
-</div>
+<p><code>Tehniline töö</code> tunnustega tähendab minu jaoks andmestiku ettevalmistust <em>sisulisemaks</em> analüüsiks. Minu jaoks on see etapp, kus piirid ettevalmistava töö ja <a href="07-kirjeldav-statistika.html#kirjeldav-stat">kirjeldava statistika</a> vahel hakkavad hägustuma, sest tunnuste väärtuste jaotust vaadatakse mõlemas osas. Seepärast on siin peatükkis juttu kohati mõlemast, sest <code>andmete puhastamisel</code> (ehk analüüsi ettevalmistavas etapis) on vaja kasutada samu võtteid, mida tehake kirjeldava statstika saamiseks. Valitakse analüüsiks sobivad tunnused, vaadatakse nende väärtuste jaotust, koostatakse uued tunnused olemasolevate tunnuste põhjalt või korrastatakse tunnuste kategooriad.</p>
 </section>
 <section id="valimine" class="level2" data-number="3.2">
 <h2 data-number="3.2" class="anchored" data-anchor-id="valimine"><span class="header-section-number">3.2</span> Tunnuste valimine</h2>
@@ -527,7 +523,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <section id="sisu-muutmine" class="level2" data-number="3.5">
 <h2 data-number="3.5" class="anchored" data-anchor-id="sisu-muutmine"><span class="header-section-number">3.5</span> Tunnuste sisu muutmine</h2>
 <p>Tunnuste sisu<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> muutmisel teeme kas <strong>täitsa uued tunnused</strong> olemasoleva põhjalt või <strong>kirjutame olemasoleva tunnuse üle</strong>.</p>
-<p>Kui on soov muuta numbrilist tunnust mingi teise numbri või numbrilise tunnusega, saab seda teha väga lihtsalt ja kasutada `R`-i kui tavalist kalkulaatorit. Näiteks teisendame tunnuse height sentimeetritest meetriteks jagades tunnust 100-ga.</p>
+<p>Kui on soov muuta numbrilist tunnust mingi teise numbri või numbrilise tunnusega, saab seda teha väga lihtsalt ja kasutada <code>R</code>-i kui tavalist kalkulaatorit. Näiteks teisendame tunnuse height sentimeetritest meetriteks jagades tunnust 100-ga.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>pikkus_m<span class="ot">&lt;-</span>starwars<span class="sc">$</span>height<span class="sc">/</span><span class="dv">100</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>

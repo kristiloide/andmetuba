@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./07-kirjeldav-statistika.html" rel="next">
 <link href="./05-puuduvad-vaartused.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -233,6 +233,12 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./07-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -248,7 +254,10 @@ window.Quarto = {
    
   <ul>
   <li><a href="#eeltööd" id="toc-eeltööd" class="nav-link active" data-scroll-target="#eeltööd"><span class="header-section-number">6.1</span> Eeltööd</a></li>
-  <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">6.2</span> Andmestike täielik liitmine</a></li>
+  <li><a href="#full-join" id="toc-full-join" class="nav-link" data-scroll-target="#full-join"><span class="header-section-number">6.2</span> Andmestike täielik liitmine</a>
+  <ul class="collapse">
+  <li><a href="#bind_rows" id="toc-bind_rows" class="nav-link" data-scroll-target="#bind_rows">Ridada või tulpade lisamine andmestikku</a></li>
+  </ul></li>
   <li><a href="#left-join" id="toc-left-join" class="nav-link" data-scroll-target="#left-join"><span class="header-section-number">6.3</span> Andmestike osaline liitmine</a></li>
   <li><a href="#andmestiku-struktuuri-muutmine" id="toc-andmestiku-struktuuri-muutmine" class="nav-link" data-scroll-target="#andmestiku-struktuuri-muutmine"><span class="header-section-number">6.4</span> Andmestiku struktuuri muutmine</a></li>
   <li><a href="#andmestikust-väljavõttete-tegemine" id="toc-andmestikust-väljavõttete-tegemine" class="nav-link" data-scroll-target="#andmestikust-väljavõttete-tegemine"><span class="header-section-number">6.5</span> Andmestikust väljavõttete tegemine</a></li>
@@ -384,6 +393,35 @@ window.Quarto = {
 </div>
 </div>
 <p>Näeme, et <code>R</code> liitis mõlemad andmestikud kokku ja algselt “inimesed” andmestikus puudunud “gender” väli on nüüd olemas, kuid väärtused on tühjad (<code>NA</code>). (Teame, et meil on olemas inimeste <em>gender</em> tunnuse info andmestikus starwars ja liidame need hiljem juurde).</p>
+<section id="bind_rows" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="bind_rows">Ridada või tulpade lisamine andmestikku</h3>
+<p>Kui ühe andmestiku read on vaja lisada olemaoleva andmestiku lõppu, siis saab kasutada käsku bind_rows().</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Selline olukord võib tekkida siis, kui olemas näiteks teatud perioodi andmestik. Kuu või aasta lõppedes on vaja lisada äsjalõppenud periood eelmise andmestiku otsa.</p>
+</div>
+</div>
+</div>
+<p>Kui sa tead, et kattuvad kõikide ridada andmeväljade nimed, tunnuste tüübid siis kasuta käsku nii.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="co">#bind_rows(vana_andmestik, liidetav_andmestik)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Liidetava andmestiku read lähevad “vana andmestiku” lõppu.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Sarnaselt toimib ka käsk <code>bind_cols()</code>, kuid jäta meelde, et liidevata andmestiku read tõstetakse üle täpselt nende esinemisjärjekorras. Kasulikum võib olla <code>full_join()</code> käsu kasutamine.</p>
+</div>
+</div>
+</div>
+</section>
 </section>
 <section id="left-join" class="level2" data-number="6.3">
 <h2 data-number="6.3" class="anchored" data-anchor-id="left-join"><span class="header-section-number">6.3</span> Andmestike osaline liitmine</h2>
@@ -399,7 +437,7 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span><span class="fu">left_join</span>(inimesed_droidid, tegelaste_mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span><span class="fu">left_join</span>(inimesed_droidid, tegelaste_mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>Joining with `by = join_by(name)`</code></pre>
 </div>
@@ -407,14 +445,14 @@ window.Quarto = {
 <p>Vaikimisi otsib <code>R</code> ise üles, mis võiks olla see tunnus, mis esineb mõlemas andmestikus. Vajaduse korral võib seda teha ka <code>left_join()</code> käsu sees täpsustusega <code>by=</code>.</p>
 <p>Kontrollime üle, et ühtegi liigset rida ega tulpa andmestikku tekkinud.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 41  4</code></pre>
 </div>
 </div>
 <p>Vaatame ka päise üle.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   name               homeworld gender  mass
@@ -429,14 +467,14 @@ window.Quarto = {
 </div>
 <p>Meid häirib, et meil on olemas info inimeste “gender” tunnuse kohta andmestikus “starwars” aga mitte meie “inimesed_droidid” andmestikus. Võtame starwars andmest välja liitmiseks vajamineva osa.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>inimesed_gender<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"Human"</span>)<span class="sc">%&gt;%</span></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>inimesed_gender<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(species<span class="sc">==</span><span class="st">"Human"</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Kordan <code>left_join()</code> käsku ja seekord kasutan näites täpsustust <code>by=</code> (kuigi praegu saaks <code>R</code> vaikimisi ka ise aru, mille järgi liita).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span><span class="fu">left_join</span>(inimesed_droidid, inimesed_gender, <span class="at">by=</span><span class="st">"name"</span>)</span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span><span class="fu">left_join</span>(inimesed_droidid, inimesed_gender, <span class="at">by=</span><span class="st">"name"</span>)</span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 5
   name               homeworld gender.x  mass gender.y 
@@ -462,12 +500,12 @@ window.Quarto = {
 </div>
 <p>Tunnuse väärituste sisuline ühendamine käib käskuda <code>mutate()</code> ja <code>coalesce()</code> abil. Kasutame seda nii, et kaotame ära üleliigseks muutunud tunnused “gender.x”, “gender.y”.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span>inimesed_droidid<span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender=</span><span class="fu">coalesce</span>(gender.x, gender.y))<span class="sc">%&gt;%</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>gender.x, <span class="sc">-</span>gender.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>inimesed_droidid<span class="ot">&lt;-</span>inimesed_droidid<span class="sc">%&gt;%</span></span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gender=</span><span class="fu">coalesce</span>(gender.x, gender.y))<span class="sc">%&gt;%</span></span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>gender.x, <span class="sc">-</span>gender.y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 4
   name               homeworld  mass gender   
@@ -491,19 +529,19 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">dim</span>(inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 41  4</code></pre>
 </div>
 </div>
 <p>Eemaldame üleliigsed andmestikud käsuga <code>rm()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(droidid, inimesed, inimesed_gender, tegelaste_mass, inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rm</span>(droidid, inimesed, inimesed_gender, tegelaste_mass, inimesed_droidid)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="andmestiku-struktuuri-muutmine" class="level2" data-number="6.4">
 <h2 data-number="6.4" class="anchored" data-anchor-id="andmestiku-struktuuri-muutmine"><span class="header-section-number">6.4</span> Andmestiku struktuuri muutmine</h2>
-<p>Struktuuri muutmisega puutub kokku siis, kui teeme kirjeldavat statistikat ehk esitame kokkuvõtteid mingi <code>sagedustabel</code>i või <code>risttabeli</code> kujul.</p>
+<p>Struktuuri muutmisega puutub kokku siis, kui esitame kokkuvõtteid mingi <code>sagedustabel</code>i või <code>risttabeli</code> kujul.</p>
 <p>Seepärast räägin praegu <code>group_by()</code> ja <code>summarise()</code> käskude kasutamisest lühidalt. Käsu nimedest on aru saada, et andmestik grupeeritakse ringi ja summarise käsuga arvutatakse kokku kui palju ridu esineb sellises grupeeringus (<code>n()</code>).</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
@@ -516,9 +554,9 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, species)<span class="sc">%&gt;%</span></span>
-<span id="cb31-3"><a href="#cb31-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb32-2"><a href="#cb32-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, species)<span class="sc">%&gt;%</span></span>
+<span id="cb32-3"><a href="#cb32-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'gender'. You can override using the
 `.groups` argument.</code></pre>
@@ -545,11 +583,11 @@ window.Quarto = {
 <p>Muudame andmestiku <strong>laia formaati</strong> nii, et uue andmestiku tulpade nimed tulevad tunnusest “gender”. Ridadeks jäävad liigid. Tunnuste väärtuseks jääb arv, mis ütles mitu tegelast seda “gender” ja “species” esindas.</p>
 <p>Selleks lisan olesmolevale koodile juurde <code>pivot_wider()</code> ning täpsustused <code>names_from=</code> ja <code>values_from=</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, species)<span class="sc">%&gt;%</span></span>
-<span id="cb34-3"><a href="#cb34-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb34-4"><a href="#cb34-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> gender,</span>
-<span id="cb34-5"><a href="#cb34-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb35-2"><a href="#cb35-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, species)<span class="sc">%&gt;%</span></span>
+<span id="cb35-3"><a href="#cb35-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb35-4"><a href="#cb35-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pivot_wider</span>(<span class="at">names_from =</span> gender,</span>
+<span id="cb35-5"><a href="#cb35-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">values_from =</span> n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>`summarise()` has grouped output by 'gender'. You can override using the
 `.groups` argument.</code></pre>
@@ -577,7 +615,7 @@ window.Quarto = {
 <p>Lisaks <code>filter()</code> ja <code>select()</code> käskudele võib tekkida olukord, kus soov on vaja võtta mingi tükk andmestikust, kas <em>juhuslikult</em> või mingist kindlast kohast (aga pole ühtegi tunnust, mille alusel see täpselt välja filtreerida).</p>
 <p>Käsuga <code>slice()</code> saab öelda, millised ridu andmestikust eraldada on vaja. Näiteks võtame read 30 kuni 40.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(starwars, <span class="dv">30</span><span class="sc">:</span><span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">slice</span>(starwars, <span class="dv">30</span><span class="sc">:</span><span class="dv">40</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 11 × 14
    name     height  mass hair_color skin_color eye_color birth_year sex   gender
@@ -609,16 +647,16 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(starwars, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sample_n</span>(starwars, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 5 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Sly Moore    178    48 none       pale       white             NA &lt;NA&gt;  &lt;NA&gt;  
+1 Jabba De…    175  1358 &lt;NA&gt;       green-tan… orange           600 herm… mascu…
 2 Finis Va…    170    NA blond      fair       blue              91 male  mascu…
-3 San Hill     191    NA none       grey       gold              NA male  mascu…
-4 Zam Wese…    168    55 blonde     fair, gre… yellow            NA fema… femin…
-5 Adi Gall…    184    50 none       dark       blue              NA fema… femin…
+3 Nute Gun…    191    90 none       mottled g… red               NA male  mascu…
+4 Quarsh P…    183    NA black      dark       brown             62 male  mascu…
+5 Ratts Ty…     79    15 none       grey, blue unknown           NA male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
@@ -639,10 +677,10 @@ window.Quarto = {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">%&gt;%</span></span>
-<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
-<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb42-2"><a href="#cb42-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">%&gt;%</span></span>
+<span id="cb42-3"><a href="#cb42-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())<span class="sc">%&gt;%</span></span>
+<span id="cb42-4"><a href="#cb42-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">arrange</span>(<span class="sc">-</span>n)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 3 × 2
   gender        n
@@ -1078,8 +1116,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Allikad">
-        <span class="nav-page-text">Allikad</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./07-kirjeldav-statistika.html" class="pagination-link" aria-label="Kirjeldav statistika">
+        <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
