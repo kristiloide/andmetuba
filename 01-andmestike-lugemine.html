@@ -275,7 +275,8 @@ div.csl-indent {
 <section id="R-andmestikud" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="R-andmestikud"><span class="header-section-number">1.1</span> <code>R</code>-iga kaasatulevad andmestikud</h2>
 <p>Paljud paketid sisaldavad näidisandmestikke (<em>datasets</em>), mille abil on hea uusi oskusi harjutada.</p>
-<p>Käsuga <code>data()</code> (sulud seest tühjad) on võimalik näha, millised andmekogud on <code>R</code>-is saadaval, mis tulevad <code>baasversioon</code>-i või mõne muu paketiga kaasa. Käsu <code>data()</code> käivitamisel tekib töökeskkonda lisa <code>tab</code> nimega “R data sets”. Kui on soov näha kõiki saadalolevaid andmestikke, käivita allolev käsk (ilma trellideta <code>#</code>).</p>
+<p>Käsuga <code>data()</code> (sulud seest tühjad) on võimalik näha, millised andmekogud on <code>R</code>-is saadaval, mis tulevad <code>baasversioon</code>-i või mõne muu paketiga kaasa. Käsu <code>data()</code> käivitamisel tekib töökeskkonda lisa <code>tab</code> nimega “R data sets”.</p>
+<p>Kui on soov näha kõiki saadalolevaid andmestikke, käivita allolev käsk (ilma trellideta <code>#</code>).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="co">#data(package = .packages(all.available = TRUE))</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -284,7 +285,14 @@ div.csl-indent {
 <div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Nüüd on <code>Enviroment</code> keskkonnas <code>andmestik</code> “starwars”, millel on 87 vaatlust (<em>87 obs</em>) ja 14 tunnust (<em>14 variables</em>). Järgmine peatükk räägib, kuidas saada andmestikust esmane ülevaade.</p>
+<p>Nüüd on <code>Enviroment</code> keskkonnas <code>andmestik</code> “starwars”, millel on 87 vaatlust (<em>87 obs</em>) ja 14 tunnust (<em>14 variables</em>).</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/Screenshot 2024-05-29 at 15.57.20.png" class="img-fluid figure-img" width="528"></p>
+<figcaption>Environment keskkond asub vaikimisi R-studio paremal pool ülevas nurgas.</figcaption>
+</figure>
+</div>
+<p>Järgmine peatükk räägib, kuidas saada andmestikust esmane ülevaade.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">

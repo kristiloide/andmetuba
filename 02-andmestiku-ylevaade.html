@@ -259,7 +259,7 @@ div.csl-indent {
 
 
 <p>See peatükk kirjeldab, kuidas saada <a href="#andmestiku-suurus">andmestiku suurusest</a> ja <a href="#andmestiku-struktuur">struktuurist</a> esmane ülevaade.</p>
-<p>Tunnuste <strong>sisu põhjal</strong> andmestikust ülevaate saamiseks loe alapeatükki <a href="#tunnustega-tutvumine">tunnustega tutvumine</a>.</p>
+<p>Tunnuste <strong>sisu põhjal</strong> andmestikust ülevaate saamiseks loe alapeatükki <a href="03-tehniline-tunnused.html#tyybi-muutmine">tunnustega tutvumine</a>.</p>
 <p>Andmestikust ülevaate saamine hõlmab ka <a href="05-puuduvad-vaartused.html#puuduvad">puuduvate väärtustega</a> tutvumist ning selleks on eraldi peatükk.</p>
 <p><a href="03-tehniline-tunnused.html#tunnuste-muutmine">Tunnuste muutmisele</a> on pühendatud mitu peatükki, eraldi on teemadena on <a href="04-faktor-string.html#stringid">teksti</a> ja <a href="04-faktor-string.html#forcats">katoogriaid</a> sisaldavate tunnuste muutmine.</p>
 <section id="andmestiku-suurus" class="level2" data-number="2.1">
@@ -291,6 +291,12 @@ div.csl-indent {
 </div>
 </div>
 </div>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/Screenshot 2024-05-29 at 16.05.25.png" class="img-fluid figure-img" width="316"></p>
+<figcaption>Values Environment keskkonnas</figcaption>
+</figure>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#leiame kui suure osakaalu moodustab 30 starwarsi tegelastest</span></span>
 <span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a></span>
@@ -314,6 +320,12 @@ div.csl-indent {
 <section id="andmestiku-struktuur" class="level2" data-number="2.2">
 <h2 data-number="2.2" class="anchored" data-anchor-id="andmestiku-struktuur"><span class="header-section-number">2.2</span> Andmestiku struktuurist ülevaate saamine</h2>
 <p>Käsud <code>str()</code>, <code>glimpse()</code>, <code>head()</code>ja <code>tail()</code> näitavad andmestiku struktuurist nii tunnuste tüüpe kui ka ridade esimesi (v.a. <code>tail()</code>) väärtusi. Andmestiku struktuurist saab sarnase ülevaate ka <code>Environment</code> keskkonnast, kui klõpsta andmestiku nime ees olevale sinisele ikoonile.</p>
+<div class="quarto-figure quarto-figure-left">
+<figure class="figure">
+<p><img src="images/Screenshot 2024-05-29 at 16.07.51-01.png" class="img-fluid figure-img" width="268"></p>
+<figcaption>Andmestiku (ja teiste objektide) koosseisuga saab tutvuda otse Environment aknas</figcaption>
+</figure>
+</div>
 <p>Käsk <code>glimpse()</code> hoiab väheke rohkem ruumi kokku ning täiesti <em>maitse asi</em>, kas kasutada <code>glimpse()</code>, <code>str()</code> või <code>environment</code> keskkonda. Siiski soovitan alati andmestiku <em>pea</em> ja <em>saba</em> üle vaadata, et olla veendnuda, et tunnustel on nimed ning andmestiku lõpus ei ole mõnda üleolevat rida.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">glimpse</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>

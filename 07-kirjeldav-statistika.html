@@ -224,9 +224,16 @@ div.csl-indent {
     <h2 id="toc-title">Table of contents</h2>
    
   <ul>
-  <li><a href="#kirjeldav-stat" id="toc-kirjeldav-stat" class="nav-link active" data-scroll-target="#kirjeldav-stat">Kirjeldava statistika leidmine</a></li>
-  <li><a href="#sagedustabelid" id="toc-sagedustabelid" class="nav-link" data-scroll-target="#sagedustabelid"><span class="header-section-number">7.1</span> Sagedustabelid</a></li>
-  <li><a href="#mood" id="toc-mood" class="nav-link" data-scroll-target="#mood"><span class="header-section-number">7.2</span> Mood</a></li>
+  <li><a href="#kirjeldav-stat" id="toc-kirjeldav-stat" class="nav-link active" data-scroll-target="#kirjeldav-stat"><span class="header-section-number">7.1</span> Kirjeldava statistika leidmine</a>
+  <ul class="collapse">
+  <li><a href="#mood" id="toc-mood" class="nav-link" data-scroll-target="#mood">Mood leidmine <code>R</code>-is</a></li>
+  <li><a href="#sagedustabel" id="toc-sagedustabel" class="nav-link" data-scroll-target="#sagedustabel">Sagedustabelid</a></li>
+  </ul></li>
+  <li><a href="#kirjeldav-paketid" id="toc-kirjeldav-paketid" class="nav-link" data-scroll-target="#kirjeldav-paketid"><span class="header-section-number">7.2</span> Erinevad paketid kirjeldava statistika jaoks</a>
+  <ul class="collapse">
+  <li><a href="#sjmics" id="toc-sjmics" class="nav-link" data-scroll-target="#sjmics">Pakett <code>sjmics</code></a></li>
+  <li><a href="#pastecs" id="toc-pastecs" class="nav-link" data-scroll-target="#pastecs">Pakett <code>pastecs</code></a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -266,22 +273,16 @@ Lugemissoovitus
 <p>Rootalu, K. (2014). Kirjeldav statistika. K. Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/kirjeldav-statistika/" class="uri">https://samm.ut.ee/kirjeldav-statistika/</a></p>
 </div>
 </div>
-<section id="kirjeldav-stat" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="kirjeldav-stat">Kirjeldava statistika leidmine</h2>
+<section id="kirjeldav-stat" class="level2" data-number="7.1">
+<h2 data-number="7.1" class="anchored" data-anchor-id="kirjeldav-stat"><span class="header-section-number">7.1</span> Kirjeldava statistika leidmine</h2>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>käsk <code>summary()</code> annab numbrilise tunnuse puhul ülevaate, mida sagedasti kirjeldava statistika puhul vaatame. Vaata ka alapeatükki <a href="##tunnuste-sisuga-tutvumine">tunnuste sisuga tutvumine</a>, kus on numbriliste tunnuste baaskäsud kirjeldava statistika leidmiseks.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(starwars<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
-   66.0   167.0   180.0   174.6   191.0   264.0       6 </code></pre>
-</div>
-</div>
+<p>käsk <code>summary()</code> annab numbrilise tunnuse puhul sarnase ülevaate, mida sagedasti kirjeldava statistika puhul teada saada soovime. Vaata ka alapeatükki <a href="##tunnuste-sisuga-tutvumine">tunnuste sisuga tutvumine</a>, kus on numbriliste tunnuste baaskäsud kirjeldava statistika leidmiseks.</p>
+<p>Lisaks on veel rida erinevaid käske, mis teevad töötamise mugavaks ning põhjalikuma ülevaate saamiseks on parem kasutada juba <a href="#kirjeldav-paketid">spetsiaalselt kirjeldava statistika saamiseks loodud pakette</a>.</p>
 <p>Kvantiilide leidmiseks on käsk <code>quantile()</code>, mille sees tuleb täpsustada mitmendat kvantiili soovime teada.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="fl">0.25</span>, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="fl">0.25</span>, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>25% 
 167 </code></pre>
@@ -289,32 +290,229 @@ Lugemissoovitus
 </div>
 <p>Standardhälve leidmiseks on käsk <code>sd()</code> ja dispersiooni jaoks <code>var()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 34.77416</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 1209.242</code></pre>
 </div>
 </div>
+<section id="mood" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="mood">Mood leidmine <code>R</code>-is</h3>
+<p><code>R</code> ei anna numbriliste jaoks baaskäsuna <strong>mood</strong>-i ning selle leidmiseks peab minema ringiga.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kõige pealt on vaja salvestada väärtuste sageduse jaotus tabelisse käsuga <code>table()</code> ja seejärel tuleb leida väärtuste esinemissagedus käsu <code>sort()</code> abil järjestades nad suuremast väiksemani.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Pane tähele, et käsu <code>sort()</code> sees ei ole kasutatud käsku <code>desc()</code>, vaid täpsustatud <code>decreasing = T</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(Orange<span class="sc">$</span>age), <span class="at">decreasing =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 118  484  664 1004 1231 1372 1582 
+   5    5    5    5    5    5    5 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Tulemuste tõlendamisel arvesta võimalusega, et mõnikord andmetes moodi ei olegi.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sagedustabel" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sagedustabel">Sagedustabelid</h3>
+<p>Ühe või kahemõõtmelise sagedustabeli saamiseks piisab käsust <code>table()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ feminine masculine 
+       17        66 </code></pre>
+</div>
+</div>
+<p>Enamsti on vaja lisaks andmete jaotusele aru saada ka jagunemise proportsioonidest (osakaaludest). Selleks on mitu erinevat võimalust.</p>
+<p>Käsk <code>prop.table()</code> vajab uuritavaks tunnuseks tabelit ning tabeli võib eelnevalt salvesta eraldi objekti või kasuta kahe käsu kombinatsiooni.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Käsu <code>table()</code> põhjal toimub ka hii-ruut statistiku arvutamine, et mõnikord “tasub” väiksemate tabelite objektideks salvestamine end ära.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(starwars<span class="sc">$</span>gender))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ feminine masculine 
+0.2048193 0.7951807 </code></pre>
+</div>
+</div>
+<p>Kahemõõtmeline sagedustabel vajab sulgude sees täpsustust. Esimene tunnus pannakse ridadeks ja teine tunnus veergudeks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                
+                 feminine masculine
+  female               16         0
+  hermaphroditic        0         1
+  male                  0        60
+  none                  1         5</code></pre>
+</div>
+</div>
+<p>Kui on kahemõõtlemine sagedustabel, tuleb täpsustada kas soovitakse rea protsente (lisada sulgudesse nr 1) või tulpade oma (2). Kui ei täpsusta milliseid osakaale soovid, näitab käsk kogu tabeli proportsionaalset jaotust.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tabel<span class="ot">&lt;-</span><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabel,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                
+                   feminine  masculine
+  female         0.94117647 0.00000000
+  hermaphroditic 0.00000000 0.01515152
+  male           0.00000000 0.90909091
+  none           0.05882353 0.07575758</code></pre>
+</div>
+</div>
+<p>Kolmemõõtlemine sagedustabeli tegemine käib sama loogika alusel, kuid võib-olla on siin juba mugavam saada <code>tidyverse</code> paketi käskude (<code>group_by()</code> ja <code>summarise()</code>) abil olukorrast parem pilt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, sex)<span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'gender'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+# Groups:   gender [3]
+  gender    sex                n
+  &lt;chr&gt;     &lt;chr&gt;          &lt;int&gt;
+1 feminine  female            16
+2 feminine  none               1
+3 masculine hermaphroditic     1
+4 masculine male              60
+5 masculine none               5
+6 &lt;NA&gt;      &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="kirjeldav-paketid" class="level2" data-number="7.2">
+<h2 data-number="7.2" class="anchored" data-anchor-id="kirjeldav-paketid"><span class="header-section-number">7.2</span> Erinevad paketid kirjeldava statistika jaoks</h2>
+<section id="sjmics" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sjmics">Pakett <code>sjmics</code></h3>
+<p>Kirjeldava statistika puhul huvitab meid rohkem kui lihtsalt gruppide sees sageduse loendamine, sest näha tahame ka suhtelist ja kumulatiivset sagedust. Selleks on parem kasutada paketist <code>sjmisc</code> <span class="citation" data-cites="sjmisc">(<a href="references.html#ref-sjmisc" role="doc-biblioref">Lüdecke 2018</a>)</span> käske käsk <code>frq()</code> ja <code>descr()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;character&gt; 
+# total N=87 valid N=83 mean=1.80 sd=0.41
+
+Value     |  N | Raw % | Valid % | Cum. %
+-----------------------------------------
+feminine  | 17 | 19.54 |   20.48 |  20.48
+masculine | 66 | 75.86 |   79.52 | 100.00
+&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Basic descriptive statistics
+
+ var    type label  n NA.prc  mean    sd   se  md trimmed        range iqr
+  dd integer    dd 81    6.9 174.6 34.77 3.86 180  178.48 198 (66-264)  24
+  skew
+ -1.09</code></pre>
+</div>
+</div>
+<p>Soovi korral võib kirjutada aga käsu sisse andmestiku nime ja ülejäänud numbrilised tunnused, mille kohta ülevaadet soovime.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars, height, mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Basic descriptive statistics
+
+    var    type  label  n NA.prc   mean     sd    se  md trimmed          range
+ height integer height 81   6.90 174.60  34.77  3.86 180  178.48   198 (66-264)
+   mass numeric   mass 59  32.18  97.31 169.46 22.06  79   75.44 1343 (15-1358)
+  iqr  skew
+ 24.0 -1.09
+ 28.9  7.34</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars, sex, gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sex &lt;character&gt; 
+# total N=87 valid N=83 mean=2.67 sd=0.87
+
+Value          |  N | Raw % | Valid % | Cum. %
+----------------------------------------------
+female         | 16 | 18.39 |   19.28 |  19.28
+hermaphroditic |  1 |  1.15 |    1.20 |  20.48
+male           | 60 | 68.97 |   72.29 |  92.77
+none           |  6 |  6.90 |    7.23 | 100.00
+&lt;NA&gt;           |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;
+
+gender &lt;character&gt; 
+# total N=87 valid N=83 mean=1.80 sd=0.41
+
+Value     |  N | Raw % | Valid % | Cum. %
+-----------------------------------------
+feminine  | 17 | 19.54 |   20.48 |  20.48
+masculine | 66 | 75.86 |   79.52 | 100.00
+&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="pastecs" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pastecs">Pakett <code>pastecs</code></h3>
 <p>Kirjeldava statistika saamiseks on olemas käsk <code>stat.desc()</code> paketist <code>pastecs</code> <span class="citation" data-cites="pastecs">(<a href="references.html#ref-pastecs" role="doc-biblioref">Grosjean and Ibanez 2024</a>)</span>, mis annab vajadusel kogu andmestiku nubrilistele tunnuste kohta kompaktse ülevaate. Tunnusele “Tree” annab vastusteks <code>NA</code>, sest kuigi tunnus paistab välja nagu sisaldaks numbreid, on need tegelikult faktorid. Vaata tunnuste tüüpide muutmist <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Orange<span class="sc">$</span>Tree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Orange<span class="sc">$</span>Tree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] "ordered" "factor" </code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pastecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pastecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stat.desc</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stat.desc</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>         Tree          age circumference
 nbr.val    NA 3.500000e+01    35.0000000
@@ -345,7 +543,7 @@ coef.var   NA 5.333930e-01     0.4961988</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">stat.desc</span>(starwars<span class="sc">$</span>height), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">stat.desc</span>(starwars<span class="sc">$</span>height), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
       81.000        0.000        6.000       66.000      264.000      198.000 
@@ -353,184 +551,6 @@ coef.var   NA 5.333930e-01     0.4961988</code></pre>
    14143.000      180.000      174.605        3.864        7.689     1209.242 
      std.dev     coef.var 
       34.774        0.199 </code></pre>
-</div>
-</div>
-</section>
-<section id="sagedustabelid" class="level2" data-number="7.1">
-<h2 data-number="7.1" class="anchored" data-anchor-id="sagedustabelid"><span class="header-section-number">7.1</span> Sagedustabelid</h2>
-<p>Ühe või kahemõõtmelise sagedustabeli saamiseks piisab käsust <code>table()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- feminine masculine 
-       17        66 </code></pre>
-</div>
-</div>
-<p>Meid huvitavad andmete jaotuste proportsioonid. Käsk <code>prop.table()</code> vajab uuritavaks tunnuseks tabelit. Salvesta tabel kas eraldi objekti või kasuta kahe käsu kombinatsiooni.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(starwars<span class="sc">$</span>gender))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- feminine masculine 
-0.2048193 0.7951807 </code></pre>
-</div>
-</div>
-<p>Kahemõõtmeline sagedustabel.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                
-                 feminine masculine
-  female               16         0
-  hermaphroditic        0         1
-  male                  0        60
-  none                  1         5</code></pre>
-</div>
-</div>
-<p>Kui on kahemõõtlemine sagedustabel, tuleb täpsustada kas soovitakse rea protsente (lisada sulgudesse nr 1) või tulpade oma (2). Kui ei täpsusta, näitab kogu tabeli proportsionaalset jaotust.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>tabel<span class="ot">&lt;-</span><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabel,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                
-                   feminine  masculine
-  female         0.94117647 0.00000000
-  hermaphroditic 0.00000000 0.01515152
-  male           0.00000000 0.90909091
-  none           0.05882353 0.07575758</code></pre>
-</div>
-</div>
-<p>Kolmemõõtlemine sagedustabeli tegemin käib sama loogika alusel, kuid võib-olla on siin juba mugavam saada <code>tidyverse</code> paketi käskude <code>group_by()</code> ja <code>summarise()</code> abil olukorrast parem pilt.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, sex)<span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>`summarise()` has grouped output by 'gender'. You can override using the
-`.groups` argument.</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 3
-# Groups:   gender [3]
-  gender    sex                n
-  &lt;chr&gt;     &lt;chr&gt;          &lt;int&gt;
-1 feminine  female            16
-2 feminine  none               1
-3 masculine hermaphroditic     1
-4 masculine male              60
-5 masculine none               5
-6 &lt;NA&gt;      &lt;NA&gt;               4</code></pre>
-</div>
-</div>
-<p>Kirjeldava statistika puhul huvitab meid rohkem kui lihtsalt gruppide sees sageduse loendamine, sest näha tahame ka suhtelist ja kumulatiivset sagedust. Selleks on parem kasutada paketist <code>sjmisc</code> <span class="citation" data-cites="sjmisc">(<a href="references.html#ref-sjmisc" role="doc-biblioref">Lüdecke 2018</a>)</span> käske käsk <code>frq()</code> ja <code>descr()</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>x &lt;character&gt; 
-# total N=87 valid N=83 mean=1.80 sd=0.41
-
-Value     |  N | Raw % | Valid % | Cum. %
------------------------------------------
-feminine  | 17 | 19.54 |   20.48 |  20.48
-masculine | 66 | 75.86 |   79.52 | 100.00
-&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-## Basic descriptive statistics
-
- var    type label  n NA.prc  mean    sd   se  md trimmed        range iqr
-  dd integer    dd 81    6.9 174.6 34.77 3.86 180  178.48 198 (66-264)  24
-  skew
- -1.09</code></pre>
-</div>
-</div>
-<p>Soovi korral võib kirjutada aga käsu sisse andmestiku nime ja ülejäänud numbrilised tunnused, mille kohta ülevaadet soovime.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars, height, mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-## Basic descriptive statistics
-
-    var    type  label  n NA.prc   mean     sd    se  md trimmed          range
- height integer height 81   6.90 174.60  34.77  3.86 180  178.48   198 (66-264)
-   mass numeric   mass 59  32.18  97.31 169.46 22.06  79   75.44 1343 (15-1358)
-  iqr  skew
- 24.0 -1.09
- 28.9  7.34</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars, sex, gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>sex &lt;character&gt; 
-# total N=87 valid N=83 mean=2.67 sd=0.87
-
-Value          |  N | Raw % | Valid % | Cum. %
-----------------------------------------------
-female         | 16 | 18.39 |   19.28 |  19.28
-hermaphroditic |  1 |  1.15 |    1.20 |  20.48
-male           | 60 | 68.97 |   72.29 |  92.77
-none           |  6 |  6.90 |    7.23 | 100.00
-&lt;NA&gt;           |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;
-
-gender &lt;character&gt; 
-# total N=87 valid N=83 mean=1.80 sd=0.41
-
-Value     |  N | Raw % | Valid % | Cum. %
------------------------------------------
-feminine  | 17 | 19.54 |   20.48 |  20.48
-masculine | 66 | 75.86 |   79.52 | 100.00
-&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
-</div>
-</div>
-</section>
-<section id="mood" class="level2" data-number="7.2">
-<h2 data-number="7.2" class="anchored" data-anchor-id="mood"><span class="header-section-number">7.2</span> Mood</h2>
-<p><code>R</code> ei anna <strong>mood</strong>-i ning selle leidmiseks peab minema ringiga.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Kõige pealt on vaja salvestada väärtuste sageduse jaotus tabelisse käsuga <code>table()</code> ja seejärel tuleb leida väärtuste esinemissagedus käsu <code>sort()</code> abil järjestades nad suuremast väiksemani.</p>
-</div>
-</div>
-</div>
-<div class="callout callout-style-simple callout-caution">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Pane tähele, et käsu <code>sort()</code> sees ei ole kasutatud käsku <code>desc()</code>, vaid täpsustatud <code>decreasing = T</code>.</p>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(Orange<span class="sc">$</span>age), <span class="at">decreasing =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
- 118  484  664 1004 1231 1372 1582 
-   5    5    5    5    5    5    5 </code></pre>
-</div>
-</div>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Tulemuste tõlendamisel arvesta võimalusega, et mõnikord andmetes moodi ei olegi.</p>
-</div>
 </div>
 </div>
 
@@ -543,6 +563,7 @@ Grosjean, Philippe, and Frederic Ibanez. 2024. <em>Pastecs: Package for Analysis
 Lüdecke, Daniel. 2018. <span>“Sjmisc: Data and Variable Transformation Functions.”</span> <em>Journal of Open Source Software</em> 3 (26): 754. <a href="https://doi.org/10.21105/joss.00754">https://doi.org/10.21105/joss.00754</a>.
 </div>
 </div>
+</section>
 </section>
 
 </main> <!-- /main -->
