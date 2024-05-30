@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -156,6 +210,12 @@ ul.task-list li input[type="checkbox"] {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./08-seosed-tunnustes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -171,7 +231,14 @@ ul.task-list li input[type="checkbox"] {
    
   <ul>
   <li><a href="#puuduvad" id="toc-puuduvad" class="nav-link active" data-scroll-target="#puuduvad"><span class="header-section-number">5.1</span> Miks vaadata puuduvad väärtusi?</a></li>
-  <li><a href="#mida-puuduvad" id="toc-mida-puuduvad" class="nav-link" data-scroll-target="#mida-puuduvad"><span class="header-section-number">5.2</span> Mida teha puuduvate väärtustega?</a></li>
+  <li><a href="#mida-puuduvad" id="toc-mida-puuduvad" class="nav-link" data-scroll-target="#mida-puuduvad"><span class="header-section-number">5.2</span> Mida teha puuduvate väärtustega?</a>
+  <ul class="collapse">
+  <li><a href="#puuduvad-leidmine" id="toc-puuduvad-leidmine" class="nav-link" data-scroll-target="#puuduvad-leidmine">Puuduvate väärtuste leidmine</a></li>
+  <li><a href="#puuduvate-vaatamine" id="toc-puuduvate-vaatamine" class="nav-link" data-scroll-target="#puuduvate-vaatamine">Puuduvate väärtuste vaatamine</a></li>
+  <li><a href="#replace-na" id="toc-replace-na" class="nav-link" data-scroll-target="#replace-na">Puuduvate väärtuste ringikodeerimine</a></li>
+  <li><a href="#na-if" id="toc-na-if" class="nav-link" data-scroll-target="#na-if">Väärtuste märkimine puuduvaks</a></li>
+  <li><a href="#drop-na" id="toc-drop-na" class="nav-link" data-scroll-target="#drop-na">Puuduvate väärtuste kõrvale jätmine</a></li>
+  </ul></li>
   </ul>
 </nav>
     </div>
@@ -204,35 +271,244 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="mida-puuduvad" class="level2" data-number="5.2">
 <h2 data-number="5.2" class="anchored" data-anchor-id="mida-puuduvad"><span class="header-section-number">5.2</span> Mida teha puuduvate väärtustega?</h2>
+<p>Puuduvate väärtustega toimetulek võib tähendada viite lähenemist.</p>
+<ol type="1">
+<li>Kustutada kõik read, kus on puuduvad väärtused (äärmuslik).</li>
+<li>Kustutada need read, kus on puuduv väärtus kindlas tunnuses.</li>
+<li>Muuta puuduva väärtus mingiks kindlaks väärtuseks (nt “teadmata”).</li>
+<li>Vastupidi, muuta kindel väärtus hoopis <code>NA</code> ks (näiteks <code>0</code>, <code>"-"</code> või <code>" "</code>).</li>
+<li>Muuta puuduv väärtus mingiks <em>“best-guess”</em> väärtuseks (nt keskmine). Vaata tunnuste sisu muutmist <a href="03-tehniline-tunnused.html#sisu-muutmine">siit</a>.</li>
+</ol>
+<ul>
+<li><code>is.na()</code> - kas on puuduvad väärtusi (FALSE/TRUE)</li>
+<li><code>na_if()</code>- saab ära muuta väärtuse <code>NA</code>-ks. Toimib põhimõttel, et esmalt ütled tunnuse, seejärel väärtuse mis panna <code>NA</code>ks.</li>
+</ul>
+<p>Olemas on ka eraldi paketid, et tulla toime puuduvate väärtustega.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="puuduvad-leidmine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="puuduvad-leidmine">Puuduvate väärtuste leidmine</h3>
+<p>Kasutan näiteks uuesti starwars andmestikku, aga jätan sealt välja need tunnused, mis sisaldavad liste.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name<span class="sc">:</span>species)</span>
+<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(starwars)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="1">valin tunnused, et eemaldada testandmestikust “list” tüüpi tunnused</span>
+</dd>
+<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="2">Tuletan meelde, kui palju on andmestikus ridu.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 87</code></pre>
+</div>
+</div>
+<p>Seejärel vaatan andmestiku päist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 11
+  name      height  mass hair_color skin_color eye_color birth_year sex   gender
+  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
+2 C-3PO        167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
+3 R2-D2         96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
+4 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
+5 Leia Org…    150    49 brown      light      brown           19   fema… femin…
+6 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
+# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Näeme, et meie andmestik sisaldab puuduvaid väärtusi. Üks võimalus puuduvatest väärtustest vabanemiseks on kasutada käsku <code>na.omit()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 29 × 11
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
+ 2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
+ 3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
+ 4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
+ 5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
+ 6 Biggs D…    183    84 black      light      brown           24   male  mascu…
+ 7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
+ 8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
+ 9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
+10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
+# ℹ 19 more rows
+# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Käsu <code>na.omit()</code> kasutamine on õigustatud ainult siis, kui tead täpselt, <strong>kus</strong> on puuduvad väärtused, <strong>miks</strong> nad on puuduvad ja <strong>kui palju</strong> neid on.</p>
+</div>
+</div>
+</div>
+<p>Meid aga huvitab, kus kohas need puuduvad väärtused ja tahame nad välja filtreerida. Abiks on käsk <code>complete.cases(.)</code>. Puuduvate väärtuste tuvastamiseks on mõistlikum pöörata käsk tagurpidi ja küsida välja read, mis sisaldavad puuduvaid väärtusi ehk <code>!complete.cases(.)</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(starwars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 58 × 11
+   name     height  mass hair_color skin_color eye_color birth_year sex   gender
+   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
+ 1 C-3PO       167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
+ 2 R2-D2        96    32 &lt;NA&gt;       white, bl… red               33 none  mascu…
+ 3 R5-D4        97    32 &lt;NA&gt;       white, red red               NA none  mascu…
+ 4 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
+ 5 Greedo      173    74 &lt;NA&gt;       green      black             44 male  mascu…
+ 6 Jabba D…    175  1358 &lt;NA&gt;       green-tan… orange           600 herm… mascu…
+ 7 Jek Ton…    180   110 brown      fair       blue              NA &lt;NA&gt;  &lt;NA&gt;  
+ 8 Yoda         66    17 white      green      brown            896 male  mascu…
+ 9 IG-88       200   140 none       metal      red               15 none  mascu…
+10 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
+# ℹ 48 more rows
+# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+</div>
+</div>
+<p>Näiteks näeme, et puuduvad väärtused on ridamisi hair_color tunnuse all.</p>
+</section>
+<section id="puuduvate-vaatamine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="puuduvate-vaatamine">Puuduvate väärtuste vaatamine</h3>
+<p>Soovime puuduvad väärtused välja filtreerida, et vaadata neid tegelasi lähemalt, kellel on juuksevärvi info puudu. Käsk <code>is.na()</code> annab TRUE/FALSE vastuse ning on sedasorti filteerimiseks ideaalne.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-2" class="code-annotation-target"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(hair_color))<span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, species, hair_color)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-7" data-code-lines="2" data-code-annotation="1">Näita neid ridu, kus tunnuse väärtus on puudu</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 5 × 3
+  name                  species hair_color
+  &lt;chr&gt;                 &lt;chr&gt;   &lt;chr&gt;     
+1 C-3PO                 Droid   &lt;NA&gt;      
+2 R2-D2                 Droid   &lt;NA&gt;      
+3 R5-D4                 Droid   &lt;NA&gt;      
+4 Greedo                Rodian  &lt;NA&gt;      
+5 Jabba Desilijic Tiure Hutt    &lt;NA&gt;      </code></pre>
+</div>
+</div>
+</section>
+<section id="replace-na" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="replace-na">Puuduvate väärtuste ringikodeerimine</h3>
+<p>Nüüd selgub, et kõik need, kellel on juuksevärv puudu on tegelased, kellel polegi juukseid. Saame need tegelased alles jätta ja ringi kodeerida.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>hair_color<span class="ot">&lt;-</span><span class="fu">replace_na</span>(starwars<span class="sc">$</span>hair_color, <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(hair_color)<span class="sc">%&gt;%</span></span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>hair_color
+       auburn  auburn, grey auburn, white         black         blond 
+            1             1             1            13             3 
+       blonde         brown   brown, grey          grey          none 
+            1            18             1             1            43 
+        white 
+            4 </code></pre>
+</div>
+</div>
+</section>
+<section id="na-if" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="na-if">Väärtuste märkimine puuduvaks</h3>
+<p>Nüüd soovin, et hair_color tunnuse grupp “none” oleks andmesitkus <code>NA</code>.</p>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Mõtle hoolega läbi, kas tahad muuta tunnust või mitte. “Pole juukseid” ehk “none” on igal juhul selge info selle kohta, miks juuksevärvi pole andmetes kirjas. <code>NA</code> peaks tähendama ikka seda, et info juuste olemasolu ja värvi kohta täielikult info puudub.</p>
+</div>
+</div>
+</div>
+<p>Kasutada saab käsku <code>na_if()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>hair_color<span class="ot">&lt;-</span><span class="fu">na_if</span>(starwars<span class="sc">$</span>hair_color, <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="drop-na" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="drop-na">Puuduvate väärtuste kõrvale jätmine</h3>
+<p>Näiteks tahame teha graafikut, kuidas jaguneb tunnus “hair_color”.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Peatükk on täiendamisel</p>
+<p>Andmete visuaalse esitamise kohta tuleb eraldi peatükk, mis tutvustab põhjalikumalt paketti <code>ggplot2</code> <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> kasutamist (mis on ka osa <code>tidyverse</code> pakettidest). Need joonised ei ole “head” joonised. Praegu õpime käsu <code>drop_na()</code> kasutamist.</p>
 </div>
 </div>
 </div>
-<p>Puuduvate väärtustega toimetulek võib tähendada viite lähenemist.</p>
-<ol type="1">
-<li>Kustutada kõik read, kus on puuduvad väärtused (äärmuslik)</li>
-<li>Kustutada need read, kus on puuduv väärtus kindlas tunnuses</li>
-<li>Muuta puuduva väärtus mingiks kindlaks väärtuseks (“teadmata”)</li>
-<li>Vastupidi. Mingi kindel väärtus on vaja muuta <code>NA</code> ks (näiteks 0)</li>
-<li>Muuta puuduv väärtus mingiks “best-guess” väärtuseks (keskmine)</li>
-</ol>
-<ul>
-<li><code>is.na()</code> - kas on puuduvad väärtusi (FALSE/TRUE)</li>
-<li><code>complete.cases(.)</code> - kõik read, kus on pole puuduvaid väärtusi. Puuduvate väärtuste tuvastamisek on mõistlikum pöörata käsk tagurpidi ja küsida välja read, mis sisaldavad puuduvaid väärtusi ehk <code>!complete.cases(.)</code></li>
-<li><code>na.omit()</code> - eemdalb kõik read, kus on puuduvad väärtuseid. Ei soovita kasutada enne kui ei ole tuvastanud, miks on puuduvad väärtused.</li>
-<li><code>drop_na()</code>- saab öelda, mis tunnuse <code>NA</code>väärtused eemaldada.</li>
-<li><code>replace_na()</code>- replace(tunnusenimi, “uus väärtus”)</li>
-<li><code>na_if()</code>- saab ära muuta väärtuse <code>NA</code>-ks. Toimib põhimõttel, et esmalt ütled tunnuse, seejärel väärtuse mis panna <code>NA</code>ks.</li>
-</ul>
-<p>Olemas on ka eraldi paketid, et tulla toime puuduvate väärtustega.</p>
+<p>Vaikimisi paneb <code>R</code> ka puuduvad väärtused pildile.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gender, <span class="at">fill=</span>hair_color))<span class="sc">+</span></span>
+<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-puuduvad-vaartused_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Käsuga <code>drop_na()</code>- saab öelda, mis tunnuse <code>NA</code> väärtused järgmistest sammudest kõrvale jätta ilma, et peaks andmestikust ridu eemaldama hakkama.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(hair_color, gender)<span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-12-3"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gender, <span class="at">fill=</span>hair_color))<span class="sc">+</span></span>
+<span id="annotated-cell-12-4"><a href="#annotated-cell-12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="1">Eemaldab tühjad väärtused tunnusest, et neid pildil mitte kuvada.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="05-puuduvad-vaartused_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-ggplot2" class="csl-entry" role="listitem">
+Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+</div>
+</div>
+</section>
 </section>
 
 </main> <!-- /main -->

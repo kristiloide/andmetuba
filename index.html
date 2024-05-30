@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 <meta name="author" content="Kristi Loide">
-<meta name="dcterms.date" content="2024-05-29">
+<meta name="dcterms.date" content="2024-05-30">
 
 <title>Andmetuba</title>
 <style>
@@ -211,6 +211,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./08-seosed-tunnustes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -255,7 +261,7 @@ div.csl-indent {
     <div>
     <div class="quarto-title-meta-heading">Published</div>
     <div class="quarto-title-meta-contents">
-      <p class="date">May 29, 2024</p>
+      <p class="date">May 30, 2024</p>
     </div>
   </div>
   
@@ -311,22 +317,73 @@ div.csl-indent {
 </section>
 <section id="sonavara" class="level2 unnumbered">
 <h2 class="unnumbered anchored" data-anchor-id="sonavara"><code>R</code>- i sõnavara</h2>
-<p><code>R</code> võimaldab teha andmetega mitmesuguseid tehteid. Tavapärane liitmine ja lahutamine toimubki vastavalt kas <code>+</code> või <code>-</code> märgiga. Jagamiseks on märk <code>/</code> ning korrutamiseks <code>*</code>. Selleks, et teha keerukamat lauset, on vaja tunda ka järgmisi märke:</p>
-<ul>
-<li><code>$</code> - “kõnetab” konkreetset <code>tunnust</code> <code>andmestik</code>-us (vaata ka [tunnustega tutvumine])</li>
-<li><code>==</code> - võrdne</li>
-<li><code>&lt;</code> - väiksem kui</li>
-<li><code>&gt;</code> - suurem kui</li>
-<li><code>!</code> - pöörab käsu tagurpidi</li>
-<li><code>&lt;=</code> - väiksem või võrdne</li>
-<li><code>!=</code> ei ole võrdne</li>
-<li><code>|</code> - või</li>
-<li><code>&amp;</code> - ja</li>
-<li><code>%in%</code> - kas tunnus <strong>sisaldab</strong> väärtust</li>
-<li><code>%&gt;%</code> või <code>|&gt;</code> - <strong>ja siis</strong> või <strong>seejärel</strong> (tee järgmist asja). Selle kohta öeldakse ka <em>torud</em> või <em>pipes</em>. Klahvilühend ctrl+shift+M või command+shift+M. Mina olen harjunud kasutama torusid selliselt <code>%&gt;%</code>.</li>
-<li><code>?</code> - koos käsu nimega avab käsu dokumentatsiooni</li>
-<li><code>#</code>- kommenteerib teksti käsust välja ehk <code>#</code> järgselt ei tekst osa koodist. Tee nii omale märkmeid koodi kohta.</li>
-</ul>
+<p><code>R</code> võimaldab teha andmetega mitmesuguseid tehteid. Tavapärane liitmine ja lahutamine toimubki vastavalt kas <code>+</code> või <code>-</code> märgiga. Jagamiseks on märk <code>/</code> ning korrutamiseks <code>*</code>. Selleks, et teha keerukamat lauset, on vaja tunda ka järgmisi märke.</p>
+<table class="table">
+<thead>
+<tr class="header">
+<th style="text-align: center;">Sümbol</th>
+<th>Tegevus või tähendus</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td style="text-align: center;"><code>&lt;-</code></td>
+<td>abil anname mingile objektile teatud väärtuse</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>$</code></td>
+<td>“kõnetab” konkreetset <code>tunnust</code> <code>andmestik</code>-us (vaata ka <a href="02-andmestiku-ylevaade.html#tunnustega-tutvumine">tunnustega tutvumine</a> )</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>%&gt;%</code> või <code>|&gt;</code></td>
+<td><strong>ja siis</strong> või <strong>seejärel</strong> (tee järgmist asja). Selle kohta öeldakse ka <em>torud</em> või <em>pipes</em>. Klahvilühend ctrl+shift+M või command+shift+M. Mina olen harjunud kasutama torusid selliselt <code>%&gt;%</code>.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>%in%</code></td>
+<td>kas tunnus <strong>sisaldab</strong> väärtust</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>#</code></td>
+<td>kommenteerib teksti käsust välja ehk <code>#</code> järgselt ei tekst osa koodist. Tee nii omale märkmeid koodi kohta.</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>?</code></td>
+<td>koos käsu nimega avab käsu dokumentatsiooni</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>==</code></td>
+<td>võrdne</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>&lt;</code></td>
+<td>väiksem kui</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>&gt;</code></td>
+<td>suurem kui</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>&lt;=</code></td>
+<td>väiksem või võrdne</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>!</code></td>
+<td>pöörab käsu tagurpidi</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>!=</code></td>
+<td>ei ole võrdne</td>
+</tr>
+<tr class="odd">
+<td style="text-align: center;"><code>|</code></td>
+<td>või</td>
+</tr>
+<tr class="even">
+<td style="text-align: center;"><code>&amp;</code></td>
+<td>ja</td>
+</tr>
+</tbody>
+</table>
 <p>Peaaegu kõik <em>levinud</em> funktsioonid algavad <code>R</code>-is väikese tähega ning neile järgnevad sulud <code>()</code>. <code>funktsioon</code> on <code>käsk</code>, mis ütleb programmile, mida teha tuleb. Enamasti ütleb käsu nimi juba, mida ta tegema peab (näiteks käsk <code>filter()</code>), kuid <code>R</code>-ile tuleb sulgudes sees täpsustada, milliste andmetega antud käsku täita. <code>R</code>-is on väga oluline, kas kasutusel on suured või väikesed tähed, teatud sümbolite kasutamine <code>R</code>-ile ei meeldi ning kui <code>R</code>, millestki aru või hakkama ei saa, siis ta seda ka ütleb.</p>
 <p><code>tidyverse</code> pakett laiendab <code>R</code>-i sõnavara olulisel määral. <code>Baasversioon</code>iga on võimalik ka palju ära teha, kuid mina eelistan kasutada pigem <code>tidyverse</code> lähenemist.</p>
 <p>Näide, kuidas sama asja saab kirjutada kahel erineval viisil. Esimene neist on nn <code>baasversioon</code>i lähenemine ja teine <code>tidyverse</code> oma. Mõlema koodijupi käivitamine annab sama tulemuse.</p>
