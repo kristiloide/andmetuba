@@ -84,7 +84,7 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./09-keskmiste-vordlus.html" rel="next">
 <link href="./07-kirjeldav-statistika.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -216,6 +216,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./09-keskmiste-vordlus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Keskmiste võrdlus</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -263,7 +269,7 @@ div.csl-indent {
 </header>
 
 
-<p>See peatükk annab ülevaate, kuidas leida <code>R</code>-is seosekordajate väärtused tunnuste vahel. Sõltuvalt kasutusel olevatest tunnustest tuleb valida sobiv analüüsimeetod.</p>
+<p>See peatükk annab ülevaate, kuidas leida <code>R</code>-is seosekordajate väärtused tunnuste vahel. Analüüsimeetod tuleb valida vastavalt analüüsitavatele tunnustele.</p>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -332,7 +338,7 @@ X-squared = 77.883, df = 3, p-value &lt; 2.2e-16</code></pre>
 <h2 data-number="8.2" class="anchored" data-anchor-id="crameri-v"><span class="header-section-number">8.2</span> Crameri V</h2>
 <p><code>Crameri V</code> leidmiseks on käsk <code>CramerV()</code>, mille saab paketist <code>DescTools</code><span class="citation" data-cites="DescTools">(<a href="references.html#ref-DescTools" role="doc-biblioref">Signorell 2024</a>)</span>.</p>
 <p><code>Crameri V</code> väärtus jääb vahemikku 0 kuni 1. Mida lähemale number ühele, seda suurem on seos.</p>
-<p>Kui <code>hii ruut</code> statistiku väärtused ei ole erinevate tabelite suuruse osas omavahel võrreldavad, siis <code>Crameri V</code> on.</p>
+<p>Kui <code>hii-ruut</code> statistiku väärtused ei ole erinevate tabelite suuruse osas omavahel võrreldavad, siis <code>Crameri V</code> on.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(DescTools)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -345,7 +351,7 @@ X-squared = 77.883, df = 3, p-value &lt; 2.2e-16</code></pre>
 0.9686868 0.7393305 1.0000000 </code></pre>
 </div>
 </div>
-<p><code>Crameri V</code> väärtus on peaaegu 1, mis näitab et tunnuste sex ja gender on tugevas seoses. Liigi ja gender omavaheline seos on nõrgem kui sex ja gender.</p>
+<p><code>Crameri V</code> väärtus on peaaegu 1, mis näitab et tunnuste sex ja gender on tugevas seoses. Species ja gender omavaheline seos on nõrgem kui sex ja gender.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>gender, starwars<span class="sc">$</span>species)<span class="sc">%&gt;%</span></span>
 <span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">CramerV</span>(, <span class="at">conf.level=</span><span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -357,7 +363,7 @@ X-squared = 77.883, df = 3, p-value &lt; 2.2e-16</code></pre>
 </section>
 <section id="korrelatsioon" class="level2" data-number="8.3">
 <h2 data-number="8.3" class="anchored" data-anchor-id="korrelatsioon"><span class="header-section-number">8.3</span> Korrelatsioon</h2>
-<p>Kahe arvutunnuse vahelist seost vaadatakse <strong>Pearsoni</strong> korralatsioonikordajaga ning käsk <code>cor()</code> tuleb <code>baasversioonist</code>. <strong>Spearmani</strong> korrelatsioonikordajat kasutatakse kas kahe arvulise või järjestustunnuse vahel. Käsk on mõlemal juhul sama, täpsustada tuleks arvutusmeetod (vaikimisi on “pearson”, valida saab ka “kendall”).</p>
+<p>Kahe arvutunnuse vahelist seost vaadatakse <strong>Pearsoni</strong> korralatsioonikordajaga ning käsk <code>cor()</code> tuleb <code>baasversioonist</code>. <strong>Spearmani</strong> korrelatsioonikordajat kasutatakse kas kahe arvulise või järjestustunnuse vahel. Käsk <code>cor()</code> on mõlemal juhul sama, kuid täpsustada tuleks arvutusmeetod (vaikimisi on “pearson”, valida saab ka “kendall”).</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-6"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-6-1"><a href="#annotated-cell-6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(starwars<span class="sc">$</span>height, starwars<span class="sc">$</span>mass, </span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-6" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-6-2" class="code-annotation-target"><a href="#annotated-cell-6-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">use=</span><span class="st">"complete.obs"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -373,8 +379,8 @@ X-squared = 77.883, df = 3, p-value &lt; 2.2e-16</code></pre>
 <pre><code>[1] 0.130859</code></pre>
 </div>
 </div>
-<p>Seos on positiivne ehk mida pikem on tegelane, seda suurem on ka tema mass. Seose tugevus pehmelt öeldes <em>pigem tagasihoidlik</em>.</p>
-<p>Käsku cor() saab kasutada ka tervele maatriksile (kui see sisaldab numbrilisi väärtusi).</p>
+<p>Seos on positiivne ehk mida pikem on tegelane, seda suurem on ka tema mass. Seose tugevus on pehmelt öeldes <em>pigem tagasihoidlik</em>.</p>
+<p>Käsku <code>cor()</code> saab kasutada ka tervele maatriksile (kui see sisaldab numbrilisi väärtusi).</p>
 <p>Võtame kasutusele <code>R</code>-i andmesitku “mtcars”, kus on kokku 11 arvtunnust. Andmestik sisaldab 32 auto kohta infot (kütusekulu, silindrite arv, kaal jne). Loe andmesitku koha rohkem käivitades käsk <code>?mtcars.</code></p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
@@ -385,17 +391,14 @@ X-squared = 77.883, df = 3, p-value &lt; 2.2e-16</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Kirjeldusest selgub, et tunnused “vs” ja “am” sisaldavad küll numbreid, kuid tegelikut tähistavad kategooriaid. Eemaldan need.</p>
+<p>Kirjeldusest <em>(ehk ?mtcars vaadates)</em> selgub, et tunnused “vs” ja “am” sisaldavad küll numbreid, kuid tegelikut tähistavad kategooriaid. Eemaldan need, alles jääb 9 tunnust.</p>
 </div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>?mtcars</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="ot">&lt;-</span>mtcars<span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>vs, <span class="sc">-</span>am)</span>
-<span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="ot">&lt;-</span>mtcars<span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>vs, <span class="sc">-</span>am)</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a><span class="fu">head</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>                   mpg cyl disp  hp drat    wt  qsec gear carb
 Mazda RX4         21.0   6  160 110 3.90 2.620 16.46    4    4
@@ -408,10 +411,7 @@ Valiant           18.1   6  225 105 2.76 3.460 20.22    3    1</code></pre>
 </div>
 <p>Teeme käsuga <code>cor()</code> korrellatsioonimaatriksi.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>?<span class="fu">cor</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cor</span>(mtcars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>            mpg        cyl       disp         hp        drat         wt
 mpg   1.0000000 -0.8521620 -0.8475514 -0.7761684  0.68117191 -0.8676594
@@ -439,14 +439,66 @@ carb -0.65624923  0.2740728  1.0000000</code></pre>
 <h3 class="unnumbered anchored" data-anchor-id="corrplot">Korrelatsioon paketiga <code>corrplot</code></h3>
 <p>Kui on soov korrellatsioonimaatriksit kuvada välja, võib abi olla paketist<code>corrplot</code><span class="citation" data-cites="corrplot2021">(<a href="references.html#ref-corrplot2021" role="doc-biblioref">Wei and Simko 2021</a>)</span>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(corrplot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
 <pre><code>corrplot 0.92 loaded</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"number"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"number"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Näeme, et väga tugevas seoses on cyl (silindrite arv) ja hp (hobujõud) 0.83. Mida rohkem silindreid, seda võimsam on auto. Tugev negatiivne korrellatsioon on cyl ja mpg (läbisõit miles/gallon ehk kui mitu miili ühe galloniga sõita saab) vahel. Mida rohkem silindreid, seda lühem on auto läbisõit.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
+<span id="annotated-cell-12-2"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"circle"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-12-3" class="code-annotation-target"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">type=</span><span class="st">"lower"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-12" data-code-lines="3" data-code-annotation="1">Vaikimisi on “full”. Saab valida, kas kuvada joonisel alumine või ülemine “kolmnurk” matriksist.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-13"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
+<span id="annotated-cell-13-2"><a href="#annotated-cell-13-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"shade"</span>,</span>
+<span id="annotated-cell-13-3"><a href="#annotated-cell-13-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">type=</span><span class="st">"upper"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-13-4" class="code-annotation-target"><a href="#annotated-cell-13-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"white"</span>, <span class="st">"grey"</span>),</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-13-5" class="code-annotation-target"><a href="#annotated-cell-13-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">addshade=</span><span class="st">"all"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-13" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-13-6" class="code-annotation-target"><a href="#annotated-cell-13-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col=</span><span class="st">"black"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-13" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="4" data-code-annotation="1">Saab lisada vektori kujul värvid, mida joonisel kasutada. Kui on soov pöörata must-valgeks (printer-friendly).</span>
+</dd>
+<dt data-target-cell="annotated-cell-13" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="5" data-code-annotation="2">Muudab ära taustavärvi triibuliseks, saab valida kas “all”, “positive” või “negative” arvud.</span>
+</dd>
+<dt data-target-cell="annotated-cell-13" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-13" data-code-lines="6" data-code-annotation="3">Muudab teksti värvi</span>
+</dd>
+</dl>
+</div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
@@ -455,16 +507,15 @@ carb -0.65624923  0.2740728  1.0000000</code></pre>
 </div>
 </div>
 </div>
-<p>Näeme, et väga tugevas seoses on cyl (silindrite arv) ja hp (hobujõud) 0.83. Mida rohkem silindreid seda võimsam auto. Tugev negatiivne korrellatsioon on cyl ja mpg (läbisõit miles/gallon ehk kui mitu miili ühe galloniga sõita saab) vahel. Mida rohkem silindreid, seda lühem läbisõit.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-14"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-14-1"><a href="#annotated-cell-14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
-<span id="annotated-cell-14-2"><a href="#annotated-cell-14-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"circle"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-14-3" class="code-annotation-target"><a href="#annotated-cell-14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">type=</span><span class="st">"lower"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="annotated-cell-14-2"><a href="#annotated-cell-14-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"color"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-14" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-14-3" class="code-annotation-target"><a href="#annotated-cell-14-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">order=</span><span class="st">"AOE"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
 <dt data-target-cell="annotated-cell-14" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-14" data-code-lines="3" data-code-annotation="1">Vaikimisi on “full”. Saab valida, kas kuvada joonisel alumine või ülemine “kolmnurk” matriksist.</span>
+<span data-code-cell="annotated-cell-14" data-code-lines="3" data-code-annotation="1">Muudab maatriksis tunnuste järjekorda</span>
 </dd>
 </dl>
 </div>
@@ -476,67 +527,16 @@ carb -0.65624923  0.2740728  1.0000000</code></pre>
 </div>
 </div>
 </div>
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-15"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-15-1"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
-<span id="annotated-cell-15-2"><a href="#annotated-cell-15-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"shade"</span>,</span>
-<span id="annotated-cell-15-3"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">type=</span><span class="st">"upper"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-15-4" class="code-annotation-target"><a href="#annotated-cell-15-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">col=</span><span class="fu">c</span>(<span class="st">"black"</span>, <span class="st">"white"</span>, <span class="st">"grey"</span>),</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-15-5" class="code-annotation-target"><a href="#annotated-cell-15-5" aria-hidden="true" tabindex="-1"></a>         <span class="at">addshade=</span><span class="st">"all"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-15-6" class="code-annotation-target"><a href="#annotated-cell-15-6" aria-hidden="true" tabindex="-1"></a>         <span class="at">tl.col=</span><span class="st">"black"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-15" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-15" data-code-lines="4" data-code-annotation="1">Saab lisada vektori kujul värvid, mida joonisel kasutada. Kui on soov pöörata must-valgeks (printer-friendly).</span>
-</dd>
-<dt data-target-cell="annotated-cell-15" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-15" data-code-lines="5" data-code-annotation="2">Muudab ära taustavärvi triibuliseks, saab valida kas “all”, “positive” või “negative” arvud.</span>
-</dd>
-<dt data-target-cell="annotated-cell-15" data-target-annotation="3">3</dt>
-<dd>
-<span data-code-cell="annotated-cell-15" data-code-lines="6" data-code-annotation="3">Muudab teksti värvi</span>
-</dd>
-</dl>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-16"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-16-1"><a href="#annotated-cell-16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">corrplot</span>(<span class="fu">cor</span>(mtcars), </span>
-<span id="annotated-cell-16-2"><a href="#annotated-cell-16-2" aria-hidden="true" tabindex="-1"></a>         <span class="at">method=</span><span class="st">"color"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-16" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-16-3" class="code-annotation-target"><a href="#annotated-cell-16-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">order=</span><span class="st">"AOE"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-16" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-16" data-code-lines="3" data-code-annotation="1">Muudab maatriksis tunnuste järjekorda</span>
-</dd>
-</dl>
-</div>
-<div class="cell-output-display">
-<div>
-<figure class="figure">
-<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
-</figure>
-</div>
-</div>
-</div>
 </section>
 <section id="hmisc" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="hmisc">Korrelatsioon paketiga <code>Hmisc</code></h3>
 <p>Paketiga <code>Hmisc</code><span class="citation" data-cites="Hmisc">(<a href="references.html#ref-Hmisc" role="doc-biblioref">Harrell Jr 2024</a>)</span> tuleb käsk <code>rcorr()</code>, mis vajab töötamiseks maatriksit. Mulle meeldib see pakett, sest lihtsasti saab kätte ka olulisuse tõenäosused.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Hmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Väljatrükk kuvab esmalt korrelatsioonikordajad, seejärel vastajate arvud (n=32) ja seejärel olulise tõenäosused. Puuduvad väärtused oskab käsk <code>rcorr()</code> ise eemaldada.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(mtcars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       mpg   cyl  disp    hp  drat    wt  qsec  gear  carb
 mpg   1.00 -0.85 -0.85 -0.78  0.68 -0.87  0.42  0.48 -0.55
@@ -567,44 +567,44 @@ carb 0.0011 0.0019 0.0253 0.0000 0.6212 0.0146 0.0000 0.1290       </code></pre>
 </div>
 <p>Seda, kas maatrikseid salvestada eraldi objekti või mitte, sõltub muidugi sellest, mida saadud andmetega soov teha on. Kui <code>corrplot</code> paketti alla tõmmata ei taha, siis võib proovida jooniseid teha käsuga <code>heatmap()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-19"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-19-1" class="code-annotation-target"><a href="#annotated-cell-19-1" aria-hidden="true" tabindex="-1"></a>kor_mtcars<span class="ot">&lt;-</span><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(mtcars))</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-19-2" class="code-annotation-target"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(kor_mtcars<span class="sc">$</span>r)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-17"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-17" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-17-1" class="code-annotation-target"><a href="#annotated-cell-17-1" aria-hidden="true" tabindex="-1"></a>kor_mtcars<span class="ot">&lt;-</span><span class="fu">rcorr</span>(<span class="fu">as.matrix</span>(mtcars))</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-17" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-17-2" class="code-annotation-target"><a href="#annotated-cell-17-2" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(kor_mtcars<span class="sc">$</span>r)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-19" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-17" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-19" data-code-lines="1" data-code-annotation="1">Salvestab korrelatsioonimaatriksi eraldi objekti. Vaata väärtuseid `Environment` keskkonnas. Objekt sisaldab kolme listi (r, n ja P)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span>
+<span data-code-cell="annotated-cell-17" data-code-lines="1" data-code-annotation="1">Salvestab korrelatsioonimaatriksi eraldi objekti. Vaata väärtuseid `Environment` keskkonnas. Objekt sisaldab kolme listi (r, n ja P)<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a></span>
 </dd>
-<dt data-target-cell="annotated-cell-19" data-target-annotation="2">2</dt>
+<dt data-target-cell="annotated-cell-17" data-target-annotation="2">2</dt>
 <dd>
-<span data-code-cell="annotated-cell-19" data-code-lines="2" data-code-annotation="2">Joonistab eraldi käsuga heatmapi kasutades objetki korrelatsioonikordajaid</span>
+<span data-code-cell="annotated-cell-17" data-code-lines="2" data-code-annotation="2">Joonistab eraldi käsuga heatmapi kasutades objetki korrelatsioonikordajaid</span>
 </dd>
 </dl>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Korrastame joonist ja paneme tunnused sümmeetriliselt jooksma.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-20"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-20-1"><a href="#annotated-cell-20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(kor_mtcars<span class="sc">$</span>r,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-20" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-20-2" class="code-annotation-target"><a href="#annotated-cell-20-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">symm=</span><span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-18-1"><a href="#annotated-cell-18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">heatmap</span>(kor_mtcars<span class="sc">$</span>r,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-18-2" class="code-annotation-target"><a href="#annotated-cell-18-2" aria-hidden="true" tabindex="-1"></a>        <span class="at">symm=</span><span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-20" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-20" data-code-lines="2" data-code-annotation="1">Pani tunnused sümmeetriliselt “jooksma”.</span>
+<span data-code-cell="annotated-cell-18" data-code-lines="2" data-code-annotation="1">Pani tunnused sümmeetriliselt “jooksma”.</span>
 </dd>
 </dl>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -625,24 +625,24 @@ carb 0.0011 0.0019 0.0253 0.0000 0.6212 0.0146 0.0000 0.1290       </code></pre>
 </div>
 <p>Parim viis näidata korrelatsiooni on <code>scatterplot</code> joonise tüübiga. Käsk <code>plot()</code> saab enam-vähem ise aru, mida neist tunnustest pildina luua saab. Kui tunnuse tüübid on midagi muud kui numbrid, saab käsuga <code>plot()</code> teist-tüüpi joonise.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>hp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mtcars<span class="sc">$</span>mpg, mtcars<span class="sc">$</span>hp)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Käsuba <code>pairs()</code> saab teha korraga mitme tunnuse kohta ühine joonis.</p>
+<p>Käsuga <code>pairs()</code> saab teha korraga mitme tunnuse kohta ühine joonise.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">%&gt;%</span></span>
-<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, hp, wt, drat)<span class="sc">%&gt;%</span></span>
-<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>mtcars<span class="sc">%&gt;%</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(mpg, hp, wt, drat)<span class="sc">%&gt;%</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pairs</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-23-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="08-seosed-tunnustes_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -1085,8 +1085,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Allikad">
-        <span class="nav-page-text">Allikad</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./09-keskmiste-vordlus.html" class="pagination-link" aria-label="Keskmiste võrdlus">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Keskmiste võrdlus</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

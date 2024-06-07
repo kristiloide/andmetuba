@@ -1,0 +1,1158 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.4.553">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Andmetuba - 9&nbsp; Keskmiste võrdlus</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./references.html" rel="next">
+<link href="./08-seosed-tunnustes.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-keskmiste-vordlus.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Keskmiste võrdlus</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Andmetuba</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Saateks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-andmestike-lugemine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Andmestiku laadimine ja tunnustega tutvumine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-andmestiku-ylevaade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Andmestikust esmase ülevaate saamine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-tehniline-tunnused.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tehniline töö tunnustega</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-faktor-string.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Töö teksti sisaldavate tunnustega</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-puuduvad-vaartused.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-andmestike-liitmine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Andmestike ühendamine ja struktuuri muutmine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-seosed-tunnustes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-keskmiste-vordlus.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Keskmiste võrdlus</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allikad</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sisukord</h2>
+   
+  <ul>
+  <li><a href="#eeltööd" id="toc-eeltööd" class="nav-link active" data-scroll-target="#eeltööd"><span class="header-section-number">9.1</span> Eeltööd</a></li>
+  <li><a href="#t-test" id="toc-t-test" class="nav-link" data-scroll-target="#t-test"><span class="header-section-number">9.2</span> T-test</a>
+  <ul class="collapse">
+  <li><a href="#paariviisiline-t-test" id="toc-paariviisiline-t-test" class="nav-link" data-scroll-target="#paariviisiline-t-test">Paariviisiline t-test</a></li>
+  </ul></li>
+  <li><a href="#anova-dispersioonianalüüs" id="toc-anova-dispersioonianalüüs" class="nav-link" data-scroll-target="#anova-dispersioonianalüüs"><span class="header-section-number">9.3</span> Anova, dispersioonianalüüs</a></li>
+  <li><a href="#kruskal-wallis-test" id="toc-kruskal-wallis-test" class="nav-link" data-scroll-target="#kruskal-wallis-test"><span class="header-section-number">9.4</span> Kruskal-Wallis test</a>
+  <ul class="collapse">
+  <li><a href="#kruskal-wallis-test-paketiga-pmcmrplus" id="toc-kruskal-wallis-test-paketiga-pmcmrplus" class="nav-link" data-scroll-target="#kruskal-wallis-test-paketiga-pmcmrplus">Kruskal-Wallis test paketiga <code>PMCMRplus</code></a></li>
+  </ul></li>
+  <li><a href="#keskmiste-võrdluse-esitlemine-pildis" id="toc-keskmiste-võrdluse-esitlemine-pildis" class="nav-link" data-scroll-target="#keskmiste-võrdluse-esitlemine-pildis"><span class="header-section-number">9.5</span> Keskmiste võrdluse esitlemine pildis</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Keskmiste võrdlus</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>See peatükk annab ülevaate, kuidas võrrelda <code>R</code>-is arvulise tunnuse väärtusi erinevate gruppide vahel ehk kuidas teha <code>t-test-</code>i, <code>Kruskal-Wallise test</code>i, viia läbi <code>diseprsioonianalüüsi</code>. Lisaks näeb, kuidas esitleda tunnuste keskmisi pildis.</p>
+<p>Kasutan siin analüüsimeetodite tutvustamiseks Euroopa Sotsiaaluuringu (edaspidi ESS) andmeid, mis on kogutud Eesti inimeste kohta uuringu 10. voorus. Andmed on võimalik alla laadida <a href="https://www.europeansocialsurvey.org/data-portal">ESS andmete portaalist</a>. Siin peatükis olen teinud 10. voorust väljavõtte paari tunnuse kohta<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>ESS andmeid on võimalik tarbida ka otse ESS-portaalis, kuid <code>R</code>-i kasutama õppimiseks tasub ESS-portaali konto teha ja sobiv andmestik alla laadida.</p>
+</div>
+</div>
+</div>
+<section id="eeltööd" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="eeltööd"><span class="header-section-number">9.1</span> Eeltööd</h2>
+<p>Iga analüüs algab tunnustega tutvumisega. Vajadusel vaata peatükke:</p>
+<ul>
+<li>Andmestikust esmase <a href="02-andmestiku-ylevaade.html#tunnustega-tutvumine">ülevaate saamine</a></li>
+<li><a href="03-tehniline-tunnused.html#tunnuste-muutmine">Tehniline töö tunnustega</a></li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"ess10_valitsus.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>    essround       idno           gndr             hincfel         
+ Min.   :10   Min.   :10021   Length:1542        Length:1542       
+ 1st Qu.:10   1st Qu.:14462   Class :character   Class :character  
+ Median :10   Median :19254   Mode  :character   Mode  :character  
+ Mean   :10   Mean   :19073                                        
+ 3rd Qu.:10   3rd Qu.:23587                                        
+ Max.   :10   Max.   :27919                                        
+                                                                   
+    grdfinc          gvctzpv          cntry          
+ Min.   : 0.000   Min.   : 0.000   Length:1542       
+ 1st Qu.: 6.000   1st Qu.: 7.000   Class :character  
+ Median : 8.000   Median : 9.000   Mode  :character  
+ Mean   : 7.533   Mean   : 8.065                     
+ 3rd Qu.:10.000   3rd Qu.:10.000                     
+ Max.   :10.000   Max.   :10.000                     
+ NA's   :9        NA's   :13                         </code></pre>
+</div>
+</div>
+<p>Andmestikus on tunnused “grdfinc” ja “gvctzpv”, millega on mõõdetud inimeste arvamust demokraatiast. Inimestelt küsiti kuivõrd olulised on erinevad aspektid demokraatia jaoks üldiselt. Hinnangud koguti skaalal kümnepallisel skaalal, kus üks tähendas “ei ole demokraatia jaoks üldiselt üldse oluline” ja kümme tähendas “on demokraatia jaoks üldiselt äärmiselt oluline”.</p>
+<p><em>Kui oluline on Teie arvates demokraatia jaoks üldiselt, et:</em></p>
+<ul>
+<li>“grdfinc” - <em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>;</li>
+<li>“gvctzpv” - <em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em></li>
+</ul>
+<p>Andmestikus on kategoriaalne tunnus “hincfel”, mis annab aimu nende sissetulekute suuruse kohta. Inimestelt küsiti järgmist:</p>
+<p><em>Milline järgnevatest kirjeldustest vastab Teie arvates kõige paremini Teie leibkonna praegusele sissetulekute tasemele?</em></p>
+<ul>
+<li><em>Elan /elame mugavalt praeguse sissetuleku juures</em></li>
+<li><em>Saame hakkama praeguse sissetuleku juures</em></li>
+<li><em>Praeguse sissetuleku juures on raske hakkama saada</em></li>
+<li><em>Praeguse sissetuleku juures on väga raske hakkama saada</em></li>
+</ul>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kuigi küsimusi esitati kas eesti või vene keeles, on need kategooriad andmestikus inglise keeles.</p>
+</div>
+</div>
+</div>
+<p>Vajadusel loe, kuidas <a href="04-faktor-string.html#forcats">ringi kodeerida faktoreid</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hincfel<span class="ot">&lt;-</span><span class="fu">factor</span>(andmed<span class="sc">$</span>hincfel,</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Very difficult on present income"</span>,</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Difficult on present income"</span>,</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Coping on present income"</span>,</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Living comfortably on present income"</span>),</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">ordered =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_count</span>(andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 2
+  f                                        n
+  &lt;ord&gt;                                &lt;int&gt;
+1 Very difficult on present income        43
+2 Difficult on present income            193
+3 Coping on present income               917
+4 Living comfortably on present income   389</code></pre>
+</div>
+</div>
+</section>
+<section id="t-test" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="t-test"><span class="header-section-number">9.2</span> T-test</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lugemissoovitus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rootalu, K. (2014). T-test. K. Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/t-test/" class="uri">https://samm.ut.ee/t-test/</a></p>
+</div>
+</div>
+<p>Soovime teada saada, kuidas erinevad meeste ja naiste hinnangud demokraatia osas. Kas arvamused, et demokraatia jaoks on olulised aspektid, et “<em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>” (tunnust “grdfinc”) ja et “<em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em>” (tunnus “gvctzpv”) on meestel ja naistel ühesugused.</p>
+<p><code>T-test</code>-i eeltööks on vaja vaadata numbrilise tunnuse jaotust, et selgitada välja, kas <code>standardhälve</code> väärtused on kahe grupi puhul sarnased või erinevad. Seda saab teha ka käsuga <code>aggregate()</code>. Tutvume esmalt tunnusega “grdfinc” ning seejärel “gvctzpv”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(grdfinc <span class="sc">~</span> gndr, andmed, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   gndr  grdfinc
+1  Mees 2.464564
+2 Naine 2.162381</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(gvctzpv <span class="sc">~</span> gndr, andmed, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   gndr  gvctzpv
+1  Mees 2.254784
+2 Naine 2.087212</code></pre>
+</div>
+</div>
+<p>Ma hindan antud juhul 0.3 suurust vahet <em>sarnaseks</em> ning kasutan <code>t.test()</code> käsu sees <code>var.equal = TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>grdfinc<span class="sc">~</span>andmed<span class="sc">$</span>gndr,</span>
+<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-3" class="code-annotation-target"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-7" data-code-lines="3" data-code-annotation="1">Kui standardhälvete erinevus oleks suur, saaks panna <code>TRUE</code> asemel <code>FALSE</code>.</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Two Sample t-test
+
+data:  andmed$grdfinc by andmed$gndr
+t = -4.53, df = 1531, p-value = 6.356e-06
+alternative hypothesis: true difference in means between group Mees and group Naine is not equal to 0
+95 percent confidence interval:
+ -0.7676193 -0.3037218
+sample estimates:
+ mean in group Mees mean in group Naine 
+           7.238026            7.773697 </code></pre>
+</div>
+</div>
+<p>Saame teada, et <code>t-test statistik</code>-u väärtus on -4,53 ning naistega võrreldes on meeste arvates demokraatia jaoks üldiselt veidi vähem oluline, et valitsus kaitseb kõiki kodanikke vaesuse eest (hinnangu keskmine on meestel 7,3 ja naistel 7,8 punkti). Kuigi hinnangute vahe on väike (0,5 punkti), on tegemist statiliselt olulise erinevusega (<span class="math inline">\(p\)</span>-value on üliväike).</p>
+<section id="paariviisiline-t-test" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="paariviisiline-t-test">Paariviisiline t-test</h3>
+<p><code>t-test</code> ei vaja alati kahte gruppi. <code>Paariviisilist t-testi</code> saab kasutada siis, kui on soov võrrelda nt samade inimeste <strong>erinevate tunnuste</strong> keskmisi. Kui inimese meelest on demokraatia jaoks oluline, et “<em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>”, siis kas hinnang on sarnane ka selles, et “<em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em>”?</p>
+<p>Lisame <code>t.test()</code> käsule täpsustuse, et vaja on teha <code>paariviisiline t-test</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>grdfinc, andmed<span class="sc">$</span>gvctzpv,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired=</span><span class="cn">TRUE</span>,</span>
+<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="2" data-code-annotation="1">Täpsustus paariviisilise t-testi läbiviimiseks</span>
+</dd>
+</dl>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Paired t-test
+
+data:  andmed$grdfinc and andmed$gvctzpv
+t = -10.629, df = 1526, p-value &lt; 2.2e-16
+alternative hypothesis: true mean difference is not equal to 0
+95 percent confidence interval:
+ -0.6329981 -0.4357642
+sample estimates:
+mean difference 
+     -0.5343811 </code></pre>
+</div>
+</div>
+<p>Selgub, et hinnangute keskmiste erinevus on -0,53 punkti (“grdfinc” keskmine on madalam kui “gvctzpv” keskmine).</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Keskmiste erinevus tunnuste vahel tuli välja juba tunnustega tutvumise etapis, kui kasutasin käsku <code>summary()</code>. <code>paariviisiline t-test</code> vaatab lisaks erinevuse olulisust.</p>
+</div>
+</div>
+</div>
+<p>Testi tulemusel selgus, et tegemist on <code>statistiliselt olulise</code> erinevusega. Ehk siis inimesed hindavad demokraatia jaoks üldiselt olulisemaks, et “<em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em>” kui selle, et “<em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>”.</p>
+</section>
+</section>
+<section id="anova-dispersioonianalüüs" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="anova-dispersioonianalüüs"><span class="header-section-number">9.3</span> Anova, dispersioonianalüüs</h2>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lugemissoovitus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tooding, L.-M. (2014). Dispersioonianalüüs. K. Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/dispersioonanalyys/" class="uri">https://samm.ut.ee/dispersioonanalyys/</a></p>
+</div>
+</div>
+<p>Mõnikord on võrreldavaid gruppe rohkem kui kaks. Siis on sobilik teha keskmiste võrdluseks <code>dispersioonianalüüs</code>.</p>
+<p>Võib-olla hinnangute erinevus ei sõltugi vastaja soost, vaid sellest, kuidas ta ise oma sissetulekuga toime tuleb (tunnus “hincfel”)? Kas on võimalik, et paremal elujärjel olevad inimesed ei pea demokraatia puhul sugugi sama oluliseks, et valitsus tegeleks sissetulekute erinevuste vähendamisega kui inimesed, kellel on oma sissetulekute juures väga keeruline toime tulla?</p>
+<p>Testi eeltöö tähendab alati tunnustega tutvumist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(grdfinc, gvctzpv)<span class="sc">%&gt;%</span></span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hincfel)<span class="sc">%&gt;%</span></span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
+<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">vaesuse_kaitse=</span><span class="fu">mean</span>(grdfinc),</span>
+<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">vasesuse_sd=</span><span class="fu">sd</span>(grdfinc),</span>
+<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">meetmed_vahendamiseks=</span><span class="fu">mean</span>(gvctzpv),</span>
+<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">meetmed_sd=</span><span class="fu">sd</span>(gvctzpv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 4 × 6
+  hincfel          n vaesuse_kaitse vasesuse_sd meetmed_vahendamiseks meetmed_sd
+  &lt;ord&gt;        &lt;int&gt;          &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;      &lt;dbl&gt;
+1 Very diffic…    43           8.12        2.63                  8.47       2.33
+2 Difficult o…   192           7.75        2.40                  8.48       1.93
+3 Coping on p…   906           7.60        2.27                  8.17       2.10
+4 Living comf…   386           7.19        2.32                  7.57       2.34</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Pane tähele, et gruppide suurused on väga erinevad (43 vs 906).</p>
+<p>Ideaalsel juhul kodeeriks grupid ümber enam-vähem sama suureks, kuid praegu <code>R</code>-is töötamise näitamiseks las jääda nii. Lihtsalt pea meeles, et <code>R</code> ei tee sinu tööle kriitikat ja arvutab ikkagi seda, mida tal arvutada lased.</p>
+<p>Tehniliselt oleks õigem teha <code>Kurskal-Wallis test</code>.</p>
+</div>
+</div>
+</div>
+<p>Inimesed, kellel on oma praeguse sissetuleku juures väga raske hakkama saada (n=43) peavad demokraatia puhul teistest olulisemaks, et valitsus kaitseks kõiki kodanikke vaesuse eest (keskmine=8,12).</p>
+<p><code>oneway.test()</code> käsuga saab teha <code>dispersioonianalüüsi</code>, kus tuleb esmalt öelda <code>sõltuv tunnus</code> (“grdfinc”) ja <code>grupeeriv tunnus</code> (“hincfel”).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(andmed<span class="sc">$</span>grdfinc<span class="sc">~</span>andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    One-way analysis of means (not assuming equal variances)
+
+data:  andmed$grdfinc and andmed$hincfel
+F = 4.187, num df = 3.00, denom df = 175.34, p-value = 0.006836</code></pre>
+</div>
+</div>
+<p>Saame teada , et sisstulekute hinnangute jaotuse järgi ei ole seisukoht vaesuse kaitse osas ühesugune ( <span class="math inline">\(F\)</span> =4,2 ja <span class="math inline">\(p\)</span>&lt;0,01). Kahjuks gruppide erinevust selle käsuga ei näe. Võimalus oleks kombineerida käske <code>aov()</code> ja seejärel teha <em>post-hoc</em> testi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(grdfinc<span class="sc">~</span>hincfel, andmed)<span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df Sum Sq Mean Sq F value Pr(&gt;F)   
+hincfel        3     72  23.980   4.495 0.0038 **
+Residuals   1529   8158   5.335                  
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+9 observations deleted due to missingness</code></pre>
+</div>
+</div>
+<p><em>Post-hoc</em> testi saab teha siin käsuga <code>TukeyHSD()</code></p>
+<p><code>TukeyHSD()</code> esitab analüüsitulemused neljas grupis:</p>
+<ol type="1">
+<li>“diff” - gruppide keskmine erinevus</li>
+<li>“lwr” - usalduspiiri alumine väärtus</li>
+<li>“upr” - usalduspiiri ülemine väärtus</li>
+<li>“p adj” - olulisuse tõenäosus <code>Tulemuste lugemist tasub alustada viimasest rühmast, kus on näha, et</code>statitstiline oluline` erinevus on gruppide “<em>Living comfortably on present income</em>” ja “<em>Coping on present income</em>” ning “<em>Living comfortably on present income</em>” ja “<em>Difficult on present income</em>” vahel.</li>
+</ol>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(grdfinc<span class="sc">~</span>hincfel, andmed))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Tukey multiple comparisons of means
+    95% family-wise confidence level
+
+Fit: aov(formula = grdfinc ~ hincfel, data = andmed)
+
+$hincfel
+                                                                            diff
+Difficult on present income-Very difficult on present income          -0.3662791
+Coping on present income-Very difficult on present income             -0.5136446
+Living comfortably on present income-Very difficult on present income -0.9198966
+Coping on present income-Difficult on present income                  -0.1473655
+Living comfortably on present income-Difficult on present income      -0.5536176
+Living comfortably on present income-Coping on present income         -0.4062520
+                                                                             lwr
+Difficult on present income-Very difficult on present income          -1.3685265
+Coping on present income-Very difficult on present income             -1.4407020
+Living comfortably on present income-Very difficult on present income -1.8748241
+Coping on present income-Difficult on present income                  -0.6191067
+Living comfortably on present income-Difficult on present income      -1.0780132
+Living comfortably on present income-Coping on present income         -0.7667049
+                                                                              upr
+Difficult on present income-Very difficult on present income           0.63596832
+Coping on present income-Very difficult on present income              0.41341278
+Living comfortably on present income-Very difficult on present income  0.03503078
+Coping on present income-Difficult on present income                   0.32437566
+Living comfortably on present income-Difficult on present income      -0.02922198
+Living comfortably on present income-Coping on present income         -0.04579914
+                                                                          p adj
+Difficult on present income-Very difficult on present income          0.7833365
+Coping on present income-Very difficult on present income             0.4838591
+Living comfortably on present income-Very difficult on present income 0.0638553
+Coping on present income-Difficult on present income                  0.8528467
+Living comfortably on present income-Difficult on present income      0.0338346
+Living comfortably on present income-Coping on present income         0.0198583</code></pre>
+</div>
+</div>
+</section>
+<section id="kruskal-wallis-test" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="kruskal-wallis-test"><span class="header-section-number">9.4</span> Kruskal-Wallis test</h2>
+<p><code>Kruskal-Wallis test</code> võrdleb keskmiste <code>astak-</code>uid ning sobib kasutada olukordades, kus võrreldavad grupid ei ole ühesuurused. Käsk <code>kruskal.test()</code> toimib põhimõttel, et vajab esmalt sõltuvat ja seejärel grupeerivat tunnust. Andmestiku nimi tuleb öelda koma järel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(grdfinc<span class="sc">~</span>hincfel, andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis rank sum test
+
+data:  grdfinc by hincfel
+Kruskal-Wallis chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
+</div>
+</div>
+<p>Kruskal-Wallise test näitab, et gruppide vahel on <code>statistiliselt olulised</code> erinevused. <code>Hii-ruut statistik</code> on 19.1 ja <span class="math inline">\(p\)</span>&lt;0,01.</p>
+<section id="kruskal-wallis-test-paketiga-pmcmrplus" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="kruskal-wallis-test-paketiga-pmcmrplus">Kruskal-Wallis test paketiga <code>PMCMRplus</code></h3>
+<p>Paketiga MPCMPRplus <span class="citation" data-cites="PMCMRplus">(<a href="references.html#ref-PMCMRplus" role="doc-biblioref">Pohlert 2023</a>)</span> saab teha <code>Kruskal-Wallis test</code>i (käsk <code>kruskalTest()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-important">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Test ei õnnestu kui grupeeriv tunnus ei ole faktor. Vaata ka, kuidas tunnuseid <a href="03-tehniline-tunnused.html#tyybi-muutmine">ringi kodeerida</a>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ordered" "factor" </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskalTest</span>(grdfinc<span class="sc">~</span>hincfel, andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning in kruskalTest.default(c(10, 3, 8, 8, 8, 10, 10, 10, 7, 8, 0, 5, : Ties
+are present. Quantiles were corrected for ties.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Kruskal-Wallis test
+
+data:  grdfinc by hincfel
+chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="keskmiste-võrdluse-esitlemine-pildis" class="level2" data-number="9.5">
+<h2 data-number="9.5" class="anchored" data-anchor-id="keskmiste-võrdluse-esitlemine-pildis"><span class="header-section-number">9.5</span> Keskmiste võrdluse esitlemine pildis</h2>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Andmete visualiseerimise kohta tuleb eraldi peatükk.</p>
+</div>
+</div>
+</div>
+<p>Keskmiste võrdluse esitlemiseks sobib joonisena karp-diagramm, sest tegemist on sisuliselt ju numbrilise tunnuse esitlemisega.</p>
+<p>Baaskäsk <code>boxplot()</code> <em>ajaks justkui asja ära</em>, kuid antud hetkel ei mahuta kõikide gruppide nimesid joonisele.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(andmed<span class="sc">$</span>grdfinc<span class="sc">~</span>andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Karpdiagrammi <strong>miinuseks</strong> on see, et gruppide suurusest jääb ekslik mulje nagu need oleks võrdsed.</p>
+<p>Üks võimalus oleks esitleda keskmiste erinevust gruppide vahel nii, et lisada sinna ka vastajaid kujutavad täpikesi. Pilt nüüd kauniks kunstiväärtuseks ei läinud, kuid annab vaatluse all oleva situatsiooni kohta veidi paremini infot edasi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hincfel, <span class="at">y=</span>grdfinc))<span class="sc">+</span></span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.4</span>, <span class="at">color=</span><span class="st">"lightblue"</span>)<span class="sc">+</span></span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Hinnangute keskmiste erinevus gruppide vahel"</span>,<span class="st">"Sinisega on kujutatud vastajate jagunemine igas grupis"</span>)<span class="sc">+</span></span>
+<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="cn">NULL</span>)<span class="sc">+</span></span>
+<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)<span class="sc">+</span></span>
+<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-PMCMRplus" class="csl-entry" role="listitem">
+Pohlert, Thorsten. 2023. <em>PMCMRplus: Calculate Pairwise Multiple Comparisons of Mean Rank Sums Extended</em>. <a href="https://CRAN.R-project.org/package=PMCMRplus">https://CRAN.R-project.org/package=PMCMRplus</a>.
+</div>
+</div>
+</section>
+<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
+<hr>
+<ol>
+<li id="fn1"><p>Kui soovid sama andmestikuga harjutusi järele teha, lae andmestik nimega “ess10_valitsus.csv” alla <a href="https://github.com/kristiloide/andmetuba">siit</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button', {
+    text: function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+    }
+  });
+  clipboard.on('success', function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  });
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./08-seosed-tunnustes.html" class="pagination-link" aria-label="Seosed tunnuste vahel">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./references.html" class="pagination-link" aria-label="Allikad">
+        <span class="nav-page-text">Allikad</span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
