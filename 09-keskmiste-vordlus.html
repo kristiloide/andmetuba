@@ -252,7 +252,7 @@ window.Quarto = {
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text">Allikad</span></a>
+ <span class="menu-text">Kasutatud paketid</span></a>
   </div>
 </li>
     </ul>
@@ -268,10 +268,12 @@ window.Quarto = {
   <li><a href="#eeltööd" id="toc-eeltööd" class="nav-link active" data-scroll-target="#eeltööd"><span class="header-section-number">9.1</span> Eeltööd</a></li>
   <li><a href="#t-test" id="toc-t-test" class="nav-link" data-scroll-target="#t-test"><span class="header-section-number">9.2</span> T-test</a>
   <ul class="collapse">
-  <li><a href="#paariviisiline-t-test" id="toc-paariviisiline-t-test" class="nav-link" data-scroll-target="#paariviisiline-t-test">Paariviisiline t-test</a></li>
+  <li><a href="#one-sample-t-test" id="toc-one-sample-t-test" class="nav-link" data-scroll-target="#one-sample-t-test">One-sample T-test</a></li>
+  <li><a href="#two-sided-t-test" id="toc-two-sided-t-test" class="nav-link" data-scroll-target="#two-sided-t-test">Two-sided t-test</a></li>
+  <li><a href="#paired-t-test-ehk-paariviisiline-t-test" id="toc-paired-t-test-ehk-paariviisiline-t-test" class="nav-link" data-scroll-target="#paired-t-test-ehk-paariviisiline-t-test">Paired T-test ehk paariviisiline t-test</a></li>
   </ul></li>
-  <li><a href="#anova-dispersioonianalüüs" id="toc-anova-dispersioonianalüüs" class="nav-link" data-scroll-target="#anova-dispersioonianalüüs"><span class="header-section-number">9.3</span> Anova, dispersioonianalüüs</a></li>
-  <li><a href="#kruskal-wallis-test" id="toc-kruskal-wallis-test" class="nav-link" data-scroll-target="#kruskal-wallis-test"><span class="header-section-number">9.4</span> Kruskal-Wallis test</a>
+  <li><a href="#anova---dispersioonianalüüs" id="toc-anova---dispersioonianalüüs" class="nav-link" data-scroll-target="#anova---dispersioonianalüüs"><span class="header-section-number">9.3</span> Anova - dispersioonianalüüs</a></li>
+  <li><a href="#kruskal" id="toc-kruskal" class="nav-link" data-scroll-target="#kruskal"><span class="header-section-number">9.4</span> Kruskal-Wallis test</a>
   <ul class="collapse">
   <li><a href="#kruskal-wallis-test-paketiga-pmcmrplus" id="toc-kruskal-wallis-test-paketiga-pmcmrplus" class="nav-link" data-scroll-target="#kruskal-wallis-test-paketiga-pmcmrplus">Kruskal-Wallis test paketiga <code>PMCMRplus</code></a></li>
   </ul></li>
@@ -301,7 +303,17 @@ window.Quarto = {
 </header>
 
 
-<p>See peatükk annab ülevaate, kuidas võrrelda <code>R</code>-is arvulise tunnuse väärtusi erinevate gruppide vahel ehk kuidas teha <code>t-test-</code>i, <code>Kruskal-Wallise test</code>i, viia läbi <code>diseprsioonianalüüsi</code>. Lisaks näeb, kuidas esitleda tunnuste keskmisi pildis.</p>
+<p>See peatükk annab ülevaate, kuidas võrrelda <code>R</code>-is arvulise tunnuse väärtusi erinevate tunnuste või gruppide vahel ehk kuidas teha <code>t-test-</code>i, <code>Kruskal-Wallise test</code>i ja kuidas <code>R</code>-is teha <code>diseprsioonianalüüsi</code>.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kuigi jooniste kohta on plaanis koostada täiesti eraldi peatükk, on analüüsimeetodi paremaks selgitamiseks vajalik uurida ja esitleda andmeid piltide kaudu. Koodid on osaliselt peidetud, kuna selle peatüki eesmärk on pigem näidata <code>R</code>-i koodi võrdlusülesannete jaoks.</p>
+</div>
+</div>
+</div>
 <p>Kasutan siin analüüsimeetodite tutvustamiseks Euroopa Sotsiaaluuringu (edaspidi ESS) andmeid, mis on kogutud Eesti inimeste kohta uuringu 10. voorus. Andmed on võimalik alla laadida <a href="https://www.europeansocialsurvey.org/data-portal">ESS andmete portaalist</a>. Siin peatükis olen teinud 10. voorust väljavõtte paari tunnuse kohta<a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a>.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
@@ -313,6 +325,12 @@ window.Quarto = {
 </div>
 </div>
 </div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"ESS_10_valik.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <section id="eeltööd" class="level2" data-number="9.1">
 <h2 data-number="9.1" class="anchored" data-anchor-id="eeltööd"><span class="header-section-number">9.1</span> Eeltööd</h2>
 <p>Iga analüüs algab tunnustega tutvumisega. Vajadusel vaata peatükke:</p>
@@ -320,75 +338,6 @@ window.Quarto = {
 <li>Andmestikust esmase <a href="02-andmestiku-ylevaade.html#tunnustega-tutvumine">ülevaate saamine</a></li>
 <li><a href="03-tehniline-tunnused.html#tunnuste-muutmine">Tehniline töö tunnustega</a></li>
 </ul>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"ess10_valitsus.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>    essround       idno           gndr             hincfel         
- Min.   :10   Min.   :10021   Length:1542        Length:1542       
- 1st Qu.:10   1st Qu.:14462   Class :character   Class :character  
- Median :10   Median :19254   Mode  :character   Mode  :character  
- Mean   :10   Mean   :19073                                        
- 3rd Qu.:10   3rd Qu.:23587                                        
- Max.   :10   Max.   :27919                                        
-                                                                   
-    grdfinc          gvctzpv          cntry          
- Min.   : 0.000   Min.   : 0.000   Length:1542       
- 1st Qu.: 6.000   1st Qu.: 7.000   Class :character  
- Median : 8.000   Median : 9.000   Mode  :character  
- Mean   : 7.533   Mean   : 8.065                     
- 3rd Qu.:10.000   3rd Qu.:10.000                     
- Max.   :10.000   Max.   :10.000                     
- NA's   :9        NA's   :13                         </code></pre>
-</div>
-</div>
-<p>Andmestikus on tunnused “grdfinc” ja “gvctzpv”, millega on mõõdetud inimeste arvamust demokraatiast. Inimestelt küsiti kuivõrd olulised on erinevad aspektid demokraatia jaoks üldiselt. Hinnangud koguti skaalal kümnepallisel skaalal, kus üks tähendas “ei ole demokraatia jaoks üldiselt üldse oluline” ja kümme tähendas “on demokraatia jaoks üldiselt äärmiselt oluline”.</p>
-<p><em>Kui oluline on Teie arvates demokraatia jaoks üldiselt, et:</em></p>
-<ul>
-<li>“grdfinc” - <em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>;</li>
-<li>“gvctzpv” - <em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em></li>
-</ul>
-<p>Andmestikus on kategoriaalne tunnus “hincfel”, mis annab aimu nende sissetulekute suuruse kohta. Inimestelt küsiti järgmist:</p>
-<p><em>Milline järgnevatest kirjeldustest vastab Teie arvates kõige paremini Teie leibkonna praegusele sissetulekute tasemele?</em></p>
-<ul>
-<li><em>Elan /elame mugavalt praeguse sissetuleku juures</em></li>
-<li><em>Saame hakkama praeguse sissetuleku juures</em></li>
-<li><em>Praeguse sissetuleku juures on raske hakkama saada</em></li>
-<li><em>Praeguse sissetuleku juures on väga raske hakkama saada</em></li>
-</ul>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Kuigi küsimusi esitati kas eesti või vene keeles, on need kategooriad andmestikus inglise keeles.</p>
-</div>
-</div>
-</div>
-<p>Vajadusel loe, kuidas <a href="04-faktor-string.html#forcats">ringi kodeerida faktoreid</a>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hincfel<span class="ot">&lt;-</span><span class="fu">factor</span>(andmed<span class="sc">$</span>hincfel,</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>                         <span class="at">levels=</span><span class="fu">c</span>(<span class="st">"Very difficult on present income"</span>,</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Difficult on present income"</span>,</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Coping on present income"</span>,</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>                                  <span class="st">"Living comfortably on present income"</span>),</span>
-<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>                         <span class="at">ordered =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fct_count</span>(andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 2
-  f                                        n
-  &lt;ord&gt;                                &lt;int&gt;
-1 Very difficult on present income        43
-2 Difficult on present income            193
-3 Coping on present income               917
-4 Living comfortably on present income   389</code></pre>
-</div>
-</div>
 </section>
 <section id="t-test" class="level2" data-number="9.2">
 <h2 data-number="9.2" class="anchored" data-anchor-id="t-test"><span class="header-section-number">9.2</span> T-test</h2>
@@ -405,34 +354,143 @@ Lugemissoovitus
 <p>Rootalu, K. (2014). T-test. K. Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/t-test/" class="uri">https://samm.ut.ee/t-test/</a></p>
 </div>
 </div>
-<p>Soovime teada saada, kuidas erinevad meeste ja naiste hinnangud demokraatia osas. Kas arvamused, et demokraatia jaoks on olulised aspektid, et “<em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>” (tunnust “grdfinc”) ja et “<em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em>” (tunnus “gvctzpv”) on meestel ja naistel ühesugused.</p>
-<p><code>T-test</code>-i eeltööks on vaja vaadata numbrilise tunnuse jaotust, et selgitada välja, kas <code>standardhälve</code> väärtused on kahe grupi puhul sarnased või erinevad. Seda saab teha ka käsuga <code>aggregate()</code>. Tutvume esmalt tunnusega “grdfinc” ning seejärel “gvctzpv”.</p>
+<section id="one-sample-t-test" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="one-sample-t-test">One-sample T-test</h3>
+<p>Oletame, et me uurime õnnelikuks olemist ja meil on mingi ettekujutus sellest, kui õnnelikud inimesed olla võiksid. Me teame, et ESS uuringus küsiti inimestelt õnnelikuks olemise kohta skaalal nullist kümneni (10=“väga õnnelik”).</p>
+<p>Tunnus “happy” tähistab küsimust “<em>Kui õnnelikuks Te kõike kokku võttes end peate</em>?”</p>
+<p>Vaatame tunnuse jaotust.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(grdfinc <span class="sc">~</span> gndr, andmed, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(andmed<span class="sc">$</span>happy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code>   gndr  grdfinc
-1  Mees 2.464564
-2 Naine 2.162381</code></pre>
+<pre><code>   Min. 1st Qu.  Median    Mean 3rd Qu.    Max.    NA's 
+  0.000   7.000   8.000   7.499   9.000  10.000       1 </code></pre>
 </div>
 </div>
+<p>Saame teada, et keskmine hinnang on ürpris kõrge (7,5).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(gvctzpv <span class="sc">~</span> gndr, andmed, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(andmed<span class="sc">$</span>happy)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Meie arvame aga, et Eesti inimesed on pigem “keskmiselt õnnelikud” ning ESS vastajate hulka sattusidki kõik need üksikud õnnelikud inimesed. Mingi ajalooline teadmine on, et tegelik õnnelikuse keskmine skoor kogu Eesti peale tuleb kusagil number 6 lähedal.</p>
+<p>Teeme t-testi käsuga <code>t.test()</code>, et teada saada kas meie oletus peab paika. Kui kindlad võime olla, et üldpopulatsiooni tegelik keskmine on võrdne kuuega ja kui me kordame küsitlust uue valimiga saame keskmiseks skooriks 6?</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>happy,</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mu=</span><span class="dv">6</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>   gndr  gvctzpv
-1  Mees 2.254784
-2 Naine 2.087212</code></pre>
+<pre><code>
+    One Sample t-test
+
+data:  andmed$happy
+t = 33.787, df = 1540, p-value &lt; 2.2e-16
+alternative hypothesis: true mean is not equal to 6
+95 percent confidence interval:
+ 7.412002 7.586052
+sample estimates:
+mean of x 
+ 7.499027 </code></pre>
 </div>
 </div>
-<p>Ma hindan antud juhul 0.3 suurust vahet <em>sarnaseks</em> ning kasutan <code>t.test()</code> käsu sees <code>var.equal = TRUE</code>.</p>
+<p>Saame teada, et meie oletus ei pea paika: “true mean is not equal to 6” ning saame väita 95% kindlusega, et tegelik keskmine skoor jääb vahemikku 7,4 kuni 7,6. <span class="math inline">\(p\)</span> väärtus väga madal (<span class="math inline">\(p\)</span> &lt; 0,00).</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Soovi korral saab salvestada testi tulemused eraldi objekti ja kasutada salvestatud infot kas edasises analüüsis või tulemuste esitlemisel. Objekti salvestatud infot saab vaadata käsuga <code>attributes()</code>.</p>
+</div>
+</div>
+</div>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>grdfinc<span class="sc">~</span>andmed<span class="sc">$</span>gndr,</span>
-<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-3" class="code-annotation-target"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal =</span> <span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>ttest<span class="ot">&lt;-</span><span class="fu">t.test</span>(andmed<span class="sc">$</span>happy,</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">mu=</span><span class="dv">6</span>)</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a><span class="fu">attributes</span>(ttest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>$names
+ [1] "statistic"   "parameter"   "p.value"     "conf.int"    "estimate"   
+ [6] "null.value"  "stderr"      "alternative" "method"      "data.name"  
+
+$class
+[1] "htest"</code></pre>
+</div>
+</div>
+<p>Näiteks soovin saada salvestatud objekti usaldusvahemikud.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>ttest<span class="sc">$</span>conf.int</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 7.412002 7.586052
+attr(,"conf.level")
+[1] 0.95</code></pre>
+</div>
+</div>
+</section>
+<section id="two-sided-t-test" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="two-sided-t-test">Two-sided t-test</h3>
+<p>Nüüd ma soovin vaadata, kas mehed ja naised on sama õnnelikud ehk võrrelda kahe grupi vahel ühe numbrilise tunnuse jaotust.</p>
+<p>Ma näen, et mehi ja naisi on enam-vähem sama palju ning mehed on pisut pessimistlikumalt vastanud.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(happy)<span class="sc">%&gt;%</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gndr)<span class="sc">%&gt;%</span></span>
+<span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">vastajaid=</span><span class="fu">n</span>(),</span>
+<span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">kesk=</span><span class="fu">round</span>(<span class="fu">mean</span>(happy)),</span>
+<span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd=</span><span class="fu">sd</span>(happy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 2 × 4
+  gndr  vastajaid  kesk    sd
+  &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Mees        692     7  1.72
+2 Naine       849     8  1.76</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p><code>T-test</code> eeltöö hulgas on vaja välja selgitada, kas <code>standardhälve</code> väärtused on kahe grupi puhul sarnased või erinevad. Seda saab teha ka käsuga <code>aggregate()</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aggregate</span>(happy <span class="sc">~</span> gndr, andmed, sd)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>   gndr    happy
+1  Mees 1.718297
+2 Naine 1.756174</code></pre>
+</div>
+</div>
+<p>Standardhälvete vahe on kahe grupi puhul peaaegu olematu ning seepärast kasutan <code>t.test()</code> käsu sees <code>var.equal = TRUE</code>. Pane tähele, et täpsustan käsu sees ka t-testi tüüpi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-9-1"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>happy<span class="sc">~</span>andmed<span class="sc">$</span>gndr,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-3" class="code-annotation-target"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">var.equal=</span><span class="cn">TRUE</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-7" data-code-lines="3" data-code-annotation="1">Kui standardhälvete erinevus oleks suur, saaks panna <code>TRUE</code> asemel <code>FALSE</code>.</span>
+<span data-code-cell="annotated-cell-9" data-code-lines="2" data-code-annotation="1">Täpsustab, millist t-testi teha</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="3" data-code-annotation="2">Kui standardhälvete erinevus oleks suur, saaks panna <code>TRUE</code> asemel <code>FALSE</code>.</span>
 </dd>
 </dl>
 </div>
@@ -440,48 +498,124 @@ Lugemissoovitus
 <pre><code>
     Two Sample t-test
 
-data:  andmed$grdfinc by andmed$gndr
-t = -4.53, df = 1531, p-value = 6.356e-06
+data:  andmed$happy by andmed$gndr
+t = -2.277, df = 1539, p-value = 0.02293
 alternative hypothesis: true difference in means between group Mees and group Naine is not equal to 0
 95 percent confidence interval:
- -0.7676193 -0.3037218
+ -0.37754618 -0.02809936
 sample estimates:
  mean in group Mees mean in group Naine 
-           7.238026            7.773697 </code></pre>
+           7.387283            7.590106 </code></pre>
 </div>
 </div>
-<p>Saame teada, et <code>t-test statistik</code>-u väärtus on -4,53 ning naistega võrreldes on meeste arvates demokraatia jaoks üldiselt veidi vähem oluline, et valitsus kaitseb kõiki kodanikke vaesuse eest (hinnangu keskmine on meestel 7,3 ja naistel 7,8 punkti). Kuigi hinnangute vahe on väike (0,5 punkti), on tegemist statiliselt olulise erinevusega (<span class="math inline">\(p\)</span>-value on üliväike).</p>
-<section id="paariviisiline-t-test" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="paariviisiline-t-test">Paariviisiline t-test</h3>
-<p><code>t-test</code> ei vaja alati kahte gruppi. <code>Paariviisilist t-testi</code> saab kasutada siis, kui on soov võrrelda nt samade inimeste <strong>erinevate tunnuste</strong> keskmisi. Kui inimese meelest on demokraatia jaoks oluline, et “<em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>”, siis kas hinnang on sarnane ka selles, et “<em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em>”?</p>
-<p>Lisame <code>t.test()</code> käsule täpsustuse, et vaja on teha <code>paariviisiline t-test</code>.</p>
+<p>Tulemustest saame teada, et mehed ja naised hindavad enda õnnelikuse astet erinevalt ning 95% kindlusega saame öelda, et meeste keskmine hinnang õnnelikusele tuleb 0,38 kuni 0,03 punkti naiste omast madalam ( <span class="math inline">\(p\)</span>&lt;0,05).</p>
+<p>Tulemusi saab esitleda pildil, et näidata kui erinevad või sarnased keskmiste väärtused on.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-8-1"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>grdfinc, andmed<span class="sc">$</span>gvctzpv,</span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>       <span class="at">paired=</span><span class="cn">TRUE</span>,</span>
-<span id="annotated-cell-8-3"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>       <span class="at">alternative =</span> <span class="st">"two.sided"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-8" data-code-lines="2" data-code-annotation="1">Täpsustus paariviisilise t-testi läbiviimiseks</span>
-</dd>
-</dl>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>pilt1<span class="ot">&lt;-</span>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(happy, gndr)<span class="sc">%&gt;%</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(happy,</span>
+<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill=</span>gndr))<span class="sc">+</span></span>
+<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
+<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>))<span class="sc">+</span></span>
+<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">""</span>,</span>
+<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">""</span>)<span class="sc">+</span></span>
+<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">guides</span>(<span class="at">fill=</span><span class="st">"none"</span>)<span class="sc">+</span></span>
+<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()<span class="sc">+</span></span>
+<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_blank</span>())</span>
+<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-15"><a href="#cb16-15" aria-hidden="true" tabindex="-1"></a>pilt2<span class="ot">&lt;-</span>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb16-16"><a href="#cb16-16" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(happy, gndr)<span class="sc">%&gt;%</span></span>
+<span id="cb16-17"><a href="#cb16-17" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(happy,</span>
+<span id="cb16-18"><a href="#cb16-18" aria-hidden="true" tabindex="-1"></a>             <span class="at">fill=</span>gndr))<span class="sc">+</span></span>
+<span id="cb16-19"><a href="#cb16-19" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.3</span>)<span class="sc">+</span></span>
+<span id="cb16-20"><a href="#cb16-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_continuous</span>(<span class="at">breaks =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">4</span>, <span class="dv">6</span>, <span class="dv">8</span>))<span class="sc">+</span></span>
+<span id="cb16-21"><a href="#cb16-21" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Meeste ja naiste hinnangud"</span>,</span>
+<span id="cb16-22"><a href="#cb16-22" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Õnnelikuse hinnang"</span>,</span>
+<span id="cb16-23"><a href="#cb16-23" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">""</span>,</span>
+<span id="cb16-24"><a href="#cb16-24" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
+<span id="cb16-25"><a href="#cb16-25" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()<span class="sc">+</span></span>
+<span id="cb16-26"><a href="#cb16-26" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">axis.ticks =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-27"><a href="#cb16-27" aria-hidden="true" tabindex="-1"></a>        <span class="at">axis.text =</span> <span class="fu">element_blank</span>(),</span>
+<span id="cb16-28"><a href="#cb16-28" aria-hidden="true" tabindex="-1"></a>        <span class="at">legend.position =</span> <span class="st">"top"</span>)</span>
+<span id="cb16-29"><a href="#cb16-29" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb16-30"><a href="#cb16-30" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(patchwork)</span>
+<span id="cb16-31"><a href="#cb16-31" aria-hidden="true" tabindex="-1"></a>pilt2 <span class="sc">|</span> pilt1</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
+</div>
+</div>
+</section>
+<section id="paired-t-test-ehk-paariviisiline-t-test" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="paired-t-test-ehk-paariviisiline-t-test">Paired T-test ehk paariviisiline t-test</h3>
+<p><code>Paariviisilist t-testi</code> saab kasutada siis, kui on soov võrrelda nt samade inimeste <strong>erinevate tunnuste</strong> keskmisi. Inimeste käest küsiti (tunnus “pplhlp”) “<em>Mida Te arvate, kas enamuse ajast püüavad inimesed olla teiste suhtes abivalmid või hoolivad nad ennekõike iseendast?</em>”</p>
+<p>0 = “Inimesed hoolivad ennekõike iseendast” ja 10 = “Inimesed püüavad enamasti teiste suhtes abivalmid olla”.</p>
+<p>Mõnes-mõttes oleks loogiline arvata, et õnnelikud inimesed usuvad, et inimesed nende ümber on ilusad ja head. Eestis on päris õnnelikud inimesed ja nad võiks ka teisi inimesi usaldusväärseks pidada. Tunnuste omavahelisel võrdlemisel näeme, et vastajaid ei kipu uskuma, et inimesed püüavad enamasti teiste suhtes abivalmid olla.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(happy, pplhlp)<span class="sc">%&gt;%</span></span>
+<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     happy            pplhlp      
+ Min.   : 0.000   Min.   : 0.000  
+ 1st Qu.: 7.000   1st Qu.: 4.000  
+ Median : 8.000   Median : 5.000  
+ Mean   : 7.499   Mean   : 5.253  
+ 3rd Qu.: 9.000   3rd Qu.: 7.000  
+ Max.   :10.000   Max.   :10.000  
+ NA's   :1        NA's   :2       </code></pre>
+</div>
+</div>
+<p>Seda ei paista välja ka järgmisel pildil. Ka väga õnnelikud inimesed hindavad inimeste abivalmidust päris madalalt.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(happy, pplhlp, gndr)<span class="sc">%&gt;%</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(happy, pplhlp))<span class="sc">+</span></span>
+<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.3</span>, </span>
+<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>gndr))<span class="sc">+</span></span>
+<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Inimeste hinnangud õnnelikkusele ja teiste inimeste usaldusväärsusele"</span>,</span>
+<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Õnnelikkuse hinnang"</span>,</span>
+<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Inimesi saab usaldada hinnang"</span>,</span>
+<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
+<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Teeme paariviisilise t-testi, et selgitada välja samade inimeste hinnangute erinevust. Peame käsu sees täpsustama testi tüüpi <code>paired=TRUE</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">t.test</span>(andmed<span class="sc">$</span>happy, andmed<span class="sc">$</span>pplhlp,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">paired=</span><span class="cn">TRUE</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Paired t-test
 
-data:  andmed$grdfinc and andmed$gvctzpv
-t = -10.629, df = 1526, p-value &lt; 2.2e-16
+data:  andmed$happy and andmed$pplhlp
+t = 35.616, df = 1538, p-value &lt; 2.2e-16
 alternative hypothesis: true mean difference is not equal to 0
 95 percent confidence interval:
- -0.6329981 -0.4357642
+ 2.125625 2.373401
 sample estimates:
 mean difference 
-     -0.5343811 </code></pre>
+       2.249513 </code></pre>
 </div>
 </div>
-<p>Selgub, et hinnangute keskmiste erinevus on -0,53 punkti (“grdfinc” keskmine on madalam kui “gvctzpv” keskmine).</p>
+<p>Saame teada, et võime 95% kindlusega saame väita, et hinnangud õnnelikkusele ja inimeste abivalmidusele ei ole sarnased. Ükskõik kui õnnelikud inimesed ise on, hindav nad enda õnnelikuks olemist 2,1 kuni 2,4 punkti kõrgemalt kui seda, et teised inimesed püüavad abivalmid olla.</p>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
@@ -492,11 +626,10 @@ mean difference
 </div>
 </div>
 </div>
-<p>Testi tulemusel selgus, et tegemist on <code>statistiliselt olulise</code> erinevusega. Ehk siis inimesed hindavad demokraatia jaoks üldiselt olulisemaks, et “<em>valitsus võtab kasutusele meetmeid sissetulekute erinevuste vähendamiseks</em>” kui selle, et “<em>valitsus kaitseb kõiki kodanikke vaesuse eest</em>”.</p>
 </section>
 </section>
-<section id="anova-dispersioonianalüüs" class="level2" data-number="9.3">
-<h2 data-number="9.3" class="anchored" data-anchor-id="anova-dispersioonianalüüs"><span class="header-section-number">9.3</span> Anova, dispersioonianalüüs</h2>
+<section id="anova---dispersioonianalüüs" class="level2" data-number="9.3">
+<h2 data-number="9.3" class="anchored" data-anchor-id="anova---dispersioonianalüüs"><span class="header-section-number">9.3</span> Anova - dispersioonianalüüs</h2>
 <div class="callout callout-style-default callout-tip callout-titled">
 <div class="callout-header d-flex align-content-center">
 <div class="callout-icon-container">
@@ -511,25 +644,44 @@ Lugemissoovitus
 </div>
 </div>
 <p>Mõnikord on võrreldavaid gruppe rohkem kui kaks. Siis on sobilik teha keskmiste võrdluseks <code>dispersioonianalüüs</code>.</p>
-<p>Võib-olla hinnangute erinevus ei sõltugi vastaja soost, vaid sellest, kuidas ta ise oma sissetulekuga toime tuleb (tunnus “hincfel”)? Kas on võimalik, et paremal elujärjel olevad inimesed ei pea demokraatia puhul sugugi sama oluliseks, et valitsus tegeleks sissetulekute erinevuste vähendamisega kui inimesed, kellel on oma sissetulekute juures väga keeruline toime tulla?</p>
+<p>Võib-olla hinnangute erinevus ei sõltugi vastaja soost, vaid sellest, kuidas ta ise oma sissetulekuga toime tuleb (tunnus “hincfel”)? Kas on võimalik, et paremal elujärjel olevad inimesed peavadki end õnnelikumaks kui inimesed, kellel on oma sissetulekute juures väga keeruline toime tulla? Kas saame öelda, et õnn peitub rahas?</p>
+<p>Andmestikus on kategoriaalne tunnus “hincfel”, mis annab aimu nende sissetulekute suuruse kohta. Inimestelt küsiti järgmist:</p>
+<p><em>Milline järgnevatest kirjeldustest vastab Teie arvates kõige paremini Teie leibkonna praegusele sissetulekute tasemele?</em></p>
+<ul>
+<li><em>Elan /elame mugavalt praeguse sissetuleku juures</em></li>
+<li><em>Saame hakkama praeguse sissetuleku juures</em></li>
+<li><em>Praeguse sissetuleku juures on raske hakkama saada</em></li>
+<li><em>Praeguse sissetuleku juures on väga raske hakkama saada</em></li>
+</ul>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hincfel<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(andmed<span class="sc">$</span>hincfel,</span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Elame mugavalt praeguse sissetuleku juures"</span>,</span>
+<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Saame hakkama praeguse sissetuleku juures"</span>,</span>
+<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Praeguse sissetuleku juures on raske hakkama saada"</span>,</span>
+<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Praeguse sissetuleku juures on väga raske hakkama saada"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
 <p>Testi eeltöö tähendab alati tunnustega tutvumist.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
-<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(grdfinc, gvctzpv)<span class="sc">%&gt;%</span></span>
-<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hincfel)<span class="sc">%&gt;%</span></span>
-<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>(),</span>
-<span id="cb13-5"><a href="#cb13-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">vaesuse_kaitse=</span><span class="fu">mean</span>(grdfinc),</span>
-<span id="cb13-6"><a href="#cb13-6" aria-hidden="true" tabindex="-1"></a>    <span class="at">vasesuse_sd=</span><span class="fu">sd</span>(grdfinc),</span>
-<span id="cb13-7"><a href="#cb13-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">meetmed_vahendamiseks=</span><span class="fu">mean</span>(gvctzpv),</span>
-<span id="cb13-8"><a href="#cb13-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">meetmed_sd=</span><span class="fu">sd</span>(gvctzpv))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(happy)<span class="sc">%&gt;%</span></span>
+<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(hincfel)<span class="sc">%&gt;%</span></span>
+<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">vastajaid=</span><span class="fu">n</span>(),</span>
+<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">kesk=</span><span class="fu">round</span>(<span class="fu">mean</span>(happy)),</span>
+<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">sd=</span><span class="fu">sd</span>(happy))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 4 × 6
-  hincfel          n vaesuse_kaitse vasesuse_sd meetmed_vahendamiseks meetmed_sd
-  &lt;ord&gt;        &lt;int&gt;          &lt;dbl&gt;       &lt;dbl&gt;                 &lt;dbl&gt;      &lt;dbl&gt;
-1 Very diffic…    43           8.12        2.63                  8.47       2.33
-2 Difficult o…   192           7.75        2.40                  8.48       1.93
-3 Coping on p…   906           7.60        2.27                  8.17       2.10
-4 Living comf…   386           7.19        2.32                  7.57       2.34</code></pre>
+<pre><code># A tibble: 4 × 4
+  hincfel                                                 vastajaid  kesk    sd
+  &lt;fct&gt;                                                       &lt;int&gt; &lt;dbl&gt; &lt;dbl&gt;
+1 Elame mugavalt praeguse sissetuleku juures                    389     8  1.37
+2 Saame hakkama praeguse sissetuleku juures                     917     8  1.64
+3 Praeguse sissetuleku juures on raske hakkama saada            193     6  2.04
+4 Praeguse sissetuleku juures on väga raske hakkama saada        42     6  2.27</code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-important">
@@ -538,96 +690,105 @@ Lugemissoovitus
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Pane tähele, et gruppide suurused on väga erinevad (43 vs 906).</p>
+<p>Pane tähele, et gruppide suurused on väga erinevad (42 vs 917).</p>
 <p>Ideaalsel juhul kodeeriks grupid ümber enam-vähem sama suureks, kuid praegu <code>R</code>-is töötamise näitamiseks las jääda nii. Lihtsalt pea meeles, et <code>R</code> ei tee sinu tööle kriitikat ja arvutab ikkagi seda, mida tal arvutada lased.</p>
-<p>Tehniliselt oleks õigem teha <code>Kurskal-Wallis test</code>.</p>
+<p>Tehniliselt oleks õigem teha <a href="#kruskal"><code>Kurskal-Wallis test</code></a>.</p>
 </div>
 </div>
 </div>
-<p>Inimesed, kellel on oma praeguse sissetuleku juures väga raske hakkama saada (n=43) peavad demokraatia puhul teistest olulisemaks, et valitsus kaitseks kõiki kodanikke vaesuse eest (keskmine=8,12).</p>
-<p><code>oneway.test()</code> käsuga saab teha <code>dispersioonianalüüsi</code>, kus tuleb esmalt öelda <code>sõltuv tunnus</code> (“grdfinc”) ja <code>grupeeriv tunnus</code> (“hincfel”).</p>
+<p><code>oneway.test()</code> käsuga saab teha <code>dispersioonianalüüsi</code>, kus tuleb esmalt öelda <code>sõltuv tunnus</code> (“happy”) ja <code>grupeeriv tunnus</code> (“hincfel”).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(andmed<span class="sc">$</span>grdfinc<span class="sc">~</span>andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">oneway.test</span>(andmed<span class="sc">$</span>happy<span class="sc">~</span>andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     One-way analysis of means (not assuming equal variances)
 
-data:  andmed$grdfinc and andmed$hincfel
-F = 4.187, num df = 3.00, denom df = 175.34, p-value = 0.006836</code></pre>
+data:  andmed$happy and andmed$hincfel
+F = 48.601, num df = 3.00, denom df = 169.57, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
-<p>Saame teada , et sisstulekute hinnangute jaotuse järgi ei ole seisukoht vaesuse kaitse osas ühesugune ( <span class="math inline">\(F\)</span> =4,2 ja <span class="math inline">\(p\)</span>&lt;0,01). Kahjuks gruppide erinevust selle käsuga ei näe. Võimalus oleks kombineerida käske <code>aov()</code> ja seejärel teha <em>post-hoc</em> testi.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(grdfinc<span class="sc">~</span>hincfel, andmed)<span class="sc">%&gt;%</span></span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>              Df Sum Sq Mean Sq F value Pr(&gt;F)   
-hincfel        3     72  23.980   4.495 0.0038 **
-Residuals   1529   8158   5.335                  
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
-9 observations deleted due to missingness</code></pre>
-</div>
-</div>
-<p><em>Post-hoc</em> testi saab teha siin käsuga <code>TukeyHSD()</code></p>
+<p>Saame teada, et sissetuleku hinnangu järgi ei ole hinnang õnnelikkusele ühesugune ja seda, et erinevus on statistiliselt oluline. Kahjuks gruppide erinevust selle käsuga ei näe.</p>
+<p>Võimalus oleks teha käsuga <code>aov()</code> ja seejärel teha post-hoc test. <em>Post-hoc</em> testi saab teha siin käsuga <code>TukeyHSD()</code></p>
 <p><code>TukeyHSD()</code> esitab analüüsitulemused neljas grupis:</p>
 <ol type="1">
 <li>“diff” - gruppide keskmine erinevus</li>
 <li>“lwr” - usalduspiiri alumine väärtus</li>
 <li>“upr” - usalduspiiri ülemine väärtus</li>
-<li>“p adj” - olulisuse tõenäosus <code>Tulemuste lugemist tasub alustada viimasest rühmast, kus on näha, et</code>statitstiline oluline` erinevus on gruppide “<em>Living comfortably on present income</em>” ja “<em>Coping on present income</em>” ning “<em>Living comfortably on present income</em>” ja “<em>Difficult on present income</em>” vahel.</li>
+<li>“p adj” - olulisuse tõenäosus Tulemuste lugemist tasub alustada viimasest rühmast, kus on näha, et statitstiline oluline erinevus on peaaegu kõigi gruppide vahel (v.a nee kellel on raske või väga raske toime tulla).</li>
 </ol>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(grdfinc<span class="sc">~</span>hincfel, andmed))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">aov</span>(happy<span class="sc">~</span>hincfel, andmed)<span class="sc">%&gt;%</span></span>
+<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summary</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>              Df Sum Sq Mean Sq F value Pr(&gt;F)    
+hincfel        3    474  158.06   57.88 &lt;2e-16 ***
+Residuals   1537   4197    2.73                   
+---
+Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+1 observation deleted due to missingness</code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Järgnev väljatükk aitab ilmekalt selgitada, miks ei ole hea tunnuste kategooriatele ülipikki nimesid panna. Väljatrükki oleks lihtsam lugeda, kui kategooriate nimed oleks lühemad.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">TukeyHSD</span>(<span class="fu">aov</span>(happy<span class="sc">~</span>hincfel, andmed))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>  Tukey multiple comparisons of means
     95% family-wise confidence level
 
-Fit: aov(formula = grdfinc ~ hincfel, data = andmed)
+Fit: aov(formula = happy ~ hincfel, data = andmed)
 
 $hincfel
-                                                                            diff
-Difficult on present income-Very difficult on present income          -0.3662791
-Coping on present income-Very difficult on present income             -0.5136446
-Living comfortably on present income-Very difficult on present income -0.9198966
-Coping on present income-Difficult on present income                  -0.1473655
-Living comfortably on present income-Difficult on present income      -0.5536176
-Living comfortably on present income-Coping on present income         -0.4062520
-                                                                             lwr
-Difficult on present income-Very difficult on present income          -1.3685265
-Coping on present income-Very difficult on present income             -1.4407020
-Living comfortably on present income-Very difficult on present income -1.8748241
-Coping on present income-Difficult on present income                  -0.6191067
-Living comfortably on present income-Difficult on present income      -1.0780132
-Living comfortably on present income-Coping on present income         -0.7667049
-                                                                              upr
-Difficult on present income-Very difficult on present income           0.63596832
-Coping on present income-Very difficult on present income              0.41341278
-Living comfortably on present income-Very difficult on present income  0.03503078
-Coping on present income-Difficult on present income                   0.32437566
-Living comfortably on present income-Difficult on present income      -0.02922198
-Living comfortably on present income-Coping on present income         -0.04579914
-                                                                          p adj
-Difficult on present income-Very difficult on present income          0.7833365
-Coping on present income-Very difficult on present income             0.4838591
-Living comfortably on present income-Very difficult on present income 0.0638553
-Coping on present income-Difficult on present income                  0.8528467
-Living comfortably on present income-Difficult on present income      0.0338346
-Living comfortably on present income-Coping on present income         0.0198583</code></pre>
+                                                                                                                 diff
+Saame hakkama praeguse sissetuleku juures-Elame mugavalt praeguse sissetuleku juures                       -0.6376499
+Praeguse sissetuleku juures on raske hakkama saada-Elame mugavalt praeguse sissetuleku juures              -1.6672350
+Praeguse sissetuleku juures on väga raske hakkama saada-Elame mugavalt praeguse sissetuleku juures         -2.2681479
+Praeguse sissetuleku juures on raske hakkama saada-Saame hakkama praeguse sissetuleku juures               -1.0295851
+Praeguse sissetuleku juures on väga raske hakkama saada-Saame hakkama praeguse sissetuleku juures          -1.6304980
+Praeguse sissetuleku juures on väga raske hakkama saada-Praeguse sissetuleku juures on raske hakkama saada -0.6009129
+                                                                                                                  lwr
+Saame hakkama praeguse sissetuleku juures-Elame mugavalt praeguse sissetuleku juures                       -0.8948038
+Praeguse sissetuleku juures on raske hakkama saada-Elame mugavalt praeguse sissetuleku juures              -2.0414223
+Praeguse sissetuleku juures on väga raske hakkama saada-Elame mugavalt praeguse sissetuleku juures         -2.9584197
+Praeguse sissetuleku juures on raske hakkama saada-Saame hakkama praeguse sissetuleku juures               -1.3661580
+Praeguse sissetuleku juures on väga raske hakkama saada-Saame hakkama praeguse sissetuleku juures          -2.3011249
+Praeguse sissetuleku juures on väga raske hakkama saada-Praeguse sissetuleku juures on raske hakkama saada -1.3245347
+                                                                                                                  upr
+Saame hakkama praeguse sissetuleku juures-Elame mugavalt praeguse sissetuleku juures                       -0.3804960
+Praeguse sissetuleku juures on raske hakkama saada-Elame mugavalt praeguse sissetuleku juures              -1.2930477
+Praeguse sissetuleku juures on väga raske hakkama saada-Elame mugavalt praeguse sissetuleku juures         -1.5778760
+Praeguse sissetuleku juures on raske hakkama saada-Saame hakkama praeguse sissetuleku juures               -0.6930122
+Praeguse sissetuleku juures on väga raske hakkama saada-Saame hakkama praeguse sissetuleku juures          -0.9598711
+Praeguse sissetuleku juures on väga raske hakkama saada-Praeguse sissetuleku juures on raske hakkama saada  0.1227088
+                                                                                                               p adj
+Saame hakkama praeguse sissetuleku juures-Elame mugavalt praeguse sissetuleku juures                       0.0000000
+Praeguse sissetuleku juures on raske hakkama saada-Elame mugavalt praeguse sissetuleku juures              0.0000000
+Praeguse sissetuleku juures on väga raske hakkama saada-Elame mugavalt praeguse sissetuleku juures         0.0000000
+Praeguse sissetuleku juures on raske hakkama saada-Saame hakkama praeguse sissetuleku juures               0.0000000
+Praeguse sissetuleku juures on väga raske hakkama saada-Saame hakkama praeguse sissetuleku juures          0.0000000
+Praeguse sissetuleku juures on väga raske hakkama saada-Praeguse sissetuleku juures on raske hakkama saada 0.1422913</code></pre>
 </div>
 </div>
 </section>
-<section id="kruskal-wallis-test" class="level2" data-number="9.4">
-<h2 data-number="9.4" class="anchored" data-anchor-id="kruskal-wallis-test"><span class="header-section-number">9.4</span> Kruskal-Wallis test</h2>
+<section id="kruskal" class="level2" data-number="9.4">
+<h2 data-number="9.4" class="anchored" data-anchor-id="kruskal"><span class="header-section-number">9.4</span> Kruskal-Wallis test</h2>
 <p><code>Kruskal-Wallis test</code> võrdleb keskmiste <code>astak-</code>uid ning sobib kasutada olukordades, kus võrreldavad grupid ei ole ühesuurused. Käsk <code>kruskal.test()</code> toimib põhimõttel, et vajab esmalt sõltuvat ja seejärel grupeerivat tunnust. Andmestiku nimi tuleb öelda koma järel.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(grdfinc<span class="sc">~</span>hincfel, andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskal.test</span>(happy<span class="sc">~</span>hincfel, andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Kruskal-Wallis rank sum test
 
-data:  grdfinc by hincfel
-Kruskal-Wallis chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
+data:  happy by hincfel
+Kruskal-Wallis chi-squared = 135.81, df = 3, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 <p>Kruskal-Wallise test näitab, et gruppide vahel on <code>statistiliselt olulised</code> erinevused. <code>Hii-ruut statistik</code> on 19.1 ja <span class="math inline">\(p\)</span>&lt;0,01.</p>
@@ -635,7 +796,7 @@ Kruskal-Wallis chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
 <h3 class="unnumbered anchored" data-anchor-id="kruskal-wallis-test-paketiga-pmcmrplus">Kruskal-Wallis test paketiga <code>PMCMRplus</code></h3>
 <p>Paketiga MPCMPRplus <span class="citation" data-cites="PMCMRplus">(<a href="references.html#ref-PMCMRplus" role="doc-biblioref">Pohlert 2023</a>)</span> saab teha <code>Kruskal-Wallis test</code>i (käsk <code>kruskalTest()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(PMCMRplus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-important">
 <div class="callout-body d-flex">
@@ -648,23 +809,20 @@ Kruskal-Wallis chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] "ordered" "factor" </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hincfel<span class="ot">&lt;-</span><span class="fu">as_factor</span>(andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskalTest</span>(grdfinc<span class="sc">~</span>hincfel, andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">kruskalTest</span>(happy<span class="sc">~</span>hincfel, andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning in kruskalTest.default(c(10, 3, 8, 8, 8, 10, 10, 10, 7, 8, 0, 5, : Ties
-are present. Quantiles were corrected for ties.</code></pre>
+<pre><code>Warning in kruskalTest.default(c(8, 7, 8, 10, 7, 8, 7, 7, 7, 8, 10, 6, 8, :
+Ties are present. Quantiles were corrected for ties.</code></pre>
 </div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
     Kruskal-Wallis test
 
-data:  grdfinc by hincfel
-chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
+data:  happy by hincfel
+chi-squared = 135.81, df = 3, p-value &lt; 2.2e-16</code></pre>
 </div>
 </div>
 </section>
@@ -684,11 +842,11 @@ chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
 <p>Keskmiste võrdluse esitlemiseks sobib joonisena karp-diagramm, sest tegemist on sisuliselt ju numbrilise tunnuse esitlemisega.</p>
 <p>Baaskäsk <code>boxplot()</code> <em>ajaks justkui asja ära</em>, kuid antud hetkel ei mahuta kõikide gruppide nimesid joonisele.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(andmed<span class="sc">$</span>grdfinc<span class="sc">~</span>andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">boxplot</span>(andmed<span class="sc">$</span>happy<span class="sc">~</span>andmed<span class="sc">$</span>hincfel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-26-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -696,19 +854,46 @@ chi-squared = 19.13, df = 3, p-value = 0.0002569</code></pre>
 <p>Karpdiagrammi <strong>miinuseks</strong> on see, et gruppide suurusest jääb ekslik mulje nagu need oleks võrdsed.</p>
 <p>Üks võimalus oleks esitleda keskmiste erinevust gruppide vahel nii, et lisada sinna ka vastajaid kujutavad täpikesi. Pilt nüüd kauniks kunstiväärtuseks ei läinud, kuid annab vaatluse all oleva situatsiooni kohta veidi paremini infot edasi.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
-<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hincfel, <span class="at">y=</span>grdfinc))<span class="sc">+</span></span>
-<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.4</span>, <span class="at">color=</span><span class="st">"lightblue"</span>)<span class="sc">+</span></span>
-<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
-<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Hinnangute keskmiste erinevus gruppide vahel"</span>,<span class="st">"Sinisega on kujutatud vastajate jagunemine igas grupis"</span>)<span class="sc">+</span></span>
-<span id="cb30-6"><a href="#cb30-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">coord_flip</span>()<span class="sc">+</span></span>
-<span id="cb30-7"><a href="#cb30-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="cn">NULL</span>)<span class="sc">+</span></span>
-<span id="cb30-8"><a href="#cb30-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)<span class="sc">+</span></span>
-<span id="cb30-9"><a href="#cb30-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>hincfel, <span class="at">y=</span>happy))<span class="sc">+</span></span>
+<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="at">alpha=</span><span class="fl">0.4</span>, <span class="fu">aes</span>(<span class="at">color=</span>gndr))<span class="sc">+</span></span>
+<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Hinnang õnnelikkusele sissetuleku hinnangu järgi"</span>)<span class="sc">+</span></span>
+<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
+<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a><span class="fu">scale_x_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Elame mugavalt"</span>, <span class="st">"Saame hakkama"</span>, <span class="st">"Raske on"</span>, <span class="st">"Väga raske on"</span>))<span class="sc">+</span></span>
+<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ylab</span>(<span class="cn">NULL</span>)<span class="sc">+</span></span>
+<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">xlab</span>(<span class="cn">NULL</span>)<span class="sc">+</span></span>
+<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Teinekord tasub esitleda tulemusi ka <em>density</em> joonisega.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb40-2"><a href="#cb40-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(happy, hincfel)<span class="sc">%&gt;%</span></span>
+<span id="cb40-3"><a href="#cb40-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>happy, <span class="at">fill=</span>hincfel))<span class="sc">+</span></span>
+<span id="cb40-4"><a href="#cb40-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_density</span>(<span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb40-5"><a href="#cb40-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Hinnang õnnelikkusele sissetuleku hinnangu järgi"</span>,</span>
+<span id="cb40-6"><a href="#cb40-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Õnnelikkuse hinnang"</span>,</span>
+<span id="cb40-7"><a href="#cb40-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">""</span>,</span>
+<span id="cb40-8"><a href="#cb40-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">fill=</span><span class="st">"Sissetuleku hinnang"</span>)<span class="sc">+</span></span>
+<span id="cb40-9"><a href="#cb40-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb40-10"><a href="#cb40-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="fu">c</span>(.<span class="dv">35</span>, .<span class="dv">75</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="09-keskmiste-vordlus_files/figure-html/unnamed-chunk-28-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -724,7 +909,7 @@ Pohlert, Thorsten. 2023. <em>PMCMRplus: Calculate Pairwise Multiple Comparisons 
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
-<li id="fn1"><p>Kui soovid sama andmestikuga harjutusi järele teha, lae andmestik nimega “ess10_valitsus.csv” alla <a href="https://github.com/kristiloide/andmetuba">siit</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn1"><p>Kui soovid sama andmestikuga harjutusi järele teha, lae andmestik nimega “ESS_10_valik.csv” alla <a href="https://github.com/kristiloide/andmetuba">siit</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
@@ -1145,8 +1330,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Allikad">
-        <span class="nav-page-text">Allikad</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./references.html" class="pagination-link" aria-label="Kasutatud paketid">
+        <span class="nav-page-text">Kasutatud paketid</span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
