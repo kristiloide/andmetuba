@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kristi Loide">
-<meta name="dcterms.date" content="2024-06-20">
 
-<title>Andmetuba</title>
+<title>Andmetuba - 8&nbsp; Kirjeldav statistika</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +84,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-andmestike-lugemine.html" rel="next">
+<link href="./09-seosed-tunnustes.html" rel="next">
+<link href="./07-joonised.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -136,7 +135,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Saateks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./08-kirjeldav-statistika.html"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></a></li></ol></nav>
         <a class="flex-grow-1" role="button" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="" onclick="window.quartoOpenSearch();">
@@ -163,7 +162,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Saateks</span></a>
   </div>
 </li>
@@ -211,7 +210,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./08-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link">
+  <a href="./08-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span></a>
   </div>
 </li>
@@ -243,10 +242,15 @@ div.csl-indent {
     <h2 id="toc-title">Sisukord</h2>
    
   <ul>
-  <li><a href="#saateks" id="toc-saateks" class="nav-link active" data-scroll-target="#saateks">Saateks</a>
+  <li><a href="#kirjeldav-stat" id="toc-kirjeldav-stat" class="nav-link active" data-scroll-target="#kirjeldav-stat"><span class="header-section-number">8.1</span> Kirjeldava statistika leidmine</a>
   <ul class="collapse">
-  <li><a href="#paketid" id="toc-paketid" class="nav-link" data-scroll-target="#paketid">Paketid</a></li>
-  <li><a href="#sonavara" id="toc-sonavara" class="nav-link" data-scroll-target="#sonavara"><code>R</code>- i sõnavara</a></li>
+  <li><a href="#mood" id="toc-mood" class="nav-link" data-scroll-target="#mood">Mood leidmine <code>R</code>-is</a></li>
+  <li><a href="#sagedustabel" id="toc-sagedustabel" class="nav-link" data-scroll-target="#sagedustabel">Sagedustabelid</a></li>
+  </ul></li>
+  <li><a href="#kirjeldav-paketid" id="toc-kirjeldav-paketid" class="nav-link" data-scroll-target="#kirjeldav-paketid"><span class="header-section-number">8.2</span> Erinevad paketid kirjeldava statistika jaoks</a>
+  <ul class="collapse">
+  <li><a href="#sjmics" id="toc-sjmics" class="nav-link" data-scroll-target="#sjmics">Pakett <code>sjmics</code></a></li>
+  <li><a href="#pastecs" id="toc-pastecs" class="nav-link" data-scroll-target="#pastecs">Pakett <code>pastecs</code></a></li>
   </ul></li>
   </ul>
 </nav>
@@ -256,26 +260,14 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Andmetuba</h1>
+<h1 class="title"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Kristi Loide </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">June 20, 2024</p>
-    </div>
-  </div>
   
     
   </div>
@@ -285,32 +277,77 @@ div.csl-indent {
 </header>
 
 
-<section id="saateks" class="level1 unnumbered">
-<h1 class="unnumbered">Saateks</h1>
-<p>See e-raamat on mõeldud abistavaks materjaliks <code>R-studio</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> kasutamisel. Hetkel on e-raamat oma sisu poolest pidevas arengus<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
-<p>Olen koondanud siia valiku vajaminevaid <code>käske</code><a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a> ning lisanud lühikese selgituse, miks ja millal neid <code>käske</code> vaja võib minna. Kõik näited ja soovitused olen kirja pannud oma kasutuskogemuse pinnalt ning viisil, kuidas ise oleksin soovinud <code>R</code>-i kasutamist õppida. Püüan kasutada pigem <a href="01-andmestike-lugemine.html#R-andmestikud"><code>R</code>-iga kaasatulevaid andmestikke</a>, et saaksid samu asju järgi teha, kuid kasutan ka mitmeid avaandmestikke, et oleks selgemini näha, mis võivad olla esmased tõrked “päris” andmete kasutamisel.</p>
-<p>Raamat liigub sisu poolest lihtsamalt keerulisema teema suunas ning peaks sobima ka päris algajale <code>R</code>-i kasutajale, kellel on <code>R-Studio</code> arvutisse salvesatatud. Programmi saab alla laadida <a href="https://posit.co/download/rstudio-desktop/">siit</a>.</p>
-<p>Ma ei plaani kirjutada peatükki, mis räägib <code>R</code>-i seadistamisest, <code>projektide</code> loomisest jms. Vajadusel tutvu aga raamatuga <a href="https://r4ds.hadley.nz/">R for Data Science (2e)</a>.<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a></p>
-<p>Püüan anda võimalikult palju viiteid, et <code>R</code>-i käskude (või analüüsimeetodite) kohta rohkem lugeda. Kuna olen oma <code>R</code>-i kasutamise teadmised pigem “kokku <em>googeldanud</em>”, siis alati ma ei oska ehk oma teadmiste allikale viidata. Seepärast viitan pigem <a href="#paketid">pakettide</a> autoritele, et tunnustada neid, kes on <code>R</code>- i arendamisse panustanud ja teinud <code>R</code>-i selliseks nagu ta täna on<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
-<p>Palun arvesta, et ma kasutan mitmeid IT-termineid <em>üpris</em> vabalt ning püüan edasi anda pigem tegevuse sisu<a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>. Kuna ma ei ole tarvkaraarendaja ega informaatik (ega tööta ka IT valdkonnas), siis luban omale raamatus vabamat keelekasutust. Ka minu koodikirjutuse <a href="https://r4ds.hadley.nz/workflow-style"><em>stiil</em></a> ei pruugi olla selline, milline see <em>klassikaliselt</em> olema peaks, kuid ma püüan end selles parandada. Kui kirjutame koodi üksi ja (vähemalt alguses) ainult enda silmadele, siis ei tundu nii oluline, et <em>stiil</em> 100% “õige” oleks. Siiski võiks kood olla piisavalt selge, et ise ka aasta pärast aru saaks, mis toona kirja pandud sai.</p>
-<p>Sotsioloogina<a href="#fn7" class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> püüan siiski olla täpne analüüsimeetodite nimedes. Siiski palun arvesta, et see e-raamat ei ole mõeldud asendamaks analüüsimeetodite õpikut, vaid pigem kaaslaseks <code>R-studio</code> kasutamisel. Võta seda e-raamatut kui minu isiklikku konspetki, mis avalikult kättesaadav on.</p>
-<p><code>R</code> on programm ja samas ka võõrkeel. Nii nagu igat võõrkeelt, õpib ka <code>R</code>- i kõige paremini kui seda (regulaarselt) harjutada. Kuigi siit raamatust saab koodi otse kopeerida, püüa kood mõttega läbi kirjutada ja tee oma sõnadega <code>käsk</code>-ude juurde märkmeid.</p>
-<section id="paketid" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="paketid">Paketid</h2>
-<p><code>R</code>-i <code>baasversioon</code><a href="#fn8" class="footnote-ref" id="fnref8" role="doc-noteref"><sup>8</sup></a> on võimas tööriist, kuid paljud paketid teevad <code>R</code>-i kasutamise veelgi mugavamaks ja võimsamaks.</p>
-<p>Minu lemmik pakett on <code>tidyverse</code><span class="citation" data-cites="R-tidyverse">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> ning käivitan selle esimese asjana iga <code>tööprojekti</code> alguses. <code>tidyverse</code> oma olemuselt on erinevate levinud pakettide kogum, mis laiendab oluliselt <code>R</code>-is toimetamisel kasutatavad <a href="#sonavara">sõnavara</a>. Loe <code>tidyverse</code> paketi kohta rohkem <a href="https://www.tidyverse.org/">siit</a>.</p>
-<div class="cell" data-paged.print="false">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<p>Statistiline andmeanalüüs algab minu jaoks kirjeldava statistikaga. Peatükk annab vastuse küsimusele “kuidas seda R-is teha?”.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<p>Selle e-raamatu koostasin <code>R</code>-studios <a href="https://quarto.org/docs/get-started/hello/rstudio.html">Quartot</a> kasutades.</p>
+<div class="callout-title-container flex-fill">
+Lugemissoovitus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Rootalu, K. (2014). Kirjeldav statistika. K. Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/kirjeldav-statistika/" class="uri">https://samm.ut.ee/kirjeldav-statistika/</a></p>
+</div>
+</div>
+<section id="kirjeldav-stat" class="level2" data-number="8.1">
+<h2 data-number="8.1" class="anchored" data-anchor-id="kirjeldav-stat"><span class="header-section-number">8.1</span> Kirjeldava statistika leidmine</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>käsk <code>summary()</code> annab numbrilise tunnuse puhul sarnase ülevaate, mida sagedasti kirjeldava statistika puhul teada saada soovime. Vaata ka alapeatükki <a href="##tunnuste-sisuga-tutvumine">tunnuste sisuga tutvumine</a>, kus on numbriliste tunnuste baaskäsud kirjeldava statistika leidmiseks.</p>
+<p>Lisaks on veel rida erinevaid käske, mis teevad töötamise mugavaks ning põhjalikuma ülevaate saamiseks on parem kasutada juba <a href="#kirjeldav-paketid">spetsiaalselt kirjeldava statistika saamiseks loodud pakette</a>.</p>
+<p>Kvantiilide leidmiseks on käsk <code>quantile()</code>, mille sees tuleb täpsustada mitmendat kvantiili soovime teada.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="fl">0.25</span>, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>25% 
+167 </code></pre>
+</div>
+</div>
+<p>Standardhälve leidmiseks on käsk <code>sd()</code> ja dispersiooni jaoks <code>var()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34.77416</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1209.242</code></pre>
+</div>
+</div>
+<section id="mood" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="mood">Mood leidmine <code>R</code>-is</h3>
+<p><code>R</code> ei anna numbriliste jaoks baaskäsuna <strong>mood</strong>-i ning selle leidmiseks peab minema ringiga.</p>
 <div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Mõnikord ei saa <code>R</code> paketi installeerimisega hakkama, sest sõltuvad paketid (<em>mida me tavaliselt ei näegi</em>) ei ole enam selles verisoonis, mida parasjagu vaja. Siis tuleb kasutada käsk <code>install()</code> paketist <code>renv</code><span class="citation" data-cites="renv">(<a href="references.html#ref-renv" role="doc-biblioref">Ushey and Wickham 2024</a>)</span> ning paketi nime järel tuleb kirjutada <code>@versiooni_number</code>.</p>
+<p>Kõige pealt on vaja salvestada väärtuste sageduse jaotus tabelisse käsuga <code>table()</code> ja seejärel tuleb leida väärtuste esinemissagedus käsu <code>sort()</code> abil järjestades nad suuremast väiksemani.</p>
 </div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Pane tähele, et käsu <code>sort()</code> sees ei ole kasutatud käsku <code>desc()</code>, vaid täpsustatud <code>decreasing = T</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(Orange<span class="sc">$</span>age), <span class="at">decreasing =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 118  484  664 1004 1231 1372 1582 
+   5    5    5    5    5    5    5 </code></pre>
 </div>
 </div>
 <div class="callout callout-style-simple callout-note">
@@ -319,155 +356,232 @@ div.csl-indent {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Mõned <code>R</code>-i koodid olen raamatust välja kommenteerinud, sest soovin käsu kasutamist näidata aga mitte seda käivitada. Alates peatükist nr 2 selliseid väljakommenteeritud näidiskoode olen kasutanud mõnel üksikul korral.</p>
+<p>Tulemuste tõlendamisel arvesta võimalusega, et mõnikord andmetes moodi ei olegi.</p>
 </div>
 </div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#renv::install("data.table@1.15.2")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="sonavara" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sonavara"><code>R</code>- i sõnavara</h2>
-<p><code>R</code> võimaldab teha andmetega mitmesuguseid tehteid. Tavapärane liitmine ja lahutamine toimubki vastavalt kas <code>+</code> või <code>-</code> märgiga. Jagamiseks on märk <code>/</code> ning korrutamiseks <code>*</code>. Selleks, et teha keerukamat lauset, on vaja tunda ka järgmisi märke.</p>
-<table class="table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Sümbol</th>
-<th>Tegevus või tähendus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><code>&lt;-</code></td>
-<td>abil anname mingile objektile teatud väärtuse</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>$</code></td>
-<td>“kõnetab” konkreetset <code>tunnust</code> <code>andmestik</code>-us (vaata ka <a href="02-andmestiku-ylevaade.html#tunnustega-tutvumine">tunnustega tutvumine</a> )</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>%&gt;%</code> või <code>|&gt;</code></td>
-<td><strong>ja siis</strong> või <strong>seejärel</strong> (tee järgmist asja). Selle kohta öeldakse ka <em>torud</em> või <em>pipes</em>. Klahvilühend ctrl+shift+M või command+shift+M. Mina olen harjunud kasutama torusid selliselt <code>%&gt;%</code>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>%in%</code></td>
-<td>kas tunnus <strong>sisaldab</strong> väärtust</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>#</code></td>
-<td>kommenteerib teksti käsust välja ehk <code>#</code> järgselt ei tekst osa koodist. Tee nii omale märkmeid koodi kohta.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>?</code></td>
-<td>koos käsu nimega avab käsu dokumentatsiooni</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>==</code></td>
-<td>võrdne</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>&lt;</code></td>
-<td>väiksem kui</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>&gt;</code></td>
-<td>suurem kui</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>&lt;=</code></td>
-<td>väiksem või võrdne</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>!</code></td>
-<td>pöörab käsu tagurpidi</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>!=</code></td>
-<td>ei ole võrdne</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>|</code></td>
-<td>või</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>&amp;</code></td>
-<td>ja</td>
-</tr>
-</tbody>
-</table>
-<p>Peaaegu kõik <em>levinud</em> funktsioonid algavad <code>R</code>-is väikese tähega ning neile järgnevad sulud <code>()</code>. <code>funktsioon</code> on <code>käsk</code>, mis ütleb programmile, mida teha tuleb. Enamasti ütleb käsu nimi juba, mida ta tegema peab (näiteks käsk <code>filter()</code>), kuid <code>R</code>-ile tuleb sulgudes sees täpsustada, milliste andmetega antud käsku täita. <code>R</code>-is on väga oluline, kas kasutusel on suured või väikesed tähed, teatud sümbolite kasutamine <code>R</code>-ile ei meeldi ning kui <code>R</code>, millestki aru või hakkama ei saa, siis ta seda ka ütleb.</p>
-<p><code>tidyverse</code> pakett laiendab <code>R</code>-i sõnavara olulisel määral. <code>Baasversioon</code>iga on võimalik ka palju ära teha, kuid mina eelistan kasutada pigem <code>tidyverse</code> lähenemist.</p>
-<p>Näide, kuidas sama asja saab kirjutada kahel erineval viisil. Esimene neist on nn <code>baasversioon</code>i lähenemine ja teine <code>tidyverse</code> oma. Mõlema koodijupi käivitamine annab sama tulemuse.</p>
+<section id="sagedustabel" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sagedustabel">Sagedustabelid</h3>
+<p>Ühe või kahemõõtmelise sagedustabeli saamiseks piisab käsust <code>table()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#baasversioon</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>starwars[<span class="fu">is.na</span>(starwars<span class="sc">$</span>mass),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 28 × 14
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
- 2 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
- 3 Arvel C…     NA    NA brown      fair       brown             NA male  mascu…
- 4 Finis V…    170    NA blond      fair       blue              91 male  mascu…
- 5 Rugor N…    206    NA none       green      orange            NA male  mascu…
- 6 Ric Olié    183    NA brown      fair       blue              NA male  mascu…
- 7 Watto       137    NA black      blue, grey yellow            NA male  mascu…
- 8 Quarsh …    183    NA black      dark       brown             62 male  mascu…
- 9 Shmi Sk…    163    NA black      fair       brown             72 fema… femin…
-10 Bib For…    180    NA none       pale       pink              NA male  mascu…
-# ℹ 18 more rows
-# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<pre><code>
+ feminine masculine 
+       17        66 </code></pre>
+</div>
+</div>
+<p>Enamsti on vaja lisaks andmete jaotusele aru saada ka jagunemise proportsioonidest (osakaaludest). Selleks on mitu erinevat võimalust.</p>
+<p>Käsk <code>prop.table()</code> vajab uuritavaks tunnuseks tabelit ning tabeli võib eelnevalt salvesta eraldi objekti või kasuta kahe käsu kombinatsiooni.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Käsu <code>table()</code> põhjal toimub ka hii-ruut statistiku arvutamine, et mõnikord “tasub” väiksemate tabelite objektideks salvestamine end ära.</p>
+</div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tidyverse abil</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(starwars<span class="sc">$</span>gender))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 28 × 14
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
- 2 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
- 3 Arvel C…     NA    NA brown      fair       brown             NA male  mascu…
- 4 Finis V…    170    NA blond      fair       blue              91 male  mascu…
- 5 Rugor N…    206    NA none       green      orange            NA male  mascu…
- 6 Ric Olié    183    NA brown      fair       blue              NA male  mascu…
- 7 Watto       137    NA black      blue, grey yellow            NA male  mascu…
- 8 Quarsh …    183    NA black      dark       brown             62 male  mascu…
- 9 Shmi Sk…    163    NA black      fair       brown             72 fema… femin…
-10 Bib For…    180    NA none       pale       pink              NA male  mascu…
-# ℹ 18 more rows
-# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<pre><code>
+ feminine masculine 
+0.2048193 0.7951807 </code></pre>
+</div>
+</div>
+<p>Kahemõõtmeline sagedustabel vajab sulgude sees täpsustust. Esimene tunnus pannakse ridadeks ja teine tunnus veergudeks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                
+                 feminine masculine
+  female               16         0
+  hermaphroditic        0         1
+  male                  0        60
+  none                  1         5</code></pre>
+</div>
+</div>
+<p>Kui on kahemõõtlemine sagedustabel, tuleb täpsustada kas soovitakse rea protsente (lisada sulgudesse nr 1) või tulpade oma (2). Kui ei täpsusta milliseid osakaale soovid, näitab käsk kogu tabeli proportsionaalset jaotust.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tabel<span class="ot">&lt;-</span><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabel,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                
+                   feminine  masculine
+  female         0.94117647 0.00000000
+  hermaphroditic 0.00000000 0.01515152
+  male           0.00000000 0.90909091
+  none           0.05882353 0.07575758</code></pre>
+</div>
+</div>
+<p>Kolmemõõtlemine sagedustabeli tegemine käib sama loogika alusel, kuid võib-olla on siin juba mugavam saada <code>tidyverse</code> paketi käskude (<code>group_by()</code> ja <code>summarise()</code>) abil olukorrast parem pilt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, sex)<span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'gender'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+# Groups:   gender [3]
+  gender    sex                n
+  &lt;chr&gt;     &lt;chr&gt;          &lt;int&gt;
+1 feminine  female            16
+2 feminine  none               1
+3 masculine hermaphroditic     1
+4 masculine male              60
+5 masculine none               5
+6 &lt;NA&gt;      &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="kirjeldav-paketid" class="level2" data-number="8.2">
+<h2 data-number="8.2" class="anchored" data-anchor-id="kirjeldav-paketid"><span class="header-section-number">8.2</span> Erinevad paketid kirjeldava statistika jaoks</h2>
+<section id="sjmics" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sjmics">Pakett <code>sjmics</code></h3>
+<p>Kirjeldava statistika puhul huvitab meid rohkem kui lihtsalt gruppide sees sageduse loendamine, sest näha tahame ka suhtelist ja kumulatiivset sagedust. Selleks on parem kasutada paketist <code>sjmisc</code> <span class="citation" data-cites="sjmisc">(<a href="references.html#ref-sjmisc" role="doc-biblioref">Lüdecke 2018</a>)</span> käske käsk <code>frq()</code> ja <code>descr()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;character&gt; 
+# total N=87 valid N=83 mean=1.80 sd=0.41
+
+Value     |  N | Raw % | Valid % | Cum. %
+-----------------------------------------
+feminine  | 17 | 19.54 |   20.48 |  20.48
+masculine | 66 | 75.86 |   79.52 | 100.00
+&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Basic descriptive statistics
+
+ var    type label  n NA.prc  mean    sd   se  md trimmed        range iqr
+  dd integer    dd 81    6.9 174.6 34.77 3.86 180  178.48 198 (66-264)  24
+  skew
+ -1.09</code></pre>
+</div>
+</div>
+<p>Soovi korral võib kirjutada aga käsu sisse andmestiku nime ja ülejäänud numbrilised tunnused, mille kohta ülevaadet soovime.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars, height, mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Basic descriptive statistics
+
+    var    type  label  n NA.prc   mean     sd    se  md trimmed          range
+ height integer height 81   6.90 174.60  34.77  3.86 180  178.48   198 (66-264)
+   mass numeric   mass 59  32.18  97.31 169.46 22.06  79   75.44 1343 (15-1358)
+  iqr  skew
+ 24.0 -1.09
+ 28.9  7.34</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars, sex, gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sex &lt;character&gt; 
+# total N=87 valid N=83 mean=2.67 sd=0.87
+
+Value          |  N | Raw % | Valid % | Cum. %
+----------------------------------------------
+female         | 16 | 18.39 |   19.28 |  19.28
+hermaphroditic |  1 |  1.15 |    1.20 |  20.48
+male           | 60 | 68.97 |   72.29 |  92.77
+none           |  6 |  6.90 |    7.23 | 100.00
+&lt;NA&gt;           |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;
+
+gender &lt;character&gt; 
+# total N=87 valid N=83 mean=1.80 sd=0.41
+
+Value     |  N | Raw % | Valid % | Cum. %
+-----------------------------------------
+feminine  | 17 | 19.54 |   20.48 |  20.48
+masculine | 66 | 75.86 |   79.52 | 100.00
+&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="pastecs" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pastecs">Pakett <code>pastecs</code></h3>
+<p>Kirjeldava statistika saamiseks on olemas käsk <code>stat.desc()</code> paketist <code>pastecs</code> <span class="citation" data-cites="pastecs">(<a href="references.html#ref-pastecs" role="doc-biblioref">Grosjean and Ibanez 2024</a>)</span>, mis annab vajadusel kogu andmestiku nubrilistele tunnuste kohta kompaktse ülevaate. Tunnusele “Tree” annab vastusteks <code>NA</code>, sest kuigi tunnus paistab välja nagu sisaldaks numbreid, on need tegelikult faktorid. Vaata tunnuste tüüpide muutmist <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Orange<span class="sc">$</span>Tree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ordered" "factor" </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pastecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stat.desc</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Tree          age circumference
+nbr.val    NA 3.500000e+01    35.0000000
+nbr.null   NA 0.000000e+00     0.0000000
+nbr.na     NA 0.000000e+00     0.0000000
+min        NA 1.180000e+02    30.0000000
+max        NA 1.582000e+03   214.0000000
+range      NA 1.464000e+03   184.0000000
+sum        NA 3.227500e+04  4055.0000000
+median     NA 1.004000e+03   115.0000000
+mean       NA 9.221429e+02   115.8571429
+SE.mean    NA 8.314028e+01     9.7172759
+CI.mean    NA 1.689614e+02    19.7478805
+var        NA 2.419307e+05  3304.8907563
+std.dev    NA 4.918645e+02    57.4881793
+coef.var   NA 5.333930e-01     0.4961988</code></pre>
+</div>
+</div>
+<p>Võimalus on tellida statistika väljatrükk ka ainult konkreetse tunnuse kohta.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kasuta käsku <code>round()</code>, et muuta väljatrükk inimsilmale sõbralikumaks. Number sulgude sees näitab, mitu komakohta kuvada.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">stat.desc</span>(starwars<span class="sc">$</span>height), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
+      81.000        0.000        6.000       66.000      264.000      198.000 
+         sum       median         mean      SE.mean CI.mean.0.95          var 
+   14143.000      180.000      174.605        3.864        7.689     1209.242 
+     std.dev     coef.var 
+      34.774        0.199 </code></pre>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-renv" class="csl-entry" role="listitem">
-Ushey, Kevin, and Hadley Wickham. 2024. <em>Renv: Project Environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a>.
+<div id="ref-pastecs" class="csl-entry" role="listitem">
+Grosjean, Philippe, and Frederic Ibanez. 2024. <em>Pastecs: Package for Analysis of Space-Time Ecological Series</em>. <a href="https://CRAN.R-project.org/package=pastecs">https://CRAN.R-project.org/package=pastecs</a>.
 </div>
-<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley. 2023. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+<div id="ref-sjmisc" class="csl-entry" role="listitem">
+Lüdecke, Daniel. 2018. <span>“Sjmisc: Data and Variable Transformation Functions.”</span> <em>Journal of Open Source Software</em> 3 (26): 754. <a href="https://doi.org/10.21105/joss.00754">https://doi.org/10.21105/joss.00754</a>.
 </div>
 </div>
 </section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Ütlen <code>R-studio</code> kohta ka lühidalt lihtsalt mugavuse tõttu <code>R</code>. Ühtalsi on <code>R</code> korraga nii programm kui ka programmeerimis keel.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p>Miks avaldan pooliku töö? Olen ühes töögrupis, kus õpetan <em>mitteinformaatikuid</em> <code>R</code>-i kasutama. Töögrupis osalejatel võib poolikust e-raamatust kasu olla ning minul endal on sellisel viisil organiseeritud märkmetest abi kuhjaga.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Kasutan sõna <code>käsk</code> <code>funktsioon</code> sünonüümina. <code>käsk</code> on see, mis ütleb programmile, mida teha tuleb.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Nullist alustades vaata <em>Workflow</em> peatükke nr 2, 6 ja 8.<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Käivita käsk <code>contributors()</code>, et lugeda programmi loojatest ja arendajatest rohkem<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p>Enamasti ma ei tunnegi neid nn “õigeid” termineid.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn7"><p>Lõpetasin 2019. aastal Tartu Ülikooli sotsioloogia magistrikava<a href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn8"><p><code>Baasversioon</code>-i alla mõtlen neid <code>R</code>-i käske, mille kasutamiseks ei ole ühtegi teist paketti kasutusele vaja võtta.<a href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -882,10 +996,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./07-joonised.html" class="pagination-link" aria-label="Joonised - lühiülevaade">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Joonised - lühiülevaade</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-andmestike-lugemine.html" class="pagination-link" aria-label="Andmestiku laadimine ja tunnustega tutvumine">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Andmestiku laadimine ja tunnustega tutvumine</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./09-seosed-tunnustes.html" class="pagination-link" aria-label="Seosed tunnuste vahel">
+        <span class="nav-page-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
