@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.4.553">
+<meta name="generator" content="quarto-1.4.555">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -228,6 +228,12 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./11-regressioon-lineaarne.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Regressioon - lineaarne</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -253,6 +259,7 @@ div.csl-indent {
   <li><a href="#tahe-suurus" id="toc-tahe-suurus" class="nav-link" data-scroll-target="#tahe-suurus">Suur ja väike täht tekstis</a></li>
   <li><a href="#stringi-pikkus" id="toc-stringi-pikkus" class="nav-link" data-scroll-target="#stringi-pikkus">Stringi pikkus ja sagedus</a></li>
   <li><a href="#str-sub" id="toc-str-sub" class="nav-link" data-scroll-target="#str-sub">Stringi eraldamine</a></li>
+  <li><a href="#stringi-ühendamine" id="toc-stringi-ühendamine" class="nav-link" data-scroll-target="#stringi-ühendamine"><span class="header-section-number">4.2.1</span> Stringi ühendamine</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -738,6 +745,16 @@ div.csl-indent {
 <section id="str-sub" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="str-sub">Stringi eraldamine</h3>
 <p><code>str_sub()</code> käsuga eraldame <code>string</code>-i eest või tagant kindla pikkuse <code>string</code>-i. Näiteks võtame kõigi tegelaste nimelt esimesed viis tähemärki.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Allpool on näited ka, kuidas kasutada baasversiooni käske <code>substring()</code> ja <code>strsplit()</code>.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_sub</span>(nimed, <span class="dv">1</span>, <span class="dv">5</span> )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -794,7 +811,7 @@ div.csl-indent {
 [77] 0 0 0 0 0 0 0 0 0 1 0</code></pre>
 </div>
 </div>
-<p>Tavaliselt soovime neid sõnu ka nähe. Selleks on käsk <code>str_view_all()</code>.</p>
+<p>Tavaliselt soovime neid sõnu ka näha. Selleks on käsk <code>str_view_all()</code>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb73"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb73-1"><a href="#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="fu">str_view_all</span>(nimed, <span class="st">"[0-9]"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
@@ -810,6 +827,50 @@ div.csl-indent {
 [10] │ Cliegg Lars</code></pre>
 </div>
 </div>
+<p>R-i baasversioonis on käsud <code>substring()</code> ja <code>strsplit()</code>.</p>
+<p>Näiteks eemaldame tunnuse nimest esimesed viis täheühikut käsuga <code>substring()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb75"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb75-1"><a href="#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="fu">substring</span>(starwars<span class="sc">$</span>name, <span class="dv">5</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] " Skywalker"        "O"                 "2"                
+ [4] "h Vader"           " Organa"           " Lars"            
+ [7] " Whitesun Lars"    "4"                 "s Darklighter"    
+[10] "Wan Kenobi"        "in Skywalker"      "uff Tarkin"       
+[13] "bacca"             "Solo"              "do"               
+[16] "a Desilijic Tiure" "e Antilles"        "Tono Porkins"     
+[19] ""                  "atine"             " Fett"            
+[22] "8"                 "k"                 "o Calrissian"     
+[25] "t"                 "ar"                "Mothma"           
+[28] "l Crynyd"          "et Systri Warrick" " Nunb"            
+[31] "Gon Jinn"          " Gunray"           "s Valorum"        
+[34] "é Amidala"         "Jar Binks"         " Tarpals"         
+[37] "r Nass"            "Olié"              "o"                
+[40] "lba"               "sh Panaka"         " Skywalker"       
+[43] "h Maul"            "Fortuna"           " Secura"          
+[46] "s Tyerel"          "Bolt"              "ano"              
+[49] "Quadinaros"        " Windu"            "di-Mundi"         
+[52] "Fisto"             " Koth"             "Gallia"           
+[55] "ee Tiin"           "el Poof"           "Koon"             
+[58] "Amedda"            "ar Typho"          "é"                
+[61] "gg Lars"           "le the Lesser"     "nara Unduli"      
+[64] "iss Offee"         "é"                 "u"                
+[67] " Prestor Organa"   "o Fett"            "Wesell"           
+[70] "er Jettster"       " Su"               " We"              
+[73] "sta Nu"            "17"                "Tambor"           
+[76] "Hill"              "k Ti"              "vous"             
+[79] "ful"               "us Antilles"       "Moore"            
+[82] " Medon"            ""                  ""                 
+[85] "Dameron"           ""                  "ain Phasma"       </code></pre>
+</div>
+</div>
+<p><code>strsplit()</code> saab panna teksti eemaldama ka pärast konkreetset sõnaosa esinemist. Näiteks poolitab teksti pärast “a” tähe esinemist.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb77"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb77-1"><a href="#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="co">#strsplit(starwars$name, "a")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+</section>
+<section id="stringi-ühendamine" class="level3" data-number="4.2.1">
+<h3 data-number="4.2.1" class="anchored" data-anchor-id="stringi-ühendamine"><span class="header-section-number">4.2.1</span> Stringi ühendamine</h3>
+<p>Baasversiooni käsk <code>paste()</code>.</p>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
