@@ -281,20 +281,21 @@ window.Quarto = {
   <ul class="collapse">
   <li><a href="#mudeli-tõlgendamine" id="toc-mudeli-tõlgendamine" class="nav-link" data-scroll-target="#mudeli-tõlgendamine">Mudeli tõlgendamine</a></li>
   <li><a href="#predict" id="toc-predict" class="nav-link" data-scroll-target="#predict">Mudeli kasutamine prognoosimiseks</a></li>
-  <li><a href="#plot-lm" id="toc-plot-lm" class="nav-link" data-scroll-target="#plot-lm">Joonised mudeli hindamiseks</a></li>
   </ul></li>
-  <li><a href="#mitmene-regressioon" id="toc-mitmene-regressioon" class="nav-link" data-scroll-target="#mitmene-regressioon"><span class="header-section-number">11.2</span> Mitmene regressioon</a>
+  <li><a href="#mudeli-elementide-kasutamine" id="toc-mudeli-elementide-kasutamine" class="nav-link" data-scroll-target="#mudeli-elementide-kasutamine"><span class="header-section-number">11.2</span> Mudeli elementide kasutamine</a></li>
+  <li><a href="#plot-lm" id="toc-plot-lm" class="nav-link" data-scroll-target="#plot-lm"><span class="header-section-number">11.3</span> Joonised mudeli hindamiseks</a></li>
+  <li><a href="#testid-mudeli-hindamiseks" id="toc-testid-mudeli-hindamiseks" class="nav-link" data-scroll-target="#testid-mudeli-hindamiseks"><span class="header-section-number">11.4</span> Testid mudeli hindamiseks</a></li>
+  <li><a href="#mitmene-regressioon" id="toc-mitmene-regressioon" class="nav-link" data-scroll-target="#mitmene-regressioon"><span class="header-section-number">11.5</span> Mitmene regressioon</a>
   <ul class="collapse">
   <li><a href="#mitmese-regressioonimudeli-tõlgendamine" id="toc-mitmese-regressioonimudeli-tõlgendamine" class="nav-link" data-scroll-target="#mitmese-regressioonimudeli-tõlgendamine">Mitmese regressioonimudeli tõlgendamine</a></li>
   <li><a href="#mitu-seletavat-tunnust-mudelis" id="toc-mitu-seletavat-tunnust-mudelis" class="nav-link" data-scroll-target="#mitu-seletavat-tunnust-mudelis">Mitu seletavat tunnust mudelis</a></li>
+  <li><a href="#multikollineaarsuse-hindamine" id="toc-multikollineaarsuse-hindamine" class="nav-link" data-scroll-target="#multikollineaarsuse-hindamine">Multikollineaarsuse hindamine</a></li>
   </ul></li>
-  <li><a href="#mudeli-elementide-kasutamine" id="toc-mudeli-elementide-kasutamine" class="nav-link" data-scroll-target="#mudeli-elementide-kasutamine"><span class="header-section-number">11.3</span> Mudeli elementide kasutamine</a></li>
-  <li><a href="#regressioonimudeli-tulemuste-esitlemine" id="toc-regressioonimudeli-tulemuste-esitlemine" class="nav-link" data-scroll-target="#regressioonimudeli-tulemuste-esitlemine"><span class="header-section-number">11.4</span> Regressioonimudeli tulemuste esitlemine</a></li>
-  <li><a href="#regressioonimudeli-tulemuste-visualiseerimine" id="toc-regressioonimudeli-tulemuste-visualiseerimine" class="nav-link" data-scroll-target="#regressioonimudeli-tulemuste-visualiseerimine"><span class="header-section-number">11.5</span> Regressioonimudeli tulemuste visualiseerimine</a>
+  <li><a href="#regressioonimudeli-tulemuste-esitlemine" id="toc-regressioonimudeli-tulemuste-esitlemine" class="nav-link" data-scroll-target="#regressioonimudeli-tulemuste-esitlemine"><span class="header-section-number">11.6</span> Regressioonimudeli tulemuste esitlemine</a></li>
+  <li><a href="#regressioonimudeli-tulemuste-visualiseerimine" id="toc-regressioonimudeli-tulemuste-visualiseerimine" class="nav-link" data-scroll-target="#regressioonimudeli-tulemuste-visualiseerimine"><span class="header-section-number">11.7</span> Regressioonimudeli tulemuste visualiseerimine</a>
   <ul class="collapse">
   <li><a href="#tulemuste-visualiseerimine-paketiga-interactions" id="toc-tulemuste-visualiseerimine-paketiga-interactions" class="nav-link" data-scroll-target="#tulemuste-visualiseerimine-paketiga-interactions">Tulemuste visualiseerimine paketiga <code>interactions</code></a></li>
   </ul></li>
-  <li><a href="#multikollineaarsuse-hindamine" id="toc-multikollineaarsuse-hindamine" class="nav-link" data-scroll-target="#multikollineaarsuse-hindamine"><span class="header-section-number">11.6</span> Multikollineaarsuse hindamine</a></li>
   </ul>
 </nav>
     </div>
@@ -328,8 +329,8 @@ window.Quarto = {
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Siin peatükis olevad joonised ja mudelid ei näita teab-mis väärtuslikku selgitusvõimet. Sotsiaalteadustes sageli ongi nii, et päris paari näitaja pealt ei saa midagi tugevalt väita, sest inimesed ei ela vaakumis. <code>R</code>-is <em>mudelite tegema</em> <em>õppimiseks</em> piisab neist näidtest, sest päriselus analüüsimine käibki nii. Valid tunnused, mis arvad olevat väärtuslikud ja saad tulemuse, et ei saagi midagi julgelt prognoosima hakata. Ka teadmine on vajalik teadmine.</p>
-<p>Kui sa ei tea, mis on regressioonianalüüs, siis sellest peatükist siin jääb ilmselt väheks. Päris huupi tunnuseid mudelitesse toppida ikkagi pole vaja. Tunnuste valik vajab siiski eeltööd ning mõtlema peab ka kollineaarsuse peale.</p>
+<p>Siin peatükis olevad joonised ja mudelid ei näita teab-mis väärtuslikku selgitusvõimet. Sotsiaalteadustes sageli ongi nii, et päris paari näitaja pealt ei saa midagi tugevalt väita, sest inimesed ei ela vaakumis. <code>R</code>-is <em>mudelite tegema</em> <em>õppimiseks</em> piisab neist näidetest, sest päriselus analüüsimine võibi olla nii. Valid tunnused, mis arvad olevat väärtuslikud ja saad tulemuse, et ei saagi neid kasutada. Kuid ka see teadmine, mis ei tööta, on vajalik teadmine.</p>
+<p>Kui sa ei tea, mis on regressioonianalüüs, siis sellest peatükist siin jääb ilmselt väheks. Päris huupi tunnuseid mudelitesse toppida ikkagi pole vaja ning tunnuste valik vajab siiski eeltööd.</p>
 <p>Tunnuste jaotuse ja seoste analüüsi läbiviimist <code>R</code>-iga olen kirjeldatud eelmistes peatükkides. Jätan need vahele ja liigun kohe mudelite tegemise juurde. Osaliselt peidetud kood on joonistel, sest põhirõhk on siiski regressioonianalüüsi tegemisel.</p>
 </div>
 </div>
@@ -534,51 +535,214 @@ F-statistic: 141.2 on 1 and 1185 DF,  p-value: &lt; 0.00000000000000022</code></
 </div>
 </div>
 </section>
-<section id="plot-lm" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="plot-lm">Joonised mudeli hindamiseks</h3>
+</section>
+<section id="mudeli-elementide-kasutamine" class="level2" data-number="11.2">
+<h2 data-number="11.2" class="anchored" data-anchor-id="mudeli-elementide-kasutamine"><span class="header-section-number">11.2</span> Mudeli elementide kasutamine</h2>
+<p>Praegu oleme teinud mitu mudelit ja salvestanud selle enivroment keskkonda. Lihtne mudel sisaldab 13 elementi ja mitmene 14. Nende elementide nägemiseks kasuta käsku <code>names()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
+ [5] "fitted.values" "assign"        "qr"            "df.residual"  
+ [9] "na.action"     "xlevels"       "call"          "terms"        
+[13] "model"        </code></pre>
+</div>
+</div>
+<p>Oletame, et soovime väljatrükis saada ainult regressioonikordajad. Selleks saame kasutada elemendi nime lisada sulgudesse mudel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>(Intercept)        agea 
+  450.59128    -3.98985 </code></pre>
+</div>
+</div>
+<p>Regressioonikordajate 95% usaldusvahemiku saab käsuga <code>confint()</code> ja täpsutus <code>level=</code>. (<em>NB! Ilma täpsustuseta ongi vaikimisi väärtus 0.95 ning seda eraldi kirjutama ei peaks</em>).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mudel1, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                 2.5 %     97.5 %
+(Intercept) 418.507804 482.674748
+agea         -4.648724  -3.330976</code></pre>
+</div>
+</div>
+<p>Iga inimese prognoositud väärtusi saab tellida käsuga <code>fitted()</code> ja prognoosijäägid käsuga <code>residuals()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(mudel1)<span class="sc">%&gt;%</span></span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>       1        2        3        4        5        6 
+322.9161 223.1698 374.7841 199.2307 127.4134 235.1394 </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">residuals</span>(mudel1)<span class="sc">%&gt;%</span></span>
+<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         1          2          3          4          5          6 
+-142.91608 -163.16984  105.21587  -79.23074  -67.41344   64.86061 </code></pre>
+</div>
+</div>
+<p>Mudelit ennast saab kasutada <a href="10-keskmiste-vordlus.html#anova">dispersioonianalüüsi</a> läbiviimiseks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="co">#anova(mudel1)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Mudeli headuse näitajad saab kätte käsuga <code>AIC()</code> ja <code>BIC()</code> . Lühidalt mida väiksem väärtus, seda parem mudel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15800.5</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 15815.74</code></pre>
+</div>
+</div>
+</section>
+<section id="plot-lm" class="level2" data-number="11.3">
+<h2 data-number="11.3" class="anchored" data-anchor-id="plot-lm"><span class="header-section-number">11.3</span> Joonised mudeli hindamiseks</h2>
 <p>Mudeli tulemuste jooniste tegemiseks vaata alapeatükki <a href="#regressioonimudeli-tulemuste-visualiseerimine">Regressioonimudeli tulemuste visualiseerimine</a>.</p>
 <p>Mudelist kiirjooniste saamine käib käsuga <code>plot()</code>. Kui on soov ruumi kokku hoida, saab käsuga <code>par()</code> täpsutada, et väljatrükk tuleks 2 reas ja 2 tulbas.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow=</span><span class="fu">c</span>(<span class="dv">2</span>,<span class="dv">2</span>))</span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
+<p>Lineaarse mudeli eelduseks on tunnuste omavaheline lineaarne seos. Lisaks on eeldus, et prognoosijäägid (residuaalid) on normaaljaotusega, neil puudub kindel muster ning on sõltumatud.</p>
+<p>Nende piltide põhjal saab teha suurema osa järeldusi. Jooniselt <strong>residual vs fitted</strong> kuvatakse prognoosijääke tunnuse prognoositud väärtustega võrreldes.&nbsp;Sel pildil ei tahaks näha mustrit ning sooviks, et punktid mõlemal pool joont nn “suvaliselt laiali”. Sellega veenduks lineaarses seoses.</p>
+<p>Residuaalide normaaljaotuses saaks vaadata joonise <strong>q-q residual</strong> kaudu, millelt tahaks näha kõiki täpikesi pigem joone peal lineaarselt liikumas.</p>
+<p>Residuaalide normaaljaotuse nägemiseks saaks tellida käskude <code>hist()</code> ning <code>residuals()</code> ühendamisel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">hist</span>(<span class="fu">residuals</span>(mudel1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Igasugune piltide põhjal hinnangu andmine on siiski subjektiivne. Kindluse mõttes tasub mudeli eelduste täituvuse kohta teha eraldi testid.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="testid-mudeli-hindamiseks" class="level2" data-number="11.4">
+<h2 data-number="11.4" class="anchored" data-anchor-id="testid-mudeli-hindamiseks"><span class="header-section-number">11.4</span> Testid mudeli hindamiseks</h2>
 <div class="callout callout-style-simple callout-note">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Peatükk täieneb.</p>
+<p>Need testid sobivad lihtsa ja mitmese regresioonimudelite hindamiseks.</p>
 </div>
 </div>
 </div>
+<p>Mudeli headuse hindamine käib paketi <code>lmtest</code> <span class="citation" data-cites="lmtest">(<a href="references.html#ref-lmtest" role="doc-biblioref">Zeileis and Hothorn 2002</a>)</span> käsu <code>harvtest()</code> abil.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(lmtest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Käsuga <code>harvtest()</code> testime null-hüpoteesi, milleks on mudeli tunnuste vahel on lineaarne seos.</p>
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Tulemuse tõlgendamine on siin teistsugune kui tavaliselt. Kui p-väärtus on väiksem kui 0,05 peaksime hülgama null-hüpoteesi. See tähendaks, et tunnuste vahel ei ole lineaarset seost ning lineaarset regressioonimudelit teha ei sobiks. See on üks väheseid kordi, kus soovime suurt p-väärtust.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">harvtest</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Harvey-Collier test
+
+data:  mudel1
+HC = 0.516, df = 1184, p-value = 0.606</code></pre>
+</div>
+</div>
+<p>Käsuga <code>shapiro.test()</code> saab vaadata, kas residuaalide osas on normaaljaotus. Loodame näha suuremat p-d.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">shapiro.test</span>(<span class="fu">residuals</span>(mudel1))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    Shapiro-Wilk normality test
+
+data:  residuals(mudel1)
+W = 0.91183, p-value &lt; 0.00000000000000022</code></pre>
+</div>
+</div>
+<p>Antud juhul test kinnitab, et eeltingimus regressioonijääkide normaaljaotuse osas <strong>pole</strong> täidetud.</p>
+<p>Käsuga <code>pbtest()</code> saab testida <a href="https://en.wikipedia.org/wiki/Homoscedasticity_and_heteroscedasticity">homoskedastilisust</a> (null-hüpotees). Taaskord loodame näha, et p-väärtus on suurem kui 0,05.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">bptest</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+    studentized Breusch-Pagan test
+
+data:  mudel1
+BP = 2.8303, df = 1, p-value = 0.0925</code></pre>
+</div>
+</div>
+<p>Viimane on residuaalide sõltumatuse testimine. Selleks läheb vaja paketti car <span class="citation" data-cites="car">(<a href="references.html#ref-car" role="doc-biblioref">Fox and Weisberg 2019</a>)</span> ja käsku <code>dubrinWatsonTest()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(car)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p><code>dubrinWatsonTest()</code> käsu väljatrükis tuleb vaadata <code>p</code>-väärtuse asemel D-W statistiku väärtust. Regressioonijäägid on sõltumatud kui D-W statistiku väärtus on lähedal numbrile 2. Antud juhul siis sõltumatud<a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a><span class="fu">durbinWatsonTest</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code> lag Autocorrelation D-W Statistic p-value
+   1     -0.02771863      2.054784   0.328
+ Alternative hypothesis: rho != 0</code></pre>
+</div>
+</div>
+<p>Mitme seletava tunnusega lineaarse regressioonimudel tegemisel peab mõtlema ka kolineaarsuse peale. Vaata selle testimist alapeatükist <a href="#multikollineaarsuse-hindamine">Multikollineaarsuse hindamine</a>.</p>
 </section>
-</section>
-<section id="mitmene-regressioon" class="level2" data-number="11.2">
-<h2 data-number="11.2" class="anchored" data-anchor-id="mitmene-regressioon"><span class="header-section-number">11.2</span> Mitmene regressioon</h2>
+<section id="mitmene-regressioon" class="level2" data-number="11.5">
+<h2 data-number="11.5" class="anchored" data-anchor-id="mitmene-regressioon"><span class="header-section-number">11.5</span> Mitmene regressioon</h2>
 <p>Mitmene regressioon on sarnane lihtsale, aga sõltumatuid tunnuseid on rohkem kui üks.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Ma ei tee fookuse hoidmiseks mudeli hindamise teste ning liigume siin peatükis edasi nii, nagu oleks kõik tunnuste eelduste kontroll läbitud.</p>
+</div>
+</div>
+</div>
 <p>ESS andmestikus on meil teada lisaks vanusele ka vastaja sugu (<strong>gndr</strong>). Me võime proovida selgitada inimeste internetis kasutamisaega läbi nende soo.</p>
 <p>Kas mehed ja naised veedavad internetis aega erinevalt?</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, netustm)<span class="sc">%&gt;%</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(agea, netustm, <span class="at">color=</span>gndr))<span class="sc">+</span></span>
-<span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
-<span id="cb15-5"><a href="#cb15-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)<span class="sc">+</span></span>
-<span id="cb15-6"><a href="#cb15-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb15-7"><a href="#cb15-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vanus"</span>,</span>
-<span id="cb15-8"><a href="#cb15-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Interneti kasutusaeg minutites"</span>,</span>
-<span id="cb15-9"><a href="#cb15-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
-<span id="cb15-10"><a href="#cb15-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb41-2"><a href="#cb41-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, netustm)<span class="sc">%&gt;%</span></span>
+<span id="cb41-3"><a href="#cb41-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(agea, netustm, <span class="at">color=</span>gndr))<span class="sc">+</span></span>
+<span id="cb41-4"><a href="#cb41-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span></span>
+<span id="cb41-5"><a href="#cb41-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> lm)<span class="sc">+</span></span>
+<span id="cb41-6"><a href="#cb41-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb41-7"><a href="#cb41-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vanus"</span>,</span>
+<span id="cb41-8"><a href="#cb41-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Interneti kasutusaeg minutites"</span>,</span>
+<span id="cb41-9"><a href="#cb41-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
+<span id="cb41-10"><a href="#cb41-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
@@ -586,7 +750,7 @@ F-statistic: 141.2 on 1 and 1185 DF,  p-value: &lt; 0.00000000000000022</code></
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-27-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -594,9 +758,9 @@ F-statistic: 141.2 on 1 and 1185 DF,  p-value: &lt; 0.00000000000000022</code></
 <p>Jooniselt on näha, et ega soo tunnus väga suurt erinevust pilti sisse ei too. Ilmselt ei tasu oodata ka, et meeste ja naiste keskmise internetikasutusaja võrdlus näitaks statistliselt olulist erinevust.</p>
 <p>Mitmese regrssiooni tegemine käib sama käsuga <code>lm(),</code> tunnuste lisamine mudelisse käib <code>+</code> märgiga.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>mudel2<span class="ot">&lt;-</span><span class="fu">lm</span>(netustm<span class="sc">~</span> agea <span class="sc">+</span> gndr,  <span class="at">data=</span> andmed)</span>
-<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb17-3"><a href="#cb17-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>mudel2<span class="ot">&lt;-</span><span class="fu">lm</span>(netustm<span class="sc">~</span> agea <span class="sc">+</span> gndr,  <span class="at">data=</span> andmed)</span>
+<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel2)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -626,9 +790,9 @@ F-statistic: 71.32 on 2 and 1184 DF,  p-value: &lt; 0.00000000000000022</code></
 <p>See tähendab seda, et vanuse kasvades langeb iga aastaga interneti kasutusaeg -4,0267 minutit ning naiseks olemine annab kasutusajale juurde 13,1354 minutit. Ehk, kui me enne <code>predict()</code>käsuga ennustasime, et 13-aastane inimene veedab internetis aega 399 minutit. Siis praegu, kui me oletame, et tegemist on naisega, siis veedab ta internetis aega <span class="math inline">\(445.0680+(-4.0267*13)+13.1354 = 405.8563\)</span> minutit.</p>
 <p>Lisame testandmestikule vektori soo tunnusega ning kasutame seda prognoosimudelis. Esimene inimene on 13-aastane naine ja saame tema kasutusajaks sama tulemuse.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>gndr<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Naine"</span>, <span class="st">"Mees"</span>, <span class="st">"Mees"</span>, <span class="st">"Naine"</span>, <span class="st">"Naine"</span>)</span>
-<span id="annotated-cell-12-2"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="annotated-cell-12-3"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mudel2, test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="annotated-cell-27"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-27-1"><a href="#annotated-cell-27-1" aria-hidden="true" tabindex="-1"></a>test<span class="sc">$</span>gndr<span class="ot">&lt;-</span><span class="fu">c</span>(<span class="st">"Naine"</span>, <span class="st">"Mees"</span>, <span class="st">"Mees"</span>, <span class="st">"Naine"</span>, <span class="st">"Naine"</span>)</span>
+<span id="annotated-cell-27-2"><a href="#annotated-cell-27-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="annotated-cell-27-3"><a href="#annotated-cell-27-3" aria-hidden="true" tabindex="-1"></a><span class="fu">predict</span>(mudel2, test)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>       1        2        3        4        5 
 405.8563 372.5874 316.2136 345.4558 192.4413 </code></pre>
@@ -656,7 +820,7 @@ F-statistic: 71.32 on 2 and 1184 DF,  p-value: &lt; 0.00000000000000022</code></
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>prognoos_net<span class="ot">&lt;-</span><span class="fu">predict</span>(mudel2, <span class="at">newdata =</span> andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>prognoos_net<span class="ot">&lt;-</span><span class="fu">predict</span>(mudel2, <span class="at">newdata =</span> andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
 <section id="mitu-seletavat-tunnust-mudelis" class="level3 unnumbered">
@@ -667,41 +831,41 @@ F-statistic: 71.32 on 2 and 1184 DF,  p-value: &lt; 0.00000000000000022</code></
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>sobrad<span class="ot">&lt;-</span><span class="fu">fct_collapse</span>(andmed<span class="sc">$</span>inprdsc,</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Vähe"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Mitte ühtegi"</span>,<span class="st">"1"</span>),</span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Mõned"</span><span class="ot">=</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"3"</span>),</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Palju"</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">"4-6"</span> ,<span class="st">"7-9"</span>, <span class="st">"10 või enam"</span>))</span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>sobrad<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(andmed<span class="sc">$</span>sobrad, <span class="fu">c</span>(<span class="st">"Vähe"</span>, <span class="st">"Mõned"</span>, <span class="st">"Palju"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>sobrad<span class="ot">&lt;-</span><span class="fu">fct_collapse</span>(andmed<span class="sc">$</span>inprdsc,</span>
+<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Vähe"</span> <span class="ot">=</span> <span class="fu">c</span>(<span class="st">"Mitte ühtegi"</span>,<span class="st">"1"</span>),</span>
+<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Mõned"</span><span class="ot">=</span> <span class="fu">c</span>(<span class="st">"2"</span>, <span class="st">"3"</span>),</span>
+<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Palju"</span><span class="ot">=</span><span class="fu">c</span>(<span class="st">"4-6"</span> ,<span class="st">"7-9"</span>, <span class="st">"10 või enam"</span>))</span>
+<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>sobrad<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(andmed<span class="sc">$</span>sobrad, <span class="fu">c</span>(<span class="st">"Vähe"</span>, <span class="st">"Mõned"</span>, <span class="st">"Palju"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hincfel<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(andmed<span class="sc">$</span>hincfel,</span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Elame mugavalt praeguse sissetuleku juures"</span>,</span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Saame hakkama praeguse sissetuleku juures"</span>,</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Praeguse sissetuleku juures on raske hakkama saada"</span>,</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Praeguse sissetuleku juures on väga raske hakkama saada"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb48"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb48-1"><a href="#cb48-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hincfel<span class="ot">&lt;-</span><span class="fu">fct_relevel</span>(andmed<span class="sc">$</span>hincfel,</span>
+<span id="cb48-2"><a href="#cb48-2" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Elame mugavalt praeguse sissetuleku juures"</span>,</span>
+<span id="cb48-3"><a href="#cb48-3" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Saame hakkama praeguse sissetuleku juures"</span>,</span>
+<span id="cb48-4"><a href="#cb48-4" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Praeguse sissetuleku juures on raske hakkama saada"</span>,</span>
+<span id="cb48-5"><a href="#cb48-5" aria-hidden="true" tabindex="-1"></a>                            <span class="st">"Praeguse sissetuleku juures on väga raske hakkama saada"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 </div>
 <p>Nüüd näeme jooniselt, et inimesed on igas vanuses õnnelikumad, kui neil on palju sõpru. Noorematel inimestel tundub kollaseid täpikesi (st=palju sõpru) olema rohkem kui eakamatel.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, happy, sobrad)<span class="sc">%&gt;%</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(agea, happy))<span class="sc">+</span></span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color=</span>sobrad),</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>,</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>sobrad))<span class="sc">+</span></span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Inimesed on igas vanuses õnnelikumad kui neil on palju sõpru"</span>,</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Vanus"</span>,</span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Hinnang õnnelikusele"</span>,</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sõbrad"</span>,</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, happy, sobrad)<span class="sc">%&gt;%</span></span>
+<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(agea, happy))<span class="sc">+</span></span>
+<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_jitter</span>(<span class="fu">aes</span>(<span class="at">color=</span>sobrad),</span>
+<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>              <span class="at">alpha=</span><span class="fl">0.4</span>)<span class="sc">+</span></span>
+<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>,</span>
+<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>sobrad))<span class="sc">+</span></span>
+<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Inimesed on igas vanuses õnnelikumad kui neil on palju sõpru"</span>,</span>
+<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Vanus"</span>,</span>
+<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Hinnang õnnelikusele"</span>,</span>
+<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sõbrad"</span>,</span>
+<span id="cb49-12"><a href="#cb49-12" aria-hidden="true" tabindex="-1"></a>       <span class="at">shape=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
+<span id="cb49-13"><a href="#cb49-13" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb49-14"><a href="#cb49-14" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
@@ -709,15 +873,15 @@ F-statistic: 71.32 on 2 and 1184 DF,  p-value: &lt; 0.00000000000000022</code></
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
 <p>Kasutame nüüd samu andmeid prognoosimudelites ning lisame seletavaid tunnuseid juurde <code>+</code> märgiga juurde. Pane tähele, et kirjutan varemloodud mudelid 1 ja 2 praegu üle.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>mudel1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea, <span class="at">data=</span>andmed)</span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a>mudel1 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea, <span class="at">data=</span>andmed)</span>
+<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="fu">summary</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>
 Call:
@@ -742,95 +906,37 @@ F-statistic: 36.28 on 1 and 1539 DF,  p-value: 0.000000002138</code></pre>
 </div>
 <p>2% inimese õnnelikkuse hinnangust saame seletada tema vanuse järgi.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a>mudel2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea <span class="sc">+</span> hincfel, <span class="at">data=</span>andmed)</span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>mudel3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea <span class="sc">+</span> hincfel <span class="sc">+</span> gndr, <span class="at">data=</span>andmed)</span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>mudel4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea <span class="sc">+</span> hincfel <span class="sc">+</span> gndr <span class="sc">+</span> sobrad, <span class="at">data=</span>andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a>mudel2 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea <span class="sc">+</span> hincfel, <span class="at">data=</span>andmed)</span>
+<span id="cb53-2"><a href="#cb53-2" aria-hidden="true" tabindex="-1"></a>mudel3 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea <span class="sc">+</span> hincfel <span class="sc">+</span> gndr, <span class="at">data=</span>andmed)</span>
+<span id="cb53-3"><a href="#cb53-3" aria-hidden="true" tabindex="-1"></a>mudel4 <span class="ot">&lt;-</span> <span class="fu">lm</span>(happy <span class="sc">~</span> agea <span class="sc">+</span> hincfel <span class="sc">+</span> gndr <span class="sc">+</span> sobrad, <span class="at">data=</span>andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Jätan praegu väljatrükid <code>summary()</code> käsuga tellimata, sest mitme mudeli väljatrükk on kohmakas, eriti kui tunnuste kategooriate nimed on väga pikad. Selle ja järgmiste mudeli tulemuste esitlemine jätkub allpool alapool alapeatükis <a href="#regressioonimudeli-tulemuste-esitlemine">Regressioonimudeli tulemuste esitlemine</a>. Mudeli elemente on võimalik välja küsida ka ükshaaval ning sellest räägib järgmine alapeatükk.</p>
+<p>Jätan praegu väljatrükid <code>summary()</code> käsuga tellimata, sest mitme mudeli väljatrükk on kohmakas, eriti kui tunnuste kategooriate nimed on väga pikad. Selle ja järgmiste mudeli tulemuste esitlemine jätkub allpool alapool alapeatükis <a href="#regressioonimudeli-tulemuste-esitlemine">Regressioonimudeli tulemuste esitlemine</a>. Mudeli elemente on võimalik välja küsida ka ükshaaval ning sellest räägib alapeatükk <a href="#mudeli-elementide-kasutamine">Mudeli elementide kasutamine</a>.</p>
+</section>
+<section id="multikollineaarsuse-hindamine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="multikollineaarsuse-hindamine">Multikollineaarsuse hindamine</h3>
+<p>Mul ei ole praegu tehtud mudelit, kus seletavad tunnused saaksid ka olla omavahel lineaarses seoses. Ühe näitaja suurenedes peaks tõusma ka teine. Näiteks rannas müüdavate jäätise arv tõuseb kui välitemperatuur tõuseb. Rannas juhtuvate õnnetuste arv võib olla lineaarses seoses välitemperatuuriga. Õnnetuste arvu prognoomisisel oleksid seletavad tunnustena rannas müüdavate jäätiste arv ning välitemperatuuri arv ka kollineaarses seoses.</p>
+<p>Multikollineaarsuse hindamist saab teha paketiga <code>car</code> ning käsuga <code>vif()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb54"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb54-1"><a href="#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">vif</span>(mudel4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>            GVIF Df GVIF^(1/(2*Df))
+agea    1.167129  1        1.080337
+hincfel 1.107629  3        1.017183
+gndr    1.042810  1        1.021181
+sobrad  1.110698  2        1.026595</code></pre>
+</div>
+</div>
+<p>VIF miinimuväärtus on 1 ja meie mudeli väärtused on selle lähedal. Multikollineaarsusega häda ei ole.</p>
 </section>
 </section>
-<section id="mudeli-elementide-kasutamine" class="level2" data-number="11.3">
-<h2 data-number="11.3" class="anchored" data-anchor-id="mudeli-elementide-kasutamine"><span class="header-section-number">11.3</span> Mudeli elementide kasutamine</h2>
-<p>Praegu oleme teinud mitu mudelit ja salvestanud need enivroment keskkonda. Lihtne mudel sisaldab 13 elementi ja mitmene 14. Nende elementide nägemiseks kasuta käsku <code>names()</code>.</p>
+<section id="regressioonimudeli-tulemuste-esitlemine" class="level2" data-number="11.6">
+<h2 data-number="11.6" class="anchored" data-anchor-id="regressioonimudeli-tulemuste-esitlemine"><span class="header-section-number">11.6</span> Regressioonimudeli tulemuste esitlemine</h2>
+<p>Oleme teinud nüüd õnnelikuse prognoosimise kohta neli mudelit (mudelid nr 1-4). Soovime neid omavahel võrrelda, et teada saada, milline loodud mudel on neist parim. Kuna <code>summary()</code> käsuga ei ole neli mudelit korraga hästi hoomatavad, soovitan selleks kasutada paketist <code>huxtable</code><span class="citation" data-cites="huxtable">(<a href="references.html#ref-huxtable" role="doc-biblioref">Hugh-Jones 2024</a>)</span> käsku <code>huxreg()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">names</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code> [1] "coefficients"  "residuals"     "effects"       "rank"         
- [5] "fitted.values" "assign"        "qr"            "df.residual"  
- [9] "na.action"     "xlevels"       "call"          "terms"        
-[13] "model"        </code></pre>
-</div>
-</div>
-<p>Oletame, et soovime väljatrükis saada ainult regressioonikordajad. Selleks saame kasutada elemendi nime lisada sulgudesse mudel.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">coefficients</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(Intercept)        agea 
- 8.23395669 -0.01423077 </code></pre>
-</div>
-</div>
-<p>Regressioonikordajate 95% usaldusvahemiku saab käsuga <code>confint()</code> ja täpsutus <code>level=</code>. (<em>NB! Ilma täpsustuseta ongi vaikimisi väärtus 0.95 ning seda eraldi kirjutama ei peaks</em>).</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">confint</span>(mudel1, <span class="at">level =</span> <span class="fl">0.95</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>                  2.5 %       97.5 %
-(Intercept)  7.97961361  8.488299776
-agea        -0.01886533 -0.009596204</code></pre>
-</div>
-</div>
-<p>Iga inimese prognoositud väärtusi saab tellida käsuga <code>fitted()</code> ja prognoosijäägid käsuga <code>residuals()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fitted</span>(mudel1)<span class="sc">%&gt;%</span></span>
-<span id="cb34-2"><a href="#cb34-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>       1        2        3        4        5        6 
-7.778572 7.422803 7.963572 7.337418 7.081264 7.465495 </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb56"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb56-1"><a href="#cb56-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(huxtable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">residuals</span>(mudel1)<span class="sc">%&gt;%</span></span>
-<span id="cb36-2"><a href="#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>          1           2           3           4           5           6 
- 0.22142791 -0.42280288  0.03642791  2.66258173 -0.08126443  0.53450482 </code></pre>
-</div>
-</div>
-<p>Mudelit ennast saab kasutada <a href="10-keskmiste-vordlus.html#anova">dispersioonianalüüsi</a> läbiviimiseks.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="fu">anova</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Analysis of Variance Table
-
-Response: happy
-            Df Sum Sq Mean Sq F value         Pr(&gt;F)    
-agea         1  107.6 107.571  36.276 0.000000002138 ***
-Residuals 1539 4563.7   2.965                           
----
-Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
-</div>
-</div>
-<p>Mudeli headuse näitajad saab kätte käsuga <code>AIC()</code> ja <code>BIC()</code> . Lühidalt mida väiksem väärtus, seda parem mudel.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb40"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb40-1"><a href="#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="fu">AIC</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6052.228</code></pre>
-</div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb42"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb42-1"><a href="#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="fu">BIC</span>(mudel1)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 6068.249</code></pre>
-</div>
-</div>
-</section>
-<section id="regressioonimudeli-tulemuste-esitlemine" class="level2" data-number="11.4">
-<h2 data-number="11.4" class="anchored" data-anchor-id="regressioonimudeli-tulemuste-esitlemine"><span class="header-section-number">11.4</span> Regressioonimudeli tulemuste esitlemine</h2>
-<p>Oleme teinud nüüd õnnelikuse prognoosimise kohta neli mudelit (mudelid nr 1-4). Soovime neid omavahel võrrelda, et teada saada, milline loodud mudel on neist parim. Kuna <code>summary()</code> käsuga ei ole neli mudelit korraga hästi hoomatavad, soovitan selleks kasutada paketist <code>huxtable</code><span class="citation" data-cites="huxtable">(<a href="references.html#ref-huxtable" role="doc-biblioref">Hugh-Jones 2024</a>)</span> käsku <code>huxtable()</code>.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb44"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb44-1"><a href="#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(huxtable)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="fu">huxreg</span>(mudel1, mudel2, mudel3, mudel4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="fu">huxreg</span>(mudel1, mudel2, mudel3, mudel4)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <table class="huxtable" data-quarto-disable-processing="true" style="border-collapse: collapse; border: 0px; margin-bottom: 2em; margin-top: 2em; ; margin-left: auto; margin-right: auto;  ">
 <colgroup><col><col><col><col><col></colgroup><tbody><tr>
@@ -883,25 +989,35 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 </div>
 <p>Mudelite omavahelises võrdluses paistab mudel4 olevat kõige parema seletusvõimega (AIC kõige väiksem, R2 seletusvõime kõige kõrgem). Salvestan andmestikku uue tunnuse mudel4 põhjal. Kasutan seda tulemuste visualiseerimisel.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb46"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb46-1"><a href="#cb46-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>prognoos_onn<span class="ot">&lt;-</span><span class="fu">predict</span>(mudel4, <span class="at">newdata =</span> andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb58"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb58-1"><a href="#cb58-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>prognoos_onn<span class="ot">&lt;-</span><span class="fu">predict</span>(mudel4, <span class="at">newdata =</span> andmed)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Ideaalselt tahame saada mudelit, mis võimalikult väheste seletavate tunnustega suudaks kirjeldada ära võimalikult suure mahu olemasolevast. Iga uue tunnuse lisamisel mudelisse võib paratamatult tõsta R2 väärtust, kuid pigem sooviks näha hüppelisi muutusi nagu mudel nr 1 ja nr 2 puhul, mitte nagu mudelite nr 3 ja nr 4. Tulemuste esitlemisel ole kriitiline ja aus. Kui mudeli seletusvõime on ikkagi kohe eos vaid 2%, siis võib-olla ei tasuks mudelit muude tunnustega edasi arendama hakatagi. Võib-olla on kasu mõnest muust analüüsimeetodist kui lineaarsest regressioonist?</p>
+</div>
+</div>
 </div>
 </section>
-<section id="regressioonimudeli-tulemuste-visualiseerimine" class="level2" data-number="11.5">
-<h2 data-number="11.5" class="anchored" data-anchor-id="regressioonimudeli-tulemuste-visualiseerimine"><span class="header-section-number">11.5</span> Regressioonimudeli tulemuste visualiseerimine</h2>
+<section id="regressioonimudeli-tulemuste-visualiseerimine" class="level2" data-number="11.7">
+<h2 data-number="11.7" class="anchored" data-anchor-id="regressioonimudeli-tulemuste-visualiseerimine"><span class="header-section-number">11.7</span> Regressioonimudeli tulemuste visualiseerimine</h2>
 <p>Kasuta joonisel tunnust, mille lõid käsuga <code>predict()</code>. Vajadusel loe <code>ggplot()</code> käsu töötamise kohta juurde <a href="07-joonised.html#ggplot-loogika">siit</a>.</p>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, prognoos_net)<span class="sc">%&gt;%</span></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(agea, prognoos_net))<span class="sc">+</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>gndr))<span class="sc">+</span></span>
-<span id="cb47-6"><a href="#cb47-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb47-7"><a href="#cb47-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vanus"</span>,</span>
-<span id="cb47-8"><a href="#cb47-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Prognoositud interneti kasutusaeg minutites"</span>,</span>
-<span id="cb47-9"><a href="#cb47-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
-<span id="cb47-10"><a href="#cb47-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, prognoos_net)<span class="sc">%&gt;%</span></span>
+<span id="cb59-3"><a href="#cb59-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(agea, prognoos_net))<span class="sc">+</span></span>
+<span id="cb59-4"><a href="#cb59-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method =</span> <span class="st">"lm"</span>,</span>
+<span id="cb59-5"><a href="#cb59-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>gndr))<span class="sc">+</span></span>
+<span id="cb59-6"><a href="#cb59-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb59-7"><a href="#cb59-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vanus"</span>,</span>
+<span id="cb59-8"><a href="#cb59-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Prognoositud interneti kasutusaeg minutites"</span>,</span>
+<span id="cb59-9"><a href="#cb59-9" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
+<span id="cb59-10"><a href="#cb59-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
@@ -909,7 +1025,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-32-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-40-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -920,17 +1036,17 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell">
 <details class="code-fold">
 <summary>Code</summary>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, happy, sobrad)<span class="sc">%&gt;%</span></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(agea, prognoos_onn))<span class="sc">+</span></span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>,</span>
-<span id="cb49-5"><a href="#cb49-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>hincfel))<span class="sc">+</span></span>
-<span id="cb49-6"><a href="#cb49-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vanus"</span>,</span>
-<span id="cb49-7"><a href="#cb49-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Prognoositav hinnang õnnelikusele"</span>,</span>
-<span id="cb49-8"><a href="#cb49-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sissetulek"</span>)<span class="sc">+</span></span>
-<span id="cb49-9"><a href="#cb49-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sobrad)<span class="sc">+</span></span>
-<span id="cb49-10"><a href="#cb49-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
-<span id="cb49-11"><a href="#cb49-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Elame mugavalt"</span>, <span class="st">"Saame hakkama"</span>, <span class="st">"Raske on"</span>, <span class="st">"Väga raske"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb61-2"><a href="#cb61-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(agea, happy, sobrad)<span class="sc">%&gt;%</span></span>
+<span id="cb61-3"><a href="#cb61-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>( <span class="fu">aes</span>(agea, prognoos_onn))<span class="sc">+</span></span>
+<span id="cb61-4"><a href="#cb61-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_smooth</span>(<span class="at">method=</span><span class="st">"lm"</span>,</span>
+<span id="cb61-5"><a href="#cb61-5" aria-hidden="true" tabindex="-1"></a>              <span class="fu">aes</span>(<span class="at">color=</span>hincfel))<span class="sc">+</span></span>
+<span id="cb61-6"><a href="#cb61-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x=</span><span class="st">"Vanus"</span>,</span>
+<span id="cb61-7"><a href="#cb61-7" aria-hidden="true" tabindex="-1"></a>       <span class="at">y=</span><span class="st">"Prognoositav hinnang õnnelikusele"</span>,</span>
+<span id="cb61-8"><a href="#cb61-8" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sissetulek"</span>)<span class="sc">+</span></span>
+<span id="cb61-9"><a href="#cb61-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>sobrad)<span class="sc">+</span></span>
+<span id="cb61-10"><a href="#cb61-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()<span class="sc">+</span></span>
+<span id="cb61-11"><a href="#cb61-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"Elame mugavalt"</span>, <span class="st">"Saame hakkama"</span>, <span class="st">"Raske on"</span>, <span class="st">"Väga raske"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </details>
 <div class="cell-output cell-output-stderr">
 <pre><code>`geom_smooth()` using formula = 'y ~ x'</code></pre>
@@ -938,7 +1054,7 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-33-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-41-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
@@ -947,48 +1063,41 @@ Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1</code></pre>
 <h3 class="unnumbered anchored" data-anchor-id="tulemuste-visualiseerimine-paketiga-interactions">Tulemuste visualiseerimine paketiga <code>interactions</code></h3>
 <p>Regressioonimudeli jooniseid saab kiiresit kätte paketiga <code>interactions</code><span class="citation" data-cites="interactions">(<a href="references.html#ref-interactions" role="doc-biblioref">Long 2019</a>)</span> käsuga <code>interact_plot()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(interactions)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb52"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb52-1"><a href="#cb52-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interact_plot</span>(mudel4, <span class="at">pred=</span>agea, <span class="at">modx=</span>sobrad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb64"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb64-1"><a href="#cb64-1" aria-hidden="true" tabindex="-1"></a><span class="fu">interact_plot</span>(mudel4, <span class="at">pred=</span>agea, <span class="at">modx=</span>sobrad)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-35-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="11-regressioon-lineaarne_files/figure-html/unnamed-chunk-43-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
-</div>
-</div>
-</div>
-</section>
-</section>
-<section id="multikollineaarsuse-hindamine" class="level2" data-number="11.6">
-<h2 data-number="11.6" class="anchored" data-anchor-id="multikollineaarsuse-hindamine"><span class="header-section-number">11.6</span> Multikollineaarsuse hindamine</h2>
-<p>Multikollineaarsuse hindamist saab teha paketiga <code>car</code> ning käsuga <code>vif()</code>.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Peatükk täieneb.</p>
 </div>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-car" class="csl-entry" role="listitem">
+Fox, John, and Sanford Weisberg. 2019. <em>An <span>R</span> Companion to Applied Regression</em>. Third. Thousand Oaks <span>CA</span>: Sage. <a href="https://socialsciences.mcmaster.ca/jfox/Books/Companion/">https://socialsciences.mcmaster.ca/jfox/Books/Companion/</a>.
+</div>
 <div id="ref-huxtable" class="csl-entry" role="listitem">
 Hugh-Jones, David. 2024. <em>Huxtable: Easily Create and Style Tables for LaTeX, HTML and Other Formats</em>. <a href="https://CRAN.R-project.org/package=huxtable">https://CRAN.R-project.org/package=huxtable</a>.
 </div>
 <div id="ref-interactions" class="csl-entry" role="listitem">
 Long, Jacob A. 2019. <em>Interactions: Comprehensive, User-Friendly Toolkit for Probing Interactions</em>. <a href="https://cran.r-project.org/package=interactions">https://cran.r-project.org/package=interactions</a>.
 </div>
+<div id="ref-lmtest" class="csl-entry" role="listitem">
+Zeileis, Achim, and Torsten Hothorn. 2002. <span>“Diagnostic Checking in Regression Relationships.”</span> <em>R News</em> 2 (3): 7–10. <a href="https://CRAN.R-project.org/doc/Rnews/">https://CRAN.R-project.org/doc/Rnews/</a>.
 </div>
+</div>
+</section>
 </section>
 <section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
 <hr>
 <ol>
 <li id="fn1"><p>Kui soovid sama andmestikuga harjutusi järele teha, lae andmestik nimega “ESS_10_valik.csv” alla <a href="https://github.com/kristiloide/andmetuba">siit</a>.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>Sõltumatuse probleem tekib näiteks nende tunnustega, kus on tehtud korduvmõõtmised ajas (nt puu ümbermõõdu kasvamine).<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
 </ol>
 </section>
 
