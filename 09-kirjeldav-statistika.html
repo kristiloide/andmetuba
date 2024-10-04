@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Allikad – Andmetuba</title>
+<title>9&nbsp; Kirjeldav statistika – Andmetuba</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -20,10 +20,45 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
 /* CSS for citations */
 div.csl-bib-body { }
 div.csl-entry {
   clear: both;
+  margin-bottom: 0em;
 }
 .hanging-indent div.csl-entry {
   margin-left:2em;
@@ -49,7 +84,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./14-tabelid.html" rel="prev">
+<link href="./10-seosed-tunnustes.html" rel="next">
+<link href="./08-kuupaevad.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -99,7 +135,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./references.html">Allikad</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./09-kirjeldav-statistika.html"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -180,7 +216,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./09-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link">
+  <a href="./09-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span></a>
   </div>
 </li>
@@ -216,7 +252,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./references.html" class="sidebar-item-text sidebar-link active">
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
 </li>
@@ -225,15 +261,30 @@ div.csl-indent {
 </nav>
 <div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
-        
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sisukord</h2>
+   
+  <ul>
+  <li><a href="#kirjeldav-stat" id="toc-kirjeldav-stat" class="nav-link active" data-scroll-target="#kirjeldav-stat"><span class="header-section-number">9.1</span> Kirjeldava statistika leidmine</a>
+  <ul class="collapse">
+  <li><a href="#mood" id="toc-mood" class="nav-link" data-scroll-target="#mood">Mood leidmine <code>R</code>-is</a></li>
+  <li><a href="#sagedustabel" id="toc-sagedustabel" class="nav-link" data-scroll-target="#sagedustabel">Sagedustabelid</a></li>
+  </ul></li>
+  <li><a href="#kirjeldav-paketid" id="toc-kirjeldav-paketid" class="nav-link" data-scroll-target="#kirjeldav-paketid"><span class="header-section-number">9.2</span> Erinevad paketid kirjeldava statistika jaoks</a>
+  <ul class="collapse">
+  <li><a href="#sjmics" id="toc-sjmics" class="nav-link" data-scroll-target="#sjmics">Pakett <code>sjmics</code></a></li>
+  <li><a href="#pastecs" id="toc-pastecs" class="nav-link" data-scroll-target="#pastecs">Pakett <code>pastecs</code></a></li>
+  </ul></li>
+  </ul>
+</nav>
     </div>
 <!-- main -->
 <main class="content" id="quarto-document-content">
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Allikad</h1>
+<h1 class="title"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></h1>
 </div>
 
 
@@ -250,147 +301,312 @@ div.csl-indent {
 </header>
 
 
-<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
-<div id="ref-cookbook" class="csl-entry" role="listitem">
-Chang, Winston. 2024. <em>R Graphics Cookbook</em>. 2nd ed. <a href="https://r-graphics.org/">https://r-graphics.org/</a>.
+<p>Statistiline andmeanalüüs algab minu jaoks kirjeldava statistikaga. Peatükk annab vastuse küsimusele “kuidas seda R-is teha?”.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
 </div>
-<div id="ref-DataExplorer" class="csl-entry" role="listitem">
-Cui, Boxuan. 2024. <em>DataExplorer: Automate Data Exploration and
-Treatment</em>. <a href="https://CRAN.R-project.org/package=DataExplorer">https://CRAN.R-project.org/package=DataExplorer</a>.
+<div class="callout-title-container flex-fill">
+Lugemissoovitus
 </div>
-<div id="ref-car" class="csl-entry" role="listitem">
-Fox, John, and Sanford Weisberg. 2019. <em>An <span>R</span> Companion
-to Applied Regression</em>. Third. Thousand Oaks <span>CA</span>: Sage.
-<a href="https://socialsciences.mcmaster.ca/jfox/Books/Companion/">https://socialsciences.mcmaster.ca/jfox/Books/Companion/</a>.
 </div>
-<div id="ref-viridis" class="csl-entry" role="listitem">
-Garnier, Simon, Ross, Noam, Rudis, Robert, Camargo, et al. 2024.
-<em><span class="nocase">viridis(Lite)</span> - Colorblind-Friendly
-Color Maps for r</em>. <a href="https://doi.org/10.5281/zenodo.4679423">https://doi.org/10.5281/zenodo.4679423</a>.
+<div class="callout-body-container callout-body">
+<p>Rootalu, K. (2014). Kirjeldav statistika. K. Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/kirjeldav-statistika/" class="uri">https://samm.ut.ee/kirjeldav-statistika/</a></p>
 </div>
-<div id="ref-lubridate" class="csl-entry" role="listitem">
-Grolemund, Garrett, and Hadley Wickham. 2011. <span>“Dates and Times
-Made Easy with <span class="nocase">lubridate</span>.”</span>
-<em>Journal of Statistical Software</em> 40 (3): 1–25. <a href="https://www.jstatsoft.org/v40/i03/">https://www.jstatsoft.org/v40/i03/</a>.
 </div>
+<section id="kirjeldav-stat" class="level2" data-number="9.1">
+<h2 data-number="9.1" class="anchored" data-anchor-id="kirjeldav-stat"><span class="header-section-number">9.1</span> Kirjeldava statistika leidmine</h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>käsk <code>summary()</code> annab numbrilise tunnuse puhul sarnase ülevaate, mida sagedasti kirjeldava statistika puhul teada saada soovime. Vaata ka alapeatükki <a href="##tunnuste-sisuga-tutvumine">tunnuste sisuga tutvumine</a>, kus on numbriliste tunnuste baaskäsud kirjeldava statistika leidmiseks.</p>
+<p>Lisaks on veel rida erinevaid käske, mis teevad töötamise mugavaks ning põhjalikuma ülevaate saamiseks on parem kasutada juba <a href="#kirjeldav-paketid">spetsiaalselt kirjeldava statistika saamiseks loodud pakette</a>.</p>
+<p>Kvantiilide leidmiseks on käsk <code>quantile()</code>, mille sees tuleb täpsustada mitmendat kvantiili soovime teada.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">quantile</span>(starwars<span class="sc">$</span>height, <span class="fl">0.25</span>, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>25% 
+167 </code></pre>
+</div>
+</div>
+<p>Standardhälve leidmiseks on käsk <code>sd()</code> ja dispersiooni jaoks <code>var()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sd</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 34.77416</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">var</span>(starwars<span class="sc">$</span>height, <span class="at">na.rm=</span>T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 1209.242</code></pre>
+</div>
+</div>
+<section id="mood" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="mood">Mood leidmine <code>R</code>-is</h3>
+<p><code>R</code> ei anna numbriliste jaoks baaskäsuna <strong>mood</strong>-i ning selle leidmiseks peab minema ringiga.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kõige pealt on vaja salvestada väärtuste sageduse jaotus tabelisse käsuga <code>table()</code> ja seejärel tuleb leida väärtuste esinemissagedus käsu <code>sort()</code> abil järjestades nad suuremast väiksemani.</p>
+</div>
+</div>
+</div>
+<div class="callout callout-style-simple callout-caution">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Pane tähele, et käsu <code>sort()</code> sees ei ole kasutatud käsku <code>desc()</code>, vaid täpsustatud <code>decreasing = T</code>.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span>(<span class="fu">table</span>(Orange<span class="sc">$</span>age), <span class="at">decreasing =</span> T)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ 118  484  664 1004 1231 1372 1582 
+   5    5    5    5    5    5    5 </code></pre>
+</div>
+</div>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Tulemuste tõlendamisel arvesta võimalusega, et mõnikord andmetes moodi ei olegi.</p>
+</div>
+</div>
+</div>
+</section>
+<section id="sagedustabel" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sagedustabel">Sagedustabelid</h3>
+<p>Ühe või kahemõõtmelise sagedustabeli saamiseks piisab käsust <code>table()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ feminine masculine 
+       17        66 </code></pre>
+</div>
+</div>
+<p>Enamsti on vaja lisaks andmete jaotusele aru saada ka jagunemise proportsioonidest (osakaaludest). Selleks on mitu erinevat võimalust.</p>
+<p>Käsk <code>prop.table()</code> vajab uuritavaks tunnuseks tabelit ning tabeli võib eelnevalt salvesta eraldi objekti või kasuta kahe käsu kombinatsiooni.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Käsu <code>table()</code> põhjal toimub ka hii-ruut statistiku arvutamine, et mõnikord “tasub” väiksemate tabelite objektideks salvestamine end ära.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(<span class="fu">table</span>(starwars<span class="sc">$</span>gender))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+ feminine masculine 
+0.2048193 0.7951807 </code></pre>
+</div>
+</div>
+<p>Kahemõõtmeline sagedustabel vajab sulgude sees täpsustust. Esimene tunnus pannakse ridadeks ja teine tunnus veergudeks.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                
+                 feminine masculine
+  female               16         0
+  hermaphroditic        0         1
+  male                  0        60
+  none                  1         5</code></pre>
+</div>
+</div>
+<p>Kui on kahemõõtlemine sagedustabel, tuleb täpsustada kas soovitakse rea protsente (lisada sulgudesse nr 1) või tulpade oma (2). Kui ei täpsusta milliseid osakaale soovid, näitab käsk kogu tabeli proportsionaalset jaotust.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>tabel<span class="ot">&lt;-</span><span class="fu">table</span>(starwars<span class="sc">$</span>sex, starwars<span class="sc">$</span>gender)</span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a><span class="fu">prop.table</span>(tabel,<span class="dv">2</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>                
+                   feminine  masculine
+  female         0.94117647 0.00000000
+  hermaphroditic 0.00000000 0.01515152
+  male           0.00000000 0.90909091
+  none           0.05882353 0.07575758</code></pre>
+</div>
+</div>
+<p>Kolmemõõtlemine sagedustabeli tegemine käib sama loogika alusel, kuid võib-olla on siin juba mugavam saada <code>tidyverse</code> paketi käskude (<code>group_by()</code> ja <code>summarise()</code>) abil olukorrast parem pilt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, sex)<span class="sc">%&gt;%</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>`summarise()` has grouped output by 'gender'. You can override using the
+`.groups` argument.</code></pre>
+</div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 6 × 3
+# Groups:   gender [3]
+  gender    sex                n
+  &lt;chr&gt;     &lt;chr&gt;          &lt;int&gt;
+1 feminine  female            16
+2 feminine  none               1
+3 masculine hermaphroditic     1
+4 masculine male              60
+5 masculine none               5
+6 &lt;NA&gt;      &lt;NA&gt;               4</code></pre>
+</div>
+</div>
+</section>
+</section>
+<section id="kirjeldav-paketid" class="level2" data-number="9.2">
+<h2 data-number="9.2" class="anchored" data-anchor-id="kirjeldav-paketid"><span class="header-section-number">9.2</span> Erinevad paketid kirjeldava statistika jaoks</h2>
+<section id="sjmics" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="sjmics">Pakett <code>sjmics</code></h3>
+<p>Kirjeldava statistika puhul huvitab meid rohkem kui lihtsalt gruppide sees sageduse loendamine, sest näha tahame ka suhtelist ja kumulatiivset sagedust. Selleks on parem kasutada paketist <code>sjmisc</code> <span class="citation" data-cites="sjmisc">(<a href="references.html#ref-sjmisc" role="doc-biblioref">Lüdecke 2018</a>)</span> käske käsk <code>frq()</code> ja <code>descr()</code></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(sjmisc)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars<span class="sc">$</span>gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>x &lt;character&gt; 
+# total N=87 valid N=83 mean=1.80 sd=0.41
+
+Value     |  N | Raw % | Valid % | Cum. %
+-----------------------------------------
+feminine  | 17 | 19.54 |   20.48 |  20.48
+masculine | 66 | 75.86 |   79.52 | 100.00
+&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars<span class="sc">$</span>height)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Basic descriptive statistics
+
+ var    type label  n NA.prc  mean    sd   se  md trimmed        range iqr
+  dd integer    dd 81    6.9 174.6 34.77 3.86 180  178.48 198 (66-264)  24
+  skew
+ -1.09</code></pre>
+</div>
+</div>
+<p>Soovi korral võib kirjutada aga käsu sisse andmestiku nime ja ülejäänud numbrilised tunnused, mille kohta ülevaadet soovime.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">descr</span>(starwars, height, mass)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+## Basic descriptive statistics
+
+    var    type  label  n NA.prc   mean     sd    se  md trimmed          range
+ height integer height 81   6.90 174.60  34.77  3.86 180  178.48   198 (66-264)
+   mass numeric   mass 59  32.18  97.31 169.46 22.06  79   75.44 1343 (15-1358)
+  iqr  skew
+ 24.0 -1.09
+ 28.9  7.34</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">frq</span>(starwars, sex, gender)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>sex &lt;character&gt; 
+# total N=87 valid N=83 mean=2.67 sd=0.87
+
+Value          |  N | Raw % | Valid % | Cum. %
+----------------------------------------------
+female         | 16 | 18.39 |   19.28 |  19.28
+hermaphroditic |  1 |  1.15 |    1.20 |  20.48
+male           | 60 | 68.97 |   72.29 |  92.77
+none           |  6 |  6.90 |    7.23 | 100.00
+&lt;NA&gt;           |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;
+
+gender &lt;character&gt; 
+# total N=87 valid N=83 mean=1.80 sd=0.41
+
+Value     |  N | Raw % | Valid % | Cum. %
+-----------------------------------------
+feminine  | 17 | 19.54 |   20.48 |  20.48
+masculine | 66 | 75.86 |   79.52 | 100.00
+&lt;NA&gt;      |  4 |  4.60 |    &lt;NA&gt; |   &lt;NA&gt;</code></pre>
+</div>
+</div>
+</section>
+<section id="pastecs" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pastecs">Pakett <code>pastecs</code></h3>
+<p>Kirjeldava statistika saamiseks on olemas käsk <code>stat.desc()</code> paketist <code>pastecs</code> <span class="citation" data-cites="pastecs">(<a href="references.html#ref-pastecs" role="doc-biblioref">Grosjean and Ibanez 2024</a>)</span>, mis annab vajadusel kogu andmestiku nubrilistele tunnuste kohta kompaktse ülevaate. Tunnusele “Tree” annab vastusteks <code>NA</code>, sest kuigi tunnus paistab välja nagu sisaldaks numbreid, on need tegelikult faktorid. Vaata tunnuste tüüpide muutmist <a href="03-tehniline-tunnused.html#tyybi-muutmine">siit</a>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="fu">class</span>(Orange<span class="sc">$</span>Tree)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] "ordered" "factor" </code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb32"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb32-1"><a href="#cb32-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pastecs)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb34"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb34-1"><a href="#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fu">stat.desc</span>(Orange)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         Tree          age circumference
+nbr.val    NA 3.500000e+01    35.0000000
+nbr.null   NA 0.000000e+00     0.0000000
+nbr.na     NA 0.000000e+00     0.0000000
+min        NA 1.180000e+02    30.0000000
+max        NA 1.582000e+03   214.0000000
+range      NA 1.464000e+03   184.0000000
+sum        NA 3.227500e+04  4055.0000000
+median     NA 1.004000e+03   115.0000000
+mean       NA 9.221429e+02   115.8571429
+SE.mean    NA 8.314028e+01     9.7172759
+CI.mean    NA 1.689614e+02    19.7478805
+var        NA 2.419307e+05  3304.8907563
+std.dev    NA 4.918645e+02    57.4881793
+coef.var   NA 5.333930e-01     0.4961988</code></pre>
+</div>
+</div>
+<p>Võimalus on tellida statistika väljatrükk ka ainult konkreetse tunnuse kohta.</p>
+<div class="callout callout-style-simple callout-tip">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Kasuta käsku <code>round()</code>, et muuta väljatrükk inimsilmale sõbralikumaks. Number sulgude sees näitab, mitu komakohta kuvada.</p>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb36"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb36-1"><a href="#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="fu">round</span>(<span class="fu">stat.desc</span>(starwars<span class="sc">$</span>height), <span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>     nbr.val     nbr.null       nbr.na          min          max        range 
+      81.000        0.000        6.000       66.000      264.000      198.000 
+         sum       median         mean      SE.mean CI.mean.0.95          var 
+   14143.000      180.000      174.605        3.864        7.689     1209.242 
+     std.dev     coef.var 
+      34.774        0.199 </code></pre>
+</div>
+</div>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
 <div id="ref-pastecs" class="csl-entry" role="listitem">
-Grosjean, Philippe, and Frederic Ibanez. 2024. <em>Pastecs: Package for
-Analysis of Space-Time Ecological Series</em>. <a href="https://CRAN.R-project.org/package=pastecs">https://CRAN.R-project.org/package=pastecs</a>.
-</div>
-<div id="ref-Hmisc" class="csl-entry" role="listitem">
-Harrell Jr, Frank E. 2024. <em>Hmisc: Harrell Miscellaneous</em>. <a href="https://CRAN.R-project.org/package=Hmisc">https://CRAN.R-project.org/package=Hmisc</a>.
-</div>
-<div id="ref-huxtable" class="csl-entry" role="listitem">
-Hugh-Jones, David. 2024. <em>Huxtable: Easily Create and Style Tables
-for LaTeX, HTML and Other Formats</em>. <a href="https://CRAN.R-project.org/package=huxtable">https://CRAN.R-project.org/package=huxtable</a>.
-</div>
-<div id="ref-gt" class="csl-entry" role="listitem">
-Iannone, Richard, Joe Cheng, Barret Schloerke, Ellis Hughes, Alexandra
-Lauer, and JooYoung Seo. 2024. <em>Gt: Easily Create Presentation-Ready
-Display Tables</em>. <a href="https://CRAN.R-project.org/package=gt">https://CRAN.R-project.org/package=gt</a>.
-</div>
-<div id="ref-interactions" class="csl-entry" role="listitem">
-Long, Jacob A. 2019. <em>Interactions: Comprehensive, User-Friendly
-Toolkit for Probing Interactions</em>. <a href="https://cran.r-project.org/package=interactions">https://cran.r-project.org/package=interactions</a>.
+Grosjean, Philippe, and Frederic Ibanez. 2024. <em>Pastecs: Package for Analysis of Space-Time Ecological Series</em>. <a href="https://CRAN.R-project.org/package=pastecs">https://CRAN.R-project.org/package=pastecs</a>.
 </div>
 <div id="ref-sjmisc" class="csl-entry" role="listitem">
-Lüdecke, Daniel. 2018. <span>“Sjmisc: Data and Variable Transformation
-Functions.”</span> <em>Journal of Open Source Software</em> 3 (26): 754.
-<a href="https://doi.org/10.21105/joss.00754">https://doi.org/10.21105/joss.00754</a>.
-</div>
-<div id="ref-sjlabelled" class="csl-entry" role="listitem">
-———. 2022. <em>Sjlabelled: Labelled Data Utility Functions (Version
-1.2.0)</em>. <a href="https://doi.org/10.5281/zenodo.1249215">https://doi.org/10.5281/zenodo.1249215</a>.
-</div>
-<div id="ref-rcompanion" class="csl-entry" role="listitem">
-Mangiafico, Salvatore S. 2024. <em><span class="nocase">rcompanion</span>: Functions to Support Extension
-Education Program Evaluation</em>. New Brunswick, New Jersey: Rutgers
-Cooperative Extension. <a href="https://CRAN.R-project.org/package=rcompanion/">https://CRAN.R-project.org/package=rcompanion/</a>.
-</div>
-<div id="ref-gtExtras" class="csl-entry" role="listitem">
-Mock, Thomas. 2023. <em>gtExtras: Extending ’Gt’ for Beautiful HTML
-Tables</em>. <a href="https://CRAN.R-project.org/package=gtExtras">https://CRAN.R-project.org/package=gtExtras</a>.
-</div>
-<div id="ref-RColorBrewer" class="csl-entry" role="listitem">
-Neuwirth, Erich. 2022. <em>RColorBrewer: ColorBrewer Palettes</em>. <a href="https://CRAN.R-project.org/package=RColorBrewer">https://CRAN.R-project.org/package=RColorBrewer</a>.
-</div>
-<div id="ref-PMCMRplus" class="csl-entry" role="listitem">
-Pohlert, Thorsten. 2023. <em>PMCMRplus: Calculate Pairwise Multiple
-Comparisons of Mean Rank Sums Extended</em>. <a href="https://CRAN.R-project.org/package=PMCMRplus">https://CRAN.R-project.org/package=PMCMRplus</a>.
-</div>
-<div id="ref-foreign" class="csl-entry" role="listitem">
-R Core Team. 2023. <em>Foreign: Read Data Stored by ’Minitab’, ’s’,
-’SAS’, ’SPSS’, ’Stata’, ’Systat’, ’Weka’, ’dBase’, ...</em> <a href="https://CRAN.R-project.org/package=foreign">https://CRAN.R-project.org/package=foreign</a>.
-</div>
-<div id="ref-broom" class="csl-entry" role="listitem">
-Robinson, David, Alex Hayes, and Simon Couch. 2024. <em>Broom: Convert
-Statistical Objects into Tidy Tibbles</em>. <a href="https://CRAN.R-project.org/package=broom">https://CRAN.R-project.org/package=broom</a>.
-</div>
-<div id="ref-openxlsx" class="csl-entry" role="listitem">
-Schauberger, Philipp, and Alexander Walker. 2023. <em>Openxlsx: Read,
-Write and Edit Xlsx Files</em>. <a href="https://CRAN.R-project.org/package=openxlsx">https://CRAN.R-project.org/package=openxlsx</a>.
-</div>
-<div id="ref-DescTools" class="csl-entry" role="listitem">
-Signorell, Andri. 2024. <em>DescTools: Tools for Descriptive
-Statistics</em>. <a href="https://CRAN.R-project.org/package=DescTools">https://CRAN.R-project.org/package=DescTools</a>.
-</div>
-<div id="ref-renv" class="csl-entry" role="listitem">
-Ushey, Kevin, and Hadley Wickham. 2024. <em>Renv: Project
-Environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a>.
-</div>
-<div id="ref-corrplot2021" class="csl-entry" role="listitem">
-Wei, Taiyun, and Viliam Simko. 2021. <em>R Package ’Corrplot’:
-Visualization of a Correlation Matrix</em>. <a href="https://github.com/taiyun/corrplot">https://github.com/taiyun/corrplot</a>.
-</div>
-<div id="ref-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data
-Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
-</div>
-<div id="ref-R-stringr" class="csl-entry" role="listitem">
-———. 2022. <em>Stringr: Simple, Consistent Wrappers for Common String
-Operations</em>. <a href="https://CRAN.R-project.org/package=stringr">https://CRAN.R-project.org/package=stringr</a>.
-</div>
-<div id="ref-R-forcats" class="csl-entry" role="listitem">
-———. 2023a. <em>Forcats: Tools for Working with Categorical Variables
-(Factors)</em>. <a href="https://CRAN.R-project.org/package=forcats">https://CRAN.R-project.org/package=forcats</a>.
-</div>
-<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-———. 2023b. <em>Tidyverse: Easily Install and Load the Tidyverse</em>.
-<a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
-</div>
-<div id="ref-R-readxl" class="csl-entry" role="listitem">
-Wickham, Hadley, and Jennifer Bryan. 2023. <em>Readxl: Read Excel
-Files</em>. <a href="https://CRAN.R-project.org/package=readxl">https://CRAN.R-project.org/package=readxl</a>.
-</div>
-<div id="ref-R-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley, Winston Chang, Lionel Henry, Thomas Lin Pedersen,
-Kohske Takahashi, Claus Wilke, Kara Woo, Hiroaki Yutani, and Dewey
-Dunnington. 2023. <em>Ggplot2: Create Elegant Data Visualisations Using
-the Grammar of Graphics</em>. <a href="https://CRAN.R-project.org/package=ggplot2">https://CRAN.R-project.org/package=ggplot2</a>.
-</div>
-<div id="ref-R-dplyr" class="csl-entry" role="listitem">
-Wickham, Hadley, Romain François, Lionel Henry, Kirill Müller, and Davis
-Vaughan. 2023. <em>Dplyr: A Grammar of Data Manipulation</em>. <a href="https://CRAN.R-project.org/package=dplyr">https://CRAN.R-project.org/package=dplyr</a>.
-</div>
-<div id="ref-R-readr" class="csl-entry" role="listitem">
-Wickham, Hadley, Jim Hester, and Jennifer Bryan. 2023. <em>Readr: Read
-Rectangular Text Data</em>. <a href="https://CRAN.R-project.org/package=readr">https://CRAN.R-project.org/package=readr</a>.
-</div>
-<div id="ref-haven" class="csl-entry" role="listitem">
-Wickham, Hadley, Evan Miller, and Danny Smith. 2023. <em>Haven: Import
-and Export ’SPSS’, ’Stata’ and ’SAS’ Files</em>. <a href="https://CRAN.R-project.org/package=haven">https://CRAN.R-project.org/package=haven</a>.
-</div>
-<div id="ref-dataviz" class="csl-entry" role="listitem">
-Wilke, Claus O. 2019. <em>Fundamentals of Data Visualization</em>.
-O’Reilly Media, Inc. <a href="https://clauswilke.com/dataviz">https://clauswilke.com/dataviz</a>.
-</div>
-<div id="ref-lmtest" class="csl-entry" role="listitem">
-Zeileis, Achim, and Torsten Hothorn. 2002. <span>“Diagnostic Checking in
-Regression Relationships.”</span> <em>R News</em> 2 (3): 7–10. <a href="https://CRAN.R-project.org/doc/Rnews/">https://CRAN.R-project.org/doc/Rnews/</a>.
+Lüdecke, Daniel. 2018. <span>“Sjmisc: Data and Variable Transformation Functions.”</span> <em>Journal of Open Source Software</em> 3 (26): 754. <a href="https://doi.org/10.21105/joss.00754">https://doi.org/10.21105/joss.00754</a>.
 </div>
 </div>
-
-
+</section>
+</section>
 
 </main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
@@ -815,11 +1031,14 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./14-tabelid.html" class="pagination-link" aria-label="Tabelite kujundamine">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span>
+      <a href="./08-kuupaevad.html" class="pagination-link" aria-label="Kuupäevad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kuupäevad</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
+      <a href="./10-seosed-tunnustes.html" class="pagination-link" aria-label="Seosed tunnuste vahel">
+        <span class="nav-page-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
   </div>
 </nav>
 </div> <!-- /content -->
