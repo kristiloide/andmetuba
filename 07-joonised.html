@@ -246,8 +246,20 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-tabelid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span></a>
+  <a href="./14-klaster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Klasteranalüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-tabelid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-list-loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Loendid ja tsüklid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -270,7 +282,7 @@ div.csl-indent {
   <li><a href="#ggplot-loogika" id="toc-ggplot-loogika" class="nav-link" data-scroll-target="#ggplot-loogika"><span class="header-section-number">7.2</span> <code>ggplot()</code> töö loogika</a>
   <ul class="collapse">
   <li><a href="#ggplot-sammud" id="toc-ggplot-sammud" class="nav-link" data-scroll-target="#ggplot-sammud"><code>ggplot()</code> töö-loogika samm-sammult</a></li>
-  <li><a href="#jooniste-r-ist-välja-salvestamine" id="toc-jooniste-r-ist-välja-salvestamine" class="nav-link" data-scroll-target="#jooniste-r-ist-välja-salvestamine"><span class="header-section-number">7.2.1</span> Jooniste <code>R</code>-ist välja salvestamine</a></li>
+  <li><a href="#jooniste-r-ist-välja-salvestamine" id="toc-jooniste-r-ist-välja-salvestamine" class="nav-link" data-scroll-target="#jooniste-r-ist-välja-salvestamine">Jooniste <code>R</code>-ist välja salvestamine</a></li>
   </ul></li>
   <li><a href="#andmete-puhastamine-joonise-jaoks" id="toc-andmete-puhastamine-joonise-jaoks" class="nav-link" data-scroll-target="#andmete-puhastamine-joonise-jaoks"><span class="header-section-number">7.3</span> Andmete puhastamine joonise jaoks</a></li>
   <li><a href="#hea-joonise-disainimine" id="toc-hea-joonise-disainimine" class="nav-link" data-scroll-target="#hea-joonise-disainimine"><span class="header-section-number">7.4</span> “Hea joonise” disainimine</a>
@@ -455,7 +467,8 @@ Lugemissoovitus
 <pre><code>`stat_bin()` using `bins = 30`. Pick better value with `binwidth`.</code></pre>
 </div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6 rows containing non-finite values (`stat_bin()`).</code></pre>
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_bin()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -535,8 +548,8 @@ Lugemissoovitus
 </div>
 </div>
 </section>
-<section id="jooniste-r-ist-välja-salvestamine" class="level3" data-number="7.2.1">
-<h3 data-number="7.2.1" class="anchored" data-anchor-id="jooniste-r-ist-välja-salvestamine"><span class="header-section-number">7.2.1</span> Jooniste <code>R</code>-ist välja salvestamine</h3>
+<section id="jooniste-r-ist-välja-salvestamine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="jooniste-r-ist-välja-salvestamine">Jooniste <code>R</code>-ist välja salvestamine</h3>
 <p>Käsk <code>ggsave()</code> võtab aluseks viimase <code>ggplot()</code> käsuga tehtud joonise ning salvestab selle vaikimisi sinu töökausta. Vajadusel saab ette öelda laiuse (<code>width=</code>), pikkuse (<code>height=</code>) ning nende mõõtühiku (<code>units=</code>) ning resolutsiooni (<code>dpi=</code>). Faililaiend võib olla <code>.pdf,</code> <code>.png</code>, <code>.jpeg</code>, <code>.svg</code>, .<code>tiff</code> jms.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggsave</span>(<span class="st">"minu_boxplot.png"</span>,</span>
@@ -545,7 +558,8 @@ Lugemissoovitus
 <span id="cb8-4"><a href="#cb8-4" aria-hidden="true" tabindex="-1"></a>       <span class="at">units =</span> <span class="st">"cm"</span>,</span>
 <span id="cb8-5"><a href="#cb8-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">dpi=</span><span class="dv">200</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
 </div>
 </div>
 </section>
@@ -676,11 +690,12 @@ Lugemissoovitus
 <span id="cb11-5"><a href="#cb11-5" aria-hidden="true" tabindex="-1"></a>       <span class="at">x=</span><span class="st">"Pikkus sentimeetrites"</span>,</span>
 <span id="cb11-6"><a href="#cb11-6" aria-hidden="true" tabindex="-1"></a>       <span class="at">color=</span><span class="st">"Sugu"</span>)<span class="sc">+</span></span>
 <span id="cb11-7"><a href="#cb11-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_y_continuous</span>(<span class="at">breaks =</span> <span class="cn">NULL</span>)<span class="sc">+</span></span>
-<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)<span class="sc">+</span></span>
-<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"naiselik"</span>, <span class="st">"mehine"</span>, <span class="st">"teadmata"</span>))<span class="sc">+</span></span>
-<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<span id="cb11-8"><a href="#cb11-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_discrete</span>(<span class="at">labels=</span><span class="fu">c</span>(<span class="st">"naiselik"</span>, <span class="st">"mehine"</span>, <span class="st">"teadmata"</span>))<span class="sc">+</span></span>
+<span id="cb11-9"><a href="#cb11-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_light</span>()<span class="sc">+</span></span>
+<span id="cb11-10"><a href="#cb11-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(<span class="at">legend.position =</span> <span class="st">"bottom"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -796,7 +811,8 @@ Displaying the palette you asked for with that many colors</code></pre>
 <span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_brewer</span>(<span class="at">palette=</span><span class="st">"Set2"</span>)<span class="sc">+</span></span>
 <span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_bw</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 31 rows containing missing values (`geom_point()`).</code></pre>
+<pre><code>Warning: Removed 31 rows containing missing values or values outside the scale range
+(`geom_point()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -815,7 +831,8 @@ Displaying the palette you asked for with that many colors</code></pre>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>gender))<span class="sc">+</span></span>
 <span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">values=</span><span class="fu">c</span>(<span class="st">"#DEEBF7"</span>,<span class="st">"#6BAED6"</span>, <span class="st">"#08519C"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>
@@ -831,7 +848,8 @@ Displaying the palette you asked for with that many colors</code></pre>
 <span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_boxplot</span>(<span class="fu">aes</span>(<span class="at">fill=</span>gender))<span class="sc">+</span></span>
 <span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_manual</span>(<span class="at">na.value=</span><span class="st">"yellow"</span>, <span class="at">values=</span><span class="fu">c</span>(<span class="at">masculine=</span><span class="st">"#DEEBF7"</span>,<span class="at">feminine=</span><span class="st">"#6BAED6"</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
-<pre><code>Warning: Removed 6 rows containing non-finite values (`stat_boxplot()`).</code></pre>
+<pre><code>Warning: Removed 6 rows containing non-finite outside the scale range
+(`stat_boxplot()`).</code></pre>
 </div>
 <div class="cell-output-display">
 <div>

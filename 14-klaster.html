@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>5&nbsp; Puuduvad väärtused – Andmetuba</title>
+<title>14&nbsp; Klasteranalüüs – Andmetuba</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -84,8 +84,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./06-andmestike-liitmine.html" rel="next">
-<link href="./04-faktor-string.html" rel="prev">
+<link href="./15-tabelid.html" rel="next">
+<link href="./13-regressioon-logistiline.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -135,7 +135,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./05-puuduvad-vaartused.html"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./14-klaster.html"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Klasteranalüüs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -192,7 +192,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./05-puuduvad-vaartused.html" class="sidebar-item-text sidebar-link active">
+  <a href="./05-puuduvad-vaartused.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></span></a>
   </div>
 </li>
@@ -246,7 +246,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-klaster.html" class="sidebar-item-text sidebar-link">
+  <a href="./14-klaster.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Klasteranalüüs</span></span></a>
   </div>
 </li>
@@ -278,15 +278,12 @@ div.csl-indent {
     <h2 id="toc-title">Sisukord</h2>
    
   <ul>
-  <li><a href="#puuduvad" id="toc-puuduvad" class="nav-link active" data-scroll-target="#puuduvad"><span class="header-section-number">5.1</span> Miks vaadata puuduvad väärtusi?</a></li>
-  <li><a href="#mida-puuduvad" id="toc-mida-puuduvad" class="nav-link" data-scroll-target="#mida-puuduvad"><span class="header-section-number">5.2</span> Mida teha puuduvate väärtustega?</a>
+  <li><a href="#eeltööd" id="toc-eeltööd" class="nav-link active" data-scroll-target="#eeltööd"><span class="header-section-number">14.1</span> Eeltööd</a></li>
+  <li><a href="#k-keskmiste-meetodil-klasterdus" id="toc-k-keskmiste-meetodil-klasterdus" class="nav-link" data-scroll-target="#k-keskmiste-meetodil-klasterdus"><span class="header-section-number">14.2</span> K-keskmiste meetodil klasterdus</a>
   <ul class="collapse">
-  <li><a href="#puuduvad-leidmine" id="toc-puuduvad-leidmine" class="nav-link" data-scroll-target="#puuduvad-leidmine">Puuduvate väärtuste leidmine</a></li>
-  <li><a href="#puuduvate-vaatamine" id="toc-puuduvate-vaatamine" class="nav-link" data-scroll-target="#puuduvate-vaatamine">Puuduvate väärtuste vaatamine</a></li>
-  <li><a href="#replace-na" id="toc-replace-na" class="nav-link" data-scroll-target="#replace-na">Puuduvate väärtuste ringikodeerimine</a></li>
-  <li><a href="#na-if" id="toc-na-if" class="nav-link" data-scroll-target="#na-if">Väärtuste märkimine puuduvaks</a></li>
-  <li><a href="#drop-na" id="toc-drop-na" class="nav-link" data-scroll-target="#drop-na">Puuduvate väärtuste kõrvale jätmine</a></li>
+  <li><a href="#klaster-arv" id="toc-klaster-arv" class="nav-link" data-scroll-target="#klaster-arv">Kuidas valida sobiv klastrite arv?</a></li>
   </ul></li>
+  <li><a href="#klastrid-pakett-factoextra" id="toc-klastrid-pakett-factoextra" class="nav-link" data-scroll-target="#klastrid-pakett-factoextra"><span class="header-section-number">14.3</span> Klastrid pakett <code>factoextra</code></a></li>
   </ul>
 </nav>
     </div>
@@ -295,7 +292,7 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></h1>
+<h1 class="title"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Klasteranalüüs</span></h1>
 </div>
 
 
@@ -312,246 +309,228 @@ div.csl-indent {
 </header>
 
 
-<section id="puuduvad" class="level2" data-number="5.1">
-<h2 data-number="5.1" class="anchored" data-anchor-id="puuduvad"><span class="header-section-number">5.1</span> Miks vaadata puuduvad väärtusi?</h2>
-<p>Puuduvaid väärtusi on vaja vaadata eraldi, et teha selgeks, miks puuduv väärtus on puuduv. Võib-olla tahad puuduvat väärtus asendada mõne muu kategooriaga. Nt “teadmata”, “keeldub vastamast”, “ei ole võimalik vastata”, sest puudub osalus jne. Või siis on soov vastupidi keerata mingid kategooriad <code>NA</code>-ks, sest arvutamisel pole vahet, kas “keeldus vastamast” või “ei osanud vastata”.</p>
-<p>Puuduvaid väärtuseid tahame teada, et olla kindel kas puuduvad väärtused on puuduvad juhuslikult või mingi kindla mustri järgi. Mustrit ei näe sellest tunnusest, kus on puuduvad väärtused vaid mõne muu tunnuse pealt. Andmeid saab analüüsida küll, aga neid raporteerides peab ära märkima, miks on puuduvad väärtused ja mis mustriga.</p>
-</section>
-<section id="mida-puuduvad" class="level2" data-number="5.2">
-<h2 data-number="5.2" class="anchored" data-anchor-id="mida-puuduvad"><span class="header-section-number">5.2</span> Mida teha puuduvate väärtustega?</h2>
-<p>Puuduvate väärtustega toimetulek võib tähendada viite lähenemist.</p>
-<ol type="1">
-<li>Kustutada kõik read, kus on puuduvad väärtused (äärmuslik).</li>
-<li>Kustutada need read, kus on puuduv väärtus kindlas tunnuses.</li>
-<li>Muuta puuduva väärtus mingiks kindlaks väärtuseks (nt “teadmata”).</li>
-<li>Vastupidi, muuta kindel väärtus hoopis <code>NA</code> ks (näiteks <code>0</code>, <code>"-"</code> või <code>" "</code>).</li>
-<li>Muuta puuduv väärtus mingiks <em>“best-guess”</em> väärtuseks (nt keskmine). Vaata tunnuste sisu muutmist <a href="03-tehniline-tunnused.html#sisu-muutmine">siit</a>.</li>
-</ol>
+<p>See peatükk annab ülevaate, kuidas kasutada <code>R</code>-i klasteranalüüsi läbiviimiseks. Klasteranalüüsi abil grupeeritakse sarnaseb objektid klastritesse. Seda meetodit kasutatakse enamasti mustrituvastuse jaoks. Siin peatükis on näide ühe levinuma (k-keskmiste) meetodi kasutamisest. Püüan tulevikus kirjeldada ka hierahilist klasterdusmeetodi kasutamist <code>R</code>-is.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lugemissoovitus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tooding, L.-M. (2020). Sissejuhatus klasteranalüüs. M. Beilmann, A. Roots ja K. Rootalu (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/sissejuhatus-klasteranaluusi/" class="uri">https://samm.ut.ee/sissejuhatus-klasteranaluusi/</a></p>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Klasteranalüüsi jooniste tegemisel on vajalik alla laadida pakett <code>factoextra</code><span class="citation" data-cites="factoextra">(<a href="references.html#ref-factoextra" role="doc-biblioref">Kassambara and Mundt 2020</a>)</span>.</p>
+<section id="eeltööd" class="level2" data-number="14.1">
+<h2 data-number="14.1" class="anchored" data-anchor-id="eeltööd"><span class="header-section-number">14.1</span> Eeltööd</h2>
+<p>Kasutame <code>R</code>-iga kaasatulevat andmestikku iris, milles on kirja pandud lillede (iiriste) kroonlehtede mõõtmed.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(starwars)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(iris)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<section id="puuduvad-leidmine" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="puuduvad-leidmine">Puuduvate väärtuste leidmine</h3>
-<p>Kasutan näiteks uuesti starwars andmestikku, aga jätan sealt välja need tunnused, mis sisaldavad liste.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-3"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-3-1"><a href="#annotated-cell-3-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-3-2" class="code-annotation-target"><a href="#annotated-cell-3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name<span class="sc">:</span>species)</span>
-<span id="annotated-cell-3-3"><a href="#annotated-cell-3-3" aria-hidden="true" tabindex="-1"></a></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-3" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-3-4" class="code-annotation-target"><a href="#annotated-cell-3-4" aria-hidden="true" tabindex="-1"></a><span class="fu">nrow</span>(starwars)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>iris<span class="sc">%&gt;%</span></span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>  Sepal.Length Sepal.Width Petal.Length Petal.Width Species
+1          5.1         3.5          1.4         0.2  setosa
+2          4.9         3.0          1.4         0.2  setosa
+3          4.7         3.2          1.3         0.2  setosa
+4          4.6         3.1          1.5         0.2  setosa
+5          5.0         3.6          1.4         0.2  setosa
+6          5.4         3.9          1.7         0.4  setosa</code></pre>
+</div>
+</div>
+<p>Standardiseerin esmalt andmestiku käsu <code>scale()</code> abil, kuna tunnuste skaalad on erinevad. scale() käsk annab veateate, kui tunnused ei ole <code>numeric</code> tüüpi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-4"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-4-1"><a href="#annotated-cell-4-1" aria-hidden="true" tabindex="-1"></a>iris_standard<span class="ot">&lt;-</span>iris<span class="sc">%&gt;%</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-4" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-4-2" class="code-annotation-target"><a href="#annotated-cell-4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(<span class="sc">-</span>Species) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-4-3"><a href="#annotated-cell-4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale</span>()<span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-4-4"><a href="#annotated-cell-4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">as_tibble</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-3" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-4" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="2" data-code-annotation="1">valin tunnused, et eemaldada testandmestikust “list” tüüpi tunnused</span>
-</dd>
-<dt data-target-cell="annotated-cell-3" data-target-annotation="2">2</dt>
-<dd>
-<span data-code-cell="annotated-cell-3" data-code-lines="4" data-code-annotation="2">Tuletan meelde, kui palju on andmestikus ridu.</span>
+<span data-code-cell="annotated-cell-4" data-code-lines="2" data-code-annotation="1">Eemaldan andmestikus tunnuse Species, kuna see sisaldab faktorit.</span>
 </dd>
 </dl>
 </div>
-<div class="cell-output cell-output-stdout">
-<pre><code>[1] 87</code></pre>
 </div>
-</div>
-<p>Seejärel vaatan andmestiku päist.</p>
+<p>Vaatan andmestikku pärast standardiseerimist.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>iris_standard<span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 6 × 11
-  name      height  mass hair_color skin_color eye_color birth_year sex   gender
-  &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Luke Sky…    172    77 blond      fair       blue            19   male  mascu…
-2 C-3PO        167    75 &lt;NA&gt;       gold       yellow         112   none  mascu…
-3 R2-D2         96    32 &lt;NA&gt;       white, bl… red             33   none  mascu…
-4 Darth Va…    202   136 none       white      yellow          41.9 male  mascu…
-5 Leia Org…    150    49 brown      light      brown           19   fema… femin…
-6 Owen Lars    178   120 brown, gr… light      blue            52   male  mascu…
-# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
+<pre><code># A tibble: 6 × 4
+  Sepal.Length Sepal.Width Petal.Length Petal.Width
+         &lt;dbl&gt;       &lt;dbl&gt;        &lt;dbl&gt;       &lt;dbl&gt;
+1       -0.898      1.02          -1.34       -1.31
+2       -1.14      -0.132         -1.34       -1.31
+3       -1.38       0.327         -1.39       -1.31
+4       -1.50       0.0979        -1.28       -1.31
+5       -1.02       1.25          -1.34       -1.31
+6       -0.535      1.93          -1.17       -1.05</code></pre>
 </div>
 </div>
-<p>Näeme, et meie andmestik sisaldab puuduvaid väärtusi. Üks võimalus puuduvatest väärtustest vabanemiseks on kasutada käsku <code>na.omit()</code></p>
+<p>Viin läbi klasteranalüüsi K-keskmiste abil. Seejärel kasutan käsku <code>set.seed()</code>, et anda ette suvalised numbrid. See käsk on R-is vajalik ning selgitus on päris tehniline. Programm vajab etteantud numbreid <code>set.seed()</code>, et analüüsi programmikood oleks korratav.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 29 × 11
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Luke Sk…    172    77 blond      fair       blue            19   male  mascu…
- 2 Darth V…    202   136 none       white      yellow          41.9 male  mascu…
- 3 Leia Or…    150    49 brown      light      brown           19   fema… femin…
- 4 Owen La…    178   120 brown, gr… light      blue            52   male  mascu…
- 5 Beru Wh…    165    75 brown      light      blue            47   fema… femin…
- 6 Biggs D…    183    84 black      light      brown           24   male  mascu…
- 7 Obi-Wan…    182    77 auburn, w… fair       blue-gray       57   male  mascu…
- 8 Anakin …    188    84 blond      fair       blue            41.9 male  mascu…
- 9 Chewbac…    228   112 brown      unknown    blue           200   male  mascu…
-10 Han Solo    180    80 brown      fair       brown           29   male  mascu…
-# ℹ 19 more rows
-# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-</div>
-</div>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Käsu <code>na.omit()</code> kasutamine on õigustatud ainult siis, kui tead täpselt, <strong>kus</strong> on puuduvad väärtused, <strong>miks</strong> nad on puuduvad ja <strong>kui palju</strong> neid on.</p>
-</div>
-</div>
-</div>
-<p>Meid aga huvitab, kus kohas need puuduvad väärtused ja tahame nad välja filtreerida. Abiks on käsk <code>complete.cases(.)</code>. Puuduvate väärtuste tuvastamiseks on mõistlikum pöörata käsk tagurpidi ja küsida välja read, mis sisaldavad puuduvaid väärtusi ehk <code>!complete.cases(.)</code></p>
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">complete.cases</span>(starwars))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 58 × 11
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 C-3PO       167    75 &lt;NA&gt;       gold       yellow           112 none  mascu…
- 2 R2-D2        96    32 &lt;NA&gt;       white, bl… red               33 none  mascu…
- 3 R5-D4        97    32 &lt;NA&gt;       white, red red               NA none  mascu…
- 4 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
- 5 Greedo      173    74 &lt;NA&gt;       green      black             44 male  mascu…
- 6 Jabba D…    175  1358 &lt;NA&gt;       green-tan… orange           600 herm… mascu…
- 7 Jek Ton…    180   110 brown      fair       blue              NA &lt;NA&gt;  &lt;NA&gt;  
- 8 Yoda         66    17 white      green      brown            896 male  mascu…
- 9 IG-88       200   140 none       metal      red               15 none  mascu…
-10 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
-# ℹ 48 more rows
-# ℹ 2 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;</code></pre>
-</div>
-</div>
-<p>Näiteks näeme, et puuduvad väärtused on ridamisi hair_color tunnuse all.</p>
-</section>
-<section id="puuduvate-vaatamine" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="puuduvate-vaatamine">Puuduvate väärtuste vaatamine</h3>
-<p>Soovime puuduvad väärtused välja filtreerida, et vaadata neid tegelasi lähemalt, kellel on juuksevärvi info puudu. Käsk <code>is.na()</code> annab TRUE/FALSE vastuse ning on sedasorti filteerimiseks ideaalne.</p>
-<div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-7" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-7-2" class="code-annotation-target"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(hair_color))<span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-7-3"><a href="#annotated-cell-7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, species, hair_color)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-annotation">
-<dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-7" data-target-annotation="1">1</dt>
-<dd>
-<span data-code-cell="annotated-cell-7" data-code-lines="2" data-code-annotation="1">Näita neid ridu, kus tunnuse väärtus on puudu</span>
-</dd>
-</dl>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 5 × 3
-  name                  species hair_color
-  &lt;chr&gt;                 &lt;chr&gt;   &lt;chr&gt;     
-1 C-3PO                 Droid   &lt;NA&gt;      
-2 R2-D2                 Droid   &lt;NA&gt;      
-3 R5-D4                 Droid   &lt;NA&gt;      
-4 Greedo                Rodian  &lt;NA&gt;      
-5 Jabba Desilijic Tiure Hutt    &lt;NA&gt;      </code></pre>
-</div>
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">123</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 </section>
-<section id="replace-na" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="replace-na">Puuduvate väärtuste ringikodeerimine</h3>
-<p>Nüüd selgub, et kõik need, kellel on juuksevärv puudu on tegelased, kellel polegi juukseid. Saame need tegelased alles jätta ja ringi kodeerida.</p>
+<section id="k-keskmiste-meetodil-klasterdus" class="level2" data-number="14.2">
+<h2 data-number="14.2" class="anchored" data-anchor-id="k-keskmiste-meetodil-klasterdus"><span class="header-section-number">14.2</span> K-keskmiste meetodil klasterdus</h2>
+<p>K-keskmiste klasterdus toimub käsuga <code>kmeans()</code>. Ma praeguses näites ei anna ette iteratsioonide arvu, vaikimisi on see 10. Kui on soov seda muuta (näiteks 15), tuleb lisada käsu sisse täpsustus <code>iter.max=15</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>hair_color<span class="ot">&lt;-</span><span class="fu">replace_na</span>(starwars<span class="sc">$</span>hair_color, <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?kmeans</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
+<p>Salvestan tulemuse eraldi objekti. Käsu sees täpsustan soovitavate klastrite arvu (<code>centers=</code>) ning ütlen ette, mitu juhusliku hulka (<code>nstart=</code>) tuleks valida. Vaata ka, kuidas valida klastrite arvu nn <a href="#klaster-arv">küünarnuki meetodil</a>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(hair_color)<span class="sc">%&gt;%</span></span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">table</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>kkeskmine_tulemus<span class="ot">&lt;-</span><span class="fu">kmeans</span>(iris_standard, <span class="at">centers=</span><span class="dv">3</span>, <span class="at">nstart=</span><span class="dv">25</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Kasutan salvestatud analüüsi, et lisada algandmetesse juurde analüüsi tulemus (klasterdus) faktorina.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>iris_klaster<span class="ot">&lt;-</span>iris<span class="sc">%&gt;%</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">klaster=</span><span class="fu">as.factor</span>(kkeskmine_tulemus<span class="sc">$</span>cluster))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Vaatan, millised iirise liigid jagunevad millistesse klastritesse. Klastrid on numbrites üks kuni kolm. Setosa liik on ainsana klastris üks, Suurem osa versicolor liigist on klastris 2, kuid seal on ka esindatud virginica liiki.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="fu">table</span>(iris_klaster<span class="sc">$</span>Species, iris_klaster<span class="sc">$</span>klaster)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code>hair_color
-       auburn  auburn, grey auburn, white         black         blond 
-            1             1             1            13             3 
-       blonde         brown   brown, grey          grey          none 
-            1            18             1             1            43 
-        white 
-            4 </code></pre>
+<pre><code>            
+              1  2  3
+  setosa     50  0  0
+  versicolor  0 39 11
+  virginica   0 14 36</code></pre>
 </div>
 </div>
-</section>
-<section id="na-if" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="na-if">Väärtuste märkimine puuduvaks</h3>
-<p>Nüüd soovin, et hair_color tunnuse grupp “none” oleks andmesitkus <code>NA</code>.</p>
-<div class="callout callout-style-simple callout-important">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Mõtle hoolega läbi, kas tahad muuta tunnust või mitte. “Pole juukseid” ehk “none” on igal juhul selge info selle kohta, miks juuksevärvi pole andmetes kirjas. <code>NA</code> peaks tähendama ikka seda, et info juuste olemasolu ja värvi kohta täielikult info puudub.</p>
-</div>
-</div>
-</div>
-<p>Kasutada saab käsku <code>na_if()</code>.</p>
+<section id="klaster-arv" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="klaster-arv">Kuidas valida sobiv klastrite arv?</h3>
+<p>Teeme seda paketi <code>factoextra</code><span class="citation" data-cites="factoextra">(<a href="references.html#ref-factoextra" role="doc-biblioref">Kassambara and Mundt 2020</a>)</span>abil ning kasutame käsku <code>fviz_nbclust()</code>. Meetodiks on nn küünarnuki kõvera meetod, kus jooniselt püüame tuvastada millises punktis klastrisisene variatsioon (sum of squared errors, SSE) aeglustub.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">$</span>hair_color<span class="ot">&lt;-</span><span class="fu">na_if</span>(starwars<span class="sc">$</span>hair_color, <span class="st">"none"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
-</section>
-<section id="drop-na" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="drop-na">Puuduvate väärtuste kõrvale jätmine</h3>
-<p>Näiteks tahame teha graafikut, kuidas jaguneb tunnus “hair_color”.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Andmete visuaalse esitamise kohta tuleb eraldi peatükk, mis tutvustab põhjalikumalt paketti <code>ggplot2</code> <span class="citation" data-cites="ggplot2">(<a href="references.html#ref-ggplot2" role="doc-biblioref">Wickham 2016</a>)</span> kasutamist (mis on ka osa <code>tidyverse</code> pakettidest). Need joonised ei ole “head” joonised. Praegu õpime käsu <code>drop_na()</code> kasutamist.</p>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Welcome! Want to learn more? See two factoextra-related books at https://goo.gl/ve3WBa</code></pre>
 </div>
 </div>
-</div>
-<p>Vaikimisi paneb <code>R</code> ka puuduvad väärtused pildile.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>gender, <span class="at">fill=</span>hair_color))<span class="sc">+</span></span>
-<span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>?fviz_nbclust</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(iris_standard, kmeans, <span class="at">method =</span> <span class="st">"wss"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-puuduvad-vaartused_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="14-klaster_files/figure-html/unnamed-chunk-13-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
 </div>
-<p>Käsuga <code>drop_na()</code>- saab öelda, mis tunnuse <code>NA</code> väärtused järgmistest sammudest kõrvale jätta ilma, et peaks andmestikust ridu eemaldama hakkama.</p>
+<p>Tundub, et number kolme juurest edasi on langus väiksem. Kui soovime seda punkti joonisel edasi anda, saame kasutada käsku <code>geom_vline()</code></p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-12"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-12-1"><a href="#annotated-cell-12-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-12" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-12-2" class="code-annotation-target"><a href="#annotated-cell-12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>(hair_color, gender)<span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-12-3"><a href="#annotated-cell-12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gender, <span class="at">fill=</span>hair_color))<span class="sc">+</span></span>
-<span id="annotated-cell-12-4"><a href="#annotated-cell-12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_nbclust</span>(iris_standard, kmeans, <span class="at">method =</span> <span class="st">"wss"</span>)<span class="sc">+</span></span>
+<span id="cb17-2"><a href="#cb17-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_vline</span>(<span class="at">xintercept =</span> <span class="dv">3</span>, <span class="at">linetype=</span><span class="dv">3</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="14-klaster_files/figure-html/unnamed-chunk-14-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="klastrid-pakett-factoextra" class="level2" data-number="14.3">
+<h2 data-number="14.3" class="anchored" data-anchor-id="klastrid-pakett-factoextra"><span class="header-section-number">14.3</span> Klastrid pakett <code>factoextra</code></h2>
+<p>Üks võimalus on teha niisama numbriliste tunnustega scatterplot ja näidata ära, millised liigid millistesse klastrisse kukkusid.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>iris_klaster<span class="sc">%&gt;%</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(Sepal.Length, Sepal.Width, </span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">shape =</span> klaster,</span>
+<span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>             <span class="at">color =</span> Species))<span class="sc">+</span></span>
+<span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>(<span class="at">size=</span><span class="dv">3</span>, <span class="at">alpha=</span><span class="fl">0.5</span>)<span class="sc">+</span></span>
+<span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">title=</span><span class="st">"Iiriste jagunemine klastritesse"</span>)<span class="sc">+</span></span>
+<span id="cb18-7"><a href="#cb18-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_color_viridis_d</span>()<span class="sc">+</span></span>
+<span id="cb18-8"><a href="#cb18-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="14-klaster_files/figure-html/unnamed-chunk-15-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Palju võimekamaid joonised on võimalik teha paketiga <code>factoextra</code><span class="citation" data-cites="factoextra">(<a href="references.html#ref-factoextra" role="doc-biblioref">Kassambara and Mundt 2020</a>)</span> käsu <code>fviz_cluster()</code> abil. Kasutada tuleb analüüsi tulemuse objekti (kkeskmine_tulemus) ja andmestikku, mis oli kasutusel analüüsis (st standardiseeritud andmed iris_standard).</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(factoextra)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Käsu <code>fviz_cluster()</code> abil saab päris kiiresti teha joonise.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(kkeskmine_tulemus, <span class="at">data=</span>iris_standard,</span>
+<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">ggtheme=</span> <span class="fu">theme_minimal</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="14-klaster_files/figure-html/unnamed-chunk-17-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Õnneks on võimalik seda joonist ka muuta. Kasutame mõnda käsku, et samade andmetega teha uus joonis.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-18"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-18-1"><a href="#annotated-cell-18-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fviz_cluster</span>(kkeskmine_tulemus, <span class="at">data=</span>iris_standard,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-18-2" class="code-annotation-target"><a href="#annotated-cell-18-2" aria-hidden="true" tabindex="-1"></a>             <span class="at">palette =</span> <span class="fu">c</span>(<span class="st">"orange"</span>,<span class="st">"#6BAED6"</span>, <span class="st">"#08519C"</span>),</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-18-3" class="code-annotation-target"><a href="#annotated-cell-18-3" aria-hidden="true" tabindex="-1"></a>             <span class="at">ellipse.type =</span> <span class="st">"euclid"</span>,</span>
+<span id="annotated-cell-18-4"><a href="#annotated-cell-18-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">star.plot=</span><span class="cn">TRUE</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-18-5" class="code-annotation-target"><a href="#annotated-cell-18-5" aria-hidden="true" tabindex="-1"></a>            <span class="at">repel =</span> <span class="cn">TRUE</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-18" data-target-annotation="4" onclick="event.preventDefault();">4</a><span id="annotated-cell-18-6" class="code-annotation-target"><a href="#annotated-cell-18-6" aria-hidden="true" tabindex="-1"></a>            <span class="at">main=</span><span class="st">"Klasteranalüüs k-keskmiste abil"</span>,</span>
+<span id="annotated-cell-18-7"><a href="#annotated-cell-18-7" aria-hidden="true" tabindex="-1"></a>            <span class="at">ggtheme=</span> <span class="fu">theme_minimal</span>())</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
-<dt data-target-cell="annotated-cell-12" data-target-annotation="1">1</dt>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="1">1</dt>
 <dd>
-<span data-code-cell="annotated-cell-12" data-code-lines="2" data-code-annotation="1">Eemaldab tühjad väärtused tunnusest, et neid pildil mitte kuvada.</span>
+<span data-code-cell="annotated-cell-18" data-code-lines="2" data-code-annotation="1">Muudan joonisel kujutatud värvid</span>
+</dd>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-18" data-code-lines="3" data-code-annotation="2">Muudab ära klastri kuju, võimalik kasutada “t”, “norm” ja “euclid”.</span>
+</dd>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-18" data-code-lines="5" data-code-annotation="3">Toob punktide väärtused üksteisest eemale, et need ei kattuks ja oleks paremini loetavad</span>
+</dd>
+<dt data-target-cell="annotated-cell-18" data-target-annotation="4">4</dt>
+<dd>
+<span data-code-cell="annotated-cell-18" data-code-lines="6" data-code-annotation="4">Muudan ära joonise pealkirja, mis vaikimisi on “Cluster plot”</span>
 </dd>
 </dl>
 </div>
 <div class="cell-output-display">
 <div>
 <figure class="figure">
-<p><img src="05-puuduvad-vaartused_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+<p><img src="14-klaster_files/figure-html/unnamed-chunk-18-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>
+</div>
+<p>Vaata käsu kasutusvõimaluse kohta.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?fviz_cluster</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-ggplot2" class="csl-entry" role="listitem">
-Wickham, Hadley. 2016. <em>Ggplot2: Elegant Graphics for Data Analysis</em>. Springer-Verlag New York. <a href="https://ggplot2.tidyverse.org">https://ggplot2.tidyverse.org</a>.
+<div id="ref-factoextra" class="csl-entry" role="listitem">
+Kassambara, Alboukadel, and Fabian Mundt. 2020. <em>Factoextra: Extract and Visualize the Results of Multivariate Data Analyses</em>. <a href="https://CRAN.R-project.org/package=factoextra">https://CRAN.R-project.org/package=factoextra</a>.
 </div>
 </div>
-</section>
 </section>
 
 </main> <!-- /main -->
@@ -977,13 +956,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
-      <a href="./04-faktor-string.html" class="pagination-link" aria-label="Töö teksti sisaldavate tunnustega">
-        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Töö teksti sisaldavate tunnustega</span></span>
+      <a href="./13-regressioon-logistiline.html" class="pagination-link" aria-label="Regressioon - logistiline">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regressioon - logistiline</span></span>
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./06-andmestike-liitmine.html" class="pagination-link" aria-label="Andmestike ühendamine ja struktuuri muutmine">
-        <span class="nav-page-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Andmestike ühendamine ja struktuuri muutmine</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./15-tabelid.html" class="pagination-link" aria-label="Tabelite kujundamine">
+        <span class="nav-page-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

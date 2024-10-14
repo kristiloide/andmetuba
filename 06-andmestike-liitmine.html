@@ -275,8 +275,20 @@ window.Quarto = {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./14-tabelid.html" class="sidebar-item-text sidebar-link">
- <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span></a>
+  <a href="./14-klaster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Klasteranalüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-tabelid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-list-loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Loendid ja tsüklid</span></span></a>
   </div>
 </li>
         <li class="sidebar-item">
@@ -606,16 +618,6 @@ window.Quarto = {
 <h2 data-number="6.4" class="anchored" data-anchor-id="andmestiku-struktuuri-muutmine"><span class="header-section-number">6.4</span> Andmestiku struktuuri muutmine</h2>
 <p>Struktuuri muutmisega puutub kokku siis, kui esitame kokkuvõtteid mingi <code>sagedustabel</code>i või <code>risttabeli</code> kujul.</p>
 <p>Seepärast räägin praegu <code>group_by()</code> ja <code>summarise()</code> käskude kasutamisest lühidalt. Käsu nimedest on aru saada, et andmestik grupeeritakse ringi ja summarise käsuga arvutatakse kokku kui palju ridu esineb sellises grupeeringus (<code>n()</code>).</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Kirjeldava statistika peatükk on koostamisel.</p>
-</div>
-</div>
-</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
 <span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender, species)<span class="sc">%&gt;%</span></span>
@@ -727,11 +729,11 @@ window.Quarto = {
 <pre><code># A tibble: 5 × 14
   name      height  mass hair_color skin_color eye_color birth_year sex   gender
   &lt;chr&gt;      &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
-1 Beru Whi…    165    75 brown      light      blue              47 fema… femin…
-2 R4-P17        96    NA none       silver, r… red, blue         NA none  femin…
-3 Finis Va…    170    NA blond      fair       blue              91 male  mascu…
-4 Greedo       173    74 &lt;NA&gt;       green      black             44 male  mascu…
-5 Arvel Cr…     NA    NA brown      fair       brown             NA male  mascu…
+1 Boba Fett    183  78.2 black      fair       brown           31.5 male  mascu…
+2 Dexter J…    198 102   none       brown      yellow          NA   male  mascu…
+3 R2-D2         96  32   &lt;NA&gt;       white, bl… red             33   none  mascu…
+4 Kit Fisto    196  87   none       green      black           NA   male  mascu…
+5 Nute Gun…    191  90   none       mottled g… red             NA   male  mascu…
 # ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
 #   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
 </div>
