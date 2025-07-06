@@ -6,10 +6,8 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
-<meta name="author" content="Kristi Loide">
-<meta name="dcterms.date" content="2025-07-02">
 
-<title>Andmeanalüüsi töötuba</title>
+<title>19&nbsp; Faktoranalüüs – Andmeanalüüsi töötuba</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -86,7 +84,8 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./01-andmestike-lugemine.html" rel="next">
+<link href="./20-aegread.html" rel="next">
+<link href="./18-masinope.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
@@ -136,7 +135,7 @@ div.csl-indent {
       <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
         <i class="bi bi-layout-text-sidebar-reverse"></i>
       </button>
-        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./index.html">Saateks</a></li></ol></nav>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./19-faktor.html"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></a></li></ol></nav>
         <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
         </a>
       <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
@@ -163,7 +162,7 @@ div.csl-indent {
     <ul class="list-unstyled mt-1">
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./index.html" class="sidebar-item-text sidebar-link active">
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Saateks</span></a>
   </div>
 </li>
@@ -277,7 +276,7 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
-  <a href="./19-faktor.html" class="sidebar-item-text sidebar-link">
+  <a href="./19-faktor.html" class="sidebar-item-text sidebar-link active">
  <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></span></a>
   </div>
 </li>
@@ -303,10 +302,12 @@ div.csl-indent {
     <h2 id="toc-title">Sisukord</h2>
    
   <ul>
-  <li><a href="#saateks" id="toc-saateks" class="nav-link active" data-scroll-target="#saateks">Saateks</a>
+  <li><a href="#faktoranalüüs-paketiga-psych" id="toc-faktoranalüüs-paketiga-psych" class="nav-link active" data-scroll-target="#faktoranalüüs-paketiga-psych"><span class="header-section-number">19.1</span> Faktoranalüüs paketiga <code>psych</code></a>
   <ul class="collapse">
-  <li><a href="#paketid" id="toc-paketid" class="nav-link" data-scroll-target="#paketid">Paketid</a></li>
-  <li><a href="#sonavara" id="toc-sonavara" class="nav-link" data-scroll-target="#sonavara"><code>R</code>- i sõnavara</a></li>
+  <li><a href="#pööramismeetodi-valik" id="toc-pööramismeetodi-valik" class="nav-link" data-scroll-target="#pööramismeetodi-valik">Pööramismeetodi valik</a></li>
+  <li><a href="#faktorite-arvu-leidmine" id="toc-faktorite-arvu-leidmine" class="nav-link" data-scroll-target="#faktorite-arvu-leidmine">Faktorite arvu leidmine</a></li>
+  <li><a href="#mudeli-loomine" id="toc-mudeli-loomine" class="nav-link" data-scroll-target="#mudeli-loomine">Mudeli loomine</a></li>
+  <li><a href="#mudeli-tulemuste-visualiseerimine" id="toc-mudeli-tulemuste-visualiseerimine" class="nav-link" data-scroll-target="#mudeli-tulemuste-visualiseerimine"><span class="header-section-number">19.1.1</span> Mudeli tulemuste visualiseerimine</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -316,27 +317,14 @@ div.csl-indent {
 
 <header id="title-block-header" class="quarto-title-block default">
 <div class="quarto-title">
-<h1 class="title">Andmeanalüüsi töötuba</h1>
-<p class="subtitle lead">R-studio eestikeelne kasutusjuhend</p>
+<h1 class="title"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></h1>
 </div>
 
 
 
 <div class="quarto-title-meta">
 
-    <div>
-    <div class="quarto-title-meta-heading">Author</div>
-    <div class="quarto-title-meta-contents">
-             <p>Kristi Loide </p>
-          </div>
-  </div>
     
-    <div>
-    <div class="quarto-title-meta-heading">Published</div>
-    <div class="quarto-title-meta-contents">
-      <p class="date">July 2, 2025</p>
-    </div>
-  </div>
   
     
   </div>
@@ -346,185 +334,268 @@ div.csl-indent {
 </header>
 
 
-<section id="saateks" class="level1 unnumbered">
-<h1 class="unnumbered">Saateks</h1>
-<p>See e-raamat on mõeldud abistavaks materjaliks <code>R-studio</code><a href="#fn1" class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> kasutamisel.</p>
-<p>Olen koondanud siia valiku vajaminevaid <code>käske</code><a href="#fn2" class="footnote-ref" id="fnref2" role="doc-noteref"><sup>2</sup></a> ning lisanud lühikese selgituse, miks ja millal neid <code>käske</code> vaja võib minna. Kõik näited ja soovitused olen kirja pannud oma kasutuskogemuse pinnalt ning viisil, kuidas ise oleksin soovinud <code>R</code>-i kasutamist õppida. Püüan kasutada pigem <a href="01-andmestike-lugemine.html#R-andmestikud"><code>R</code>-iga kaasatulevaid andmestikke</a>, et saaksid samu asju järgi teha, kuid kasutan ka mitmeid avaandmestikke, et oleks selgemini näha, mis võivad olla esmased tõrked “päris” andmete kasutamisel.</p>
-<p>Raamat liigub sisu poolest lihtsamalt keerulisema suunas ning täiendan sisu jooksvalt, et sellest oleks kasu nii algajale kui ka kogenumale <code>R</code>-i kasutajale. Programmi saab alla laadida <a href="https://posit.co/download/rstudio-desktop/">siit</a>. Ma ei plaani kirjutada peatükki, mis räägib <code>R</code>-i seadistamisest, <code>projektide</code> loomisest jms. Soovitan selleks tutvuda raamatuga <a href="https://r4ds.hadley.nz/">R for Data Science (2e)</a>.<a href="#fn3" class="footnote-ref" id="fnref3" role="doc-noteref"><sup>3</sup></a></p>
-<p>Viitan jooksvalt erinevatele allikatele, et saaksid <code>R</code>-i käskude (või analüüsimeetodite) kohta rohkem lugeda. Kuna olen oma <code>R</code>-i kasutamise teadmised pigem “kokku <em>googeldanud</em>”, siis viitan pigem <a href="#paketid">pakettide</a> autoritele, et tunnustada neid, kes on teinud <code>R</code>-i selliseks nagu ta täna on<a href="#fn4" class="footnote-ref" id="fnref4" role="doc-noteref"><sup>4</sup></a>. Palun arvesta, et ma kasutan mitmeid IT-termineid <em>üpris</em> vabalt ning püüan edasi anda pigem tegevuse sisu. Kuna ma ei ole tarvkaraarendaja ega informaatik (ega tööta ka IT valdkonnas), siis luban omale siinkohal vabamat keelekasutust ja koodikirjutuse <a href="https://r4ds.hadley.nz/workflow-style"><em>stiili</em></a>.</p>
-<p>Sotsioloogina<a href="#fn5" class="footnote-ref" id="fnref5" role="doc-noteref"><sup>5</sup></a> püüan siiski olla täpne analüüsimeetodite nimedes. Võta seda e-raamatut kui minu isiklikku konspetki, mis avalikult kättesaadav on.</p>
-<p>Nii nagu igat võõrkeelt, õpib ka <code>R</code>- i kõige paremini kui seda (regulaarselt) harjutada. Kuigi siit raamatust saab koodi otse kopeerida, püüa kood mõttega läbi kirjutada ja tee oma sõnadega <code>käsk</code>-ude juurde märkmeid.</p>
-<section id="paketid" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="paketid">Paketid</h2>
-<p><code>R</code>-i <code>baasversioon</code><a href="#fn6" class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a> on võimas tööriist, kuid paljud paketid teevad <code>R</code>-i kasutamise veelgi mugavamaks ja võimsamaks.</p>
-<p>Minu lemmik pakett on <code>tidyverse</code><span class="citation" data-cites="R-tidyverse">(<a href="references.html#ref-R-tidyverse" role="doc-biblioref">Wickham 2023</a>)</span> ning käivitan selle esimese asjana iga <code>tööprojekti</code> alguses. <code>tidyverse</code> oma olemuselt on erinevate levinud pakettide kogum, mis laiendab oluliselt <code>R</code>-is toimetamisel kasutatavad <a href="#sonavara">sõnavara</a>. Loe <code>tidyverse</code> paketi kohta rohkem <a href="https://www.tidyverse.org/">siit</a>.</p>
+<p>See peatükk annab ülevaate, kuidas teha faktoranalüüsi <code>R</code>-is.</p>
+<div class="callout callout-style-default callout-tip callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Lugemissoovitus
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>Tooding, L-M. (2014) Faktoranalüüs. . Rootalu, V. Kalmus, A. Masso, ja T. Vihalemm (toim), <em>Sotsiaalse analüüsi meetodite ja metodoloogia õpibaas</em>. <a href="https://samm.ut.ee/faktoranalyys/" class="uri">https://samm.ut.ee/faktoranalyys/</a></p>
+</div>
+</div>
+<div class="callout callout-style-default callout-note callout-titled">
+<div class="callout-header d-flex align-content-center">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-title-container flex-fill">
+Note
+</div>
+</div>
+<div class="callout-body-container callout-body">
+<p>See peatükk on lõpuni kirjutamata. Täieneb.</p>
+</div>
+</div>
+<p>Andmetöötluseks kasutan paketti <code>tidyverse</code> <span class="citation" data-cites="tidyverse2019">(<a href="references.html#ref-tidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<p>Selle e-raamatu koostasin <code>R</code>-studios <a href="https://quarto.org/docs/get-started/hello/rstudio.html">Quartot</a> kasutades.</p>
-<div class="callout callout-style-simple callout-tip">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="faktoranalüüs-paketiga-psych" class="level2" data-number="19.1">
+<h2 data-number="19.1" class="anchored" data-anchor-id="faktoranalüüs-paketiga-psych"><span class="header-section-number">19.1</span> Faktoranalüüs paketiga <code>psych</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(psych)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout-body-container">
-<p>Mõnikord ei saa <code>R</code> paketi installeerimisega hakkama, sest sõltuvad paketid (<em>mida me tavaliselt ei näegi</em>) ei ole enam selles verisoonis, mida parasjagu vaja. Siis tuleb kasutada käsk <code>install()</code> paketist <code>renv</code><span class="citation" data-cites="renv">(<a href="references.html#ref-renv" role="doc-biblioref">Ushey and Wickham 2024</a>)</span> ning paketi nime järel tuleb kirjutada <code>@versiooni_number</code>.</p>
+<p>Analüüsi läbiviimiseks kasutan paketiga <code>psych</code> <span class="citation" data-cites="psych">(<a href="references.html#ref-psych" role="doc-biblioref">William Revelle 2024</a>)</span> kaasatulevat andmestikku bfi ehk Big Five Inventory.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="st">"bfi"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Andmestik sisaldab 2800 inimese vastuseid isiksusetestile (25 tunnust) ning lisaks on kolm tunnust, mis näitavad vastaja sugu, vanust ja haridustaset. Isiksuse testiga mõõdetakse viite üksusele isiksuseomadust (ekstravertsus/<em>extraversion</em>, vastutulelikkus/<em>agreeableness</em>, kohusetundlikkus/<em>conscientiousness</em>, neurootilisus/<em>neuroticism</em> ja avatus/<em>openness</em>). Iga isiksuse omaduse kohta on viis küsimust ja tunnuse nimed algavad vastava tähega E, A, C, N ning O. Iga number andmeväljas näitab, millise hinnangu vastaja andis kuuepallisel Likerti skaalal.</p>
+<p>Vajadusel vaata küsimusi lähemalt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="co">#?bfi</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Faktoranalüüs on tundlik puuduvate väärtuste osas, seepärast vaatan esmalt kui palju neid on.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sum</span>(<span class="fu">is.na</span>(bfi))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 731</code></pre>
 </div>
 </div>
+<p>Loe lähemalt, kuidas tulle toime puuduvate väärtustega <a href="05-puuduvad-vaartused.html#puuduvad">siit</a>. Praegu on eesmärk teha faktoranalüüsi ja viskan need ilma põhjaliku süvenemiseta lihtsalt välja.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>bfi<span class="ot">&lt;-</span>bfi<span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">drop_na</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
+<section id="pööramismeetodi-valik" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pööramismeetodi-valik">Pööramismeetodi valik</h3>
+<p>Pööramismeetodi valik mõjutab faktorite tulemust. Varimax pööramine eeldab, et faktorid on omavahel sõltumatud. Selline mudel on lihtsamini tõlgendatav, sest laadimised on kas kõrged või madalad. Nii eristub faktorid teineteisest paremini.</p>
+</section>
+<section id="faktorite-arvu-leidmine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="faktorite-arvu-leidmine">Faktorite arvu leidmine</h3>
+<p>Valitud faktorite arv (ja rotatsiooni meetod) mõjutavad analüüsi tulemusi. Kui on liiga vähe faktoreid, siis mudel ei suuda piisavalt hästi andmete mittekülgsust tabada. Kannatab mudeli selgitusvõime, sest tegelikke faktoreid ei suudeta eristada. Kui faktoreid on liiga palju, muutub mudel keeruliseks ja raskesti tõlgendatavaks. Tekib liigne müra, mida võib hakata tõlgendama teguriteks. Seepärast on oluline leida õige faktorite arv.</p>
+<p>Käsuga <code>fa.parallel()</code> on võimalik luua nn <em>“küünarnuki kõver”</em>. See kõver näitab, mis hetkest uue faktori lisamine ei suurenda oluliselt mudeli seletusvõimet.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-7"><pre class="sourceCode r code-annotation-code code-with-copy"><code class="sourceCode r"><span id="annotated-cell-7-1"><a href="#annotated-cell-7-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.parallel</span>(bfi[,<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>],</span>
+<span id="annotated-cell-7-2"><a href="#annotated-cell-7-2" aria-hidden="true" tabindex="-1"></a>            <span class="at">fa =</span> <span class="st">"fa"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="19-faktor_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
 </div>
-<div class="callout-body-container">
-<p>Mõned <code>R</code>-i koodid olen raamatust välja kommenteerinud, sest soovin käsu kasutamist näidata aga mitte seda käivitada. Alates peatükist nr 2 selliseid väljakommenteeritud näidiskoode olen kasutanud mõnel üksikul korral.</p>
 </div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Parallel analysis suggests that the number of factors =  6  and the number of components =  NA </code></pre>
+</div>
+</div>
+<p>Valin andmestikust esimesed 25 tunnust. Pildil tundub kõver kuskile viie ja kuue vahele jäävat. Pane tähele, et joonise all on väljatrükk, mis soovitab kuuest jaotust. Kuna isiksuse omadusi on viis, kasutan edasises analüüsis ka viiest jaotust.</p>
+</section>
+<section id="mudeli-loomine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="mudeli-loomine">Mudeli loomine</h3>
+<p>Teen faktoranalüüsi käsuga <code>fa()</code> ja salvestan tulemuse eraldi objekti.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-8"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-8-1" class="code-annotation-target"><a href="#annotated-cell-8-1" aria-hidden="true" tabindex="-1"></a>fa_tulemus<span class="ot">&lt;-</span><span class="fu">fa</span>(bfi[,<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>],</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-8-2" class="code-annotation-target"><a href="#annotated-cell-8-2" aria-hidden="true" tabindex="-1"></a>               <span class="at">nfactors =</span> <span class="dv">5</span>,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-8" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-8-3" class="code-annotation-target"><a href="#annotated-cell-8-3" aria-hidden="true" tabindex="-1"></a>               <span class="at">rotate =</span> <span class="st">"varimax"</span>,</span>
+<span id="annotated-cell-8-4"><a href="#annotated-cell-8-4" aria-hidden="true" tabindex="-1"></a>               <span class="at">fm=</span><span class="st">"pa"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-8" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="1" data-code-annotation="1">Valin veerud 1 kuni 25</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="2" data-code-annotation="2">Määran ära faktorite arvu</span>
+</dd>
+<dt data-target-cell="annotated-cell-8" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-8" data-code-lines="3" data-code-annotation="3">Kasutan varimax pööramist</span>
+</dd>
+</dl>
+</div>
+</div>
+<p>Tulemuse väljatrükk sisaldab kahte tabelit. Esimene neist on faktormaatriks, mille kaks esimest tulpa näitavad faktorlaadungeid (korrelatsioonseoseid) tekkinud uute faktorite ja vanade olemasolevate tunnustel vahel.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>fa_tulemus</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Factor Analysis using method =  pa
+Call: fa(r = bfi[, 1:25], nfactors = 5, rotate = "varimax", fm = "pa")
+Standardized loadings (pattern matrix) based upon correlation matrix
+     PA2   PA1   PA3   PA5   PA4   h2   u2 com
+A1  0.11  0.04  0.03 -0.42 -0.09 0.20 0.80 1.3
+A2  0.04  0.22  0.14  0.61  0.04 0.44 0.56 1.4
+A3  0.01  0.32  0.11  0.64  0.05 0.53 0.47 1.6
+A4 -0.06  0.20  0.22  0.43 -0.13 0.30 0.70 2.2
+A5 -0.12  0.38  0.09  0.53  0.05 0.46 0.54 2.0
+C1  0.02  0.06  0.54  0.03  0.21 0.34 0.66 1.3
+C2  0.09  0.02  0.64  0.11  0.10 0.44 0.56 1.2
+C3 -0.03  0.03  0.56  0.11 -0.01 0.33 0.67 1.1
+C4  0.24 -0.07 -0.63 -0.03 -0.10 0.47 0.53 1.4
+C5  0.28 -0.18 -0.56 -0.04  0.04 0.43 0.57 1.7
+E1  0.03 -0.57  0.03 -0.12 -0.06 0.34 0.66 1.1
+E2  0.24 -0.68 -0.10 -0.11 -0.05 0.55 0.45 1.4
+E3  0.02  0.55  0.09  0.26  0.28 0.46 0.54 2.0
+E4 -0.12  0.64  0.10  0.32 -0.08 0.54 0.46 1.7
+E5  0.04  0.51  0.32  0.09  0.20 0.42 0.58 2.1
+N1  0.79  0.08 -0.04 -0.21 -0.08 0.68 0.32 1.2
+N2  0.75  0.04 -0.02 -0.19 -0.01 0.61 0.39 1.1
+N3  0.73 -0.06 -0.06 -0.02  0.00 0.55 0.45 1.0
+N4  0.59 -0.35 -0.18  0.01  0.08 0.51 0.49 1.9
+N5  0.54 -0.16 -0.05  0.11 -0.16 0.35 0.65 1.5
+O1 -0.01  0.21  0.12  0.05  0.50 0.32 0.68 1.5
+O2  0.18  0.00 -0.10  0.10 -0.48 0.28 0.72 1.5
+O3  0.03  0.31  0.07  0.12  0.60 0.48 0.52 1.6
+O4  0.22 -0.19 -0.04  0.14  0.37 0.24 0.76 2.7
+O5  0.08 -0.01 -0.06 -0.02 -0.54 0.31 0.69 1.1
+
+                       PA2  PA1  PA3  PA5  PA4
+SS loadings           2.70 2.49 2.02 1.79 1.54
+Proportion Var        0.11 0.10 0.08 0.07 0.06
+Cumulative Var        0.11 0.21 0.29 0.36 0.42
+Proportion Explained  0.26 0.24 0.19 0.17 0.15
+Cumulative Proportion 0.26 0.49 0.68 0.85 1.00
+
+Mean item complexity =  1.5
+Test of the hypothesis that 5 factors are sufficient.
+
+df null model =  300  with the objective function =  7.41 with Chi Square =  16484.78
+df of  the model are 185  and the objective function was  0.63 
+
+The root mean square of the residuals (RMSR) is  0.03 
+The df corrected root mean square of the residuals is  0.04 
+
+The harmonic n.obs is  2236 with the empirical chi square  1046.45  with prob &lt;  3.1e-120 
+The total n.obs was  2236  with Likelihood Chi Square =  1400.57  with prob &lt;  1.5e-185 
+
+Tucker Lewis Index of factoring reliability =  0.878
+RMSEA index =  0.054  and the 90 % confidence intervals are  0.052 0.057
+BIC =  -26.23
+Fit based upon off diagonal values = 0.98
+Measures of factor score adequacy             
+                                                   PA2  PA1  PA3  PA5  PA4
+Correlation of (regression) scores with factors   0.92 0.88 0.86 0.84 0.83
+Multiple R square of scores with factors          0.85 0.77 0.74 0.70 0.69
+Minimum correlation of possible factor scores     0.71 0.54 0.48 0.41 0.38</code></pre>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a><span class="co">#renv::install("data.table@1.15.2")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>fa_tulemus<span class="sc">$</span>loadings</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Loadings:
+   PA2    PA1    PA3    PA5    PA4   
+A1  0.106               -0.419       
+A2         0.222  0.137  0.608       
+A3         0.323  0.112  0.638       
+A4         0.199  0.223  0.434 -0.134
+A5 -0.118  0.385         0.532       
+C1                0.541         0.205
+C2                0.639  0.111  0.102
+C3                0.559  0.108       
+C4  0.244        -0.627              
+C5  0.284 -0.180 -0.561              
+E1        -0.566        -0.122       
+E2  0.238 -0.683        -0.110       
+E3         0.552         0.256  0.276
+E4 -0.119  0.640  0.102  0.323       
+E5         0.513  0.318         0.204
+N1  0.787               -0.209       
+N2  0.753               -0.192       
+N3  0.734                            
+N4  0.589 -0.350 -0.178              
+N5  0.538 -0.157         0.106 -0.160
+O1         0.209  0.123         0.504
+O2  0.183        -0.102        -0.479
+O3         0.311         0.115  0.600
+O4  0.222 -0.192         0.144  0.366
+O5                             -0.545
+
+                 PA2   PA1   PA3   PA5   PA4
+SS loadings    2.705 2.487 2.017 1.794 1.539
+Proportion Var 0.108 0.099 0.081 0.072 0.062
+Cumulative Var 0.108 0.208 0.288 0.360 0.422</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(fa_tulemus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="19-faktor_files/figure-html/unnamed-chunk-11-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
 </div>
 </section>
-<section id="sonavara" class="level2 unnumbered">
-<h2 class="unnumbered anchored" data-anchor-id="sonavara"><code>R</code>- i sõnavara</h2>
-<p><code>R</code> võimaldab teha andmetega mitmesuguseid tehteid. Tavapärane liitmine ja lahutamine toimubki vastavalt kas <code>+</code> või <code>-</code> märgiga. Jagamiseks on märk <code>/</code> ning korrutamiseks <code>*</code>. Selleks, et teha keerukamat lauset, on vaja tunda ka järgmisi märke.</p>
-<table class="caption-top table">
-<thead>
-<tr class="header">
-<th style="text-align: center;">Sümbol</th>
-<th>Tegevus või tähendus</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td style="text-align: center;"><code>&lt;-</code></td>
-<td>abil anname mingile objektile teatud väärtuse</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>$</code></td>
-<td>“kõnetab” konkreetset <code>tunnust</code> <code>andmestik</code>-us (vaata ka <a href="02-andmestiku-ylevaade.html#tunnustega-tutvumine">tunnustega tutvumine</a> )</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>%&gt;%</code> või <code>|&gt;</code></td>
-<td><strong>ja siis</strong> või <strong>seejärel</strong> (tee järgmist asja). Selle kohta öeldakse ka <em>torud</em> või <em>pipes</em>. Klahvilühend ctrl+shift+M või command+shift+M. Mina olen harjunud kasutama torusid selliselt <code>%&gt;%</code>.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>%in%</code></td>
-<td>kas tunnus <strong>sisaldab</strong> väärtust</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>#</code></td>
-<td>kommenteerib teksti käsust välja ehk <code>#</code> järgselt ei tekst osa koodist. Tee nii omale märkmeid koodi kohta.</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>?</code></td>
-<td>koos käsu nimega avab käsu dokumentatsiooni</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>==</code></td>
-<td>võrdne</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>&lt;</code></td>
-<td>väiksem kui</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>&gt;</code></td>
-<td>suurem kui</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>&lt;=</code></td>
-<td>väiksem või võrdne</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>!</code></td>
-<td>pöörab käsu tagurpidi</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>!=</code></td>
-<td>ei ole võrdne</td>
-</tr>
-<tr class="odd">
-<td style="text-align: center;"><code>|</code></td>
-<td>või</td>
-</tr>
-<tr class="even">
-<td style="text-align: center;"><code>&amp;</code></td>
-<td>ja</td>
-</tr>
-</tbody>
-</table>
-<p>Peaaegu kõik <em>levinud</em> funktsioonid algavad <code>R</code>-is väikese tähega ning neile järgnevad sulud <code>()</code>. <code>funktsioon</code> on <code>käsk</code>, mis ütleb programmile, mida teha tuleb. Enamasti ütleb käsu nimi juba, mida ta tegema peab (näiteks käsk <code>filter()</code>), kuid <code>R</code>-ile tuleb sulgudes sees täpsustada, milliste andmetega antud käsku täita. <code>R</code>-is on väga oluline, kas kasutusel on suured või väikesed tähed, teatud sümbolite kasutamine <code>R</code>-ile ei meeldi ning kui <code>R</code>, millestki aru või hakkama ei saa, siis ta seda ka ütleb.</p>
-<p><code>tidyverse</code> pakett laiendab <code>R</code>-i sõnavara olulisel määral. <code>Baasversioon</code>iga on võimalik ka palju ära teha, kuid mina eelistan kasutada pigem <code>tidyverse</code> lähenemist.</p>
-<p>Näide, kuidas sama asja saab kirjutada kahel erineval viisil. Esimene neist on nn <code>baasversioon</code>i lähenemine ja teine <code>tidyverse</code> oma. Mõlema koodijupi käivitamine annab sama tulemuse.</p>
+<section id="mudeli-tulemuste-visualiseerimine" class="level3" data-number="19.1.1">
+<h3 data-number="19.1.1" class="anchored" data-anchor-id="mudeli-tulemuste-visualiseerimine"><span class="header-section-number">19.1.1</span> Mudeli tulemuste visualiseerimine</h3>
+<p>Analüüsi tulemuste visualiseerimiseks tuleb kasutada käsku <code>fa.diagram()</code>.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="co">#baasversioon</span></span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>starwars[<span class="fu">is.na</span>(starwars<span class="sc">$</span>mass),]</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 28 × 14
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
- 2 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
- 3 Arvel C…     NA    NA brown      fair       brown             NA male  mascu…
- 4 Finis V…    170    NA blond      fair       blue              91 male  mascu…
- 5 Rugor N…    206    NA none       green      orange            NA male  mascu…
- 6 Ric Olié    183    NA brown      fair       blue              NA male  mascu…
- 7 Watto       137    NA black      blue, grey yellow            NA male  mascu…
- 8 Quarsh …    183    NA black      dark       brown             62 male  mascu…
- 9 Shmi Sk…    163    NA black      fair       brown             72 fema… femin…
-10 Bib For…    180    NA none       pale       pink              NA male  mascu…
-# ℹ 18 more rows
-# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fa.diagram</span>(fa_tulemus)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="19-faktor_files/figure-html/unnamed-chunk-12-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="co">#tidyverse abil</span></span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="fu">is.na</span>(mass))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a>fa_laadung<span class="ot">&lt;-</span>fa_tulemus<span class="sc">$</span>scores</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>bfi<span class="ot">&lt;-</span><span class="fu">bind_cols</span>(bfi, <span class="fu">as_tibble</span>(fa_laadung))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">KMO</span>(bfi[,<span class="dv">1</span><span class="sc">:</span><span class="dv">25</span>])</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
-<pre><code># A tibble: 28 × 14
-   name     height  mass hair_color skin_color eye_color birth_year sex   gender
-   &lt;chr&gt;     &lt;int&gt; &lt;dbl&gt; &lt;chr&gt;      &lt;chr&gt;      &lt;chr&gt;          &lt;dbl&gt; &lt;chr&gt; &lt;chr&gt; 
- 1 Wilhuff…    180    NA auburn, g… fair       blue              64 male  mascu…
- 2 Mon Mot…    150    NA auburn     fair       blue              48 fema… femin…
- 3 Arvel C…     NA    NA brown      fair       brown             NA male  mascu…
- 4 Finis V…    170    NA blond      fair       blue              91 male  mascu…
- 5 Rugor N…    206    NA none       green      orange            NA male  mascu…
- 6 Ric Olié    183    NA brown      fair       blue              NA male  mascu…
- 7 Watto       137    NA black      blue, grey yellow            NA male  mascu…
- 8 Quarsh …    183    NA black      dark       brown             62 male  mascu…
- 9 Shmi Sk…    163    NA black      fair       brown             72 fema… femin…
-10 Bib For…    180    NA none       pale       pink              NA male  mascu…
-# ℹ 18 more rows
-# ℹ 5 more variables: homeworld &lt;chr&gt;, species &lt;chr&gt;, films &lt;list&gt;,
-#   vehicles &lt;list&gt;, starships &lt;list&gt;</code></pre>
+<pre><code>Kaiser-Meyer-Olkin factor adequacy
+Call: KMO(r = bfi[, 1:25])
+Overall MSA =  0.85
+MSA for each item = 
+  A1   A2   A3   A4   A5   C1   C2   C3   C4   C5   E1   E2   E3   E4   E5   N1 
+0.74 0.83 0.87 0.87 0.90 0.84 0.79 0.85 0.82 0.86 0.84 0.88 0.89 0.88 0.89 0.78 
+  N2   N3   N4   N5   O1   O2   O3   O4   O5 
+0.78 0.86 0.89 0.86 0.86 0.78 0.83 0.78 0.76 </code></pre>
 </div>
 </div>
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
-<div id="ref-renv" class="csl-entry" role="listitem">
-Ushey, Kevin, and Hadley Wickham. 2024. <em>Renv: Project Environments</em>. <a href="https://CRAN.R-project.org/package=renv">https://CRAN.R-project.org/package=renv</a>.
+<div id="ref-tidyverse2019" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
 </div>
-<div id="ref-R-tidyverse" class="csl-entry" role="listitem">
-Wickham, Hadley. 2023. <em>Tidyverse: Easily Install and Load the Tidyverse</em>. <a href="https://CRAN.R-project.org/package=tidyverse">https://CRAN.R-project.org/package=tidyverse</a>.
+<div id="ref-psych" class="csl-entry" role="listitem">
+William Revelle. 2024. <em>Psych: Procedures for Psychological, Psychometric, and Personality Research</em>. Evanston, Illinois: Northwestern University. <a href="https://CRAN.R-project.org/package=psych">https://CRAN.R-project.org/package=psych</a>.
 </div>
 </div>
 </section>
-</section>
-<section id="footnotes" class="footnotes footnotes-end-of-document" role="doc-endnotes">
-<hr>
-<ol>
-<li id="fn1"><p>Ütlen <code>R-studio</code> kohta mugavuse tõttu lihtsalt <code>R</code>. Ühtlasi <code>R</code> on korraga nii programm kui ka programmeerimiskeel.<a href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn2"><p><code>käsk</code> on <code>funktsioon</code>, mis ütleb <code>R</code>-ile, mida teha tuleb.<a href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn3"><p>Nullist alustades vaata <em>Workflow</em> peatükke nr 2, 6 ja 8.<a href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn4"><p>Käivita käsk <code>contributors()</code>, et lugeda programmi loojatest ja arendajatest rohkem<a href="#fnref4" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn5"><p>Lõpetasin 2019. aastal Tartu Ülikooli sotsioloogia magistrikava.<a href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-<li id="fn6"><p><code>Baasversioon</code>-i alla mõtlen neid <code>R</code>-i käske, mille kasutamiseks ei ole ühtegi teist paketti kasutusele vaja võtta.<a href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
-</ol>
 </section>
 
 </main> <!-- /main -->
@@ -947,10 +1018,13 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
 </script>
 <nav class="page-navigation">
   <div class="nav-page nav-page-previous">
+      <a href="./18-masinope.html" class="pagination-link" aria-label="Masinõpe - otsustuspuud ning metsad">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Masinõpe - otsustuspuud ning metsad</span></span>
+      </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./01-andmestike-lugemine.html" class="pagination-link" aria-label="Andmestiku laadimine ja tunnustega tutvumine">
-        <span class="nav-page-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Andmestiku laadimine ja tunnustega tutvumine</span></span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./20-aegread.html" class="pagination-link" aria-label="Aegridade analüüs">
+        <span class="nav-page-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Aegridade analüüs</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>

@@ -1,0 +1,1238 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.42">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>18&nbsp; Masinõpe - otsustuspuud ning metsad – Andmeanalüüsi töötuba</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<link href="./19-faktor.html" rel="next">
+<link href="./17-kaardid.html" rel="prev">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-d0ff7224fd3d87d86b347c889b6aed14.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "sidebar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "start",
+  "type": "textbox",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-sidebar floating">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+  <nav class="quarto-secondary-nav">
+    <div class="container-fluid d-flex">
+      <button type="button" class="quarto-btn-toggle btn" data-bs-toggle="collapse" role="button" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+        <i class="bi bi-layout-text-sidebar-reverse"></i>
+      </button>
+        <nav class="quarto-page-breadcrumbs" aria-label="breadcrumb"><ol class="breadcrumb"><li class="breadcrumb-item"><a href="./18-masinope.html"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Masinõpe - otsustuspuud ning metsad</span></a></li></ol></nav>
+        <a class="flex-grow-1" role="navigation" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item" aria-controls="quarto-sidebar" aria-expanded="false" aria-label="Toggle sidebar navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">      
+        </a>
+      <button type="button" class="btn quarto-search-button" aria-label="Search" onclick="window.quartoOpenSearch();">
+        <i class="bi bi-search"></i>
+      </button>
+    </div>
+  </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article">
+<!-- sidebar -->
+  <nav id="quarto-sidebar" class="sidebar collapse collapse-horizontal quarto-sidebar-collapse-item sidebar-navigation floating overflow-auto">
+    <div class="pt-lg-2 mt-2 text-left sidebar-header">
+    <div class="sidebar-title mb-0 py-0">
+      <a href="./">Andmeanalüüsi töötuba</a> 
+    </div>
+      </div>
+        <div class="mt-2 flex-shrink-0 align-items-center">
+        <div class="sidebar-search">
+        <div id="quarto-search" class="" title="Search"></div>
+        </div>
+        </div>
+    <div class="sidebar-menu-container"> 
+    <ul class="list-unstyled mt-1">
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./index.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Saateks</span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./01-andmestike-lugemine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">1</span>&nbsp; <span class="chapter-title">Andmestiku laadimine ja tunnustega tutvumine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./02-andmestiku-ylevaade.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">2</span>&nbsp; <span class="chapter-title">Andmestikust esmase ülevaate saamine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./03-tehniline-tunnused.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">3</span>&nbsp; <span class="chapter-title">Tehniline töö tunnustega</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./04-faktor-string.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">4</span>&nbsp; <span class="chapter-title">Töö teksti sisaldavate tunnustega</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./05-puuduvad-vaartused.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">5</span>&nbsp; <span class="chapter-title">Puuduvad väärtused</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./06-andmestike-liitmine.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">6</span>&nbsp; <span class="chapter-title">Andmestike ühendamine ja struktuuri muutmine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./07-joonised.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">7</span>&nbsp; <span class="chapter-title">Joonised - lühiülevaade</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./08-kuupaevad.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">8</span>&nbsp; <span class="chapter-title">Kuupäevad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./09-kirjeldav-statistika.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">9</span>&nbsp; <span class="chapter-title">Kirjeldav statistika</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./10-seosed-tunnustes.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">10</span>&nbsp; <span class="chapter-title">Seosed tunnuste vahel</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./11-keskmiste-vordlus.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">11</span>&nbsp; <span class="chapter-title">Keskmiste võrdlus</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./12-regressioon-lineaarne.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">12</span>&nbsp; <span class="chapter-title">Regressioon - lineaarne</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./13-regressioon-logistiline.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">13</span>&nbsp; <span class="chapter-title">Regressioon - logistiline</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./14-klaster.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">14</span>&nbsp; <span class="chapter-title">Klasteranalüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./15-tabelid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">15</span>&nbsp; <span class="chapter-title">Tabelite kujundamine</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./16-list-loops.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">16</span>&nbsp; <span class="chapter-title">Loendid ja tsüklid</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./17-kaardid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ruumiandmed</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-masinope.html" class="sidebar-item-text sidebar-link active">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Masinõpe - otsustuspuud ning metsad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-faktor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-aegread.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Aegridade analüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./references.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text">Allikad</span></a>
+  </div>
+</li>
+    </ul>
+    </div>
+</nav>
+<div id="quarto-sidebar-glass" class="quarto-sidebar-collapse-item" data-bs-toggle="collapse" data-bs-target=".quarto-sidebar-collapse-item"></div>
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Sisukord</h2>
+   
+  <ul>
+  <li><a href="#kasutatavad-andmed" id="toc-kasutatavad-andmed" class="nav-link active" data-scroll-target="#kasutatavad-andmed"><span class="header-section-number">18.1</span> Kasutatavad andmed</a>
+  <ul class="collapse">
+  <li><a href="#treening--ja-testandmestiku-loomine" id="toc-treening--ja-testandmestiku-loomine" class="nav-link" data-scroll-target="#treening--ja-testandmestiku-loomine">Treening- ja testandmestiku loomine</a></li>
+  </ul></li>
+  <li><a href="#otsutuspuu-töö-põhimõte" id="toc-otsutuspuu-töö-põhimõte" class="nav-link" data-scroll-target="#otsutuspuu-töö-põhimõte"><span class="header-section-number">18.2</span> Otsutuspuu töö põhimõte</a></li>
+  <li><a href="#rpart" id="toc-rpart" class="nav-link" data-scroll-target="#rpart"><span class="header-section-number">18.3</span> Otsustuspuu paketiga <code>rpart</code></a>
+  <ul class="collapse">
+  <li><a href="#mudeli-tulemuste-tõlgendamine" id="toc-mudeli-tulemuste-tõlgendamine" class="nav-link" data-scroll-target="#mudeli-tulemuste-tõlgendamine">Mudeli tulemuste tõlgendamine</a></li>
+  <li><a href="#otsustuspuu-mudeli-testimine" id="toc-otsustuspuu-mudeli-testimine" class="nav-link" data-scroll-target="#otsustuspuu-mudeli-testimine">Otsustuspuu mudeli testimine</a></li>
+  <li><a href="#pROC" id="toc-pROC" class="nav-link" data-scroll-target="#pROC">Mudeli headuse testimine paketi <code>pROC</code> abil</a></li>
+  <li><a href="#rattle" id="toc-rattle" class="nav-link" data-scroll-target="#rattle">Mudeli visualiseerimine paketiga <code>rattle</code></a></li>
+  <li><a href="#mudeli-visualiseerimine-paketiga-rpart.plot" id="toc-mudeli-visualiseerimine-paketiga-rpart.plot" class="nav-link" data-scroll-target="#mudeli-visualiseerimine-paketiga-rpart.plot"><span class="header-section-number">18.3.1</span> Mudeli visualiseerimine paketiga <code class="unnumbered">rpart.plot</code></a></li>
+  </ul></li>
+  <li><a href="#randomForest" id="toc-randomForest" class="nav-link" data-scroll-target="#randomForest"><span class="header-section-number">18.4</span> Otsustusmets paketiga <code>randomForest</code></a>
+  <ul class="collapse">
+  <li><a href="#tunnuste-tähtsuse-tõlgendus" id="toc-tunnuste-tähtsuse-tõlgendus" class="nav-link" data-scroll-target="#tunnuste-tähtsuse-tõlgendus">Tunnuste tähtsuse tõlgendus</a></li>
+  <li><a href="#otsutusmetsa-tulemuste-visualiseerimine" id="toc-otsutusmetsa-tulemuste-visualiseerimine" class="nav-link" data-scroll-target="#otsutusmetsa-tulemuste-visualiseerimine">Otsutusmetsa tulemuste visualiseerimine</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Masinõpe - otsustuspuud ning metsad</span></h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>See peatükk annab ülevaate, kuidas masinõppe abil <code>R</code>-is klassifitseerida erinevaid andmeid ja luua otsustuspuid ja -metsa.</p>
+<p>Otsustuspuu (<em>decision tree</em>) on masinõppe meetod, mida kasutatakse klassifitseerimiseks või regressiooniks. Klassifitseerimisülesandes püütakse ennustada kategoorilist tulemit (nt kas inimene kuulub ühte või teise gruppi). Regressiooni puhul ennustatakse arvulist väärtust (mitte kategooriat).</p>
+<section id="kasutatavad-andmed" class="level2" data-number="18.1">
+<h2 data-number="18.1" class="anchored" data-anchor-id="kasutatavad-andmed"><span class="header-section-number">18.1</span> Kasutatavad andmed</h2>
+<p>Kasutan Euroopa Sotsiaaluuringu andmeid ning andmete töötlemiseks paketti <code>tidyverse</code> <span class="citation" data-cites="tidyverse2019">(<a href="references.html#ref-tidyverse2019" role="doc-biblioref">Wickham et al. 2019</a>)</span>. Mudeli loomiseks kasutan järgmisi tunnuseid:</p>
+<ul>
+<li>vanus (agea) - numbriline väärtus</li>
+<li>sugu (gndr) - Mees/Naine</li>
+<li>elukoht (domicil) - 5 erinevat kategooriat</li>
+<li>laste olemasolu leibkonnas (chldhhe) - Jah/Ei</li>
+<li>peamine sissetulekuallikas (hincsrca) - 8 erinevat kategooriat</li>
+</ul>
+<p>Prognoositav tunnuseks on toimetulek. Kui soovid vaadata andmetöötluse töökäiku, vajuta “code” hallil kolmnurgal.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span><span class="fu">read_csv</span>(<span class="st">"ESS9e03_2-ESS10-subset.csv"</span>)</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true" tabindex="-1"></a><span class="co"># sissetuleku liik</span></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">|&gt;</span></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hincsrca=</span><span class="fu">case_when</span>(</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true" tabindex="-1"></a>    hincsrca<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Wages or salaries"</span>,</span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true" tabindex="-1"></a>    hincsrca<span class="sc">==</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">"Income from self-employment (excluding farming)"</span>,</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true" tabindex="-1"></a>    hincsrca<span class="sc">==</span><span class="dv">3</span> <span class="sc">~</span> <span class="st">"Income from farming"</span>,</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true" tabindex="-1"></a>    hincsrca<span class="sc">==</span> <span class="dv">4</span> <span class="sc">~</span> <span class="st">"Pensions"</span>, </span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true" tabindex="-1"></a>    hincsrca<span class="sc">==</span> <span class="dv">5</span> <span class="sc">~</span> <span class="st">"Unemployment/redundancy benefit"</span>,</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true" tabindex="-1"></a>    hincsrca <span class="sc">==</span> <span class="dv">6</span> <span class="sc">~</span> <span class="st">"Any other social benefits or grants"</span>,</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true" tabindex="-1"></a>    hincsrca <span class="sc">==</span> <span class="dv">7</span> <span class="sc">~</span> <span class="st">"Income from investments, savings etc."</span>,</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true" tabindex="-1"></a>    hincsrca <span class="sc">==</span> <span class="dv">8</span> <span class="sc">~</span> <span class="st">"Income from other sources"</span>,</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true" tabindex="-1"></a><span class="co"># laste arv leibkonnas</span></span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">|&gt;</span></span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">chldhhe=</span><span class="fu">case_when</span>(</span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true" tabindex="-1"></a>    chldhhe<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Jah"</span>,</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true" tabindex="-1"></a>    chldhhe<span class="sc">==</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">"Ei"</span>,</span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span></span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true" tabindex="-1"></a><span class="co"># elukohatüüp</span></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">|&gt;</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">domicil=</span><span class="fu">case_when</span>(</span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true" tabindex="-1"></a>    domicil<span class="sc">==</span><span class="dv">1</span>  <span class="sc">~</span> <span class="st">"A big city"</span>,</span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true" tabindex="-1"></a>domicil<span class="sc">==</span><span class="dv">2</span> <span class="sc">~</span>    <span class="st">"Suburbs or outskirts of big city"</span>,</span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true" tabindex="-1"></a>domicil<span class="sc">==</span><span class="dv">3</span> <span class="sc">~</span>    <span class="st">"Town or small city"</span>,</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true" tabindex="-1"></a>domicil<span class="sc">==</span><span class="dv">4</span> <span class="sc">~</span>    <span class="st">"Country village"</span>,</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true" tabindex="-1"></a>domicil<span class="sc">==</span><span class="dv">5</span> <span class="sc">~</span>    <span class="st">"Farm or home in countryside"</span>,</span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true" tabindex="-1"></a><span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true" tabindex="-1"></a><span class="co"># leibkonna liikmete arv</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">$</span>hhmmb[andmed<span class="sc">$</span>hhmmb <span class="sc">&gt;</span> <span class="dv">11</span>] <span class="ot">&lt;-</span> <span class="cn">NA</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true" tabindex="-1"></a><span class="co"># sugu</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">gndr=</span><span class="fu">ifelse</span>(gndr<span class="sc">==</span><span class="dv">1</span>, <span class="st">"Mees"</span>, <span class="st">"Naine"</span>))</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true" tabindex="-1"></a><span class="co"># toimetulek</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">hincfel=</span><span class="fu">case_when</span>(</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true" tabindex="-1"></a>    hincfel<span class="sc">==</span><span class="dv">1</span> <span class="sc">~</span> <span class="st">"Elame mugavalt praeguse sissetuleku juures"</span>,</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true" tabindex="-1"></a>    hincfel<span class="sc">==</span><span class="dv">2</span> <span class="sc">~</span> <span class="st">"Saame hakkama praeguse sissetuleku juures"</span>,</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true" tabindex="-1"></a>    hincfel<span class="sc">==</span><span class="dv">3</span> <span class="sc">~</span> <span class="st">"Praeguse sissetuleku juures on raske hakkama saada"</span>,</span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true" tabindex="-1"></a>    hincfel<span class="sc">==</span><span class="dv">4</span> <span class="sc">~</span> <span class="st">"Praeguse sissetuleku juures on väga raske hakkama saada"</span>,</span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true" tabindex="-1"></a>    <span class="cn">TRUE</span> <span class="sc">~</span> <span class="cn">NA</span></span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true" tabindex="-1"></a>  ))</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true" tabindex="-1"></a><span class="co">#Lihtsuse huvides kodeerin veel tunnuse kaheks. Inimesed jaotuvad nüüd toimetulevatekss ja nendeks, kel on oma praeguse sissetuleku juures raske toime tulla.</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">|&gt;</span></span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">toimetulek=</span><span class="fu">case_when</span>(</span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true" tabindex="-1"></a>    hincfel <span class="sc">==</span> <span class="st">"Elame mugavalt praeguse sissetuleku juures"</span> <span class="sc">|</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true" tabindex="-1"></a>      hincfel <span class="sc">==</span> <span class="st">"Saame hakkama praeguse sissetuleku juures"</span> <span class="sc">~</span> <span class="st">"toimetulev"</span>,</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true" tabindex="-1"></a>    hincfel <span class="sc">==</span> <span class="st">"Praeguse sissetuleku juures on raske hakkama saada"</span> <span class="sc">|</span> hincfel <span class="sc">==</span> <span class="st">"Praeguse sissetuleku juures on väga raske hakkama saada"</span> <span class="sc">~</span> <span class="st">"toimetulematu"</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true" tabindex="-1"></a>  ))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">levels</span>(andmed<span class="sc">$</span>toimetulek)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output cell-output-stdout">
+<pre><code>NULL</code></pre>
+</div>
+</div>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span>andmed<span class="sc">%&gt;%</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">mutate</span>(<span class="fu">across</span>(<span class="fu">where</span>(is.character), as.factor))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+</div>
+<section id="treening--ja-testandmestiku-loomine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="treening--ja-testandmestiku-loomine">Treening- ja testandmestiku loomine</h3>
+<p>Masinõppes on vaja treeningandmestikku, mille peal mudelit treenida ning seejärel testandmestikku, et mudeli paikapidavust testida. Teen esmalt treeningandmestiku, kus võtan põhiandmestikust 75% andmeid. Kasutan selleks käsku <code>sample_frac()</code>. Korduvate tulemuste saamiseks sean nn pidepunkti käsu <code>set.seed()</code> abil.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="fu">set.seed</span>(<span class="dv">1234</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>treening <span class="ot">&lt;-</span> andmed<span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">sample_frac</span>(<span class="fl">0.75</span>) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Seejärel loon testandmestikku, võttes käsuga <code>anti_join()</code> andmestikust ülejäänud 25% andmetest, mis pole treeningandmestikus.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a>test<span class="ot">&lt;-</span>andmed<span class="sc">|&gt;</span></span>
+<span id="cb8-2"><a href="#cb8-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">anti_join</span>(treening, <span class="at">by=</span><span class="st">"idno"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nüüd on otsustuspuu mudeli jaoks olemas sobiv treening- ja testandmestik.</p>
+</section>
+</section>
+<section id="otsutuspuu-töö-põhimõte" class="level2" data-number="18.2">
+<h2 data-number="18.2" class="anchored" data-anchor-id="otsutuspuu-töö-põhimõte"><span class="header-section-number">18.2</span> Otsutuspuu töö põhimõte</h2>
+<p>Otustuspuu mudel treenitakse valmis treeningandmestiku peal. Otsustuspuu jagab andmestiku järjestikuste valikute abil harudeks, mis põhinevad seletavatel tunnustel. Need hargnemiskohad on nn “sõlmed” (<em>nodes</em>). Igas “sõlmes” otsustab mudel, milline tunnus ja milline väärtus võimaldab kõige paremini eristada klasse.</p>
+<p>Puu algab kõigi andmetega. Mudel otsib sellelt tasemelt parima tunnuse, mis jagab andmed kõige puhtamalt kaheks (ehk mille alusel inimesed jaotuvad toimetulevateks ja mitte-toimetulevateks <strong>kõige selgemini eristuvamalt</strong>). Tekib esimene “sõlmpunkt”, kus tehakse esimene hargnemine. Seejärel kordub igas harus sama kuni kõik andmed on jaotunud või kui hargnemistele seatud piirangud on saavutatud.</p>
+<p><strong>Mudeli tugevused:</strong></p>
+<ul>
+<li>Lihtne tõlgendada (inimloetav struktuur)</li>
+<li>Mudel saab hakkama nii numbriliste kui ka kategooriliste andmetega</li>
+<li>Mudel ei vaja andmete standardiseerimist</li>
+<li>Mudeliga saab avastada mittelineaarseid seoseid</li>
+</ul>
+<p>Otsustuspuu mudeli headust hinnatakse testandmestiku abil.</p>
+<p><strong>Mudeli puudused:</strong></p>
+<ul>
+<li>Üleõppimise (<em>overfitting</em>) oht – puu võib õppida pähe müra või ebaolulisi mustreid</li>
+<li>Väikeste muutuste korral andmestikus võib puu struktuur drastiliselt muutuda</li>
+</ul>
+<p>Otsustuspuu kvaliteedi (usaldusväärsuse) määramisel tuleb vaadata mudeli ennustustäpsust, üldistamisvõimet ja lihtsust. Kui treeningandmetel on mudeli täpsus väga kõrge (nt 95%) ja testandmetel madal (nt 70%), on tegemist üleõppimisega (<em>overfitting</em>).</p>
+<p>Üldistusvõimet saab hinnata (<em>area under the curve)</em> ehk AUC näita abil.</p>
+<ul>
+<li>AUC &gt; 0.5 = nõrk, pigem juhuslik jaotus</li>
+<li>AUC &gt; 0.7 = aksepteeritav</li>
+<li>AUC &gt; 0.8 = hea</li>
+<li>AUC &gt; 0.9 = väga hea</li>
+</ul>
+<p>Mudeli headuse hindamiseks tasub vaada kui täpselt (<em>accuracy</em>) mudel suudab ennustada. See tähendab, et kui palju on õigeid ja valesid ennustusi. Vaatama peaks ka kui tundlik (<em>sensitivity</em>) mudel on ehk kui hästi mudel tuvastab neid, kes ei tule toime ning kui kui hästi mudel tunneb ära need, kes tulevad toime. Esmalt teeme aga mudeli ja siis testime mudelite headust.</p>
+</section>
+<section id="rpart" class="level2" data-number="18.3">
+<h2 data-number="18.3" class="anchored" data-anchor-id="rpart"><span class="header-section-number">18.3</span> Otsustuspuu paketiga <code>rpart</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Otsustuspuu mudelit on võimalik luua paketi <code>rpart</code> <span class="citation" data-cites="rpart">(<a href="references.html#ref-rpart" role="doc-biblioref">Therneau and Atkinson 2025</a>)</span> käsu <code>rpart()</code> abil. Esmalt on vaja öelda prognoositav tunnus ning seejärel pärast tildet (<code>~</code>) lisada seletavad tunnused, mida mudelis kasutada.</p>
+<p>Salvestan mudeli eraldi objekti nimega “puu”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-9"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-9-1"><a href="#annotated-cell-9-1" aria-hidden="true" tabindex="-1"></a>puu<span class="ot">&lt;-</span><span class="fu">rpart</span>(toimetulek <span class="sc">~</span> agea <span class="sc">+</span> gndr <span class="sc">+</span> domicil <span class="sc">+</span> chldhhe <span class="sc">+</span> hincsrca,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-9-2" class="code-annotation-target"><a href="#annotated-cell-9-2" aria-hidden="true" tabindex="-1"></a>           <span class="at">data =</span> treening,</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-9" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-9-3" class="code-annotation-target"><a href="#annotated-cell-9-3" aria-hidden="true" tabindex="-1"></a>           <span class="at">method =</span> <span class="st">"class"</span>)</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-9" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="2" data-code-annotation="1">Otsuspuu mudeli jaoks kasutame treeningandmestikku.</span>
+</dd>
+<dt data-target-cell="annotated-cell-9" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-9" data-code-lines="3" data-code-annotation="2">Määran ära mudeli tüübi ehk klassifitseerimise</span>
+</dd>
+</dl>
+</div>
+</div>
+<section id="mudeli-tulemuste-tõlgendamine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="mudeli-tulemuste-tõlgendamine">Mudeli tulemuste tõlgendamine</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>puu</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>n= 2584 
+
+node), split, n, loss, yval, (yprob)
+      * denotes terminal node
+
+1) root 2584 520 toimetulev (0.2012384 0.7987616)  
+  2) hincsrca=Any other social benefits or grants,Pensions,Unemployment/redundancy benefit 786 286 toimetulev (0.3638677 0.6361323)  
+    4) agea&lt; 63.5 156  70 toimetulematu (0.5512821 0.4487179)  
+      8) agea&gt;=48.5 96  34 toimetulematu (0.6458333 0.3541667) *
+      9) agea&lt; 48.5 60  24 toimetulev (0.4000000 0.6000000) *
+    5) agea&gt;=63.5 630 200 toimetulev (0.3174603 0.6825397) *
+  3) hincsrca=Income from farming,Income from investments, savings etc.,Income from other sources,Income from self-employment (excluding farming),Wages or salaries 1798 234 toimetulev (0.1301446 0.8698554) *</code></pre>
+</div>
+</div>
+<p>Saame objekti, mis kirjeldab meile kogu puu ära. Vaatama peab mida parasjagu mudel ennustab, kas toimetulekut või toimetulematust. Puu lõpp-sõlm on tähistatud tärniga (<code>*</code>).</p>
+<p><strong>Tulemuste tõlgendamine:</strong></p>
+<ul>
+<li>Puu juur (<em>root</em> ehk väljatrükis rida, mis algab <code>1)</code>) ehk esimene hargnemine prognoosib toimetulekut. Treeningandmestik jaotab 20,1% toimetulematuteks ning 79,8% toimetulevateks. Esimene hargnemine tehakse sissetulekuliigi (tunnus hincsrca) järgi.</li>
+</ul>
+</section>
+<section id="otsustuspuu-mudeli-testimine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="otsustuspuu-mudeli-testimine">Otsustuspuu mudeli testimine</h3>
+<p>Mudelit headust testin testandmestiku peal. Esmalt kasutan käsku <code>predict()</code>, et ennustada mudeli abil.</p>
+<ul>
+<li><code>predict()</code> on funktsioon, mis võimaldab olemasoleva mudeli (siin näites <code>puu</code>) abil teha ennustusi uute andmete kohta.</li>
+<li><code>newdata = test</code> ütleb, et ennustused tehakse andmestiku <code>test</code> ridade kohta, kasutades samu tunnuseid (vanus, sissetulek, varasemad_probleemid), mis mudeli loomiselgi.</li>
+<li><code>type = "prob"</code> määrab, et tagastatakse iga klassi tõenäosused, mitte lihtsalt klass ennustus. Kui <code>type = "prob"</code>, siis väljundiks on maatriks, kus iga rida vastab ühele vaatlusele <code>test</code> andmestikus ning iga veerg ühele klassile. <code>[ ,2 ]</code> võtab sellest maatriksist teise veeru, st iga vaatluse puhul tõenäosuse, et ta kuulub teise klassi. Näiteks sihtmuutuja (toimetulek) on kahendmuutuja (0 ja 1), annab <code>type="prob"</code> tulemuseks maatriks kahe veeruga. Esimene veerg: tõenäosus, et vaatlus kuulub esimesse klassi (0). Teine veerg: tõenäosus, et vaatlus kuulub teise klassi (1).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>test2<span class="ot">&lt;-</span>test<span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ennustatud=</span><span class="fu">predict</span>(puu, <span class="at">newdata =</span> test, <span class="at">type=</span><span class="st">"prob"</span>)[,<span class="dv">2</span>],</span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>         <span class="at">klass=</span><span class="fu">if_else</span>(ennustatud<span class="sc">&gt;</span><span class="fl">0.5</span>, <span class="st">"toimetulev"</span>, <span class="st">"toimetulematu"</span>),</span>
+<span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>         <span class="at">kontroll=</span><span class="fu">if_else</span>(toimetulek<span class="sc">==</span>klass, <span class="dv">1</span>, <span class="dv">0</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nüüd vaatan testi tulemusi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>test2<span class="sc">|&gt;</span></span>
+<span id="cb13-2"><a href="#cb13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">kokku_ennustatud=</span><span class="fu">n</span>(),</span>
+<span id="cb13-3"><a href="#cb13-3" aria-hidden="true" tabindex="-1"></a>            <span class="at">oiged_ennustused=</span><span class="fu">sum</span>(kontroll, <span class="at">na.rm=</span>T),</span>
+<span id="cb13-4"><a href="#cb13-4" aria-hidden="true" tabindex="-1"></a>            <span class="at">tapsus_protsent=</span><span class="fu">round</span>(<span class="fu">mean</span>(kontroll, <span class="at">na.rm=</span>T)<span class="sc">*</span><span class="dv">100</span>))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 3
+  kokku_ennustatud oiged_ennustused tapsus_protsent
+             &lt;int&gt;            &lt;dbl&gt;           &lt;dbl&gt;
+1              848              681              80</code></pre>
+</div>
+</div>
+<p>Saan teada, et 848-st ennustusest on õigesti ennustatud 80% ehk 681 inimese tulemused.</p>
+</section>
+<section id="pROC" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="pROC">Mudeli headuse testimine paketi <code>pROC</code> abil</h3>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(pROC)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>prob <span class="ot">&lt;-</span> <span class="fu">predict</span>(puu, <span class="at">newdata =</span> test)[,<span class="dv">2</span>] </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a>roc_kover <span class="ot">&lt;-</span> <span class="fu">roc</span>(test<span class="sc">$</span>toimetulek, prob)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting levels: control = toimetulematu, case = toimetulev</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Setting direction: controls &lt; cases</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(roc_kover)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="18-masinope_files/figure-html/unnamed-chunk-16-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="fu">auc</span>(roc_kover) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>Area under the curve: 0.6598</code></pre>
+</div>
+</div>
+</section>
+<section id="rattle" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="rattle">Mudeli visualiseerimine paketiga <code>rattle</code></h3>
+<p>Otsustuspuu tulemust võib olla parem tõlgendada graafiku abil. Kasutan paketti <code>rattle</code><span class="citation" data-cites="rattle">(<a href="references.html#ref-rattle" role="doc-biblioref">Williams 2011</a>)</span> ning käsku <code>fancyRpartPlot()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rattle)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a><span class="fu">fancyRpartPlot</span>(puu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="18-masinope_files/figure-html/unnamed-chunk-19-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="mudeli-visualiseerimine-paketiga-rpart.plot" class="level3" data-number="18.3.1">
+<h3 data-number="18.3.1" class="anchored" data-anchor-id="mudeli-visualiseerimine-paketiga-rpart.plot"><span class="header-section-number">18.3.1</span> Mudeli visualiseerimine paketiga <code class="unnumbered">rpart.plot</code></h3>
+<p>Lihtsama joonise otsustuspuust saab paketiga <code>rpart.plot</code> <span class="citation" data-cites="rpart.plot">(<a href="references.html#ref-rpart.plot" role="doc-biblioref">Milborrow 2024</a>)</span> ning käsk on <code>rpart.plot()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(rpart.plot)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpart.plot</span>(puu)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="18-masinope_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Soovi korral võib</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="fu">rpart.plot</span>(puu, <span class="at">type =</span> <span class="dv">4</span>, <span class="at">extra =</span> <span class="dv">104</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="18-masinope_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="randomForest" class="level2" data-number="18.4">
+<h2 data-number="18.4" class="anchored" data-anchor-id="randomForest"><span class="header-section-number">18.4</span> Otsustusmets paketiga <code>randomForest</code></h2>
+<p><strong>RandomForest</strong> on masinõppe meetod, mis kasutab mitut otsustuspuud, et teha täpsemaid klassifitseerimis- või regressiooniprognoose.</p>
+<p>Jätkan klassifitseerimisülesandega, kus prognoosin, kas inimene tuleb oma sissetulekuga toime või mitte. Otsustusmetsa loomiseks kasutan paketi <code>randomForest</code> <span class="citation" data-cites="randomForest">(<a href="references.html#ref-randomForest" role="doc-biblioref">Liaw and Wiener 2002</a>)</span> ning käsku <code>randomForest()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(randomForest)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Otsustmest ei soovi puuduvaid väärtusi. Eemaldan treeningandmestikust need vaatlused, kus esineb puuduvaid väärtusi. Loe puuduvate väärtuste kohta peatükist <a href="05-puuduvad-vaartused.html#puuduvad">Puuduvad väärtused</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a>treening<span class="ot">&lt;-</span>treening<span class="sc">|&gt;</span></span>
+<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(toimetulek, gndr, agea, domicil, chldhhe, hincsrca)<span class="sc">|&gt;</span></span>
+<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">na.omit</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Teen otsustusmetsa ülesehituselt on sama, mis otsuspuu puhul.</p>
+<ul>
+<li><strong>Sõltuv tunnus</strong>: toimetulek</li>
+<li><strong>Seletavad tunnused</strong>: agea (vanus), gndr (sugu), domicil (elukoha tüüp), chldhhe (laste olemasolu leibkonnas), hincsrca (sissetulekuallikad).</li>
+</ul>
+<p>Kuid nüüd määran ära, et soovin, et metsas oleks 500 puud ning ta salvestaks ka loodud puud.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb30"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb30-1"><a href="#cb30-1" aria-hidden="true" tabindex="-1"></a>mets <span class="ot">&lt;-</span> <span class="fu">randomForest</span>(toimetulek <span class="sc">~</span> agea <span class="sc">+</span> gndr <span class="sc">+</span> domicil <span class="sc">+</span> chldhhe <span class="sc">+</span> hincsrca, </span>
+<span id="cb30-2"><a href="#cb30-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> treening,</span>
+<span id="cb30-3"><a href="#cb30-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">ntree =</span> <span class="dv">500</span>, </span>
+<span id="cb30-4"><a href="#cb30-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">keep.forest =</span> <span class="cn">TRUE</span></span>
+<span id="cb30-5"><a href="#cb30-5" aria-hidden="true" tabindex="-1"></a>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a>mets</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>
+Call:
+ randomForest(formula = toimetulek ~ agea + gndr + domicil + chldhhe +      hincsrca, data = treening, ntree = 500, keep.forest = TRUE) 
+               Type of random forest: classification
+                     Number of trees: 500
+No. of variables tried at each split: 2
+
+        OOB estimate of  error rate: 21.38%
+Confusion matrix:
+              toimetulematu toimetulev class.error
+toimetulematu            55        322  0.85411141
+toimetulev               38       1269  0.02907422</code></pre>
+</div>
+</div>
+<p>Mudeli väljatrükk annab järgmise info:</p>
+<ul>
+<li><strong>No.&nbsp;of variables tried at each split: 2</strong>: igas puu harunemiskohas arvestati juhuslikult valitud 2 muutujaga.</li>
+<li><em>OOB estimate of error rate: 21.5%</em> See on mudeli üldine veamäär, mis arvutati nn “out-of-bag” (OOB) meetodil. See tähendab, et 21,5% juhtudel ennustas mudel toimetulekut valesti treeningandmetel, mida iga puu ei näinud.</li>
+<li><strong>Confusion matrix</strong>. Rida näitab, et ennustas toimetulematu ning ennustus õigesti 53 inimest. Ennustas toimetulematu, aga oli toimetulev 324 inimest. Class.error näitab veamäära. Toimetulematu veamäär on 86% ehk väga halb täpsus. Toimetulemise ennustamisel on veamäär 2% ehk väga hea täpsus.</li>
+</ul>
+<p>Ehk siis loodud mudel suudab väga hästi ära tunda neid, kes saavad oma sissetulekuga hakkama (klass “toimetulev”). Mudelil on raskusi nende tuvastamisega, kes ei saa hakkama (“toimetulematu”): enamik neist klassifitseeritakse valesti kui “toimetulev”. Selline tulemus võib viidata sellele, et andmestikus on klasside jaotus tasakaalust väljas (ehk enamik inimesi on toimetulevad) või valitud tunnused ei erista piisavalt hästi neid, kes ei saa hakkama.</p>
+<p>Vaatame üle oma algandmestiku.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">|&gt;</span></span>
+<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(toimetulek)<span class="sc">|&gt;</span></span>
+<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">n=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 3 × 2
+  toimetulek        n
+  &lt;fct&gt;         &lt;int&gt;
+1 toimetulematu   688
+2 toimetulev     2757
+3 &lt;NA&gt;              1</code></pre>
+</div>
+</div>
+<p>Selgub, et meil on andmestik kaldu ehk enamik inimesi on “toimetulev” grupis.</p>
+<section id="tunnuste-tähtsuse-tõlgendus" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="tunnuste-tähtsuse-tõlgendus">Tunnuste tähtsuse tõlgendus</h3>
+<p>Käsuga <code>improtance()</code> saab vaadata kui suurt rolli mõni tunnus toimetuleku ennustamisel mudelis mängib.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="fu">importance</span>(mets)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>         MeanDecreaseGini
+agea            104.19618
+gndr             12.01528
+domicil          29.23290
+chldhhe          10.79367
+hincsrca         55.19701</code></pre>
+</div>
+</div>
+<p>Selgub, et kõige tähtsam tunnus on vanus (agea), mis mõjutab tugevalt toimetuleku ennustamist. Kõige vähem tähtsam on laste olemasolu leibkonnas (chdhhe) ning sugu (gndr). Mõõdukalt oluline on elukoha tüüp (domicil) ning oluline tunnus on sissetuleku liik (hincsrca), aitab ennustada toimetuleku.</p>
+<p>Tasuks teha uusi mudeleid ja eemaldada mudelist neid tunnuseid, mida mudel tähtsaks ei pea (nt laste olemasolu leibkonnas ning sugu).</p>
+</section>
+<section id="otsutusmetsa-tulemuste-visualiseerimine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="otsutusmetsa-tulemuste-visualiseerimine">Otsutusmetsa tulemuste visualiseerimine</h3>
+<p>Otsustusmetsa on visualiseerimiseks on käsk <code>varImpPlot()</code>.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="fu">varImpPlot</span>(mets) </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="18-masinope_files/figure-html/unnamed-chunk-29-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="annotated-cell-30"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-30-1"><a href="#annotated-cell-30-1" aria-hidden="true" tabindex="-1"></a>test3 <span class="ot">&lt;-</span> test2 <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-30" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-30-2" class="code-annotation-target"><a href="#annotated-cell-30-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">ennustatud=</span> <span class="fu">predict</span>(mets, <span class="at">newdata =</span> test2, <span class="at">type =</span> <span class="st">"prob"</span>)[,<span class="dv">2</span>],</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-30" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-30-3" class="code-annotation-target"><a href="#annotated-cell-30-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ennustatud_klass =</span> <span class="fu">ifelse</span>(ennustatud <span class="sc">&gt;</span> <span class="fl">0.5</span>, <span class="st">"toimetulev"</span>, <span class="st">"toimetulematu"</span>),</span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-30" data-target-annotation="3" onclick="event.preventDefault();">3</a><span id="annotated-cell-30-4" class="code-annotation-target"><a href="#annotated-cell-30-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">ennustatud_oige =</span> <span class="fu">ifelse</span>(toimetulek <span class="sc">==</span> ennustatud_klass, <span class="dv">1</span>, <span class="dv">0</span>))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-annotation">
+<dl class="code-annotation-container-grid">
+<dt data-target-cell="annotated-cell-30" data-target-annotation="1">1</dt>
+<dd>
+<span data-code-cell="annotated-cell-30" data-code-lines="2" data-code-annotation="1">Tõenäosus klassile “toimetulev”</span>
+</dd>
+<dt data-target-cell="annotated-cell-30" data-target-annotation="2">2</dt>
+<dd>
+<span data-code-cell="annotated-cell-30" data-code-lines="3" data-code-annotation="2">Lihtne lävend 0.5</span>
+</dd>
+<dt data-target-cell="annotated-cell-30" data-target-annotation="3">3</dt>
+<dd>
+<span data-code-cell="annotated-cell-30" data-code-lines="4" data-code-annotation="3">Kas klassifitseeriti õigesti</span>
+</dd>
+</dl>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb38"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb38-1"><a href="#cb38-1" aria-hidden="true" tabindex="-1"></a>test3<span class="sc">|&gt;</span> </span>
+<span id="cb38-2"><a href="#cb38-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">keskmine_toenaosus =</span> <span class="fu">mean</span>(ennustatud_oige, <span class="at">na.rm=</span>T), </span>
+<span id="cb38-3"><a href="#cb38-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">oiged_ennustused =</span> <span class="fu">sum</span>(ennustatud_oige, <span class="at">na.rm=</span>T),</span>
+<span id="cb38-4"><a href="#cb38-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">kokku_ennustusi=</span><span class="fu">n</span>(),</span>
+<span id="cb38-5"><a href="#cb38-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">oigete_osakaal=</span>oiged_ennustused<span class="sc">/</span>kokku_ennustusi</span>
+<span id="cb38-6"><a href="#cb38-6" aria-hidden="true" tabindex="-1"></a>  )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code># A tibble: 1 × 4
+  keskmine_toenaosus oiged_ennustused kokku_ennustusi oigete_osakaal
+               &lt;dbl&gt;            &lt;dbl&gt;           &lt;int&gt;          &lt;dbl&gt;
+1              0.790              441             848          0.520</code></pre>
+</div>
+</div>
+<p>Õigeid ennustusi on 52%. Ei ole oluliselt parem kui huupi pakkumine.</p>
+
+
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-randomForest" class="csl-entry" role="listitem">
+Liaw, Andy, and Matthew Wiener. 2002. <span>“Classification and Regression by randomForest.”</span> <em>R News</em> 2 (3): 18–22. <a href="https://CRAN.R-project.org/doc/Rnews/">https://CRAN.R-project.org/doc/Rnews/</a>.
+</div>
+<div id="ref-rpart.plot" class="csl-entry" role="listitem">
+Milborrow, Stephen. 2024. <em>Rpart.plot: Plot ’Rpart’ Models: An Enhanced Version of ’Plot.rpart’</em>. <a href="https://doi.org/10.32614/CRAN.package.rpart.plot">https://doi.org/10.32614/CRAN.package.rpart.plot</a>.
+</div>
+<div id="ref-rpart" class="csl-entry" role="listitem">
+Therneau, Terry, and Beth Atkinson. 2025. <span>“Rpart: Recursive Partitioning and Regression Trees.”</span> <a href="https://doi.org/10.32614/CRAN.package.rpart">https://doi.org/10.32614/CRAN.package.rpart</a>.
+</div>
+<div id="ref-tidyverse2019" class="csl-entry" role="listitem">
+Wickham, Hadley, Mara Averick, Jennifer Bryan, Winston Chang, Lucy D’Agostino McGowan, Romain François, Garrett Grolemund, et al. 2019. <span>“Welcome to the <span class="nocase">tidyverse</span>.”</span> <em>Journal of Open Source Software</em> 4 (43): 1686. <a href="https://doi.org/10.21105/joss.01686">https://doi.org/10.21105/joss.01686</a>.
+</div>
+<div id="ref-rattle" class="csl-entry" role="listitem">
+Williams, Graham J. 2011. <em>Data Mining with <span>Rattle</span> and <span>R</span>: The Art of Excavating Data for Knowledge Discovery</em>. Use r! Springer. <a href="https://rd.springer.com/book/10.1007/978-1-4419-9890-3">https://rd.springer.com/book/10.1007/978-1-4419-9890-3</a>.
+</div>
+</div>
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<nav class="page-navigation">
+  <div class="nav-page nav-page-previous">
+      <a href="./17-kaardid.html" class="pagination-link" aria-label="Ruumiandmed">
+        <i class="bi bi-arrow-left-short"></i> <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ruumiandmed</span></span>
+      </a>          
+  </div>
+  <div class="nav-page nav-page-next">
+      <a href="./19-faktor.html" class="pagination-link" aria-label="Faktoranalüüs">
+        <span class="nav-page-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></span> <i class="bi bi-arrow-right-short"></i>
+      </a>
+  </div>
+</nav>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

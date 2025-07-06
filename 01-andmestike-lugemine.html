@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -91,10 +91,10 @@ div.csl-indent {
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d0ff7224fd3d87d86b347c889b6aed14.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,6 +264,30 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./17-kaardid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ruumiandmed</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-masinope.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Masinõpe - otsustuspuud ning metsad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-faktor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-aegread.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Aegridade analüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -287,7 +311,7 @@ div.csl-indent {
   </ul></li>
   <li><a href="#online-andmestikud" id="toc-online-andmestikud" class="nav-link" data-scroll-target="#online-andmestikud"><span class="header-section-number">1.3</span> Online andmestikud</a>
   <ul class="collapse">
-  <li><a href="#eurostat" id="toc-eurostat" class="nav-link" data-scroll-target="#eurostat">Eurostat</a></li>
+  <li><a href="#eurostat-statistika" id="toc-eurostat-statistika" class="nav-link" data-scroll-target="#eurostat-statistika">Eurostat statistika</a></li>
   </ul></li>
   <li><a href="#salvestamine" id="toc-salvestamine" class="nav-link" data-scroll-target="#salvestamine"><span class="header-section-number">1.4</span> Andmete <code>R</code>-ist (välja) salvestamine</a></li>
   </ul>
@@ -315,17 +339,8 @@ div.csl-indent {
 </header>
 
 
-<p>See peatükk annab ülevaate, kuidas andmestikke <code>R</code>-i importida ehk kuidas lugeda sisse <a href="#levinud-andmestikud">enamlevinud andmefailide</a> tüüpe. Siit peatükis saad vastuse, kuidas <code>R</code>-is kasutada <em>oma</em> andmeid. Peatüki lõpus on juhend, kuidas andmeid <code>R</code>-ist nn <a href="#salvestamine"><em>välja</em> salvestada</a>.</p>
-<div class="callout callout-style-simple callout-note">
-<div class="callout-body d-flex">
-<div class="callout-icon-container">
-<i class="callout-icon"></i>
-</div>
-<div class="callout-body-container">
-<p>Pooleli on veel <a href="#online-andmestikud">online andmestike</a> alapeatükk.</p>
-</div>
-</div>
-</div>
+<p>See peatükk annab ülevaate, kuidas andmestikke <code>R</code>-i importida ehk kuidas lugeda sisse <a href="#levinud-andmestikud">enamlevinud andmefailide</a> tüüpe. Siit peatükis saad vastuse, kuidas <code>R</code>-is kasutada <em>oma</em> andmeid. Online andmestike peatükis on kirjeldus, kuidas eurostati andmeid otse <code>R</code>-i tõmmata.</p>
+<p>Peatüki lõpus on juhend, kuidas andmeid <code>R</code>-ist nn <a href="#salvestamine"><em>välja</em> salvestada</a>.</p>
 <section id="R-andmestikud" class="level2" data-number="1.1">
 <h2 data-number="1.1" class="anchored" data-anchor-id="R-andmestikud"><span class="header-section-number">1.1</span> <code>R</code>-iga kaasatulevad andmestikud</h2>
 <p>Paljud paketid sisaldavad näidisandmestikke (<em>datasets</em>), mille abil on hea uusi oskusi harjutada.</p>
@@ -463,20 +478,47 @@ div.csl-indent {
 </section>
 <section id="online-andmestikud" class="level2" data-number="1.3">
 <h2 data-number="1.3" class="anchored" data-anchor-id="online-andmestikud"><span class="header-section-number">1.3</span> Online andmestikud</h2>
-<div class="callout callout-style-simple callout-note">
+<section id="eurostat-statistika" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="eurostat-statistika">Eurostat statistika</h3>
+<p>Eurostati avaldatavat statistikat on hea tõmmata otse R-i paketi <code>eurostat</code> <span class="citation" data-cites="eurostat">(<a href="references.html#ref-eurostat" role="doc-biblioref">Lahti et al. 2023</a>)</span> abil.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(eurostat)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Võimalus on läheneda kahte moodi. Käsu <code>get_eurostat_interactive()</code> käivitamisel avaneb justkui väike küsitlus, millele vastates jõuad sind huvitava andmetabelini.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#get_eurostat_interactive()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Algatuseks on mõistlik tõmmata alla nn <em>statistika sisukord</em> käsuga <code>get_eurostat_toc()</code> ning salvestada see eraldi objekti.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a><span class="co">#sisu&lt;-get_eurostat_toc()</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Nii saab sirvida, millised andmed olemas on, kas soovid kogu kausta (<em>folder</em>), andmetabelit (<em>dataset</em>), jne.</p>
+<div class="callout callout-style-simple callout-tip">
 <div class="callout-body d-flex">
 <div class="callout-icon-container">
 <i class="callout-icon"></i>
 </div>
 <div class="callout-body-container">
-<p>Peatükk on täiendamisel.</p>
+<p>Andmeid on võimalik alla laadida ka saksa või prantsuse keeles. Siis peab täpsutama päringu sees lang=“de” või “fr”</p>
 </div>
 </div>
 </div>
-<section id="eurostat" class="level3 unnumbered">
-<h3 class="unnumbered anchored" data-anchor-id="eurostat">Eurostat</h3>
-<p>Pakett <code>eurostat</code>. Kui on teada täpne tabeli nimi, saab kasutada käsku <code>get_eurostat()</code></p>
-<p>Paketi kasutumise kirjeldus saab vaadata <a href="https://ropengov.github.io/eurostat/articles/eurostat_tutorial.html">siin</a>.</p>
+<p>Oletame, et meid huvitab tasemehariduse statistika, kuid me ei tea täpselt, millisel kujul eurostat andmeid avaldab. Eurostati sisukorra allalaadimisel saab üheksa andmevälja.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#names(sisu)</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Otsingut on võimalik täpsustada nende andmeväljade järgi. Lisaks on võimalik käsu <code>search_eurostat()</code> järgi otsida tabelit konkreetsemalt.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="co">#search_eurostat("educ", column = "code")|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a><span class="co">#  nrow() #vaatame ridade arvu</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Kui oled üles leidnud omale sobivad andmetabelid, saad need alla laadida käsuga <code>get_eurostat()</code>. Näiteks tõmbame alla eurostatist Eesti ja Soome haridusstatistika nii, et kõik andme-koodide asemel on sildid (<em>label</em>) ning tekstiväljad on muudetud faktoriteks. Vajadusel loe faktorite kohta rohkem <a href="#tyybi-myytmine">siit</a>.</p>
+<ol type="1">
+<li>Määrad ära soovitavad riigid, ilma täpsustamata annab kõik.</li>
+<li>Määrad ära, et soovid kasutada silte</li>
+<li>Muudab tekstiväljad faktoriteks.</li>
+</ol>
+<p>Lisaks saab lihtsa vaevaga kätte nimekirjad riikidest, mis on liitunud euroga (ea_countries) või on euroopa riikidest (eu_countries).</p>
 </section>
 </section>
 <section id="salvestamine" class="level2" data-number="1.4">
@@ -488,11 +530,11 @@ div.csl-indent {
 </ul>
 <p>Mõlemad käsud töötavad ühte moodi. Sulgude sees tuleb esmalt täpsustada, mis andmeobjekt tuleb salvestada ja seejärel kirjutada talle nimi.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(starwars, <span class="st">"starwars.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a><span class="fu">write_csv</span>(starwars, <span class="st">"starwars.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(openxlsx)</span></span>
-<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.xlsx(andmed, file="failinimi.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a><span class="co">#library(openxlsx)</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a><span class="co">#write.xlsx(andmed, file="failinimi.xlsx")</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <div class="callout callout-style-simple callout-caution">
 <div class="callout-body d-flex">
@@ -508,6 +550,9 @@ div.csl-indent {
 
 
 <div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-eurostat" class="csl-entry" role="listitem">
+Lahti, Leo, Janne Huovari, Markus Kainu, Przemyslaw Biecek, Diego Hernangomez, Daniel Antal, and Pyry Kantanen. 2023. <span>“Eurostat: Tools for Eurostat Open Data.”</span> Computer software. <a href="https://github.com/rOpenGov/eurostat">https://github.com/rOpenGov/eurostat</a>.
+</div>
 <div id="ref-sjlabelled" class="csl-entry" role="listitem">
 Lüdecke, Daniel. 2022. <em>Sjlabelled: Labelled Data Utility Functions (Version 1.2.0)</em>. <a href="https://doi.org/10.5281/zenodo.1249215">https://doi.org/10.5281/zenodo.1249215</a>.
 </div>
@@ -619,8 +664,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -731,7 +774,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {

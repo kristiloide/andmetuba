@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.5.57">
+<meta name="generator" content="quarto-1.6.42">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -84,17 +84,17 @@ div.csl-indent {
 <script src="site_libs/quarto-search/fuse.min.js"></script>
 <script src="site_libs/quarto-search/quarto-search.js"></script>
 <meta name="quarto:offset" content="./">
-<link href="./references.html" rel="next">
+<link href="./17-kaardid.html" rel="next">
 <link href="./15-tabelid.html" rel="prev">
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
 <script src="site_libs/quarto-html/tippy.umd.min.js"></script>
 <script src="site_libs/quarto-html/anchor.min.js"></script>
 <link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-2f5df379a58b258e96c21c0638c20c03.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="site_libs/bootstrap/bootstrap.min.js"></script>
 <link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<link href="site_libs/bootstrap/bootstrap-d0ff7224fd3d87d86b347c889b6aed14.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 <script id="quarto-search-options" type="application/json">{
   "location": "sidebar",
   "copy-button": false,
@@ -264,6 +264,30 @@ div.csl-indent {
 </li>
         <li class="sidebar-item">
   <div class="sidebar-item-container"> 
+  <a href="./17-kaardid.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ruumiandmed</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./18-masinope.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">18</span>&nbsp; <span class="chapter-title">Masinõpe - otsustuspuud ning metsad</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./19-faktor.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">19</span>&nbsp; <span class="chapter-title">Faktoranalüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
+  <a href="./20-aegread.html" class="sidebar-item-text sidebar-link">
+ <span class="menu-text"><span class="chapter-number">20</span>&nbsp; <span class="chapter-title">Aegridade analüüs</span></span></a>
+  </div>
+</li>
+        <li class="sidebar-item">
+  <div class="sidebar-item-container"> 
   <a href="./references.html" class="sidebar-item-text sidebar-link">
  <span class="menu-text">Allikad</span></a>
   </div>
@@ -351,28 +375,28 @@ div.csl-indent {
 </div>
 <p><em>films</em> loend näitab ära, millistes filmides antud tegelane esindatud on. Loendi kasutamine hoiab andmestiku mõnes-mõttes kompaktsena, näiteks teeme tabeli.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, films)<span class="sc">%&gt;%</span></span>
-<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb11-2"><a href="#cb11-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, films)<span class="sc">|&gt;</span></span>
+<span id="cb11-3"><a href="#cb11-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">3</span>)<span class="sc">|&gt;</span></span>
 <span id="cb11-4"><a href="#cb11-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="ckendzturm" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#ckendzturm table {
+<div id="juutbflcgg" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#juutbflcgg table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#ckendzturm thead, #ckendzturm tbody, #ckendzturm tfoot, #ckendzturm tr, #ckendzturm td, #ckendzturm th {
+#juutbflcgg thead, #juutbflcgg tbody, #juutbflcgg tfoot, #juutbflcgg tr, #juutbflcgg td, #juutbflcgg th {
   border-style: none;
 }
 
-#ckendzturm p {
+#juutbflcgg p {
   margin: 0;
   padding: 0;
 }
 
-#ckendzturm .gt_table {
+#juutbflcgg .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -398,12 +422,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#ckendzturm .gt_caption {
+#juutbflcgg .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#ckendzturm .gt_title {
+#juutbflcgg .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -415,7 +439,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#ckendzturm .gt_subtitle {
+#juutbflcgg .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -427,7 +451,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#ckendzturm .gt_heading {
+#juutbflcgg .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -439,13 +463,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#ckendzturm .gt_bottom_border {
+#juutbflcgg .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#ckendzturm .gt_col_headings {
+#juutbflcgg .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -460,7 +484,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#ckendzturm .gt_col_heading {
+#juutbflcgg .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -480,7 +504,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#ckendzturm .gt_column_spanner_outer {
+#juutbflcgg .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -492,15 +516,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#ckendzturm .gt_column_spanner_outer:first-child {
+#juutbflcgg .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#ckendzturm .gt_column_spanner_outer:last-child {
+#juutbflcgg .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#ckendzturm .gt_column_spanner {
+#juutbflcgg .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -512,11 +536,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#ckendzturm .gt_spanner_row {
+#juutbflcgg .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#ckendzturm .gt_group_heading {
+#juutbflcgg .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -542,7 +566,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#ckendzturm .gt_empty_group_heading {
+#juutbflcgg .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -557,15 +581,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#ckendzturm .gt_from_md > :first-child {
+#juutbflcgg .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#ckendzturm .gt_from_md > :last-child {
+#juutbflcgg .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#ckendzturm .gt_row {
+#juutbflcgg .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -584,7 +608,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#ckendzturm .gt_stub {
+#juutbflcgg .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -597,7 +621,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#ckendzturm .gt_stub_row_group {
+#juutbflcgg .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -611,15 +635,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#ckendzturm .gt_row_group_first td {
+#juutbflcgg .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#ckendzturm .gt_row_group_first th {
+#juutbflcgg .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#ckendzturm .gt_summary_row {
+#juutbflcgg .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -629,16 +653,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#ckendzturm .gt_first_summary_row {
+#juutbflcgg .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#ckendzturm .gt_first_summary_row.thick {
+#juutbflcgg .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#ckendzturm .gt_last_summary_row {
+#juutbflcgg .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -648,7 +672,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#ckendzturm .gt_grand_summary_row {
+#juutbflcgg .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -658,7 +682,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#ckendzturm .gt_first_grand_summary_row {
+#juutbflcgg .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -668,7 +692,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#ckendzturm .gt_last_grand_summary_row_top {
+#juutbflcgg .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -678,11 +702,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#ckendzturm .gt_striped {
+#juutbflcgg .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#ckendzturm .gt_table_body {
+#juutbflcgg .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -691,7 +715,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#ckendzturm .gt_footnotes {
+#juutbflcgg .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -705,7 +729,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#ckendzturm .gt_footnote {
+#juutbflcgg .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -714,7 +738,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#ckendzturm .gt_sourcenotes {
+#juutbflcgg .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -728,7 +752,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#ckendzturm .gt_sourcenote {
+#juutbflcgg .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -736,79 +760,79 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#ckendzturm .gt_left {
+#juutbflcgg .gt_left {
   text-align: left;
 }
 
-#ckendzturm .gt_center {
+#juutbflcgg .gt_center {
   text-align: center;
 }
 
-#ckendzturm .gt_right {
+#juutbflcgg .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ckendzturm .gt_font_normal {
+#juutbflcgg .gt_font_normal {
   font-weight: normal;
 }
 
-#ckendzturm .gt_font_bold {
+#juutbflcgg .gt_font_bold {
   font-weight: bold;
 }
 
-#ckendzturm .gt_font_italic {
+#juutbflcgg .gt_font_italic {
   font-style: italic;
 }
 
-#ckendzturm .gt_super {
+#juutbflcgg .gt_super {
   font-size: 65%;
 }
 
-#ckendzturm .gt_footnote_marks {
+#juutbflcgg .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#ckendzturm .gt_asterisk {
+#juutbflcgg .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#ckendzturm .gt_indent_1 {
+#juutbflcgg .gt_indent_1 {
   text-indent: 5px;
 }
 
-#ckendzturm .gt_indent_2 {
+#juutbflcgg .gt_indent_2 {
   text-indent: 10px;
 }
 
-#ckendzturm .gt_indent_3 {
+#juutbflcgg .gt_indent_3 {
   text-indent: 15px;
 }
 
-#ckendzturm .gt_indent_4 {
+#juutbflcgg .gt_indent_4 {
   text-indent: 20px;
 }
 
-#ckendzturm .gt_indent_5 {
+#juutbflcgg .gt_indent_5 {
   text-indent: 25px;
 }
 
-#ckendzturm .katex-display {
+#juutbflcgg .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#ckendzturm div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#juutbflcgg div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="header gt_col_headings">
+<tr class="gt_col_headings header">
 <th id="name" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">name</th>
 <th id="films" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">films</th>
 </tr>
@@ -837,9 +861,9 @@ div.csl-indent {
 <p>Samas teeb loendi kasutamine andmestikus aga igasuguse tehnilise töö keerulisemaks. Näiteks ei saa kasutada käsku <code>unique()</code>, et teada saada, mis on unikaalsed filmid andmestikus. Selle käsu kasutamine loendi puhul näitab, mis on <em>unikaalsed kombinatsioonid neist</em> filmidest andmestikus. Seepärast on vaja esmalt eraldada loendi väärtused üksteise küljest lahti käsuga <code>unnest()</code>. Nii tekib andmestikku küll rohkem ridu, kuid saame kasutada samu andmeid rohkemates olukorras. Käsu <code>unnest()</code> kasutamisel tuleb öelda, milliseid tulpasid lahti harutama peab (<code>cols=</code>).</p>
 <p>Vaatame esmalt, kuidas andmestik välja näeb pärast <code>unnest()</code> käsu kasutamist.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, mass, films)<span class="sc">%&gt;%</span> </span>
-<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">%&gt;%</span> </span>
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb12-2"><a href="#cb12-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, mass, films)<span class="sc">|&gt;</span> </span>
+<span id="cb12-3"><a href="#cb12-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">|&gt;</span> </span>
 <span id="cb12-4"><a href="#cb12-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>(<span class="dv">8</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 8 × 3
@@ -856,8 +880,8 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb14"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb14-1"><a href="#cb14-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb14-2"><a href="#cb14-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">|&gt;</span></span>
 <span id="cb14-3"><a href="#cb14-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code>[1] 173</code></pre>
@@ -865,9 +889,9 @@ div.csl-indent {
 </div>
 <p>Nüüd on lihtne jätkata “tavalise” grupeerimise ja arvutamsiega ja jooniste tegemisega.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">%&gt;%</span></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(films)<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">|&gt;</span></span>
+<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(films)<span class="sc">|&gt;</span></span>
 <span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tegelaste_arv=</span><span class="fu">n</span>())</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 7 × 2
@@ -884,9 +908,9 @@ div.csl-indent {
 </div>
 <p>Teeme joonise <em>filmide kaupa</em> soolise jaotuvuse kohta filmis. Kui siinkohal saab veel <code>facet_wrap()</code> käsu abil ühe koodijupiga loetava ja arusaadava pildi, siis järgmises näites see ei toimi ja vaja on kasutada tsüklit (<code>loops</code>).</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols=</span><span class="fu">c</span>(films))<span class="sc">%&gt;%</span></span>
-<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gender))<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb18-2"><a href="#cb18-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols=</span><span class="fu">c</span>(films))<span class="sc">|&gt;</span></span>
+<span id="cb18-3"><a href="#cb18-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(gender))<span class="sc">|&gt;</span></span>
 <span id="cb18-4"><a href="#cb18-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(gender))<span class="sc">+</span></span>
 <span id="cb18-5"><a href="#cb18-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_bar</span>()<span class="sc">+</span></span>
 <span id="cb18-6"><a href="#cb18-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">facet_wrap</span>(<span class="sc">~</span>films)<span class="sc">+</span></span>
@@ -913,9 +937,9 @@ div.csl-indent {
 </div>
 </div>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">%&gt;%</span></span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height))<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">|&gt;</span></span>
+<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height))<span class="sc">|&gt;</span></span>
 <span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="fu">reorder</span>(name, height), height, <span class="at">fill=</span>gender))<span class="sc">+</span></span>
 <span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_col</span>()<span class="sc">+</span></span>
 <span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(<span class="at">x =</span> <span class="cn">NULL</span>,</span>
@@ -941,8 +965,8 @@ div.csl-indent {
 </div>
 <p>Teeme parem loendi tegelastest nende gender kaupa. Meenutuseks vaatame, kuidas on andmestikus väljad praegu.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)<span class="sc">|&gt;</span></span>
 <span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">head</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 6 × 2
@@ -958,9 +982,9 @@ div.csl-indent {
 </div>
 <p>Loome tunnuse käsu <code>list()</code> abil uue tunnused tegelased.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="annotated-cell-15"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-15-1"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-15-2"><a href="#annotated-cell-15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)<span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-15-3"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="annotated-cell-15"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-15-1"><a href="#annotated-cell-15-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="annotated-cell-15-2"><a href="#annotated-cell-15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)<span class="sc">|&gt;</span></span>
+<span id="annotated-cell-15-3"><a href="#annotated-cell-15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">|&gt;</span></span>
 <a class="code-annotation-anchor" data-target-cell="annotated-cell-15" data-target-annotation="1" onclick="event.preventDefault();">1</a><span id="annotated-cell-15-4" class="code-annotation-target"><a href="#annotated-cell-15-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tegelased=</span><span class="fu">list</span>(name))</span><div class="code-annotation-gutter-bg"></div><div class="code-annotation-gutter"></div></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-annotation">
 <dl class="code-annotation-container-grid">
@@ -981,29 +1005,29 @@ div.csl-indent {
 </div>
 <p>Kui kasutame käsku <code>gt()</code>, vormindatakse väljatrükk nii, et kuvatakse kõik loendi elemendid.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)<span class="sc">%&gt;%</span></span>
-<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">%&gt;%</span></span>
-<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tegelased=</span><span class="fu">list</span>(name))<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>starwars<span class="sc">|&gt;</span></span>
+<span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(name, gender)<span class="sc">|&gt;</span></span>
+<span id="cb24-3"><a href="#cb24-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">group_by</span>(gender)<span class="sc">|&gt;</span></span>
+<span id="cb24-4"><a href="#cb24-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">summarise</span>(<span class="at">tegelased=</span><span class="fu">list</span>(name))<span class="sc">|&gt;</span></span>
 <span id="cb24-5"><a href="#cb24-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">gt</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output-display">
-<div id="zfkfwwvtoz" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
-<style>#zfkfwwvtoz table {
+<div id="uonuvdgerh" style="padding-left:0px;padding-right:0px;padding-top:10px;padding-bottom:10px;overflow-x:auto;overflow-y:auto;width:auto;height:auto;">
+<style>#uonuvdgerh table {
   font-family: system-ui, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
-#zfkfwwvtoz thead, #zfkfwwvtoz tbody, #zfkfwwvtoz tfoot, #zfkfwwvtoz tr, #zfkfwwvtoz td, #zfkfwwvtoz th {
+#uonuvdgerh thead, #uonuvdgerh tbody, #uonuvdgerh tfoot, #uonuvdgerh tr, #uonuvdgerh td, #uonuvdgerh th {
   border-style: none;
 }
 
-#zfkfwwvtoz p {
+#uonuvdgerh p {
   margin: 0;
   padding: 0;
 }
 
-#zfkfwwvtoz .gt_table {
+#uonuvdgerh .gt_table {
   display: table;
   border-collapse: collapse;
   line-height: normal;
@@ -1029,12 +1053,12 @@ div.csl-indent {
   border-left-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_caption {
+#uonuvdgerh .gt_caption {
   padding-top: 4px;
   padding-bottom: 4px;
 }
 
-#zfkfwwvtoz .gt_title {
+#uonuvdgerh .gt_title {
   color: #333333;
   font-size: 125%;
   font-weight: initial;
@@ -1046,7 +1070,7 @@ div.csl-indent {
   border-bottom-width: 0;
 }
 
-#zfkfwwvtoz .gt_subtitle {
+#uonuvdgerh .gt_subtitle {
   color: #333333;
   font-size: 85%;
   font-weight: initial;
@@ -1058,7 +1082,7 @@ div.csl-indent {
   border-top-width: 0;
 }
 
-#zfkfwwvtoz .gt_heading {
+#uonuvdgerh .gt_heading {
   background-color: #FFFFFF;
   text-align: center;
   border-bottom-color: #FFFFFF;
@@ -1070,13 +1094,13 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_bottom_border {
+#uonuvdgerh .gt_bottom_border {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_col_headings {
+#uonuvdgerh .gt_col_headings {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1091,7 +1115,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_col_heading {
+#uonuvdgerh .gt_col_heading {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1111,7 +1135,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#zfkfwwvtoz .gt_column_spanner_outer {
+#uonuvdgerh .gt_column_spanner_outer {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1123,15 +1147,15 @@ div.csl-indent {
   padding-right: 4px;
 }
 
-#zfkfwwvtoz .gt_column_spanner_outer:first-child {
+#uonuvdgerh .gt_column_spanner_outer:first-child {
   padding-left: 0;
 }
 
-#zfkfwwvtoz .gt_column_spanner_outer:last-child {
+#uonuvdgerh .gt_column_spanner_outer:last-child {
   padding-right: 0;
 }
 
-#zfkfwwvtoz .gt_column_spanner {
+#uonuvdgerh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #D3D3D3;
@@ -1143,11 +1167,11 @@ div.csl-indent {
   width: 100%;
 }
 
-#zfkfwwvtoz .gt_spanner_row {
+#uonuvdgerh .gt_spanner_row {
   border-bottom-style: hidden;
 }
 
-#zfkfwwvtoz .gt_group_heading {
+#uonuvdgerh .gt_group_heading {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1173,7 +1197,7 @@ div.csl-indent {
   text-align: left;
 }
 
-#zfkfwwvtoz .gt_empty_group_heading {
+#uonuvdgerh .gt_empty_group_heading {
   padding: 0.5px;
   color: #333333;
   background-color: #FFFFFF;
@@ -1188,15 +1212,15 @@ div.csl-indent {
   vertical-align: middle;
 }
 
-#zfkfwwvtoz .gt_from_md > :first-child {
+#uonuvdgerh .gt_from_md > :first-child {
   margin-top: 0;
 }
 
-#zfkfwwvtoz .gt_from_md > :last-child {
+#uonuvdgerh .gt_from_md > :last-child {
   margin-bottom: 0;
 }
 
-#zfkfwwvtoz .gt_row {
+#uonuvdgerh .gt_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1215,7 +1239,7 @@ div.csl-indent {
   overflow-x: hidden;
 }
 
-#zfkfwwvtoz .gt_stub {
+#uonuvdgerh .gt_stub {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1228,7 +1252,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#zfkfwwvtoz .gt_stub_row_group {
+#uonuvdgerh .gt_stub_row_group {
   color: #333333;
   background-color: #FFFFFF;
   font-size: 100%;
@@ -1242,15 +1266,15 @@ div.csl-indent {
   vertical-align: top;
 }
 
-#zfkfwwvtoz .gt_row_group_first td {
+#uonuvdgerh .gt_row_group_first td {
   border-top-width: 2px;
 }
 
-#zfkfwwvtoz .gt_row_group_first th {
+#uonuvdgerh .gt_row_group_first th {
   border-top-width: 2px;
 }
 
-#zfkfwwvtoz .gt_summary_row {
+#uonuvdgerh .gt_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1260,16 +1284,16 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#zfkfwwvtoz .gt_first_summary_row {
+#uonuvdgerh .gt_first_summary_row {
   border-top-style: solid;
   border-top-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_first_summary_row.thick {
+#uonuvdgerh .gt_first_summary_row.thick {
   border-top-width: 2px;
 }
 
-#zfkfwwvtoz .gt_last_summary_row {
+#uonuvdgerh .gt_last_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1279,7 +1303,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_grand_summary_row {
+#uonuvdgerh .gt_grand_summary_row {
   color: #333333;
   background-color: #FFFFFF;
   text-transform: inherit;
@@ -1289,7 +1313,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#zfkfwwvtoz .gt_first_grand_summary_row {
+#uonuvdgerh .gt_first_grand_summary_row {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1299,7 +1323,7 @@ div.csl-indent {
   border-top-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_last_grand_summary_row_top {
+#uonuvdgerh .gt_last_grand_summary_row_top {
   padding-top: 8px;
   padding-bottom: 8px;
   padding-left: 5px;
@@ -1309,11 +1333,11 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_striped {
+#uonuvdgerh .gt_striped {
   background-color: rgba(128, 128, 128, 0.05);
 }
 
-#zfkfwwvtoz .gt_table_body {
+#uonuvdgerh .gt_table_body {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #D3D3D3;
@@ -1322,7 +1346,7 @@ div.csl-indent {
   border-bottom-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_footnotes {
+#uonuvdgerh .gt_footnotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1336,7 +1360,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_footnote {
+#uonuvdgerh .gt_footnote {
   margin: 0px;
   font-size: 90%;
   padding-top: 4px;
@@ -1345,7 +1369,7 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#zfkfwwvtoz .gt_sourcenotes {
+#uonuvdgerh .gt_sourcenotes {
   color: #333333;
   background-color: #FFFFFF;
   border-bottom-style: none;
@@ -1359,7 +1383,7 @@ div.csl-indent {
   border-right-color: #D3D3D3;
 }
 
-#zfkfwwvtoz .gt_sourcenote {
+#uonuvdgerh .gt_sourcenote {
   font-size: 90%;
   padding-top: 4px;
   padding-bottom: 4px;
@@ -1367,79 +1391,79 @@ div.csl-indent {
   padding-right: 5px;
 }
 
-#zfkfwwvtoz .gt_left {
+#uonuvdgerh .gt_left {
   text-align: left;
 }
 
-#zfkfwwvtoz .gt_center {
+#uonuvdgerh .gt_center {
   text-align: center;
 }
 
-#zfkfwwvtoz .gt_right {
+#uonuvdgerh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#zfkfwwvtoz .gt_font_normal {
+#uonuvdgerh .gt_font_normal {
   font-weight: normal;
 }
 
-#zfkfwwvtoz .gt_font_bold {
+#uonuvdgerh .gt_font_bold {
   font-weight: bold;
 }
 
-#zfkfwwvtoz .gt_font_italic {
+#uonuvdgerh .gt_font_italic {
   font-style: italic;
 }
 
-#zfkfwwvtoz .gt_super {
+#uonuvdgerh .gt_super {
   font-size: 65%;
 }
 
-#zfkfwwvtoz .gt_footnote_marks {
+#uonuvdgerh .gt_footnote_marks {
   font-size: 75%;
   vertical-align: 0.4em;
   position: initial;
 }
 
-#zfkfwwvtoz .gt_asterisk {
+#uonuvdgerh .gt_asterisk {
   font-size: 100%;
   vertical-align: 0;
 }
 
-#zfkfwwvtoz .gt_indent_1 {
+#uonuvdgerh .gt_indent_1 {
   text-indent: 5px;
 }
 
-#zfkfwwvtoz .gt_indent_2 {
+#uonuvdgerh .gt_indent_2 {
   text-indent: 10px;
 }
 
-#zfkfwwvtoz .gt_indent_3 {
+#uonuvdgerh .gt_indent_3 {
   text-indent: 15px;
 }
 
-#zfkfwwvtoz .gt_indent_4 {
+#uonuvdgerh .gt_indent_4 {
   text-indent: 20px;
 }
 
-#zfkfwwvtoz .gt_indent_5 {
+#uonuvdgerh .gt_indent_5 {
   text-indent: 25px;
 }
 
-#zfkfwwvtoz .katex-display {
+#uonuvdgerh .katex-display {
   display: inline-flex !important;
   margin-bottom: 0.75em !important;
 }
 
-#zfkfwwvtoz div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
+#uonuvdgerh div.Reactable > div.rt-table > div.rt-thead > div.rt-tr.rt-tr-group-header > div.rt-th-group:after {
   height: 0px !important;
 }
 </style>
 
 <table class="gt_table caption-top table table-sm table-striped small" data-quarto-postprocess="true" data-quarto-disable-processing="false" data-quarto-bootstrap="false">
 <thead>
-<tr class="header gt_col_headings">
+<tr class="gt_col_headings header">
 <th id="gender" class="gt_col_heading gt_columns_bottom_border gt_left" data-quarto-table-cell-role="th" scope="col">gender</th>
 <th id="tegelased" class="gt_col_heading gt_columns_bottom_border gt_center" data-quarto-table-cell-role="th" scope="col">tegelased</th>
 </tr>
@@ -1472,10 +1496,10 @@ div.csl-indent {
 <p>Tsüklis <code>i</code> - tähistab muutujat, mis määrab ära korduste arvu. (Hea kui on olemas vektor sellest, mis näitab ära tsüklite arvu.) See, mida tsükkel tegema peab käib loogeliste sulgude <code>{}</code> vahele. Sinna vahele kirjutame oma tavapärased käsud.</p>
 <p>Näiteks meil on starwars andmestikus tunnus <em>films</em>, mis näitab ära, millistes filmides konkreetne tegelane olnud on. Teen esmalt sellest loendist käskude <code>unnest()</code>, <code>unique()</code> ja <code>pull()</code> abil vektori.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>filmid<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(films)<span class="sc">%&gt;%</span></span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">%&gt;%</span></span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()<span class="sc">%&gt;%</span></span>
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>filmid<span class="ot">&lt;-</span>starwars<span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(films)<span class="sc">|&gt;</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films))<span class="sc">|&gt;</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">unique</span>()<span class="sc">|&gt;</span></span>
 <span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">pull</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Vektor <em>filmid</em> sisaldab filmi nimesid.</p>
@@ -1520,10 +1544,10 @@ div.csl-indent {
 <span id="annotated-cell-19-2"><a href="#annotated-cell-19-2" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-19-3"><a href="#annotated-cell-19-3" aria-hidden="true" tabindex="-1"></a><span class="co">#tsükli algus</span></span>
 <span id="annotated-cell-19-4"><a href="#annotated-cell-19-4" aria-hidden="true" tabindex="-1"></a><span class="co">#valmistan ette andmestiku pildi jaoks  </span></span>
-<span id="annotated-cell-19-5"><a href="#annotated-cell-19-5" aria-hidden="true" tabindex="-1"></a>tulem <span class="ot">&lt;-</span> starwars <span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-19-6"><a href="#annotated-cell-19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films)) <span class="sc">%&gt;%</span></span>
-<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-19-7" class="code-annotation-target"><a href="#annotated-cell-19-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(films <span class="sc">%in%</span> i) <span class="sc">%&gt;%</span></span>
-<span id="annotated-cell-19-8"><a href="#annotated-cell-19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height)) <span class="sc">%&gt;%</span></span>
+<span id="annotated-cell-19-5"><a href="#annotated-cell-19-5" aria-hidden="true" tabindex="-1"></a>tulem <span class="ot">&lt;-</span> starwars <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-19-6"><a href="#annotated-cell-19-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols =</span> <span class="fu">c</span>(films)) <span class="sc">|&gt;</span></span>
+<a class="code-annotation-anchor" data-target-cell="annotated-cell-19" data-target-annotation="2" onclick="event.preventDefault();">2</a><span id="annotated-cell-19-7" class="code-annotation-target"><a href="#annotated-cell-19-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(films <span class="sc">%in%</span> i) <span class="sc">|&gt;</span></span>
+<span id="annotated-cell-19-8"><a href="#annotated-cell-19-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height)) <span class="sc">|&gt;</span></span>
 <span id="annotated-cell-19-9"><a href="#annotated-cell-19-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(name, height, gender)</span>
 <span id="annotated-cell-19-10"><a href="#annotated-cell-19-10" aria-hidden="true" tabindex="-1"></a></span>
 <span id="annotated-cell-19-11"><a href="#annotated-cell-19-11" aria-hidden="true" tabindex="-1"></a><span class="co"># teen pildi filtreeritud andmetest</span></span>
@@ -1618,13 +1642,13 @@ div.csl-indent {
 </div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb28"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb28-1"><a href="#cb28-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> (i <span class="cf">in</span> filmid){</span>
-<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  tulem<span class="ot">&lt;-</span>starwars<span class="sc">%&gt;%</span></span>
-<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols=</span><span class="fu">c</span>(films))<span class="sc">%&gt;%</span></span>
-<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(films <span class="sc">%in%</span> i) <span class="sc">%&gt;%</span></span>
-<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height))<span class="sc">%&gt;%</span></span>
-<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(name, height, gender)<span class="sc">%&gt;%</span></span>
-<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="sc">-</span>height)<span class="sc">%&gt;%</span></span>
-<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">3</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb28-2"><a href="#cb28-2" aria-hidden="true" tabindex="-1"></a>  tulem<span class="ot">&lt;-</span>starwars<span class="sc">|&gt;</span></span>
+<span id="cb28-3"><a href="#cb28-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">unnest</span>(<span class="at">cols=</span><span class="fu">c</span>(films))<span class="sc">|&gt;</span></span>
+<span id="cb28-4"><a href="#cb28-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(films <span class="sc">%in%</span> i) <span class="sc">|&gt;</span></span>
+<span id="cb28-5"><a href="#cb28-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(height))<span class="sc">|&gt;</span></span>
+<span id="cb28-6"><a href="#cb28-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">select</span>(name, height, gender)<span class="sc">|&gt;</span></span>
+<span id="cb28-7"><a href="#cb28-7" aria-hidden="true" tabindex="-1"></a>    <span class="fu">arrange</span>(<span class="sc">-</span>height)<span class="sc">|&gt;</span></span>
+<span id="cb28-8"><a href="#cb28-8" aria-hidden="true" tabindex="-1"></a>    <span class="fu">head</span>(<span class="dv">3</span>)<span class="sc">|&gt;</span></span>
 <span id="cb28-9"><a href="#cb28-9" aria-hidden="true" tabindex="-1"></a>    <span class="fu">kable</span>(<span class="at">caption =</span> <span class="fu">paste</span>(<span class="st">"Pikkuse top 3 filmis"</span>, i))</span>
 <span id="cb28-10"><a href="#cb28-10" aria-hidden="true" tabindex="-1"></a>  </span>
 <span id="cb28-11"><a href="#cb28-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">print</span>(tulem)</span>
@@ -1790,8 +1814,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
   });
   clipboard.on('success', onCopySuccess);
   if (window.document.getElementById('quarto-embedded-source-code-modal')) {
-    // For code content inside modals, clipBoardJS needs to be initialized with a container option
-    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
     const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
       text: getTextToCopy,
       container: window.document.getElementById('quarto-embedded-source-code-modal')
@@ -1902,7 +1924,6 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       if (window.Quarto?.typesetMath) {
         window.Quarto.typesetMath(note);
       }
-      // TODO in 1.5, we should make sure this works without a callout special case
       if (note.classList.contains("callout")) {
         return note.outerHTML;
       } else {
@@ -2135,8 +2156,8 @@ window.document.addEventListener("DOMContentLoaded", function (event) {
       </a>          
   </div>
   <div class="nav-page nav-page-next">
-      <a href="./references.html" class="pagination-link" aria-label="Allikad">
-        <span class="nav-page-text">Allikad</span> <i class="bi bi-arrow-right-short"></i>
+      <a href="./17-kaardid.html" class="pagination-link" aria-label="Ruumiandmed">
+        <span class="nav-page-text"><span class="chapter-number">17</span>&nbsp; <span class="chapter-title">Ruumiandmed</span></span> <i class="bi bi-arrow-right-short"></i>
       </a>
   </div>
 </nav>
