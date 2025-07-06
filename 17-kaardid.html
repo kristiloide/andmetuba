@@ -308,6 +308,7 @@ div.csl-indent {
   <li><a href="#joonisele-siltide-lisamine-ja-ggrepel-pakett" id="toc-joonisele-siltide-lisamine-ja-ggrepel-pakett" class="nav-link" data-scroll-target="#joonisele-siltide-lisamine-ja-ggrepel-pakett">Joonisele siltide lisamine ja <code>ggrepel</code> pakett</a></li>
   <li><a href="#teemade-kasutamine-kaartidel" id="toc-teemade-kasutamine-kaartidel" class="nav-link" data-scroll-target="#teemade-kasutamine-kaartidel">Teemade kasutamine kaartidel</a></li>
   <li><a href="#oma-andmete-lisamine-kaardile" id="toc-oma-andmete-lisamine-kaardile" class="nav-link" data-scroll-target="#oma-andmete-lisamine-kaardile">Oma andmete lisamine kaardile</a></li>
+  <li><a href="#varvid-kaardil" id="toc-varvid-kaardil" class="nav-link" data-scroll-target="#varvid-kaardil">Värvide kujundamine kaardil</a></li>
   </ul></li>
   </ul>
 </nav>
@@ -509,6 +510,16 @@ Projected CRS: Estonian Coordinate System of 1997
 <div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggrepel)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
 <p>Esmalt loon käskude <code>st_coordinates()</code> ja <code>st_centroid()</code> abil maakonna koordinaatidest maakonna keskpunkti.</p>
+<div class="callout callout-style-simple callout-note">
+<div class="callout-body d-flex">
+<div class="callout-icon-container">
+<i class="callout-icon"></i>
+</div>
+<div class="callout-body-container">
+<p>Vaata ka käsu st_centroid() kasutamist allpool toodud <a href="#varvi-kaardil">näites</a>.</p>
+</div>
+</div>
+</div>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb13"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb13-1"><a href="#cb13-1" aria-hidden="true" tabindex="-1"></a>maakond_keskpunkt <span class="ot">&lt;-</span> <span class="fu">cbind</span>(maakond, <span class="fu">st_coordinates</span>(<span class="fu">st_centroid</span>(maakond)))</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell-output cell-output-stderr">
@@ -517,7 +528,7 @@ Projected CRS: Estonian Coordinate System of 1997
 </div>
 <p>Seejärel asetan käsu <code>geom_label_repel</code> abil joonise sildid maakonna keskpunktidele.</p>
 <div class="cell">
-<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>(maakond) <span class="sc">+</span></span>
+<div class="sourceCode cell-code" id="cb15"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb15-1"><a href="#cb15-1" aria-hidden="true" tabindex="-1"></a> <span class="fu">ggplot</span>(maakond) <span class="sc">+</span></span>
 <span id="cb15-2"><a href="#cb15-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>() <span class="sc">+</span></span>
 <span id="cb15-3"><a href="#cb15-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_label_repel</span>(<span class="at">data =</span> maakond_keskpunkt,</span>
 <span id="cb15-4"><a href="#cb15-4" aria-hidden="true" tabindex="-1"></a>                   <span class="fu">aes</span>(X, Y, <span class="at">label =</span> MNIMI),</span>
@@ -530,7 +541,7 @@ Projected CRS: Estonian Coordinate System of 1997
 </div>
 </div>
 </div>
-<p>Oletame, et soovin sildid lisada vaid Hiiu ja Põlva maakonnale. Esmalt on vaja valmis joonistada kaart, seejärel lisada sildid ja siltide lisamisel kasutada filter käsku, et piirata joonisele kuvatavaid andmeid.</p>
+<p>Oletame, et soovin sildid lisada vaid Hiiu ja Põlva maakonnale. Esmalt on vaja valmis joonistada kaart, seejärel lisada sildid ja siltide lisamisel kasutada <code>filter()</code> käsku, et piirata joonisele kuvatavaid andmeid.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="annotated-cell-13"><pre class="sourceCode r code-annotation-code code-with-copy code-annotated"><code class="sourceCode r"><span id="annotated-cell-13-1"><a href="#annotated-cell-13-1" aria-hidden="true" tabindex="-1"></a>maakond<span class="sc">|&gt;</span></span>
 <span id="annotated-cell-13-2"><a href="#annotated-cell-13-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -603,7 +614,7 @@ Projected CRS: Estonian Coordinate System of 1997
 </section>
 <section id="oma-andmete-lisamine-kaardile" class="level3 unnumbered">
 <h3 class="unnumbered anchored" data-anchor-id="oma-andmete-lisamine-kaardile">Oma andmete lisamine kaardile</h3>
-<p>Kasutan näites loomuliku iive näitajat maakonna kohta. Andmed on võetud statistikaameti tabelist ….. Mul on andmestikus kaks tunnust, maakonnad ja iive.</p>
+<p>Kasutan näites loomuliku iive näitajat maakonna kohta. Andmed on võetud statistikaameti tabelist <a href="https://andmed.stat.ee/et/stat/rahvastik__rahvastikunaitajad-ja-koosseis__demograafilised-pehinaitajad/RV030">RV030</a>. Mul on andmestikus kaks tunnust, maakonnad ja iive.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb18"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb18-1"><a href="#cb18-1" aria-hidden="true" tabindex="-1"></a>iive<span class="ot">&lt;-</span><span class="fu">read_csv2</span>(<span class="st">"loomulik_iive.csv"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div>
@@ -666,7 +677,7 @@ Projected CRS: Estonian Coordinate System of 1997
 3 Ida-Viru maakond         -1448 0045  2025-03-01 (((714923.3 6544236, 714913.9…</code></pre>
 </div>
 </div>
-<p>Kuvame kaardile loomuliku iive näitajad maakonnas.</p>
+<p>Kuvan kaardile loomuliku iive näitajad maakonnas.</p>
 <div class="cell">
 <div class="sourceCode cell-code" id="cb24"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb24-1"><a href="#cb24-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">|&gt;</span></span>
 <span id="cb24-2"><a href="#cb24-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>()<span class="sc">+</span></span>
@@ -677,6 +688,53 @@ Projected CRS: Estonian Coordinate System of 1997
 <div>
 <figure class="figure">
 <p><img src="17-kaardid_files/figure-html/unnamed-chunk-20-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+</section>
+<section id="varvid-kaardil" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="varvid-kaardil">Värvide kujundamine kaardil</h3>
+<p>Käsuga <code>scale_fill_fermenter()</code> saan muuta maakondade värve vastavalt loomulik_iive väärtusele. <code>typ="seq"</code> saab panna ka “qual” (<em>qualitative</em>) või “div” (<em>diverging</em>).</p>
+<p>Teen sama kaardi, aga kasutan kahel erienval moel teksti maakonna keskpunktile panemist. Siin kaardil kasutan <code>st_centroid()</code> käsku <code>geom_sf_text()</code> käsu sees.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a>andmed <span class="sc">|&gt;</span></span>
+<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="fu">aes</span>(<span class="at">geometry =</span> geometry, <span class="at">fill =</span> loomulik_iive)) <span class="sc">+</span></span>
+<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(</span>
+<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    <span class="at">data =</span> andmed <span class="sc">|&gt;</span> <span class="fu">mutate</span>(<span class="at">geometry =</span> <span class="fu">st_centroid</span>(geometry)),  <span class="co">#&lt;1&gt; keskpunktid tekstile</span></span>
+<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    <span class="fu">aes</span>(<span class="at">geometry =</span> geometry, <span class="at">label =</span> loomulik_iive),</span>
+<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">size =</span> <span class="dv">3</span></span>
+<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span></span>
+<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_fermenter</span>(<span class="at">type =</span> <span class="st">"seq"</span>) <span class="sc">+</span></span>
+<span id="cb25-10"><a href="#cb25-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="17-kaardid_files/figure-html/unnamed-chunk-21-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Siin aga teen esmalt eraldi andmestiku tekstikohad ning joonist tehes kasutan korraga nii andmestikku “andmed” kui “tekstikohad”.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb26"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb26-1"><a href="#cb26-1" aria-hidden="true" tabindex="-1"></a>tekstikohad <span class="ot">&lt;-</span> andmed <span class="sc">|&gt;</span> </span>
+<span id="cb26-2"><a href="#cb26-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(<span class="at">geometry =</span> <span class="fu">st_centroid</span>(geometry))</span>
+<span id="cb26-3"><a href="#cb26-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-4"><a href="#cb26-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb26-5"><a href="#cb26-5" aria-hidden="true" tabindex="-1"></a><span class="fu">ggplot</span>() <span class="sc">+</span></span>
+<span id="cb26-6"><a href="#cb26-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf</span>(<span class="at">data =</span> andmed, <span class="fu">aes</span>(<span class="at">geometry =</span> geometry, <span class="at">fill =</span> loomulik_iive)) <span class="sc">+</span></span>
+<span id="cb26-7"><a href="#cb26-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_sf_text</span>(<span class="at">data =</span> tekstikohad, <span class="fu">aes</span>(<span class="at">geometry =</span> geometry, <span class="at">label =</span> loomulik_iive), <span class="at">size =</span> <span class="dv">3</span>) <span class="sc">+</span></span>
+<span id="cb26-8"><a href="#cb26-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_fill_fermenter</span>(<span class="at">type =</span> <span class="st">"qual"</span>) <span class="sc">+</span></span>
+<span id="cb26-9"><a href="#cb26-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_void</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Warning: Using a discrete colour palette in a binned scale
+ℹ Consider using `type = "seq"` or `type = "div"` instead</code></pre>
+</div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="17-kaardid_files/figure-html/unnamed-chunk-22-1.png" class="img-fluid figure-img" width="672"></p>
 </figure>
 </div>
 </div>

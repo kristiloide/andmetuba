@@ -20,7 +20,61 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-</style>
+/* CSS for syntax highlighting */
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { display: inline-block; text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+  }
+pre.numberSource { margin-left: 3em;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
 
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
@@ -248,9 +302,16 @@ ul.task-list li input[type="checkbox"] {
     <h2 id="toc-title">Sisukord</h2>
    
   <ul>
-  <li><a href="#aegridade-komponendid" id="toc-aegridade-komponendid" class="nav-link active" data-scroll-target="#aegridade-komponendid"><span class="header-section-number">20.1</span> Aegridade komponendid</a></li>
-  <li><a href="#aegrea-analüüsimine-paketiga-kendall" id="toc-aegrea-analüüsimine-paketiga-kendall" class="nav-link" data-scroll-target="#aegrea-analüüsimine-paketiga-kendall"><span class="header-section-number">20.2</span> Aegrea analüüsimine paketiga <code>Kendall</code></a></li>
-  <li><a href="#aegrea-analüüsimine-paketiga-prophet" id="toc-aegrea-analüüsimine-paketiga-prophet" class="nav-link" data-scroll-target="#aegrea-analüüsimine-paketiga-prophet"><span class="header-section-number">20.3</span> Aegrea analüüsimine paketiga <code>prophet</code></a></li>
+  <li><a href="#aegrea-analüüsimine-paketiga-kendall" id="toc-aegrea-analüüsimine-paketiga-kendall" class="nav-link active" data-scroll-target="#aegrea-analüüsimine-paketiga-kendall"><span class="header-section-number">20.1</span> Aegrea analüüsimine paketiga <code>Kendall</code></a></li>
+  <li><a href="#aegrea-analüüsimine-paketiga-prophet" id="toc-aegrea-analüüsimine-paketiga-prophet" class="nav-link" data-scroll-target="#aegrea-analüüsimine-paketiga-prophet"><span class="header-section-number">20.2</span> Aegrea analüüsimine paketiga <code>prophet</code></a>
+  <ul class="collapse">
+  <li><a href="#treening-ja-testandmestiku-loomine" id="toc-treening-ja-testandmestiku-loomine" class="nav-link" data-scroll-target="#treening-ja-testandmestiku-loomine">Treening ja testandmestiku loomine</a></li>
+  <li><a href="#lineaarse-mudeli-loomine" id="toc-lineaarse-mudeli-loomine" class="nav-link" data-scroll-target="#lineaarse-mudeli-loomine">Lineaarse mudeli loomine</a></li>
+  <li><a href="#oluliste-sündmustega-arvesatmine" id="toc-oluliste-sündmustega-arvesatmine" class="nav-link" data-scroll-target="#oluliste-sündmustega-arvesatmine">Oluliste sündmustega arvesatmine</a></li>
+  <li><a href="#logistilise-mudeli-loomine" id="toc-logistilise-mudeli-loomine" class="nav-link" data-scroll-target="#logistilise-mudeli-loomine">Logistilise mudeli loomine</a></li>
+  <li><a href="#mudeli-headuse-hindamine" id="toc-mudeli-headuse-hindamine" class="nav-link" data-scroll-target="#mudeli-headuse-hindamine">Mudeli headuse hindamine</a></li>
+  </ul></li>
+  <li><a href="#aegrea-analüüsimine-paketiga-forecast" id="toc-aegrea-analüüsimine-paketiga-forecast" class="nav-link" data-scroll-target="#aegrea-analüüsimine-paketiga-forecast"><span class="header-section-number">20.3</span> Aegrea analüüsimine paketiga <code>forecast</code></a></li>
   </ul>
 </nav>
     </div>
@@ -304,16 +365,206 @@ Note
 <p>See peatükk on lõpuni kirjutamata. Täieneb.</p>
 </div>
 </div>
-<section id="aegridade-komponendid" class="level2" data-number="20.1">
-<h2 data-number="20.1" class="anchored" data-anchor-id="aegridade-komponendid"><span class="header-section-number">20.1</span> Aegridade komponendid</h2>
+<p>Siin näites kasutan Statistikaameti kogutud andmeid hoolekandeteenuste kasutamise kohta <a href="https://andmed.stat.ee/et/stat/sotsiaalelu__sotsiaalne-kaitse__sotsiaalabi__hoolekanne/SK06">Tabel:SK06</a></p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(readxl)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb2"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="ot">&lt;-</span><span class="fu">read_excel</span>(<span class="st">"hoolekandeteenused.xlsx"</span>,</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>    <span class="at">na=</span><span class="st">".."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Aegridade analüüs võimaldab:</p>
+<ul>
+<li>tuvastada trende - st selgitada välja kas näitaja kasvab, kahaneb või püsib stabiilsena,</li>
+<li>avastada hooajalisust,</li>
+<li>prognoosida, kuidas näitaja tulevikus võib käituda,</li>
+<li>tuvastada anomaaliaid,</li>
+</ul>
+<p>Näiteks sotsiaaltöö valdkonnas saab aegridade analüüsi abil planeerida teenuste vajadust või hinnata sekkumise tõhusust.</p>
+<p>Aegridade komponentideks on <strong>trend</strong>, <strong>hooajalisus</strong> ja <strong>juhuslik sündmus</strong>.</p>
+<p>Analüüsimeetodivalik sõltub andmete hulgast.</p>
+<ul>
+<li><strong>&lt; 12 vaatlust:</strong> Ainult kirjeldav statistika, lihtne visualiseerimine</li>
+<li><strong>12-23 vaatlust:</strong> Mann-Kendall test, lihtne lineaarne mudel</li>
+<li><strong>24-49 vaatlust:</strong> Prophet mudel, hooajalisuse analüüs</li>
+<li><strong>50+ vaatlust:</strong> Kõik meetodid, ARIMA mudelid</li>
+</ul>
+<section id="aegrea-analüüsimine-paketiga-kendall" class="level2" data-number="20.1">
+<h2 data-number="20.1" class="anchored" data-anchor-id="aegrea-analüüsimine-paketiga-kendall"><span class="header-section-number">20.1</span> Aegrea analüüsimine paketiga <code>Kendall</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(Kendall)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Paketti <code>Kendall</code><span class="citation" data-cites="Kendall">(<a href="references.html#ref-Kendall" role="doc-biblioref">McLeod 2022</a>)</span> on hea kasutada siis kui:</p>
+<ul>
+<li>andmeid on vähe (12-30 vaatlust),</li>
+<li>tahad testida, kas trend on olemas,</li>
+<li>andmed ei ole normaalselt jaotunud.</li>
+</ul>
+<p><strong>tau</strong> on korrelatsioonikordaja, mis mõõdab seose tugevust kahe muutuja vahel. Tau väärtus jääb vahemikku -1 kuni +1.</p>
+<p><strong>Tulemuste tõlgendamine:</strong></p>
+<ul>
+<li>tau &gt; 0: kasvav trend</li>
+<li>tau &lt; 0: kahanev trend</li>
+<li>tau ≈ 0: trend puudub</li>
+</ul>
+<p><strong>Paketi põhikäsud:</strong></p>
+<ul>
+<li><code>MannKendall()</code> - Mann-Kendall trendi test</li>
+<li><code>SeasonalMannKendall()</code> - hooajaline Mann-Kendall test</li>
+</ul>
+<p>Esmalt visualiseerin andmed.</p>
+<div class="cell">
+<details class="code-fold">
+<summary>Code</summary>
+<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">|&gt;</span></span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Erihoolekandeteenuste kohad</span><span class="st">`</span>))<span class="sc">|&gt;</span></span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Aasta, <span class="at">y=</span><span class="st">`</span><span class="at">Erihoolekandeteenuste kohad</span><span class="st">`</span>))<span class="sc">+</span></span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_line</span>()<span class="sc">+</span></span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span> </span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggtitle</span>(<span class="st">"Erihoolekandeteenuste kohad"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</details>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-aegread_files/figure-html/unnamed-chunk-4-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p>Seejärel teen MannKendall testi.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb5"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="fu">MannKendall</span>(andmed<span class="sc">$</span><span class="st">`</span><span class="at">Erihoolekandeteenuste kohad</span><span class="st">`</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>tau = -0.538, 2-sided pvalue =0.008595</code></pre>
+</div>
+</div>
+<p><strong>Tulemuste tõlgendamine</strong>: selgub, et erihoolekandeteenuste kohtade arv perioodil 1989 - 2002 oli kahanevas trendis ning see kahanev trend on statistilisest oluline (tau = -0,538, p &lt; 0.05).</p>
+<p>Kui oleks teada ka iga kuu kohta andmed, saaks kasutada käsku <code>SeasonalMannKendall()</code>. Siis võrreldakse igat kuud eraldi eelmiste aastate sama kuudega.</p>
 </section>
-<section id="aegrea-analüüsimine-paketiga-kendall" class="level2" data-number="20.2">
-<h2 data-number="20.2" class="anchored" data-anchor-id="aegrea-analüüsimine-paketiga-kendall"><span class="header-section-number">20.2</span> Aegrea analüüsimine paketiga <code>Kendall</code></h2>
+<section id="aegrea-analüüsimine-paketiga-prophet" class="level2" data-number="20.2">
+<h2 data-number="20.2" class="anchored" data-anchor-id="aegrea-analüüsimine-paketiga-prophet"><span class="header-section-number">20.2</span> Aegrea analüüsimine paketiga <code>prophet</code></h2>
+<p><code>prophet</code><span class="citation" data-cites="prophet">(<a href="references.html#ref-prophet" role="doc-biblioref">Taylor and Letham 2021</a>)</span> paketti sobib kasutada siis kui on vähematl 24 vaatlust. Näiteks kahe aasta iga kuu vaatlused.</p>
+<p><strong>Paketi põhikäsud:</strong></p>
+<ul>
+<li><code>prophet()</code> - mudeli loomine</li>
+<li><code>fit.prophet()</code> - mudeli treenimine. Kasutatakse harvem ja ainult siis, kui mudeli objekt on loodud ilma andmeteta ning soovitakse mudel hiljem andmetega sobitada.</li>
+<li><code>make_future_dataframe()</code> - tuleviku andmete raami loomine</li>
+<li><code>predict()</code> - prognoosimine</li>
+<li><code>plot()</code> - tulemuste visualiseerimine</li>
+<li><code>prophet_plot_components()</code> - komponentide analüüs</li>
+</ul>
+<p>Vaatan esmalt kui palju on mul ajaloolisi andmeid.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb7"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">|&gt;</span></span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Üldhooldusteenus saajad</span><span class="st">`</span>))<span class="sc">|&gt;</span></span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">nrow</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stdout">
+<pre><code>[1] 35</code></pre>
+</div>
+</div>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb9"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb9-1"><a href="#cb9-1" aria-hidden="true" tabindex="-1"></a>andmed<span class="sc">|&gt;</span></span>
+<span id="cb9-2"><a href="#cb9-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">filter</span>(<span class="sc">!</span><span class="fu">is.na</span>(<span class="st">`</span><span class="at">Üldhooldusteenus saajad</span><span class="st">`</span>))<span class="sc">|&gt;</span></span>
+<span id="cb9-3"><a href="#cb9-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">ggplot</span>(<span class="fu">aes</span>(<span class="at">x=</span>Aasta, <span class="at">y=</span><span class="st">`</span><span class="at">Üldhooldusteenus saajad</span><span class="st">`</span>))<span class="sc">+</span></span>
+<span id="cb9-4"><a href="#cb9-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">geom_point</span>()<span class="sc">+</span> </span>
+<span id="cb9-5"><a href="#cb9-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme_minimal</span>()<span class="sc">+</span></span>
+<span id="cb9-6"><a href="#cb9-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">scale_x_discrete</span>(<span class="at">breaks =</span> <span class="fu">as.character</span>(<span class="fu">seq</span>(<span class="dv">1989</span>, <span class="dv">2024</span>, <span class="at">by =</span> <span class="dv">3</span>))) <span class="co"># kuvan aastaarve üle kolme, et x teljele ära mahuks</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output-display">
+<div>
+<figure class="figure">
+<p><img src="20-aegread_files/figure-html/unnamed-chunk-7-1.png" class="img-fluid figure-img" width="672"></p>
+</figure>
+</div>
+</div>
+</div>
+<p><code>prophet()</code> käsk soovib ainult kahte tunnust, aega ja analüüsitavat väärtust. Samas andmestikule on kindlad nõuded ning seal peab olema:</p>
+<ul>
+<li><code>ds</code> veerg, mis sisaldab kuupäevi (<code>Date</code> või <code>POSIXct</code> formaadis) ehk <code>%Y-%m-%d</code>.</li>
+<li><code>y</code> veerg, mis sisaldab mõõdetavat väärtust (nt teenuskohtade_arv)</li>
+</ul>
+<p>Kui on ainult aastad (näiteks 2015, 2016, jne), siis <code>prophet</code> ei saa neid andmeid kasutada, kuna need ei ole kuupäevad. Veateade ütleb: <em>“Unable to parse date format in column ds”</em></p>
+<p>Lahenduseks on lisada igale aastale juurde kuupäev. Näiteks esimene jaanuar. Teen alamandmestiku jättes alles vaid kaks tunnust.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb10"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb10-1"><a href="#cb10-1" aria-hidden="true" tabindex="-1"></a>prophet_andmed<span class="ot">&lt;-</span>andmed<span class="sc">|&gt;</span></span>
+<span id="cb10-2"><a href="#cb10-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">mutate</span>(</span>
+<span id="cb10-3"><a href="#cb10-3" aria-hidden="true" tabindex="-1"></a>    <span class="at">ds =</span> <span class="fu">as.Date</span>(<span class="fu">paste0</span>(Aasta, <span class="st">"-01-01"</span>)),</span>
+<span id="cb10-4"><a href="#cb10-4" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">`</span><span class="at">Üldhooldusteenus saajad</span><span class="st">`</span>) <span class="sc">|&gt;</span></span>
+<span id="cb10-5"><a href="#cb10-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">select</span>(ds, y)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<section id="treening-ja-testandmestiku-loomine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="treening-ja-testandmestiku-loomine">Treening ja testandmestiku loomine</h3>
 </section>
-<section id="aegrea-analüüsimine-paketiga-prophet" class="level2" data-number="20.3">
-<h2 data-number="20.3" class="anchored" data-anchor-id="aegrea-analüüsimine-paketiga-prophet"><span class="header-section-number">20.3</span> Aegrea analüüsimine paketiga <code>prophet</code></h2>
+<section id="lineaarse-mudeli-loomine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="lineaarse-mudeli-loomine">Lineaarse mudeli loomine</h3>
+<p>Mudeli tegemisel saab täpsustada, et soovid analüüsida hooajalisust nädala või päevade lõikes. Vastavalt sellele tuleb kasutada käsu sees täpsustada:</p>
+<ul>
+<li>weekly.seasonality=TRUE</li>
+<li>daily.seasonality=TRUE</li>
+</ul>
+<p>Esmalt loon mudeli käsuga <code>prophet()</code>, mis sobitab mudeli kohe andmetega. Saan mudeli objekti, millega saab edasi töötada (ennustada, visualiseerida).</p>
+</section>
+<section id="oluliste-sündmustega-arvesatmine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="oluliste-sündmustega-arvesatmine">Oluliste sündmustega arvesatmine</h3>
+<p><code>prophet</code><span class="citation" data-cites="prophet">(<a href="references.html#ref-prophet" role="doc-biblioref">Taylor and Letham 2021</a>)</span> pakett lubab analüüsimisel võtta arvesse kahte tüüpi sündmusi <code>changepoints</code> ja <code>holidays</code></p>
+<ul>
+<li><code>changepoints</code> - kui eeldad, et sündmused põhjustavad trendi püsiva muutuse. Sobib näiteks seaduse jõustumise või kriisi alguse tähistamiseks, kui eeldad, et trend muutub püsivalt.</li>
+<li><code>holidays</code> - kui eeldad, et sündmused põhjustavad ajutise hüppe või languse.</li>
+</ul>
+<p>Loon esmalt oluliste sündmuste andmeraami, et oleks endal lihtsam jälgida millal mingi sündmus aset leidis. Sündmuste andmestik peab sisaldama järgmisi veerge:</p>
+<ul>
+<li>ds - aeg,</li>
+<li>holiday - sündmus,</li>
+<li>lower_window - päevade arv enne sündmust (tavaliselt 0),</li>
+<li>upper_window - päevade arv pärast sündmust (tavaliselt 0).</li>
+</ul>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb11"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb11-1"><a href="#cb11-1" aria-hidden="true" tabindex="-1"></a><span class="co">#</span></span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
+<p>Seejärel teen uue mudeli (mudel2) käsuga <code>prophet()</code>. Pane tähele, et nüüd ütlen käsu sees ära, et võtaks muutekohad andmestikust syndmused. See sunnib mudelit arvestama trendimuutust just nendel kuupäevadel. Kui muutepunkte pole ette antud, tuvastab käsk need automaatselt ise.</p>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb12"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb12-1"><a href="#cb12-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(prophet)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: Rcpp</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>Loading required package: rlang</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>
+Attaching package: 'rlang'</code></pre>
+</div>
+<div class="cell-output cell-output-stderr">
+<pre><code>The following objects are masked from 'package:purrr':
+
+    %@%, flatten, flatten_chr, flatten_dbl, flatten_int, flatten_lgl,
+    flatten_raw, invoke, splice</code></pre>
+</div>
+</div>
+</section>
+<section id="logistilise-mudeli-loomine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="logistilise-mudeli-loomine">Logistilise mudeli loomine</h3>
+</section>
+<section id="mudeli-headuse-hindamine" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="mudeli-headuse-hindamine">Mudeli headuse hindamine</h3>
+</section>
+</section>
+<section id="aegrea-analüüsimine-paketiga-forecast" class="level2" data-number="20.3">
+<h2 data-number="20.3" class="anchored" data-anchor-id="aegrea-analüüsimine-paketiga-forecast"><span class="header-section-number">20.3</span> Aegrea analüüsimine paketiga <code>forecast</code></h2>
+<div class="cell">
+<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(forecast)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+</div>
 
 
+<div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list" style="display: none">
+<div id="ref-Kendall" class="csl-entry" role="listitem">
+McLeod, A. I. 2022. <em>Kendall: Kendall Rank Correlation and Mann-Kendall Trend Test</em>. <a href="https://doi.org/10.32614/CRAN.package.Kendall">https://doi.org/10.32614/CRAN.package.Kendall</a>.
+</div>
+<div id="ref-prophet" class="csl-entry" role="listitem">
+Taylor, Sean, and Ben Letham. 2021. <em>Prophet: Automatic Forecasting Procedure</em>. <a href="https://doi.org/10.32614/CRAN.package.prophet">https://doi.org/10.32614/CRAN.package.prophet</a>.
+</div>
+</div>
 </section>
 
 </main> <!-- /main -->
